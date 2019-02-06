@@ -5,17 +5,19 @@
 #### Division and responsibilities:
 * Front-end Engineer: Designing and building the user interface of the software, including developing user stories and running user tests.
 * Back-end Engineer: Building database and reacting functions at the back of the software, including connect frontend to backend.
-* Product Manager: checking progress of other divisions, organizing meeting and discussion time both inside and outside of the team, * providing latest updates between divisions.
-* Marketing manager: -
+* Product Manager: checking progress of other divisions, organizing meeting and discussion time both inside and outside of the team, providing latest updates between divisions.
+* Marketing manager: Organize and arrange time, tracking progress of our product.
 
 #### Team Member: 
 Yecheng Song, Shiqi Lin, Baijiang Yuan, Huadong Xing, Ran Wei, Yuting Shao
 
 
 #### Team assignments:
-Product Manager and Marketing manager: 
+Product Manager and Marketing manager:
+
 Yecheng Song, Yuting Shao
-(Note that Yecheng and Yuting are also assigned with coding-based jobs, see below)
+(Note that Yecheng and Yuting are also assigned with coding-based jobs, see below)  
+
 Software Engineer: 
 * Front-end Engineer: Shiqi Lin, Yecheng Song, Yuting Shao
 * Back-end Engineer:  Baijiang Yuan, Huadong Xing, Ran Wei
