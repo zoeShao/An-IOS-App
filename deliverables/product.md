@@ -1,7 +1,7 @@
 # LGBT YouthLine/Rainbow Warriors
 
 
-#### Q1: What are you planning to build?
+### Q1: What are you planning to build?
 
 We are planning to build a mobile app that connects to Youthline.ca and provides online services to 2SLGBTQ people.
 
@@ -16,26 +16,32 @@ That means, our users should be able to use our app to read all news, resources,
 
 
 
-#### Q2: Who are your target users?
+### Q2: Who are your target users?
 
 Our target users are all people under 29 and considered to be in 2SLGBTQ community in Ontario, and organizations or groups in this region that aim to provide help to this community. 
 
 To be specific, 2SLGBTQ is short for Lesbian, Gay, Bisexual, Transgender, Queer and Two-spirited people. In other words, they could be any person who cannot find a sense of belonging, worry about coming out and have confusions with their gender identity or want to participate in some events held/managed by LGBT youth line. People in this group usually think highly of privacy, and they might usually come across situations where they need support and guidance from experts.
 
 
-#### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
-As we’re building a mobile version of a the YouthLine website, all former visitors and users of Youthline.ca can enjoy a better user interface of this website by using our app. All data and information will be presented in a clear and organized way and could be accessed directly by clicking on the icon on the phone (don’t have to access via browser anymore). Since our target users are minority groups, they may lack helpful information. Fortunately, youthline.ca is an organization who collects a significant amount of resources provided freely for these people. Our app connects their demand and supply together. We provide bookmark and save to local feature which can allow the user to save their favorite articles, websites or other helpful resources to their phone. So, the user can make use of fragmented time to read those resources even there is no Internet access.  In addition, mobile phone as a very personal device, by using an app on a mobile phone we provide more privacy protection. It is often more private of using apps on a personal cell phone than using a computer, especially when the computer is public. It protects our users’ privacy, which most of them think highly of, by keeping user information in cell phones.
+### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
+
+As we’re building a mobile version of a the YouthLine website, all former visitors and users of Youthline.ca can enjoy a better user interface of this website by using our app. All data and information will be presented in a clear and organized way and could be accessed directly by clicking on the icon on the phone (don’t have to access via browser anymore). 
+
+Since our target users are minority groups, they may lack helpful information. Fortunately, youthline.ca is an organization who collects a significant amount of resources provided freely for these people. Our app connects their demand and supply together. We provide bookmark and save to local feature which can allow the user to save their favorite articles, websites or other helpful resources to their phone. So, the user can make use of fragmented time to read those resources even there is no Internet access.  
+
+In addition, mobile phone as a very personal device, by using an app on a mobile phone we provide more privacy protection. It is often more private of using apps on a personal cell phone than using a computer, especially when the computer is public. It protects our users’ privacy, which most of them think highly of, by keeping user information in cell phones.
 
 
-#### Q4: How will you build it?
 
-Languages: Swift/Object-C
-Frameworks: Flutter
-Libraries: AFNetworking (Object-C), SDWebImage, Alamo fire, MBProgressHUD/SVProgressHUD, Masonry, Swifty JSON, MJ Refresh, CocoaLumberjack, Realm
-Toolkit:  XCode - iOS
-SDK: iOS SDK
-Database: SQLite
+### Q4: How will you build it?
+
+Languages: Swift/Object-C  
+Frameworks: Flutter  
+Libraries: AFNetworking (Object-C), SDWebImage, Alamo fire, MBProgressHUD/SVProgressHUD, Masonry, Swifty JSON, MJ Refresh, CocoaLumberjack, Realm  
+Toolkit:  XCode - iOS  
+SDK: iOS SDK  
+Database: SQLite  
 
 Deployment: 
 For early test purpose, we will use a VPS (digital ocean) as our back-end server, then we will use apple developer certificate to deploy software on our own phone to test feature and stability. For final deployment, we will use a slightly better VPS as our server (which can be upgraded easily) and we will release our app to the Apple App Store as a free app.
@@ -46,6 +52,7 @@ We will be using MVVM-C architecture for our product. We will be using multiple 
 ![https://lh5.googleusercontent.com/r7OTp1_7hOvnBIhDYYzXqFwhzxabfPmMPi8GoHkoD82TpioOQAu6bmMprbyFKEIkA2YKvZZQsqB_gVeYuvvdzWIxJv9VbobPaKt88Ll120fujPHf-D4y1Q3o79_OvJslkYlBAA1F](https://lh6.googleusercontent.com/MIgj8fic3PyBfef4uUWh56nJVxhNwrLfwgaN6gGEx-yj7zgUBi5i90NYxYTya2gCrTnb7UYZqMVTCbAZbESsmiTf6qKQREbbl8RldqFdClKXmCMfGqXPyDMG-uKlI9neR2409JQIhLqmQZKnSg)
 
 Sources: <https://www.infoq.com/articles/ios-application-design-patterns-review>
+
 
 ----
 
