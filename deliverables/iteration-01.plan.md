@@ -1,4 +1,4 @@
-# LGBT YouthLine/TEAM NAME
+# LGBT YouthLine/Rainbow Warriors
 
 ## Process
 ### Part 1: Roles & responsibilities
