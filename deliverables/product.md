@@ -36,22 +36,26 @@ In addition, mobile phone as a very personal device, by using an app on a mobile
 
 ### Q4: How will you build it?
 
-Languages: Swift/Object-C  
-Frameworks: Flutter  
-Libraries: AFNetworking (Object-C), SDWebImage, Alamo fire, MBProgressHUD/SVProgressHUD, Masonry, Swifty JSON, MJ Refresh, CocoaLumberjack, Realm  
-Toolkit:  XCode - iOS  
-SDK: iOS SDK  
-Database: SQLite  
+**Languages**: Swift/Object-C  
+**Frameworks**: Flutter  
+**Libraries**: AFNetworking (Object-C), SDWebImage, Alamo fire, MBProgressHUD/SVProgressHUD, Masonry, Swifty JSON, MJ Refresh, CocoaLumberjack, Realm  
+**Toolkit**:  XCode - iOS  
+**SDK**: iOS SDK  
+**Database**: SQLite  
 
-Deployment: 
+**Deployment**: 
 For early test purpose, we will use a VPS (digital ocean) as our back-end server, then we will use apple developer certificate to deploy software on our own phone to test feature and stability. For final deployment, we will use a slightly better VPS as our server (which can be upgraded easily) and we will release our app to the Apple App Store as a free app.
 
-Architecture:
+**Architecture**:
 We will be using MVVM-C architecture for our product. We will be using multiple view-models, one for each view (eg, view for the event and favorite page), and a coordinator in charge of dealing with transitioning from a view to another. Currently, we will be using google map API. A diagram can be referred to the following:
 
 ![https://lh5.googleusercontent.com/r7OTp1_7hOvnBIhDYYzXqFwhzxabfPmMPi8GoHkoD82TpioOQAu6bmMprbyFKEIkA2YKvZZQsqB_gVeYuvvdzWIxJv9VbobPaKt88Ll120fujPHf-D4y1Q3o79_OvJslkYlBAA1F](https://lh6.googleusercontent.com/MIgj8fic3PyBfef4uUWh56nJVxhNwrLfwgaN6gGEx-yj7zgUBi5i90NYxYTya2gCrTnb7UYZqMVTCbAZbESsmiTf6qKQREbbl8RldqFdClKXmCMfGqXPyDMG-uKlI9neR2409JQIhLqmQZKnSg)
 
 Sources: <https://www.infoq.com/articles/ios-application-design-patterns-review>
+
+**Testing strategy**: 
+We will use our iphone devices and Xcode simulators to manually test our app.
+More specifically, this strategy involves four major process: (1)system testing (2)iOS UI testing(3)security testing(4)Field testing 
 
 
 ----
