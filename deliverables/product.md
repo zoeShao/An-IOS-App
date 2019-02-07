@@ -5,7 +5,7 @@
 
 We are planning to build a mobile app that connects to Youthline.ca and provides online services to 2SLGBTQ people.
 
-Youthline.ca is a website that contains information about ongoing events in the 2SLGBTQ community of Ontario. This website also serves the chatting function for people in seek of help when they’re in unstable condition. For any group or organization that aims to help 2SLGBTQ people, they could upload their location onto the website.
+Youthline.ca is a website that contains information about ongoing events in the 2SLGBTQ community of Ontario. This website also serves the chatting function for people in seek of help when they’re in unstable mental condition. For any group or organization that aims to help 2SLGBTQ people, they could upload their location onto the website.
 
 According to the requirements from our project partner, we’re building this mobile app version of Youthline.ca in order to:
   * Retrieve data stored in Youthline.ca, including events, news, and all other resources
