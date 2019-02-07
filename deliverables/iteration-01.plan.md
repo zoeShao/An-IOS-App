@@ -95,14 +95,14 @@ The goals in our first iteration will be (listed with priority from high to low)
 Tim is one of the people who are in 2SLGBTQ group. He uses this mobile app to talk to experts in this area when he feels not right. With this app, he could login as a member of this community and talk to people when he needs help. When there is no one available, Tim will receive a message that guides him out of his trouble or keeps him waiting. Tim could stay safe and calm when he is in unstable condition with the help of this function of the app.
 
 * User story 2:
-Jenny loves watching news and events on this app, as it makes her feel more involved in this community in Ontario. She uses “add to favourite” function to mark all the interesting posts and events and checks them in her personal account. She could also post event as a member in the community after logging in.
+Jenny loves watching news and events on this app, as it makes her feel more involved in this community in Ontario. She uses “add to favourite” function to mark all the interesting posts and events so that she can check them in her personal account. She could also post event as a member in the community after logging in.
 
 * User story 3:
 Jin is a volunteer who is forcing in helping 2SLGBTQ group people to find their identity. He usually will attend activities that group those people together. The app will remind him the activities start time and location. He know youthline.ca is a website provide lot of resources on helping those people. In activities, he want to show those resources with the people in the activities, but he didn’t carry his laptop with him due to it’s too heavy. With our app, Jin can easily pull out the resources he bookmarked and show it to people around him.
 
 ### Part 2: Artifacts
 To demonstrate our project idea thoroughly and clearly, we’ll be using multiple ways of presentation, which includes a paragraph of introducing texts, a prototype, some real-life samples that shares our idea and other supporting pictures.
-An introduction of our project idea is necessary, as we can provide a formal and official explanation of our product. To enhance the quality of explanation, we could use some existing apps or websites that inspired us. Also, pictures of user stories (in comic form) could be helpful in depicting the purpose of our product. Finally, we will present a prototype of our product app, which will be run in simulation mode of the developing platform. The prototype will show a clear overview of the frontend, including the interface every function we’d like to achieve. Meanwhile, the backend might not be responsive at this stage.
+An introduction of our project idea is necessary, as we can provide a formal and official explanation of our product. To enhance the quality of explanation, we could show some existing apps or websites that inspired us. Also, pictures of user stories (in comic form) could be helpful in depicting the purpose of our product. Finally, we will present a prototype of our product app, which will be run in simulation mode of the developing platform. The prototype will show a clear overview of the frontend, including the interface every function we’d like to achieve. Meanwhile, the backend might not be responsive at this stage.
 
   
 
