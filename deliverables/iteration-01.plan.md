@@ -33,9 +33,7 @@ Ran Wei | 1. Back-end Engineer </br> | 1. Familiar with UI design and C </br> 2.
 Shiqi Lin | 1. Front-end Engineer </br> | 1. Familiar with Python and C </br> 2. Decent overall programming skills </br> 3. Good web-building skills from CSC309 </br> | 1. New to App design </br> 2. Not familiar with libraries </br> 3. Hard to explain ideas clearly and intuitively
 
 
-
 ### Part 2: Team Rules
-
 
 
 #### Team culture:
@@ -66,13 +64,8 @@ As it has been mentioned before, we’re having pre-arranged meetings in person 
 
 Also, we do have online meetings via either voice chatting or texting in a group. This could happen at any time of a day and solves little issues within the team. 
 
-### Part 4: Artifacts
-Artifacts can be To-Do lists, Task boards, schedule(s), etc.
-* We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-    * How do tasks get assigned to team members?
 
+### Part 4: Artifacts
 Artifacts that we have in our team construct:
 * A schedule containing all available time slots for the team
 * A team log that contains all our meeting details and records
