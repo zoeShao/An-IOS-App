@@ -19,3 +19,17 @@ _Reminder:_ The 0-4 marking scale means:
  * 1 : Below Expectations (50%)
  * 0 : Missing (0%)
 
+## Feedback
+Product
+- Q1 is answered well. Immediately obvious what is being built, then some next level details, as well as why this is a problem to be solved.
+- This app is highly centered around the users. I feel that more could be said about the users here. Why under 29? Are there example organizations? Government organizations, NFP, etc?
+- Lots of good ideas came out of the collab process. Well explained. 
+
+Plan
+- Team roles and responsibilities are well laid out and easy to understand.
+- Good user stories. Demonstrates a number of problems that will be addressed by the app.
+- Product artifacts could be clarified. 
+
+Overall Quality
+- Makes good use of formatting which benefits understandability. 
+
