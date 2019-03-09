@@ -1,9 +1,5 @@
 # LGBT YouthLine/Rainbow Warriors
 
- > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
- > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
-
-
 ## Iteration 02
 
  * Start date: March 4th, 2019
@@ -11,7 +7,7 @@
 
 ## Process
 
-(Optional:) In this iteration, we will focus on the front-end developing and start planning the back-end structure. The goal for this iteration is having a responsive user interface with some hard-cored data in the front-end app.
+In this iteration, we will focus on the front-end developing and start planning the back-end structure. The goal for this iteration is having a responsive user interface with some hard-cored data in the front-end app.
 
 #### Roles & responsibilities
 
@@ -25,7 +21,7 @@ Software Engineer:
 * Front-end Engineer: Shiqi Lin, Yecheng Song, Yuting Shao
 * Back-end Engineer: Baijiang Yuan, Huadong Xing, Ran Wei
 
-List each team member and:
+#### 3 Strength and Weaknesses of team members:
 Members | Division| Advantage | Disadvantage
 --- | --- | --- | ---
 Yecheng Song | 1. Product Manager and Marketing manager </br> 2. Front-end Engineer </br> | 1. Experience in developing apps and websites </br> 2. Familiar with C#, Python, C and JavaScript </br> 3. Familiar with team work and cooperation </br> | 1. Bad at time management </br> 2. Always struggling at making decisions -> wasting time </br> 3. Sometimes writes inefficient codes/hardcoding </br>
@@ -36,7 +32,6 @@ Ran Wei | 1. Back-end Engineer </br> | 1. Familiar with UI design and C </br> 2.
 Shiqi Lin | 1. Front-end Engineer </br> | 1. Familiar with Python and C </br> 2. Decent overall programming skills </br> 3. Good web-building skills from CSC309 </br> | 1. New to App design </br> 2. Not familiar with libraries </br> 3. Hard to explain ideas clearly and intuitively
 
 #### Team Rules
-
 
 #### Team culture:
 Our team’s culture is data-driven, every group member can propose a different solution which supported by a reasonable explanation. Every ideas should have proper reasoning. More importantly, our working environment is friendly and open-minded for any possible solution. We believe that effective communication is the key to build a outstanding team.
@@ -86,8 +81,6 @@ Describe your Git / GitHub workflow. Essentially, we want to understand how your
  * Describe your overall deployment process from writing code to viewing a live applicatioon
  * What deployment tool(s) are you using and why
  * Don't forget to **explain why** you chose this workflow or particular aspects of it!
-
-
 
 ## Product
 
