@@ -89,6 +89,13 @@ Describe your Git / GitHub workflow. Essentially, we want to understand how your
  * Describe your goals for this iteration and the tasks that you will have to complete in order to achieve these goals.
  * Order the items from most to least important.
  * Feel free (but not obligated) to specify some/all tasks as user stories.
+##### Goals:
+ * The main goal for thie iteration is: Having a deployable front-end app which has basically finished layout with some hard-coded data for demo.
+ * The secondary goal is: 
+##### To achieve the Main Goal, following tasks is required:
+ * Coming up with a working flow that everyone can share the same code base and have comfortable experience to commit their code to the team repo.
+ * Getting familiar with the developing environment of XCode, learn how to create views or controller of user interface. Experiment the iOS App develop flow. 
+ * 
 
 #### Artifacts
 
