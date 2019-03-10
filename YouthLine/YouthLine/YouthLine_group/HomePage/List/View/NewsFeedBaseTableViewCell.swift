@@ -25,7 +25,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    // 标题?
+    
     var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
@@ -33,7 +33,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
         return label
     }()
     
-    // 内容
+    
     var contentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
@@ -43,7 +43,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
         return label
     }()
     
-    // 头像
+    
     var headImgView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -52,7 +52,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    // 名字
+    
     var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.darkGray
@@ -104,9 +104,6 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
         didSet {
             titleLabel.text = model?.news?.news_content?.title?.panel_text
             contentLabel.text = model?.news?.news_content?.content?.panel_text
-            //            let url = URL(string: (model?.news?.type)!)
-            //            headImgView.kf.setImage(with: url, placeholder: UIImage(named: "UserGuestCenterBundle.bundle/Avatar_Liukanshan_Normal"))
-            
             headImgView.image = UIImage(named: (model?.news?.type)!)
             nameLabel.text = model?.news?.type
         }

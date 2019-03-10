@@ -28,7 +28,10 @@ struct EventImage: HandyJSON {
 //}
 
 // Fake Data
-var eimage1 = EventImage(image_url: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg?w968h681")
-var etitle1 = EventTitle(panel_text: "Test Data -- Upcoming Event1")
-
+var eimage1 = EventImage(image_url: "https://www.youthline.ca/wp-content/uploads/2019/02/25thAnn_FacebookPageCover.jpg")
+var etitle1 = EventTitle(panel_text: "25th Anniversary & Youth Awards Gala")
 var event1 = UpcomingEventModel(title: etitle1, image: eimage1)
+
+var eimage2 = EventImage(image_url: "https://www.youthline.ca/wp-content/uploads/2018/11/2B.png")
+var etitle2 = EventTitle(panel_text: "Craftathon 19")
+var event2 = UpcomingEventModel(title: etitle2, image: eimage2)

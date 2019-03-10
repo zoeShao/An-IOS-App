@@ -24,7 +24,7 @@ class HomeEventCollectionViewCell: UICollectionViewCell {
 
     var zhImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 5
         return imageView
@@ -38,7 +38,7 @@ class HomeEventCollectionViewCell: UICollectionViewCell {
             make.top.equalToSuperview().offset(15)
             make.left.equalTo(contentView).offset(5)
             make.width.equalTo(frame.width - 10)
-            make.height.equalTo(250)
+            //make.height.equalTo(250)
         }
         
         contentView.addSubview(titleLabel)

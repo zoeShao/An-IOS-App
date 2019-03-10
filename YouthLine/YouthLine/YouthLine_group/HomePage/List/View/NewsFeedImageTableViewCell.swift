@@ -21,10 +21,10 @@ class NewsFeedImageTableViewCell: NewsFeedBaseTableViewCell {
         // Configure the view for the selected state
     }
     
-    // 图片
+
     var zhImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 5
         return imageView
@@ -41,7 +41,8 @@ class NewsFeedImageTableViewCell: NewsFeedBaseTableViewCell {
             make.top.equalTo(self.titleLabel.snp.bottom).offset(5)
             make.right.equalTo(contentView).offset(-10)
             make.width.equalTo(100)
-            make.height.equalTo(70)
+            //make.height.equalTo(70)
+            make.bottom.lessThanOrEqualToSuperview()
         }
     }
     

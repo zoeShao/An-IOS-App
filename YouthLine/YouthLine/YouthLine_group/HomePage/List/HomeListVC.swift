@@ -18,7 +18,7 @@ class HomeListVC: BaseViewController {
     let HomeEventCollectionViewCellID = "HomeEventCollectionViewCell"
     
     var NewsFeedModelList: [NewsFeedModel]? = [newsModel1, newsModel2]
-    var UpcomingEventModelList: [UpcomingEventModel]? = [event1]
+    var UpcomingEventModelList: [UpcomingEventModel]? = [event1, event2]
     
     var pageIndex: Int = 0
     
@@ -26,15 +26,12 @@ class HomeListVC: BaseViewController {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        
         layout.itemSize = CGSize(width: view.frame.width, height: 300)
         
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 60, width: ScreenWidth, height: 300), collectionViewLayout: layout)
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        
         collectionView.register(HomeEventCollectionViewCell.self, forCellWithReuseIdentifier: HomeEventCollectionViewCellID)
         collectionView.backgroundColor = UIColor.gray
         
@@ -102,7 +99,7 @@ extension HomeListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -157,9 +154,14 @@ extension HomeListVC: UIScrollViewDelegate {
 }
 
 extension HomeListVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return UpcomingEventModelList?.count ?? 0
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let model = UpcomingEventModelList?[indexPath.section]
