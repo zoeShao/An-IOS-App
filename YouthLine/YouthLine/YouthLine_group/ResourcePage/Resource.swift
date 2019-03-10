@@ -13,9 +13,11 @@ class Resource {
     
     var image: UIImage
     var title: String
+    var url: URL
     
-    init(image: UIImage, title: String) {
+    init(image: UIImage, title: String, url: URL) {
         self.image = image
         self.title = title
+        self.url = url
     }
 }
