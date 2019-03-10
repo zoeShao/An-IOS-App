@@ -23,10 +23,11 @@ struct EventImage: HandyJSON {
     var image_url: String?
 }
 
-struct EventAction: HandyJSON {
-    var intent_url: String?
-}
+//struct EventAction: HandyJSON {
+//    var intent_url: String?
+//}
 
+// Fake Data
 var eimage1 = EventImage(image_url: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg?w968h681")
 var etitle1 = EventTitle(panel_text: "Test Data -- Upcoming Event1")
 
