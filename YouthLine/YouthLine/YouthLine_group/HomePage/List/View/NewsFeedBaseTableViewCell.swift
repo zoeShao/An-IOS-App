@@ -1,17 +1,30 @@
 //
-//  BaseCell.swift
+//  NewsFeedBaseTableViewCell.swift
 //  YouthLine
 //
-//  Created by Yecheng Song on 2019-03-09.
+//  Created by 林诗琪 on 2019-03-10.
 //  Copyright © 2019 RainbowWarrior. All rights reserved.
 //
+
 
 import HandyJSON
 import Moya
 import SwiftyJSON
 import UIKit
 
-class BaseCell: UITableViewCell {
+class NewsFeedBaseTableViewCell: UITableViewCell {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
     
     var titleLabel: UILabel = {
         let label = UILabel()
@@ -25,7 +38,7 @@ class BaseCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = RGBColor(80, 80, 80)
-        label.numberOfLines = 3
+        label.numberOfLines = 8
         label.lineBreakMode = NSLineBreakMode.byTruncatingTail
         return label
     }()
@@ -37,6 +50,14 @@ class BaseCell: UITableViewCell {
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 9
         return imageView
+    }()
+    
+    
+    var nameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.darkGray
+        label.font = UIFont.systemFont(ofSize: 12)
+        return label
     }()
     
     
@@ -53,53 +74,41 @@ class BaseCell: UITableViewCell {
         
         contentView.addSubview(headImgView)
         headImgView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(8);
-            make.left.equalTo(contentView).offset(14)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.left.equalTo(titleLabel)
             make.width.height.equalTo(18)
         }
         
+        contentView.addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(headImgView)
+            make.left.equalTo(headImgView.snp.right).offset(6)
+        }
+        nameLabel.setContentHuggingPriority(UILayoutPriority.required, for: UILayoutConstraintAxis.horizontal)
+        
         contentView.addSubview(contentLabel)
         contentLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(34)
+            make.top.equalTo(headImgView.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
-            make.bottom.lessThanOrEqualToSuperview().offset(-35)
+            make.bottom.lessThanOrEqualToSuperview().offset(-15)
         }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
         
-
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    var model: Model? {
+    var model: NewsFeedModel? {
         didSet {
-            titleLabel.text = model?.common_card?.feed_content?.title?.panel_text
-            contentLabel.text = model?.common_card?.feed_content?.content?.panel_text
-            
-            let reasonType = model?.uninterest_reasons?.last?.reason_type
-            if reasonType == "creator" {
-                token = model?.uninterest_reasons?.last?.object_token
-            } else {
-                headImgView.image = UIImage(named: "UserGuestCenterBundle.bundle/Avatar_Liukanshan_Normal")
-            }
+            titleLabel.text = model?.news?.news_content?.title?.panel_text
+            contentLabel.text = model?.news?.news_content?.content?.panel_text
+            headImgView.image = UIImage(named: (model?.news?.type)!)
+            nameLabel.text = model?.news?.type
         }
     }
     
-    var token: String? {
-        didSet {
-                        let catPictureURL = URL(string: "https://pic1.zhimg.com//v2-8b80f4c6e3565a13c2de68b7c5235453_s.jpg")
-                        self.headImgView.kf.setImage(with: catPictureURL, placeholder: UIImage(named: "UserGuestCenterBundle.bundle/Avatar_Liukanshan_Normal"))
-                    }
-               }
-            }
+    
+}
 

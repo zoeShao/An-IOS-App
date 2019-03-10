@@ -16,16 +16,15 @@ class ListBaseVC: BaseViewController {
     let ImageCellID = "ImageCell"
     let BigImageCellID = "BigImageCell"
     
-//    var ModelList: [Model]?
+    var ModelList: [Model]?
     var pageIndex: Int = 0
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: UITableViewStyle.grouped)
-//        tableView.delegate = self
-//        tableView.dataSource = self
-        tableView.register(BaseCell.self, forCellReuseIdentifier: BaseCellID)
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.register(ImageCell.self, forCellReuseIdentifier: ImageCellID)
-        tableView.register(BigImageCell.self, forCellReuseIdentifier: BigImageCellID)
+        
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         return tableView
@@ -51,94 +50,83 @@ class ListBaseVC: BaseViewController {
     }
     
     func refreshDataSource() {
-        
-//        ListProvider.request(.recommendList(pageIndex)) { result in
-//            self.tableView.mj_header.endRefreshing()
-//            self.tableView.mj_footer.endRefreshing()
-//            if case let .success(response) = result {
-//                
-//                let data = try? response.mapJSON()
-//                let json = JSON(data!)
-//                
-//                
-//                if let mappedObject = JSONDeserializer<Model>.deserializeModelArrayFrom(json: json["data"].description) {
-//                    
-//                    var noAdList: [Model] = []
-//                    for model in mappedObject as! [Model] {
-//                        if model.common_card != nil || model.fields != nil {
-//                            noAdList.append(model)
-//                        }
-//                    }
-//                    if self.pageIndex == 0 {
-//                        self.ModelList = noAdList
-//                    } else {
-//                        self.ModelList? += noAdList
-//                    }
-//                    self.pageIndex += 1
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
+                
+                
+                if true{
+                    var noAdList: [Model] = []
+                    for model in mappedObject as! [Model] {
+                        if model.common_card != nil || model.fields != nil {
+                            noAdList.append(model)
+                        }
+                        self.tableView.mj_header.endRefreshing()
+                        self.tableView.mj_footer.endRefreshing()
+                    }
+                    if self.pageIndex == 0 {
+                        self.ModelList = noAdList
+                    } else {
+                        self.ModelList? += noAdList
+                    }
+                    self.pageIndex += 1
+                    self.tableView.reloadData()
+                }
+            }
+        }
+//    }
+//}
+
+extension ListBaseVC: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return ModelList?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = ModelList?[indexPath.section]
+        if model?.common_card != nil {
+            let cell: BaseCell
+            let content = (model?.common_card?.feed_content ?? Feed_content())!
+            if true {
+                cell = tableView.dequeueReusableCell(withIdentifier: ImageCellID, for: indexPath) as! ImageCell
+            } else {
+                cell = tableView.dequeueReusableCell(withIdentifier: ImageCellID, for: indexPath) as! ImageCell
+            }
+            cell.model = model
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ImageCellID, for: indexPath) as! ImageCell
+            cell.model = model
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = ModelList?[indexPath.section]
+        if model?.common_card != nil {
+            let vc = ArticleDetailVC()
+            vc.answerId = model?.extra?.id
+            vc.questionTitle = "data not yet prepared"
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
-
-
-//
-//extension ListBaseVC: UITableViewDelegate, UITableViewDataSource {
-////    func numberOfSections(in tableView: UITableView) -> Int {
-//////        return ModelList?.count ?? 0
-////    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 3
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 0.01
-//    }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return UIView()
-//    }
-//
-//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        return nil
-//    }
-
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-////        let model = ModelList?[indexPath.section]
-////        if model?.common_card != nil {
-////            let cell: BaseCell
-//////            let content = (model?.common_card?.feed_content ?? Feed_content())!
-////            if content.image != nil {
-////                cell = tableView.dequeueReusableCell(withIdentifier: ImageCellID, for: indexPath) as! ImageCell
-////            } else {
-////                cell = tableView.dequeueReusableCell(withIdentifier: BaseCellID, for: indexPath) as! BaseCell
-////            }
-////            cell.model = model
-////            return cell
-////
-////        } else {
-////            let cell = tableView.dequeueReusableCell(withIdentifier: BigImageCellID, for: indexPath) as! BigImageCell
-////            cell.model = model
-////            return cell
-////        }
-////    }
-//
-////    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//////        let model = ModelList?[indexPath.section]
-//////        if model?.common_card != nil {
-//////            let vc = ArticleDetailVC()
-//////            vc.answerId = model?.extra?.id
-//////            vc.questionTitle = model?.common_card?.feed_content?.title?.panel_text ?? ""
-//////            vc.hidesBottomBarWhenPushed = true
-//////            self.navigationController?.pushViewController(vc, animated: true)
-//////        }
-////    }
-//}
-
-//}
