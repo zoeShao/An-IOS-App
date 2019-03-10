@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1398964E2234D2B0000E5745 /* HomePageSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1398964D2234D2B0000E5745 /* HomePageSearchVC.swift */; };
+		139896532234D487000E5745 /* HomeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139896522234D487000E5745 /* HomeListVC.swift */; };
+		139896552234D597000E5745 /* HomeEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139896542234D597000E5745 /* HomeEventCollectionViewCell.swift */; };
+		139896572234D600000E5745 /* NewsFeedBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139896562234D600000E5745 /* NewsFeedBaseTableViewCell.swift */; };
+		139896592234D62D000E5745 /* NewsFeedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139896582234D62D000E5745 /* NewsFeedImageTableViewCell.swift */; };
+		1398965B2234D65E000E5745 /* NewsFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1398965A2234D65E000E5745 /* NewsFeedModel.swift */; };
+		1398965D2234D67F000E5745 /* UpcomingEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1398965C2234D67F000E5745 /* UpcomingEventModel.swift */; };
 		972817696DA0247967D54B36 /* Pods_YouthLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B1656207B3172740706D86 /* Pods_YouthLine.framework */; };
 		EF5A28BD22347B75001FFD61 /* UIColor+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BA22347B74001FFD61 /* UIColor+Ex.swift */; };
 		EF5A28BE22347B75001FFD61 /* UIButton+ZHEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BB22347B74001FFD61 /* UIButton+ZHEx.swift */; };
@@ -38,6 +45,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1398964D2234D2B0000E5745 /* HomePageSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageSearchVC.swift; sourceTree = "<group>"; };
+		139896522234D487000E5745 /* HomeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListVC.swift; sourceTree = "<group>"; };
+		139896542234D597000E5745 /* HomeEventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventCollectionViewCell.swift; sourceTree = "<group>"; };
+		139896562234D600000E5745 /* NewsFeedBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedBaseTableViewCell.swift; sourceTree = "<group>"; };
+		139896582234D62D000E5745 /* NewsFeedImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedImageTableViewCell.swift; sourceTree = "<group>"; };
+		1398965A2234D65E000E5745 /* NewsFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedModel.swift; sourceTree = "<group>"; };
+		1398965C2234D67F000E5745 /* UpcomingEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventModel.swift; sourceTree = "<group>"; };
 		5C21BDC5CF609D926A4A21B0 /* Pods-YouthLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.release.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.release.xcconfig"; sourceTree = "<group>"; };
 		725BC15723A9C6045743599C /* Pods-YouthLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.debug.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.debug.xcconfig"; sourceTree = "<group>"; };
 		EF5A28BA22347B74001FFD61 /* UIColor+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ex.swift"; sourceTree = "<group>"; };
@@ -84,6 +98,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1398964F2234D40D000E5745 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				139896512234D459000E5745 /* Model */,
+				139896502234D43F000E5745 /* View */,
+				139896522234D487000E5745 /* HomeListVC.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		139896502234D43F000E5745 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				139896542234D597000E5745 /* HomeEventCollectionViewCell.swift */,
+				139896562234D600000E5745 /* NewsFeedBaseTableViewCell.swift */,
+				139896582234D62D000E5745 /* NewsFeedImageTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		139896512234D459000E5745 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1398965A2234D65E000E5745 /* NewsFeedModel.swift */,
+				1398965C2234D67F000E5745 /* UpcomingEventModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AD5222A78F63EA7AED61F3D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,7 +243,9 @@
 		EFBC107F22346E3400703135 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				1398964F2234D40D000E5745 /* List */,
 				EFBC108422346FF800703135 /* HomePageVC.swift */,
+				1398964D2234D2B0000E5745 /* HomePageSearchVC.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -403,12 +448,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFBC1097223472C900703135 /* BigImageCell.swift in Sources */,
+				139896552234D597000E5745 /* HomeEventCollectionViewCell.swift in Sources */,
 				EFBC107822346D2000703135 /* Construction.swift in Sources */,
 				EF5A28BE22347B75001FFD61 /* UIButton+ZHEx.swift in Sources */,
 				EFBC108A2234709700703135 /* EventBaseVC.swift in Sources */,
 				EFBC108322346FB900703135 /* ResourcePageVC.swift in Sources */,
 				EF5A28C222347B81001FFD61 /* WLButton.swift in Sources */,
 				EFBC108C223470A700703135 /* EventSearchVC.swift in Sources */,
+				1398965B2234D65E000E5745 /* NewsFeedModel.swift in Sources */,
 				EF5A28BF22347B75001FFD61 /* UIScrollView+Ex.swift in Sources */,
 				EFBC1093223472B300703135 /* BaseCell.swift in Sources */,
 				EFBC10A42234799C00703135 /* HeaderView.swift in Sources */,
@@ -418,11 +465,16 @@
 				EFBC10992234753700703135 /* ArticleDetailVC.swift in Sources */,
 				EF5A28BD22347B75001FFD61 /* UIColor+Ex.swift in Sources */,
 				EFBC109F2234790E00703135 /* ArticleTitle.swift in Sources */,
+				139896572234D600000E5745 /* NewsFeedBaseTableViewCell.swift in Sources */,
 				EFBC106422346C0800703135 /* AppDelegate.swift in Sources */,
+				139896532234D487000E5745 /* HomeListVC.swift in Sources */,
 				EFBC108122346F5500703135 /* PersonalPageVC.swift in Sources */,
 				EFBC106622346C0800703135 /* BaseViewController.swift in Sources */,
 				EFBC107A22346D6D00703135 /* Settings.swift in Sources */,
 				EFBC1095223472BE00703135 /* ImageCell.swift in Sources */,
+				1398965D2234D67F000E5745 /* UpcomingEventModel.swift in Sources */,
+				1398964E2234D2B0000E5745 /* HomePageSearchVC.swift in Sources */,
+				139896592234D62D000E5745 /* NewsFeedImageTableViewCell.swift in Sources */,
 				EFBC10A6223479A800703135 /* ArticleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,13 +623,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = YouthLine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = youthline.ca.youthline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -591,13 +644,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = YouthLine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = youthline.ca.youthline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
