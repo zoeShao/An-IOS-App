@@ -7,6 +7,8 @@
  * What is the problem you're trying to solve?
  * Is there any context required to understand **why** the application solves this problem?
 
+LGBT youthline provide various supposing resources and events information on their website, howeven, their website only compatible with PC. Is a hard time if user want to access the website on mobilephone. Our app is able to display the resources and events in mobilephone friendly way by reorganize the layout, adding bookmark feature, adding search feature.
+
 ## Key Features
  * Described the key features in the application that the user can access
  * Feel free to provide a breakdown or detail for each feature that is most appropriate for your application
