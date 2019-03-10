@@ -23,6 +23,12 @@ class ArticleDetailVC: BaseViewController {
     
     var answerId: String? {
         didSet {
+            
+            let urlString = "https://www.zhihu.com/appview/v2/answer/" + answerId!
+            let contentURL = URL(string: urlString)
+            var request = URLRequest(url: contentURL!)
+            request.allHTTPHeaderFields = Headers
+            webView.load(request)
         }
     }
     
@@ -74,32 +80,32 @@ class ArticleDetailVC: BaseViewController {
         
         
         answerIdList = [self.answerId!]
-//        AnswerProvider.request(.detail(answerId!)) { result in
-//            if case let .success(response) = result {
-//                // 解析数据
-//                let data = try? response.mapJSON()
-//                let json = JSON(data!)
-//                // print(json)
-//
-//                if let mappedObject = JSONDeserializer<ZHFirstAnswer>.deserializeFrom(json: json.description) {
-//                    self.answerIdList? += mappedObject.pagination_info?.next_answer_ids ?? []
-//                    // print(self.answerIdList!)
-//                }
-//            }
-//        }
+        AnswerProvider.request(.detail(answerId!)) { result in
+            if case let .success(response) = result {
+                // 解析数据
+                let data = try? response.mapJSON()
+                let json = JSON(data!)
+                // print(json)
+                
+                if let mappedObject = JSONDeserializer<ZHFirstAnswer>.deserializeFrom(json: json.description) {
+                    self.answerIdList? += mappedObject.pagination_info?.next_answer_ids ?? []
+                    // print(self.answerIdList!)
+                }
+            }
+        }
         
-//        AnswerProvider.request(.question(answerId!)) { result in
-//            if case let .success(response) = result {
-//                // 解析数据
-//                let data = try? response.mapJSON()
-//                let json = JSON(data!)
-//                print(json)
-//
-//                if let mappedObject = JSONDeserializer<ZHQuestion>.deserializeFrom(json: json.description) {
-//                    self.questionId = mappedObject.id ?? ""
-//                }
-//            }
-//        }
+        AnswerProvider.request(.question(answerId!)) { result in
+            if case let .success(response) = result {
+                // 解析数据
+                let data = try? response.mapJSON()
+                let json = JSON(data!)
+                print(json)
+                
+                if let mappedObject = JSONDeserializer<ZHQuestion>.deserializeFrom(json: json.description) {
+                    self.questionId = mappedObject.id ?? ""
+                }
+            }
+        }
     }
     
 }

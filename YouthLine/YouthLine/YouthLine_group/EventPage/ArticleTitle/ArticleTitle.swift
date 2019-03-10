@@ -69,14 +69,14 @@ class ArticleTitle: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
-//    var model: Answer? {
-//        didSet {
-//            guard let model = model else { return }
-//            let url = URL(string: model.author?.avatar_url ?? "")
-//            headImgView.kf.setImage(with: url, placeholder: UIImage(named: "UserGuestCenterBundle.bundle/Avatar_Liukanshan_Normal"))
-//            nameLabel.text = model.author?.name
-//            contentLabel.text = model.excerpt
-//        }
-//    }
+    var model: Answer? {
+        didSet {
+            guard let model = model else { return }
+            let url = URL(string: model.author?.avatar_url ?? "")
+            headImgView.kf.setImage(with: url, placeholder: UIImage(named: "UserGuestCenterBundle.bundle/Avatar_Liukanshan_Normal"))
+            nameLabel.text = model.author?.name
+            contentLabel.text = model.excerpt
+        }
+    }
 }
 
