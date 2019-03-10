@@ -9,9 +9,10 @@
 import UIKit
 import WebKit
 
+
 class WebViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
-    //    var url : URL!
+    var url : URL!
     //    var offset: Int = 0
     
     override func loadView() {
@@ -25,7 +26,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         
         // 1
         //        print(url!)
-        let url = URL(string: "https://www.youthline.ca/get-support/links-resources/")!
+//        let url = URL(string: "https://settlement.org/ontario/health/sexual-and-reproductive-health/sexual-orientation-and-gender-identity/")!
         print(url)
         webView.load(URLRequest(url: url))
         

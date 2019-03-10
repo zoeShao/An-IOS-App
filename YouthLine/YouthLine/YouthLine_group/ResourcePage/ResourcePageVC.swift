@@ -14,18 +14,18 @@ class ResourcePageVC: UITableViewController {
     var resources: [Resource] = []
     
     
-    //    lazy var searchTextField: UITextField = {
-    //        let textField = UITextField.init(frame: CGRect(x: 15, y: StatusBarHeight + 10, width: ScreenWidth - 100, height: 30))
-    //        textField.placeholder = "Enter search texts here"
-    //        textField.layer.masksToBounds = true
-    //        textField.layer.cornerRadius = 5
-    //        textField.textAlignment = NSTextAlignment.center
-    //        textField.backgroundColor = RGBColor(240, 240, 240)
-    //        textField.delegate = self
-    //        return textField
-    //    }()
-    //
-    //
+    lazy var searchTextField: UITextField = {
+        let textField = UITextField.init(frame: CGRect(x: 15, y: StatusBarHeight + 10, width: ScreenWidth - 100, height: 30))
+        textField.placeholder = "Enter search texts here"
+        textField.layer.masksToBounds = true
+        textField.layer.cornerRadius = 5
+        textField.textAlignment = NSTextAlignment.center
+        textField.backgroundColor = RGBColor(240, 240, 240)
+        textField.delegate = self
+        return textField
+    }()
+    
+    
     
     
     override func viewDidLoad() {
@@ -42,6 +42,7 @@ class ResourcePageVC: UITableViewController {
         
         //        initSearchBar()
         // Do any additional setup after loading the view.
+        self.navigationItem.titleView = searchTextField
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
@@ -52,40 +53,39 @@ class ResourcePageVC: UITableViewController {
     //        view.addSubview(searchTextField)
     //    }
     
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        super.viewWillAppear(animated)
-    //
-    //        navigationController?.setNavigationBarHidden(true, animated: false)
-    //    }
-    //
+//        override func viewWillAppear(_ animated: Bool) {
+//            super.viewWillAppear(animated)
+//    
+//            navigationController?.setNavigationBarHidden(true, animated: false)
+//        }
+    
     
     func createDic() -> [String: [Resource]] {
-        //        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": [], "forms": [], "service":[], "education":[], "type":[]]
-        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": []]
-        //        var tempResources = [String: [Resource]]()
+        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": [], "forms": [], "service":[], "education":[], "type":[]]
+//        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": []]
         
-        let resource1 = Resource(image: #imageLiteral(resourceName: "AppIcon_76x76_"), title: "LGBT issues in Canada’s Immigration and Refugee System", url: URL(string: "https://egale.ca/faq-immigration/")!)
-        let resource2 = Resource(image: #imageLiteral(resourceName: "Tabbar_Notifications_Normal_28x28_"), title: "Open Hearts: Resources for Affirming Ministries in The United Church of Canada", url: URL(string: "ause.ca/wp-content/pdf/OpenHearts.pdf")!)
-        let resource3 = Resource(image: #imageLiteral(resourceName: "Tabbar_More_Playing_Highlight_28x28_"), title: "Yes No Maybe: sex, kink, and language spreadsheets", url: URL(string: "www.bextalkssex.com/yes-no-maybe/")!)
-        //        let resource4 = Resource(image: #imageLiteral(resourceName: "AskPost"), title: "How Do I Change the Sex Designation on my Identity Documents?")
-        //        let resource5 = Resource(image: #imageLiteral(resourceName: "second"), title: "Voices of Value: LBGTQ+ Cultural Competency Toolkit")
-        //        let resource6 = Resource(image: #imageLiteral(resourceName: "shop"), title: "The Body is Not An Apology")
-        //        let resource7 = Resource(image: #imageLiteral(resourceName: "globe_earth"), title: "Whose Land Is It Anyway? A Manual for Decolonization")
+        let resource1 = Resource(image: #imageLiteral(resourceName: "AppIcon_76x76_"), title: "Settlement.Org: Sexual Orientation and Gender Identity", url: URL(string: "https://settlement.org/ontario/health/sexual-and-reproductive-health/sexual-orientation-and-gender-identity/")!)
+        let resource2 = Resource(image: #imageLiteral(resourceName: "Tabbar_Notifications_Normal_28x28_"), title: "transACTION: A Transgender Curriculum and Learner's Guide For Churches and Religious Institutions", url: URL(string: "https://www.youthline.ca/get-support/links-resources/")!)
+        let resource3 = Resource(image: #imageLiteral(resourceName: "Tabbar_More_Playing_Highlight_28x28_"), title: "Yes No Maybe: sex, kink, and language spreadsheets", url: URL(string: "https://www.bextalkssex.com/yes-no-maybe/")!)
+        let resource4 = Resource(image: #imageLiteral(resourceName: "AskPost"), title: "How Do I Change the Sex Designation on my Identity Documents?", url: URL(string: "https://jfcy.org/en/rights/government-issued-identification/")!)
+        let resource5 = Resource(image: #imageLiteral(resourceName: "second"), title: "Trans Primary Care: My Guide to Caring for Trans and Gender-Diverse Clients", url: URL(string: "https://www.rainbowhealthontario.ca/TransHealthGuide/")!)
+        let resource6 = Resource(image: #imageLiteral(resourceName: "shop"), title: "The Body is Not An Apology", url: URL(string: "https://thebodyisnotanapology.com/")!)
+        let resource7 = Resource(image: #imageLiteral(resourceName: "globe_earth"), title: "Briarpatch Magazine: Hearing Two Spirits", url: URL(string: "https://briarpatchmagazine.com/articles/view/hearing-two-spirits")!)
         tempResources["all"]!.append(resource1)
         tempResources["all"]!.append(resource2)
         tempResources["all"]!.append(resource3)
-        //        tempResources["all"]!.append(resource4)
-        //        tempResources["all"]!.append(resource5)
-        //        tempResources["all"]!.append(resource6)
-        //        tempResources["all"]!.append(resource7)
+        tempResources["all"]!.append(resource4)
+        tempResources["all"]!.append(resource5)
+        tempResources["all"]!.append(resource6)
+        tempResources["all"]!.append(resource7)
         tempResources["settlement"]!.append(resource1)
         tempResources["faith"]!.append(resource2)
         tempResources["sex"]!.append(resource3)
-        //        tempResources["forms"]!.append(resource4)
-        //        tempResources["service"]!.append(resource5)
-        //        tempResources["education"]!.append(resource6)
-        //        tempResources["type"]!.append(resource7)
-        //
+        tempResources["forms"]!.append(resource4)
+        tempResources["service"]!.append(resource5)
+        tempResources["education"]!.append(resource6)
+        tempResources["type"]!.append(resource7)
+        
         
         return tempResources
     }
@@ -120,39 +120,26 @@ class ResourcePageVC: UITableViewController {
         case .sex:
             resources = resourcesCollection["sex"]!
             self.tableView.reloadData()
-//        case .forms:
-//            resources = resourcesCollection["forms"]!
-//            self.tableView.reloadData()
-//        case .service:
-//            resources = resourcesCollection["service"]!
-//            self.tableView.reloadData()
-//        case .education:
-//            resources = resourcesCollection["education"]!
-//            self.tableView.reloadData()
-//        case .type:
-//            resources = resourcesCollection["type"]!
-//            self.tableView.reloadData()
-        default:
-            break
+        case .forms:
+            resources = resourcesCollection["forms"]!
+            self.tableView.reloadData()
+        case .service:
+            resources = resourcesCollection["service"]!
+            self.tableView.reloadData()
+        case .education:
+            resources = resourcesCollection["education"]!
+            self.tableView.reloadData()
+        case .type:
+            resources = resourcesCollection["type"]!
+            self.tableView.reloadData()
+//        default:
+//            break
         }
     }
-    
-    
-    
 }
 
+
 extension ResourcePageVC: UITextFieldDelegate, UIViewControllerTransitioningDelegate {
-    
-    //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //        return resources.count
-    //    }
-    //
-    //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //        let resource = resources[indexPath.row]
-    //        let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell") as! ResourceCell
-    //        cell.setImage(resource: resource)
-    //        return cell
-    //    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return resources.count
@@ -179,19 +166,17 @@ extension ResourcePageVC: UITextFieldDelegate, UIViewControllerTransitioningDele
         return transition
     }
     
-    //    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-    //        let vc = EventSearchVC()
-    //        navigationController?.pushViewController(vc, animated: false)
-    //        return false
-    //    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let vc = EventSearchVC()
+        navigationController?.pushViewController(vc, animated: false)
+        return false
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let resourceURL = self.resources[indexPath.row]
-//        print(indexPath.row)
-//        print(resourceURL.url)
         
         let webVC = WebViewController()
-        //        webVC.Imgurl = resourceURL.url
+        webVC.url = resourceURL.url
         //        webVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(webVC, animated: true)
     }
