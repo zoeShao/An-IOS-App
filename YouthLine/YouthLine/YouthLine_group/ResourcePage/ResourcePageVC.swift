@@ -60,20 +60,30 @@ class ResourcePageVC: UITableViewController {
     //
     
     func createDic() -> [String: [Resource]] {
-        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": []]
+        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": [], "forms": [], "service":[], "education":[], "type":[]]
         //        var tempResources = [String: [Resource]]()
         
         let resource1 = Resource(image: #imageLiteral(resourceName: "AppIcon_76x76_"), title: "LGBT issues in Canada’s Immigration and Refugee System")
         let resource2 = Resource(image: #imageLiteral(resourceName: "Tabbar_Notifications_Normal_28x28_"), title: "Open Hearts: Resources for Affirming Ministries in The United Church of Canada")
         let resource3 = Resource(image: #imageLiteral(resourceName: "Tabbar_More_Playing_Highlight_28x28_"), title: "Yes No Maybe: sex, kink, and language spreadsheets")
-        
+        let resource4 = Resource(image: #imageLiteral(resourceName: "AskPost"), title: "How Do I Change the Sex Designation on my Identity Documents?")
+        let resource5 = Resource(image: #imageLiteral(resourceName: "second"), title: "Voices of Value: LBGTQ+ Cultural Competency Toolkit")
+        let resource6 = Resource(image: #imageLiteral(resourceName: "shop"), title: "The Body is Not An Apology")
+        let resource7 = Resource(image: #imageLiteral(resourceName: "globe_earth"), title: "Whose Land Is It Anyway? A Manual for Decolonization")
         tempResources["all"]!.append(resource1)
         tempResources["all"]!.append(resource2)
         tempResources["all"]!.append(resource3)
-        
+        tempResources["all"]!.append(resource4)
+        tempResources["all"]!.append(resource5)
+        tempResources["all"]!.append(resource6)
+        tempResources["all"]!.append(resource7)
         tempResources["settlement"]!.append(resource1)
         tempResources["faith"]!.append(resource2)
         tempResources["sex"]!.append(resource3)
+        tempResources["forms"]!.append(resource4)
+        tempResources["service"]!.append(resource5)
+        tempResources["education"]!.append(resource6)
+        tempResources["type"]!.append(resource7)
         
         return tempResources
     }
@@ -108,8 +118,18 @@ class ResourcePageVC: UITableViewController {
         case .sex:
             resources = resourcesCollection["sex"]!
             self.tableView.reloadData()
-        default:
-            break
+        case .forms:
+            resources = resourcesCollection["forms"]!
+            self.tableView.reloadData()
+        case .service:
+            resources = resourcesCollection["service"]!
+            self.tableView.reloadData()
+        case .education:
+            resources = resourcesCollection["education"]!
+            self.tableView.reloadData()
+        case .type:
+            resources = resourcesCollection["type"]!
+            self.tableView.reloadData()
         }
     }
     
