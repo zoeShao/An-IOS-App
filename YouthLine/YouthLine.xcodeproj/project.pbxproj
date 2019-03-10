@@ -16,6 +16,7 @@
 		1398965D2234D67F000E5745 /* UpcomingEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1398965C2234D67F000E5745 /* UpcomingEventModel.swift */; };
 		13989661223578E1000E5745 /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13989660223578E1000E5745 /* HomeDetailVC.swift */; };
 		13989665223579DB000E5745 /* HomeDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13989664223579DB000E5745 /* HomeDetailHeaderView.swift */; };
+		1398966722357CEC000E5745 /* HomePageSearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1398966622357CEC000E5745 /* HomePageSearchVC.xib */; };
 		972817696DA0247967D54B36 /* Pods_YouthLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B1656207B3172740706D86 /* Pods_YouthLine.framework */; };
 		EF5A28BD22347B75001FFD61 /* UIColor+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BA22347B74001FFD61 /* UIColor+Ex.swift */; };
 		EF5A28BE22347B75001FFD61 /* UIButton+ZHEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BB22347B74001FFD61 /* UIButton+ZHEx.swift */; };
@@ -56,6 +57,7 @@
 		1398965C2234D67F000E5745 /* UpcomingEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventModel.swift; sourceTree = "<group>"; };
 		13989660223578E1000E5745 /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
 		13989664223579DB000E5745 /* HomeDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailHeaderView.swift; sourceTree = "<group>"; };
+		1398966622357CEC000E5745 /* HomePageSearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageSearchVC.xib; sourceTree = "<group>"; };
 		5C21BDC5CF609D926A4A21B0 /* Pods-YouthLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.release.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.release.xcconfig"; sourceTree = "<group>"; };
 		725BC15723A9C6045743599C /* Pods-YouthLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.debug.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.debug.xcconfig"; sourceTree = "<group>"; };
 		EF5A28BA22347B74001FFD61 /* UIColor+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ex.swift"; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				1398964F2234D40D000E5745 /* List */,
 				EFBC108422346FF800703135 /* HomePageVC.swift */,
 				1398964D2234D2B0000E5745 /* HomePageSearchVC.swift */,
+				1398966622357CEC000E5745 /* HomePageSearchVC.xib */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 			files = (
 				EF5A28F422348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png in Resources */,
 				EFBC107022346C0A00703135 /* LaunchScreen.storyboard in Resources */,
+				1398966722357CEC000E5745 /* HomePageSearchVC.xib in Resources */,
 				EF5A28F322348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png in Resources */,
 				EF82A9D622349E9900CBDFA6 /* Assets.xcassets in Resources */,
 				EFBC106B22346C0800703135 /* Main.storyboard in Resources */,

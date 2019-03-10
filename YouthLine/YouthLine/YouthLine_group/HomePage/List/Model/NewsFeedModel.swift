@@ -18,7 +18,7 @@ struct News: HandyJSON {
     var news_content: NewsContent? // content of the news
 }
 
-// 内容
+
 struct NewsContent: HandyJSON {
     //    var video: Video?
     var title: Title?
@@ -39,7 +39,7 @@ struct Image: HandyJSON {
     var image_url: String?
 }
 
-
+// Fake Data
 var image1 = Image(image_url: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg?w968h681")
 var title1 = Title(panel_text: "Test Data1 -- From FaceBook")
 var content1 = Content(panel_text: "Raise $300.00 for Youthline at #ylcrafts to become a Master Crafter and have a chance to win a Rainbow Blanket Knitting Kit (yes, you read that right) from #woolandthegang at Crafthaton on March 16. It's not too late to join! bit.ly/craftathon19")

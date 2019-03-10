@@ -12,7 +12,7 @@ import SwiftyJSON
 import UIKit
 
 class HomeEventCollectionViewCell: UICollectionViewCell {
-    // 标题
+
     var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
@@ -21,7 +21,7 @@ class HomeEventCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    // 图片
+
     var zhImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill

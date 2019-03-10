@@ -14,7 +14,6 @@ class HomePageVC: BaseViewController {
     let viewControllers = [HomeListVC()]
     
     lazy var pageView: DNSPageView = {
-        // 创建DNSPageStyle，设置样式
         let style = DNSPageStyle()
         style.isTitleViewScrollEnabled = false
         style.isTitleScaleEnabled = false
@@ -35,7 +34,6 @@ class HomePageVC: BaseViewController {
     
     lazy var searchTextField: UITextField = {
         let textField = UITextField.init(frame: CGRect(x: 15, y: StatusBarHeight + 10, width: ScreenWidth - 100, height: 30))
-        //Mark:
         textField.placeholder = "Enter any keywords you want"
         textField.layer.masksToBounds = true
         textField.layer.cornerRadius = 5
@@ -45,7 +43,6 @@ class HomePageVC: BaseViewController {
         return textField
     }()
     
-    //Mark: 换logo
     lazy var questionBtn: UIButton = {
         let questionBtn = UIButton.init(type: UIButtonType.system)
         questionBtn.frame = CGRect(x: ScreenWidth - 85, y: StatusBarHeight + 10, width: 80, height: 30)
@@ -58,8 +55,6 @@ class HomePageVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 搜索栏
         initSearchBar()
         
         for vc in viewControllers {
