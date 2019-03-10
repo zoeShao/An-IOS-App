@@ -15,9 +15,6 @@ import SwiftyJSON
 class HomeListVC: BaseViewController {
     let NewsFeedBaseTableViewCellID = "NewsFeedBaseTableViewCell"
     let NewsFeedImageTableViewCellID = "NewsFeedImageTableViewCell"
-    
-    //    let HomeRecommendBigImageCellID = "HomeRecommendBigImageCell"
-    //    let HomeListVideoCellID = "HomeListVideoCell"
     let HomeEventCollectionViewCellID = "HomeEventCollectionViewCell"
     
     var NewsFeedModelList: [NewsFeedModel]? = [newsModel1, newsModel2]
@@ -75,8 +72,6 @@ class HomeListVC: BaseViewController {
         tableView.dataSource = self
         tableView.register(NewsFeedBaseTableViewCell.self, forCellReuseIdentifier: NewsFeedBaseTableViewCellID)
         tableView.register(NewsFeedImageTableViewCell.self, forCellReuseIdentifier: NewsFeedImageTableViewCellID)
-        //        tableView.register(HomeRecommendBigImageCell.self, forCellReuseIdentifier: HomeRecommendBigImageCellID)
-        //        tableView.register(HomeListVideoCell.self, forCellReuseIdentifier: HomeListVideoCellID)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.backgroundColor = UIColor.lightGray
         tableView.isScrollEnabled = false
