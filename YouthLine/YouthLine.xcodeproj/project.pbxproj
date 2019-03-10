@@ -14,6 +14,8 @@
 		139896592234D62D000E5745 /* NewsFeedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139896582234D62D000E5745 /* NewsFeedImageTableViewCell.swift */; };
 		1398965B2234D65E000E5745 /* NewsFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1398965A2234D65E000E5745 /* NewsFeedModel.swift */; };
 		1398965D2234D67F000E5745 /* UpcomingEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1398965C2234D67F000E5745 /* UpcomingEventModel.swift */; };
+		13989661223578E1000E5745 /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13989660223578E1000E5745 /* HomeDetailVC.swift */; };
+		13989665223579DB000E5745 /* HomeDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13989664223579DB000E5745 /* HomeDetailHeaderView.swift */; };
 		972817696DA0247967D54B36 /* Pods_YouthLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B1656207B3172740706D86 /* Pods_YouthLine.framework */; };
 		EF5A28BD22347B75001FFD61 /* UIColor+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BA22347B74001FFD61 /* UIColor+Ex.swift */; };
 		EF5A28BE22347B75001FFD61 /* UIButton+ZHEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BB22347B74001FFD61 /* UIButton+ZHEx.swift */; };
@@ -52,6 +54,8 @@
 		139896582234D62D000E5745 /* NewsFeedImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedImageTableViewCell.swift; sourceTree = "<group>"; };
 		1398965A2234D65E000E5745 /* NewsFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedModel.swift; sourceTree = "<group>"; };
 		1398965C2234D67F000E5745 /* UpcomingEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventModel.swift; sourceTree = "<group>"; };
+		13989660223578E1000E5745 /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
+		13989664223579DB000E5745 /* HomeDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailHeaderView.swift; sourceTree = "<group>"; };
 		5C21BDC5CF609D926A4A21B0 /* Pods-YouthLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.release.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.release.xcconfig"; sourceTree = "<group>"; };
 		725BC15723A9C6045743599C /* Pods-YouthLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.debug.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.debug.xcconfig"; sourceTree = "<group>"; };
 		EF5A28BA22347B74001FFD61 /* UIColor+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ex.swift"; sourceTree = "<group>"; };
@@ -125,6 +129,23 @@
 				1398965C2234D67F000E5745 /* UpcomingEventModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1398965F22357853000E5745 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1398966222357985000E5745 /* View */,
+				13989660223578E1000E5745 /* HomeDetailVC.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		1398966222357985000E5745 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				13989664223579DB000E5745 /* HomeDetailHeaderView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		AD5222A78F63EA7AED61F3D8 /* Frameworks */ = {
@@ -243,6 +264,7 @@
 		EFBC107F22346E3400703135 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				1398965F22357853000E5745 /* Detail */,
 				1398964F2234D40D000E5745 /* List */,
 				EFBC108422346FF800703135 /* HomePageVC.swift */,
 				1398964D2234D2B0000E5745 /* HomePageSearchVC.swift */,
@@ -447,7 +469,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13989661223578E1000E5745 /* HomeDetailVC.swift in Sources */,
 				EFBC1097223472C900703135 /* BigImageCell.swift in Sources */,
+				13989665223579DB000E5745 /* HomeDetailHeaderView.swift in Sources */,
 				139896552234D597000E5745 /* HomeEventCollectionViewCell.swift in Sources */,
 				EFBC107822346D2000703135 /* Construction.swift in Sources */,
 				EF5A28BE22347B75001FFD61 /* UIButton+ZHEx.swift in Sources */,

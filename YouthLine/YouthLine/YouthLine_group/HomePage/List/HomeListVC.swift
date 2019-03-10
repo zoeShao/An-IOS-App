@@ -34,12 +34,12 @@ class HomeListVC: BaseViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        
         collectionView.register(HomeEventCollectionViewCell.self, forCellWithReuseIdentifier: HomeEventCollectionViewCellID)
         collectionView.backgroundColor = UIColor.gray
         
         return collectionView
     }()
-    
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView(frame: view.frame)
@@ -78,6 +78,7 @@ class HomeListVC: BaseViewController {
         tableView.bounces = true
         return tableView
     }()
+    
     
     
     
@@ -135,7 +136,7 @@ extension HomeListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = NewsFeedModelList?[indexPath.section]
-        let vc = ArticleDetailVC()
+        let vc = HomeDetailVC()
         vc.questionTitle = model?.news?.news_content?.title?.panel_text ?? ""
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
@@ -169,7 +170,7 @@ extension HomeListVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = UpcomingEventModelList?[indexPath.section]
-        let vc = ArticleDetailVC()
+        let vc = HomeDetailVC()
         vc.questionTitle = model?.title?.panel_text ?? ""
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
