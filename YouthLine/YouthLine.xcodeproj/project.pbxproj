@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		279F19E12235D65500DE8221 /* myEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F19DA2235D65500DE8221 /* myEvent.swift */; };
+		279F19E22235D65500DE8221 /* Cell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F19DC2235D65500DE8221 /* Cell1.swift */; };
+		279F19E32235D65500DE8221 /* Cell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F19DD2235D65500DE8221 /* Cell1.xib */; };
+		279F19E42235D65500DE8221 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 279F19DE2235D65500DE8221 /* User.storyboard */; };
+		279F19E52235D65500DE8221 /* subVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F19E02235D65500DE8221 /* subVC.swift */; };
 		972817696DA0247967D54B36 /* Pods_YouthLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B1656207B3172740706D86 /* Pods_YouthLine.framework */; };
 		EF5A28BD22347B75001FFD61 /* UIColor+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BA22347B74001FFD61 /* UIColor+Ex.swift */; };
 		EF5A28BE22347B75001FFD61 /* UIButton+ZHEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BB22347B74001FFD61 /* UIButton+ZHEx.swift */; };
@@ -41,6 +46,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		279F19DA2235D65500DE8221 /* myEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myEvent.swift; sourceTree = "<group>"; };
+		279F19DC2235D65500DE8221 /* Cell1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell1.swift; sourceTree = "<group>"; };
+		279F19DD2235D65500DE8221 /* Cell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell1.xib; sourceTree = "<group>"; };
+		279F19DE2235D65500DE8221 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		279F19E02235D65500DE8221 /* subVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subVC.swift; sourceTree = "<group>"; };
 		5C21BDC5CF609D926A4A21B0 /* Pods-YouthLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.release.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.release.xcconfig"; sourceTree = "<group>"; };
 		725BC15723A9C6045743599C /* Pods-YouthLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.debug.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.debug.xcconfig"; sourceTree = "<group>"; };
 		EF5A28BA22347B74001FFD61 /* UIColor+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ex.swift"; sourceTree = "<group>"; };
@@ -90,6 +100,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		279F19D92235D65500DE8221 /* myEvent */ = {
+			isa = PBXGroup;
+			children = (
+				279F19DA2235D65500DE8221 /* myEvent.swift */,
+			);
+			path = myEvent;
+			sourceTree = "<group>";
+		};
+		279F19DB2235D65500DE8221 /* eventCell */ = {
+			isa = PBXGroup;
+			children = (
+				279F19DC2235D65500DE8221 /* Cell1.swift */,
+				279F19DD2235D65500DE8221 /* Cell1.xib */,
+			);
+			path = eventCell;
+			sourceTree = "<group>";
+		};
+		279F19DF2235D65500DE8221 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				279F19E02235D65500DE8221 /* subVC.swift */,
+			);
+			path = setting;
+			sourceTree = "<group>";
+		};
 		AD5222A78F63EA7AED61F3D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +225,10 @@
 		EFBC107D22346E1C00703135 /* PersonalPage */ = {
 			isa = PBXGroup;
 			children = (
+				279F19DB2235D65500DE8221 /* eventCell */,
+				279F19D92235D65500DE8221 /* myEvent */,
+				279F19DF2235D65500DE8221 /* setting */,
+				279F19DE2235D65500DE8221 /* User.storyboard */,
 				EFBC108022346F5500703135 /* PersonalPageVC.swift */,
 			);
 			path = PersonalPage;
@@ -347,9 +386,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF5A28F422348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png in Resources */,
+				279F19E32235D65500DE8221 /* Cell1.xib in Resources */,
 				EFBC107022346C0A00703135 /* LaunchScreen.storyboard in Resources */,
 				EF5A28F322348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png in Resources */,
 				EF82A9D622349E9900CBDFA6 /* Assets.xcassets in Resources */,
+				279F19E42235D65500DE8221 /* User.storyboard in Resources */,
 				EFBC106B22346C0800703135 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFBC107822346D2000703135 /* Construction.swift in Sources */,
+				279F19E52235D65500DE8221 /* subVC.swift in Sources */,
 				EF5A28BE22347B75001FFD61 /* UIButton+ZHEx.swift in Sources */,
 				EFBC108A2234709700703135 /* EventBaseVC.swift in Sources */,
 				EFBC108322346FB900703135 /* ResourcePageVC.swift in Sources */,
@@ -446,6 +488,7 @@
 				EF5A28C222347B81001FFD61 /* WLButton.swift in Sources */,
 				EFBC108C223470A700703135 /* EventSearchVC.swift in Sources */,
 				EF5A28BF22347B75001FFD61 /* UIScrollView+Ex.swift in Sources */,
+				279F19E12235D65500DE8221 /* myEvent.swift in Sources */,
 				EFBC1093223472B300703135 /* BaseCell.swift in Sources */,
 				EFBC10A42234799C00703135 /* HeaderView.swift in Sources */,
 				EFBC108522346FF800703135 /* HomePageVC.swift in Sources */,
@@ -455,6 +498,7 @@
 				EF5A28BD22347B75001FFD61 /* UIColor+Ex.swift in Sources */,
 				EFBC109F2234790E00703135 /* ArticleTitle.swift in Sources */,
 				EFBC106422346C0800703135 /* AppDelegate.swift in Sources */,
+				279F19E22235D65500DE8221 /* Cell1.swift in Sources */,
 				EFBC108122346F5500703135 /* PersonalPageVC.swift in Sources */,
 				EFE36B6122358EF80041A544 /* ArticleAPI.swift in Sources */,
 				EFE36B5E22358EDA0041A544 /* ArticleModel.swift in Sources */,
