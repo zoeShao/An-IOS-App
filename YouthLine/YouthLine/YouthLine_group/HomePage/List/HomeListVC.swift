@@ -147,6 +147,7 @@ extension HomeListVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
 extension HomeListVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView {
