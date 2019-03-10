@@ -1,4 +1,4 @@
-# YOUR PRODUCT/TEAM NAME
+# LGBT YouthLine/Rainbow Warriors
 
 > _Note:_ This document is intended to be relatively short. Be concise and precise. Assume the reader has no prior knowledge of your application and is non-technical. 
 
