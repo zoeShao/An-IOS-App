@@ -46,8 +46,8 @@ class HomePageVC: BaseViewController {
     lazy var questionBtn: UIButton = {
         let questionBtn = UIButton.init(type: UIButtonType.system)
         questionBtn.frame = CGRect(x: ScreenWidth - 85, y: StatusBarHeight + 10, width: 80, height: 30)
-        questionBtn.setTitle("提问", for: UIControlState.normal)
-        questionBtn.setImage(UIImage(named: "ZHModuleColumnImage.bundle/Night_ZHAPP_Ask_Post"), for: UIControlState.normal)
+        questionBtn.setTitle("(- -)", for: UIControlState.normal)
+        questionBtn.setImage(UIImage(named: "AskPost"), for: UIControlState.normal)
         questionBtn.blueTheme()
         questionBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
         return questionBtn
