@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:YouthLine/YouthLine.xcodeproj">
+   </FileRef>
+   <Group
+      location = "group:YouthLine/Assets.xcassets"
+      name = "Assets.xcassets">
+      <Group
+         location = "group:AppIcon_83x83_.imageset"
+         name = "AppIcon_83x83_.imageset">
+         <FileRef
+            location = "group:icon-83.5@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Night_Tabbar_More_Playing_Highlight_28x28_.imageset"
+         name = "Night_Tabbar_More_Playing_Highlight_28x28_.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_More_Playing_Highlight_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_More_Playing_Highlight_28x28_@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:AppIcon_40x40_.imageset"
+         name = "AppIcon_40x40_.imageset">
+         <FileRef
+            location = "group:icon-40@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:icon-40@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:icon-40.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:AppIcon_29x29_.imageset"
+         name = "AppIcon_29x29_.imageset">
+         <FileRef
+            location = "group:icon-29.png">
+         </FileRef>
+         <FileRef
+            location = "group:icon-29@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:icon-29@2x-ipad.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Tabbar_More_Highlight_28x28_.imageset"
+         name = "Tabbar_More_Highlight_28x28_.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_More_Highlight_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_More_Highlight_28x28_@2x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Tabbar_More_Playing_Normal_28x28_.imageset"
+         name = "Tabbar_More_Playing_Normal_28x28_.imageset">
+         <FileRef
+            location = "group:Tabbar_More_Playing_Normal_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_More_Playing_Normal_28x28_@2x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Night_Tabbar_More_Playing_Normal_28x28_.imageset"
+         name = "Night_Tabbar_More_Playing_Normal_28x28_.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_More_Playing_Normal_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_More_Playing_Normal_28x28_@2x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Night_Tabbar_More_Highlight_28x28_.imageset"
+         name = "Night_Tabbar_More_Highlight_28x28_.imageset">
+         <FileRef
+            location = "group:Night_Tabbar_More_Highlight_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_More_Highlight_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:globe_earth.imageset"
+         name = "globe_earth.imageset">
+         <FileRef
+            location = "group:globe_earth@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:globe_earth@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:globe_earth.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Night_Tabbar_Feed_Normal_28x28_.imageset"
+         name = "Night_Tabbar_Feed_Normal_28x28_.imageset">
+         <FileRef
+            location = "group:Night_Tabbar_Feed_Normal_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_Feed_Normal_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:AskPost.imageset"
+         name = "AskPost.imageset">
+         <FileRef
+            location = "group:Night_ZHAPP_Ask_Post@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_ZHAPP_Ask_Post@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Tabbar_Feed_Normal_28x28_.imageset"
+         name = "Tabbar_Feed_Normal_28x28_.imageset">
+         <FileRef
+            location = "group:Tabbar_Feed_Normal_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_Feed_Normal_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Night_Tabbar_DB_Normal_28x28_.imageset"
+         name = "Night_Tabbar_DB_Normal_28x28_.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_DB_Normal_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_DB_Normal_28x28_@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Night_Tabbar_Notifications_Normal_28x28_.imageset"
+         name = "Night_Tabbar_Notifications_Normal_28x28_.imageset">
+         <FileRef
+            location = "group:Night_Tabbar_Notifications_Normal_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_Notifications_Normal_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Tabbar_DB_Normal_28x28_.imageset"
+         name = "Tabbar_DB_Normal_28x28_.imageset">
+         <FileRef
+            location = "group:Tabbar_DB_Normal_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_DB_Normal_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:AppIcon.appiconset"
+         name = "AppIcon.appiconset">
+         <FileRef
+            location = "group:icon-40@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:icon-40@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:icon-60@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:icon-1024.png">
+         </FileRef>
+         <FileRef
+            location = "group:icon-29@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:icon-60@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:icon-29@2x-ipad.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Tabbar_More_Playing_Highlight_28x28_.imageset"
+         name = "Tabbar_More_Playing_Highlight_28x28_.imageset">
+         <FileRef
+            location = "group:Tabbar_More_Playing_Highlight_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_More_Playing_Highlight_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:AppIcon_60x60_.imageset"
+         name = "AppIcon_60x60_.imageset">
+         <FileRef
+            location = "group:icon-60@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:icon-60@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Tabbar_Notifications_Highlight_28x28_.imageset"
+         name = "Tabbar_Notifications_Highlight_28x28_.imageset">
+         <FileRef
+            location = "group:Tabbar_Notifications_Highlight_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_Notifications_Highlight_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Night_Tabbar_Notifications_Highlight_28x28_.imageset"
+         name = "Night_Tabbar_Notifications_Highlight_28x28_.imageset">
+         <FileRef
+            location = "group:Night_Tabbar_Notifications_Highlight_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_Notifications_Highlight_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:shop.imageset"
+         name = "shop.imageset">
+         <FileRef
+            location = "group:shop@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:shop.png">
+         </FileRef>
+         <FileRef
+            location = "group:shop@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Night_Tabbar_More_Normal_28x28_.imageset"
+         name = "Night_Tabbar_More_Normal_28x28_.imageset">
+         <FileRef
+            location = "group:Night_Tabbar_More_Normal_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_More_Normal_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:second.imageset"
+         name = "second.imageset">
+         <FileRef
+            location = "group:second.pdf">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Night_Tabbar_DB_Highlight_28x28_.imageset"
+         name = "Night_Tabbar_DB_Highlight_28x28_.imageset">
+         <FileRef
+            location = "group:Night_Tabbar_DB_Highlight_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_DB_Highlight_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Tabbar_More_Normal_28x28_.imageset"
+         name = "Tabbar_More_Normal_28x28_.imageset">
+         <FileRef
+            location = "group:Tabbar_More_Normal_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_More_Normal_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Contents.json">
+      </FileRef>
+      <Group
+         location = "group:Tabbar_Feed_Highlight_28x28_.imageset"
+         name = "Tabbar_Feed_Highlight_28x28_.imageset">
+         <FileRef
+            location = "group:Tabbar_Feed_Highlight_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_Feed_Highlight_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Night_Tabbar_Shop_Highlight_28x28_.imageset"
+         name = "Night_Tabbar_Shop_Highlight_28x28_.imageset">
+         <FileRef
+            location = "group:Night_Tabbar_Shop_Highlight_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_Shop_Highlight_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Tabbar_Notifications_Normal_28x28_.imageset"
+         name = "Tabbar_Notifications_Normal_28x28_.imageset">
+         <FileRef
+            location = "group:Tabbar_Notifications_Normal_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_Notifications_Normal_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:BackBtn.imageset"
+         name = "BackBtn.imageset">
+         <FileRef
+            location = "group:ZHProfile_BackArrow_Active@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:ZHProfile_BackArrow_Active@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Tabbar_DB_Highlight_28x28_.imageset"
+         name = "Tabbar_DB_Highlight_28x28_.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_DB_Highlight_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_DB_Highlight_28x28_@2x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:businessman.imageset"
+         name = "businessman.imageset">
+         <FileRef
+            location = "group:businessman.png">
+         </FileRef>
+         <FileRef
+            location = "group:businessman@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:businessman@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:AppIcon_76x76_.imageset"
+         name = "AppIcon_76x76_.imageset">
+         <FileRef
+            location = "group:icon-76@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:icon-76.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Tabbar_Shop_Normal_28x28_.imageset"
+         name = "Tabbar_Shop_Normal_28x28_.imageset">
+         <FileRef
+            location = "group:Tabbar_Shop_Normal_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_Shop_Normal_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Tabbar_Shop_Highlight_28x28_.imageset"
+         name = "Tabbar_Shop_Highlight_28x28_.imageset">
+         <FileRef
+            location = "group:Tabbar_Shop_Highlight_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Tabbar_Shop_Highlight_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Night_Tabbar_Feed_Highlight_28x28_.imageset"
+         name = "Night_Tabbar_Feed_Highlight_28x28_.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_Feed_Highlight_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_Feed_Highlight_28x28_@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Night_Tabbar_Shop_Normal_28x28_.imageset"
+         name = "Night_Tabbar_Shop_Normal_28x28_.imageset">
+         <FileRef
+            location = "group:Night_Tabbar_Shop_Normal_28x28_@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Night_Tabbar_Shop_Normal_28x28_@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:news.imageset"
+         name = "news.imageset">
+         <FileRef
+            location = "group:news.png">
+         </FileRef>
+         <FileRef
+            location = "group:news@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:news@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:AppIcon_1024x1024_.imageset"
+         name = "AppIcon_1024x1024_.imageset">
+         <FileRef
+            location = "group:icon-1024.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+   </Group>
+   <FileRef
+      location = "group:YouthLine.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
