@@ -37,16 +37,12 @@ class ImageCell: BaseCell {
         super.init(coder: aDecoder)
     }
     
-//    override var model: Model? {
-//        didSet {
-//            let content = (model?.common_card?.feed_content ?? Feed_content())!
-//            let url = URL.init(string: (content.image?.image_url)!)
-//            print("head:" + (content.image?.image_url)!)
-//            if (content.image?.image_url)! == "" {
-//                print("空")
-//            }
-//            self.ImageView.kf.setImage(with: url)
-//        }
-//    }
+    override var model: Model? {
+        didSet {
+            let content = (model?.common_card?.feed_content ?? Feed_content())!
+            let url = URL(string: "https://pic1.zhimg.com//v2-8b80f4c6e3565a13c2de68b7c5235453_s.jpg")
+            self.ImageView.kf.setImage(with: url)
+        }
+    }
 }
 

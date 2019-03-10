@@ -12,7 +12,7 @@ import SwiftyJSON
 import UIKit
 
 class BaseCell: UITableViewCell {
-    // 标题
+    
     var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
@@ -20,7 +20,7 @@ class BaseCell: UITableViewCell {
         return label
     }()
     
-    // 内容
+    
     var contentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
@@ -30,7 +30,7 @@ class BaseCell: UITableViewCell {
         return label
     }()
     
-    // 头像
+    
     var headImgView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -53,7 +53,7 @@ class BaseCell: UITableViewCell {
         
         contentView.addSubview(headImgView)
         headImgView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(8); //.snp.bottom).offset(8)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8);
             make.left.equalTo(contentView).offset(14)
             make.width.height.equalTo(18)
         }
@@ -69,54 +69,37 @@ class BaseCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
+
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-//    var model: Model? {
-//        didSet {
-//            titleLabel.text = model?.common_card?.feed_content?.title?.panel_text
-//            contentLabel.text = model?.common_card?.feed_content?.content?.panel_text
-//            //            footerLabel.text = model?.common_card?.footline?.elements?[0].text?.panel_text
-//            
-//            let reasonType = model?.uninterest_reasons?.last?.reason_type
-//            if reasonType == "creator" {
-//                token = model?.uninterest_reasons?.last?.object_token
-//            } else {
-//                headImgView.image = UIImage(named: "UserGuestCenterBundle.bundle/Avatar_Liukanshan_Normal")
-//            }
-//        }
-//    }
-//    
-//    var token: String? {
-////        didSet {
-////
-////            ListProvider.request(.memberProfile(token!)) { result in
-////                if case let .success(response) = result {
-////                    
-////                    let data = try? response.mapJSON()
-////                    let json = JSON(data!)
-////
-////                    print(json)
-////                    if let member = JSONDeserializer<ZHMember>.deserializeFrom(json: json.description) { // 从字符串转换为对象实例
-////                        //                        self.nameLabel.text = member.name
-////                        //                        self.profileLabel.text = member.headline!
-////                        let url = URL(string: member.avatar_url!)
-////                        self.headImgView.kf.setImage(with: url, placeholder: UIImage(named: "UserGuestCenterBundle.bundle/Avatar_Liukanshan_Normal"))
-////                    }
-////                } else {
-////                    print("")
-////                }
-////            }
-////        }
-//    }
-}
+    var model: Model? {
+        didSet {
+            titleLabel.text = model?.common_card?.feed_content?.title?.panel_text
+            contentLabel.text = model?.common_card?.feed_content?.content?.panel_text
+            
+            let reasonType = model?.uninterest_reasons?.last?.reason_type
+            if reasonType == "creator" {
+                token = model?.uninterest_reasons?.last?.object_token
+            } else {
+                headImgView.image = UIImage(named: "UserGuestCenterBundle.bundle/Avatar_Liukanshan_Normal")
+            }
+        }
+    }
+    
+    var token: String? {
+        didSet {
+                        let catPictureURL = URL(string: "https://pic1.zhimg.com//v2-8b80f4c6e3565a13c2de68b7c5235453_s.jpg")
+                        self.headImgView.kf.setImage(with: catPictureURL, placeholder: UIImage(named: "UserGuestCenterBundle.bundle/Avatar_Liukanshan_Normal"))
+                    }
+               }
+            }
+
