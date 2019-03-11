@@ -10,9 +10,17 @@ import UIKit
 
 class ResourceCell: UITableViewCell {
     
+    var minHeight: CGFloat?
+    
+    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+        let size = super.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
+        guard let minHeight = minHeight else { return size }
+        return CGSize(width: size.width, height: max(size.height, minHeight))
+    }
+    
     var ResourceTitleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18, weight:UIFont.Weight.bold)
+        label.font = UIFont.systemFont(ofSize: 17, weight:UIFont.Weight.bold)
         label.numberOfLines = 0
         return label
     }()
@@ -40,7 +48,7 @@ class ResourceCell: UITableViewCell {
         ResourceTitleLabel.snp.makeConstraints { (make) in
             make.left.equalTo(self.contentView).offset(15)
             make.top.equalTo(self.contentView).offset(12)
-            make.right.equalToSuperview().offset(-120)
+            make.right.equalToSuperview().offset(-150)
         }
         
         contentView.addSubview(footerLabel)
@@ -55,7 +63,7 @@ class ResourceCell: UITableViewCell {
         ResourceImgView.snp.makeConstraints { (make) in
             make.centerY.equalTo(contentView)
             make.right.equalTo(contentView).offset(-10)
-            make.width.equalTo(100)
+            make.width.equalTo(130)
             make.height.equalTo(65)
         }
     }
