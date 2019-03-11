@@ -21,15 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = barController
         self.window?.makeKeyAndVisible()
         
-        let vc1 = EventBaseVC()
-        let vc2 = HomePageVC()
+        let vc1 = HomePageVC()
+        let vc2 = EventBaseVC()
         let vc3 = ResourcePageVC()
         let vc4 = PersonalPageVC()
         
-        vc1.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "Events", image: UIImage(named: "Night_Tabbar_Feed_Normal_28x28_"), selectedImage: UIImage(named: "Night_Tabbar_Feed_Highlight_28x28_"))
-        vc2.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "HomePage", image: UIImage(named: "Night_Tabbar_DB_Normal_28x28_"), selectedImage: UIImage(named: "Night_Tabbar_DB_Highlight_28x28_"))
-        vc3.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "Resources", image: UIImage(named: "Night_Tabbar_Shop_Normal_28x28_"), selectedImage: UIImage(named: "Night_Tabbar_Shop_Highlight_28x28_"))
-        vc4.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "PersonalPage", image: UIImage(named: "Night_Tabbar_Notifications_Normal_28x28_"), selectedImage: UIImage(named: "Night_Tabbar_Notifications_Highlight_28x28_"))
+        vc2.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "Events", image: UIImage(named: "event"), selectedImage: UIImage(named: "event_color"))
+        vc1.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "HomePage", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_color"))
+        vc3.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "Resources", image: UIImage(named: "books"), selectedImage: UIImage(named: "books_color"))
+        vc4.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "PersonalPage", image: UIImage(named: "person"), selectedImage: UIImage(named: "person_color"))
         
         
         let n1 = UINavigationController.init(rootViewController: vc1)

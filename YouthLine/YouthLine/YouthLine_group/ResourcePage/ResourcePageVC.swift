@@ -167,9 +167,16 @@ extension ResourcePageVC: UITextFieldDelegate, UIViewControllerTransitioningDele
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        let vc = EventSearchVC()
+        let vc = HomePageSearchVC()
         navigationController?.pushViewController(vc, animated: false)
+        navigationController?.viewWillAppear(true)
         return false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

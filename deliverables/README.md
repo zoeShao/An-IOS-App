@@ -14,8 +14,16 @@ In the event page, user can see the up coming event, by pressing the each event,
 This is user personal profile page, user can see the resources they "like" and change the setting of app.
 
 ## Instructions
- * Clear instructions for how to use the application from the end-user's perspective
- * How do you access it? Are accounts pre-created or does a user register? Where do you start? etc. 
- * Provide clear steps for using each feature described above
-
-
+ 
+Due to we underestimated the diffculty of deploying iOS app, for now, our app can only run under Developing environment.
+* Step 1: Clone the project repo to a Mac computer.
+* Step 2: Download Xcode.
+* Step 3: Open terminal, type the following command to install the CocoaPods lib using by our app.
+> gem install cocoapods
+* Step 4: cd the terminal to the "YourthLine" directory under the git repo directory.
+* Step 5: type the following command to install the CocoaPods lib under "YourthLine" directory, the main project directory.
+> pod install
+* Step 6: Double clicks "YouthLine.xcworkspace" under the "YourthLine" directory.
+* Step 7: In the Xcode window, press "Command" + "," to open preference menu, go to "Component" tab, download the iOS 12 Simulator.
+* Step 8: Click the "Run" buttom at the top left corner of Xcode. Now the code should compile and simulator will pop-up after compile successful.
+* Final Step: Now you can explore the app with mouse.
