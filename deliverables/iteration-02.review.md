@@ -33,7 +33,7 @@
 #### Goals and/or tasks that were planned but not met/completed:
 
  * iOS App do not deploy yet. We under-estimate difficulty to deploy iOS App, we do not have enough time to deploy it.
- * didn't implement login page.
+ * Didn't implement login page.
 
 ## Meeting Highlights
  
