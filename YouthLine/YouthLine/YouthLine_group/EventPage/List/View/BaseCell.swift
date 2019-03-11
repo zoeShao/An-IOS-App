@@ -97,7 +97,11 @@ class BaseCell: UITableViewCell {
     
     var token: String? {
         didSet {
-                        let catPictureURL = URL(string: "https://pic1.zhimg.com//v2-8b80f4c6e3565a13c2de68b7c5235453_s.jpg")
+            
+                        let catPictureURL = URL(string: iconUrl[count_1])
+                        count_1 += 1
+                        if count_1 > 4 {count_1 = 0}
+            
                         self.headImgView.kf.setImage(with: catPictureURL, placeholder: UIImage(named: "UserGuestCenterBundle.bundle/Avatar_Liukanshan_Normal"))
                     }
                }

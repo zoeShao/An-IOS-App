@@ -10,6 +10,14 @@ import Foundation
 
 var count = 0
 
+var iconUrl = ["https://resources.youthline.ca/sites/resources.youthline.ca/files/u2/if_social_media_isometric_3-instagram_3529653.png",
+                "https://resources.youthline.ca/sites/resources.youthline.ca/files/u2/if_social_media_isometric_21-tumblr_3529656.png",
+                "https://resources.youthline.ca/sites/resources.youthline.ca/files/u2/if_social_media_isometric_2-youtube_3529652.png",
+                "https://resources.youthline.ca/sites/resources.youthline.ca/files/u2/if_social_media_isometric_3-instagram_3529653.png",
+                "https://resources.youthline.ca/sites/resources.youthline.ca/files/u2/if_social_media_isometric_6-twitter_3529664.png"]
+
+var count_1 = 0
+
 var imageUrl = ["https://pic4.zhimg.com/v2-57025d3b940f9039d056632b1281ba77_400x224.jpeg",
                 "https://pic3.zhimg.com/v2-f17afefb491af262dfef5a7a0fedf4a4_b.jpg",
                 "https://pic2.zhimg.com/v2-4c9f1733c129d25694af8543318c0b71_b.jpg",
