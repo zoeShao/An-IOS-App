@@ -19,8 +19,11 @@
 
 #### Decisions that did not turn out as well as we hoped
 
+ * The diffculty of working on the same Xcode project is completely out of estimation. There are so many auto-generated configuration file from Xcode which make the merge of each one's work very difficult.
+ * To deploy the iOS app on iPhone, we need to register apple developer id and apply a certification, which turn out we don't have time to do it at last.
  * We planed to have three group members to do front-end. However, fornt-end have heavy work load in this deliverable. So, we makes 4 members working on front-end in this deliverable.
  * Back-end group members had little work to do.
+
 
 
 #### Planned changes
