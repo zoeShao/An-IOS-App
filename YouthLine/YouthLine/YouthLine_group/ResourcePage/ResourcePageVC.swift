@@ -64,13 +64,13 @@ class ResourcePageVC: UITableViewController {
         var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": [], "forms": [], "service":[], "education":[], "type":[]]
 //        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": []]
         
-        let resource1 = Resource(image: #imageLiteral(resourceName: "AppIcon_76x76_"), title: "Settlement.Org: Sexual Orientation and Gender Identity", url: URL(string: "https://settlement.org/ontario/health/sexual-and-reproductive-health/sexual-orientation-and-gender-identity/")!)
-        let resource2 = Resource(image: #imageLiteral(resourceName: "Tabbar_Notifications_Normal_28x28_"), title: "transACTION: A Transgender Curriculum and Learner's Guide For Churches and Religious Institutions", url: URL(string: "https://www.youthline.ca/get-support/links-resources/")!)
-        let resource3 = Resource(image: #imageLiteral(resourceName: "Tabbar_More_Playing_Highlight_28x28_"), title: "Yes No Maybe: sex, kink, and language spreadsheets", url: URL(string: "https://www.bextalkssex.com/yes-no-maybe/")!)
-        let resource4 = Resource(image: #imageLiteral(resourceName: "AskPost"), title: "How Do I Change the Sex Designation on my Identity Documents?", url: URL(string: "https://jfcy.org/en/rights/government-issued-identification/")!)
-        let resource5 = Resource(image: #imageLiteral(resourceName: "second"), title: "Trans Primary Care: My Guide to Caring for Trans and Gender-Diverse Clients", url: URL(string: "https://www.rainbowhealthontario.ca/TransHealthGuide/")!)
-        let resource6 = Resource(image: #imageLiteral(resourceName: "shop"), title: "The Body is Not An Apology", url: URL(string: "https://thebodyisnotanapology.com/")!)
-        let resource7 = Resource(image: #imageLiteral(resourceName: "globe_earth"), title: "Briarpatch Magazine: Hearing Two Spirits", url: URL(string: "https://briarpatchmagazine.com/articles/view/hearing-two-spirits")!)
+        let resource1 = Resource(image: #imageLiteral(resourceName: "settlement"), title: "Settlement.Org: Sexual Orientation and Gender Identity", url: URL(string: "https://settlement.org/ontario/health/sexual-and-reproductive-health/sexual-orientation-and-gender-identity/")!)
+        let resource2 = Resource(image: #imageLiteral(resourceName: "forward_partners"), title: "transACTION: A Transgender Curriculum and Learner's Guide For Churches and Religious Institutions", url: URL(string: "https://www.youthline.ca/get-support/links-resources/")!)
+        let resource3 = Resource(image: #imageLiteral(resourceName: "BexTalksSex"), title: "Yes No Maybe: sex, kink, and language spreadsheets", url: URL(string: "https://www.bextalkssex.com/yes-no-maybe/")!)
+        let resource4 = Resource(image: #imageLiteral(resourceName: "form"), title: "How Do I Change the Sex Designation on my Identity Documents?", url: URL(string: "https://jfcy.org/en/rights/government-issued-identification/")!)
+        let resource5 = Resource(image: #imageLiteral(resourceName: "TransCareGuide"), title: "Trans Primary Care: My Guide to Caring for Trans and Gender-Diverse Clients", url: URL(string: "https://www.rainbowhealthontario.ca/TransHealthGuide/")!)
+        let resource6 = Resource(image: #imageLiteral(resourceName: "thebodyisnotanapology"), title: "The Body is Not An Apology", url: URL(string: "https://thebodyisnotanapology.com/")!)
+        let resource7 = Resource(image: #imageLiteral(resourceName: "2spirit"), title: "Briarpatch Magazine: Hearing Two Spirits", url: URL(string: "https://briarpatchmagazine.com/articles/view/hearing-two-spirits")!)
         tempResources["all"]!.append(resource1)
         tempResources["all"]!.append(resource2)
         tempResources["all"]!.append(resource3)
