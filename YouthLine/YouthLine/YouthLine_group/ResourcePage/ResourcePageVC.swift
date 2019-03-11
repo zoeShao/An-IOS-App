@@ -149,6 +149,7 @@ extension ResourcePageVC: UITextFieldDelegate, UIViewControllerTransitioningDele
         let resource = resources[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell") as! ResourceCell
         cell.setImage(resource: resource)
+        cell.minHeight = 80
         return cell
     }
     
