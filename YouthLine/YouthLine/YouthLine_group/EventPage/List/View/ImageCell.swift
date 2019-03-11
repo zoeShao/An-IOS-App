@@ -40,8 +40,10 @@ class ImageCell: BaseCell {
     override var model: Model? {
         didSet {
             let content = (model?.common_card?.feed_content ?? Feed_content())!
-            let url = URL(string: "https://pic1.zhimg.com//v2-8b80f4c6e3565a13c2de68b7c5235453_s.jpg")
+            let url = URL(string: imageUrl[count])
             self.ImageView.kf.setImage(with: url)
+            count += 1
+            if count > 4 {count = 0}
         }
     }
 }
