@@ -31,7 +31,7 @@
                         <constraint firstAttribute="height" constant="35" id="nO4-jM-YIN"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                    <state key="normal" title="Cancle"/>
+                    <state key="normal" title="Cancel"/>
                     <connections>
                         <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="9Hr-mQ-e8M"/>
                     </connections>
