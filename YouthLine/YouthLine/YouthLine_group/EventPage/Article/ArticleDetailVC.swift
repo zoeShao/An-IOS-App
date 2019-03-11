@@ -28,14 +28,10 @@ class ArticleDetailVC: BaseViewController {
             let contentURL = URL(string: urlString)
             var request = URLRequest(url: contentURL!)
             request.allHTTPHeaderFields = Headers
-            webView.load(request)
+            
         }
     }
     
-    var webView: WKWebView = {
-        let webView = WKWebView()
-        return webView
-    }()
     
     let headerView: HeaderView = {
         let headerView = HeaderView()
@@ -71,41 +67,6 @@ class ArticleDetailVC: BaseViewController {
             }
         }
         
-        view.addSubview(webView)
-        webView.snp.makeConstraints({ make in
-            make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(headerView.snp.bottom).offset(8)
-        })
-        
-        
-        
-        answerIdList = [self.answerId!]
-        AnswerProvider.request(.detail(answerId!)) { result in
-            if case let .success(response) = result {
-                // 解析数据
-                let data = try? response.mapJSON()
-                let json = JSON(data!)
-                // print(json)
-                
-                if let mappedObject = JSONDeserializer<ZHFirstAnswer>.deserializeFrom(json: json.description) {
-                    self.answerIdList? += mappedObject.pagination_info?.next_answer_ids ?? []
-                    // print(self.answerIdList!)
-                }
-            }
-        }
-        
-        AnswerProvider.request(.question(answerId!)) { result in
-            if case let .success(response) = result {
-                // 解析数据
-                let data = try? response.mapJSON()
-                let json = JSON(data!)
-                print(json)
-                
-                if let mappedObject = JSONDeserializer<ZHQuestion>.deserializeFrom(json: json.description) {
-                    self.questionId = mappedObject.id ?? ""
-                }
-            }
-        }
     }
     
 }

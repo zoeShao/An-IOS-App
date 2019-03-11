@@ -99,7 +99,7 @@ open class ESTabBarItemContentView: UIView {
     }
     
     /// Icon imageView renderingMode, default is .alwaysTemplate like UITabBarItem
-    open var renderingMode: UIImage.RenderingMode = .alwaysTemplate {
+    open var renderingMode: UIImage.RenderingMode = .alwaysOriginal {
         didSet {
             self.updateDisplay()
         }

@@ -13,7 +13,7 @@ import SwiftyJSON
 import Kingfisher
 
 class ArticleTitle: UITableViewCell {
-    // 头像
+
     var headImgView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -22,7 +22,7 @@ class ArticleTitle: UITableViewCell {
         return imageView
     }()
     
-    // 名字
+
     var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.darkGray
@@ -30,7 +30,7 @@ class ArticleTitle: UITableViewCell {
         return label
     }()
     
-    // 内容
+
     var contentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
@@ -40,7 +40,7 @@ class ArticleTitle: UITableViewCell {
         return label
     }()
     
-    // 底部
+
     var footerLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 13)
