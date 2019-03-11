@@ -86,7 +86,7 @@ extension EventBaseVC {
 
 extension EventBaseVC: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        let vc = EventSearchVC()
+        let vc = HomePageSearchVC()
         navigationController?.pushViewController(vc, animated: false)
         return false
     }
