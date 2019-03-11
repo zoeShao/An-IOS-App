@@ -23,6 +23,7 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
  * Ordered from most to least important.
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
  * Feel free to refer/link to process artifact(s).
+ 1 
 
 #### Decisions that did not turn out as well as we hoped
 
@@ -31,7 +32,9 @@ List process-related (i.e. team organization) decisions that, in retrospect, wer
  * 2 - 4 decisions.
  * Ordered from most to least important.
  * Feel free to refer/link to process artifact(s).
-
+1 we under-estimate diffuiculty to deploy iOS App
+2 we planed to have three group members to do front-end. However, it turns out that, deliverables 2 mainly foucus on front-end, three members did have enough time to finish front-end.
+3 The back-end group members had little work to do.
 
 #### Planned changes
 
@@ -48,13 +51,15 @@ List any process-related changes you are planning to make (if there are any)
  * From most to least important.
  * Refer/link to artifact(s) that show that a goal/task was met/completed.
  * If a goal/task was not part of the original iteration plan, please mention it.
+ 1 iOS front-end app which has basically finished layout (working buttoms and navigation inside app) with some hard-coded        local data for demo.
+ 2 data structure for back-end is confirmed
 
 #### Goals and/or tasks that were planned but not met/completed:
 
  * From most to least important.
  * For each goal/task, explain why it was not met/completed.      
    e.g. Did you change your mind, or did you just not get to it yet?
-
+1 iOS App do not deploy yet.
 ## Meeting Highlights
 
 Going into the next iteration, our main insights are:
@@ -64,3 +69,5 @@ Going into the next iteration, our main insights are:
  * High-level concepts that should guide your work for the next iteration.
  * These concepts should help you decide on where to focus your efforts.
  * Can be related to product and/or process.
+ In the next iteration, we need to finish back-end part of our App, combineing front-end and back-end of our product,
+ 
