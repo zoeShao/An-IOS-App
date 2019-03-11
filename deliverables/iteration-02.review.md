@@ -23,7 +23,11 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
  * Ordered from most to least important.
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
  * Feel free to refer/link to process artifact(s).
- 1 
+ * we choose to draw flow chart before coding. Flow chart help us to see
+ each pages relation more clearly.
+ * assign work in detail to each group member. This improve our work  
+	efficiency a lot, each member have clear idea what they need to do.
+
 
 #### Decisions that did not turn out as well as we hoped
 
