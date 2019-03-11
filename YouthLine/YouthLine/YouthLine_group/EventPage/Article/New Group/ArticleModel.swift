@@ -9,7 +9,6 @@
 import Foundation
 import HandyJSON
 
-//Question
 struct ZHQuestion: HandyJSON {
     var title: String?
     var answer_count: Int = 0
@@ -17,7 +16,7 @@ struct ZHQuestion: HandyJSON {
     var id: String?
 }
 
-//Answer
+
 struct Answer: HandyJSON {
     var id: String?
     var author: ZHAuthor?

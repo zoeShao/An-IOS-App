@@ -12,55 +12,38 @@
 
 ## Process - Reflection
 
-(Optional) Short introduction
-
 #### Decisions that turned out well
-
-List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
-
- * we choose to draw flow chart before coding. Flow chart help us to see
- each pages relation more clearly.
- * assign work in detail to each group member. This improve our work efficiency a lot, each member have clear idea what they 
-   need to do
+ * We choose to draw flow chart before coding. Flow chart help us to see each pages relation more clearly.
+ * Assign work in detail to each group member. This improve our work efficiency a lot, each member have clear idea what they need to do.
 
 
 #### Decisions that did not turn out as well as we hoped
 
-List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
-
- 
- * we planed to have three group members to do front-end. However, fornt-end have heavy work load in this deliverables.   
- * back-end group members had little work to do.
+ * The diffculty of working on the same Xcode project is completely out of estimation. There are so many auto-generated configuration file from Xcode which make the merge of each one's work very difficult.
+ * To deploy the iOS app on iPhone, we need to register apple developer id and apply a certification, which turn out we don't have time to do it at last.
+ * We planed to have three group members to do front-end. However, fornt-end have heavy work load in this deliverable. So, we makes 4 members working on front-end in this deliverable.
+ * Back-end group members had little work to do.
 
 
 
 #### Planned changes
-
-List any process-related changes you are planning to make (if there are any)
-
  
- * we change our group structure, before changing, we have three members in back-end group and three members in front-end        group. After changing, we have four members in front-end group. Since there is lot of work need to be done in front-end.
+ * We change our group structure, before, we have three members in back-end group and three members in front-end group. After changing, we have four members in front-end group. Since there is lot of work need to be done in front-end.
 
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
 
-
- * iOS front-end app which has basically finished layout (working buttoms and navigation inside app) with some hard-coded        local data for demo.
- * data structure for back-end is confirmed
+ * iOS front-end app which has basically finished layout (working buttoms and navigation inside app) with some hard-coded local data for demo.
+ * Data structure for back-end is confirmed.
 
 #### Goals and/or tasks that were planned but not met/completed:
 
-   
- * iOS App do not deploy yet. We under-estimate difficulty to deploy iOS App, we do not have enough to deploy it.
+ * iOS App do not deploy yet. We under-estimate difficulty to deploy iOS App, we do not have enough time to deploy it.
+
 ## Meeting Highlights
-
-Going into the next iteration, our main insights are:
-
- * 2 - 4 items
- * Short (no more than one short paragraph per item)
- * High-level concepts that should guide your work for the next iteration.
- * These concepts should help you decide on where to focus your efforts.
- * Can be related to product and/or process.
- In the next iteration, we need to finish back-end part of our App, combineing front-end and back-end of our product,
  
+* First, we need to write the internal data fetching logic for the front-end. For now, our mobile app only use data pre-stored on local to demo the GUI. To make it a read working front-end, we still need to finish the fetching logic, how the program package the "get" json request and how the program decode the json from server.
+* Second, we need to design our Admin page GUI for the back-end. Admin page is important to the app owner, owner will need to use the admin page to manage the resources, event and userdata in the back-end database.
+* Third, we need to write the back-end internal logic to handle data get and post request. This the core of back-end, to process all the request from front-end and back-end admin page. Receive data from admin page and store it into database, obtain data from database and send it front-end.
+* Fourth, try to combine the front-end and back-end together and debug.
