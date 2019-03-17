@@ -20,3 +20,19 @@ _Reminder:_ The 0-4 marking scale means:
  * 1 : Below Expectations (50%)
  * 0 : Missing (0%)
 
+Product
+- neither TA could run the application - it crashed. Please schedule a demo with the TAs to get a grade.
+
+README.md
+- Description is concise yet given good background info for the motivation for this project. Consider adding a sentence or two about the partner/app content for context. 
+
+plan.md
+- Within Process Artifacts, task priority is based on "level of importance" which is essentially a definition for priority. How would a new member to the team decide whether to rank one task over another? Be more specific to the application.
+  - Could be more clarity on how tasks are assigned as well.
+- Great breakdown of Goals and the tasks that lead to them. Good way of thinking about this section. 
+
+review.md
+- Sounds like backend could use less people and front end could use more. Why are there no plans to redistribute the team members?
+- Why did the login page not get completed? 
+- Meeting highlights are too concrete here. Think more broadly about the key ideas to keep in mind to guide your next sprint.
+
