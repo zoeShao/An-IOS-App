@@ -28,6 +28,10 @@
 		27C3B8622235D8C600162AB6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B85D2235D8C600162AB6 /* MenuViewController.swift */; };
 		27C3B8632235D8C600162AB6 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B85E2235D8C600162AB6 /* SlideInTransition.swift */; };
 		972817696DA0247967D54B36 /* Pods_YouthLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B1656207B3172740706D86 /* Pods_YouthLine.framework */; };
+		EF2042AC223F193B009442E8 /* VAGRoundedStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042A9223F192D009442E8 /* VAGRoundedStd-Light.otf */; };
+		EF2042AD223F193C009442E8 /* VAGRoundedStd-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042A8223F192C009442E8 /* VAGRoundedStd-Thin.otf */; };
+		EF2042AE223F193F009442E8 /* VAGRoundedStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042AA223F192D009442E8 /* VAGRoundedStd-Bold.otf */; };
+		EF2042AF223F1941009442E8 /* VAGRoundedStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042AB223F192D009442E8 /* VAGRoundedStd-Black.otf */; };
 		EF5A28BD22347B75001FFD61 /* UIColor+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BA22347B74001FFD61 /* UIColor+Ex.swift */; };
 		EF5A28BE22347B75001FFD61 /* UIButton+ZHEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BB22347B74001FFD61 /* UIButton+ZHEx.swift */; };
 		EF5A28BF22347B75001FFD61 /* UIScrollView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BC22347B74001FFD61 /* UIScrollView+Ex.swift */; };
@@ -58,6 +62,7 @@
 		EFE36B5E22358EDA0041A544 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE36B5D22358EDA0041A544 /* ArticleModel.swift */; };
 		EFE36B6122358EF80041A544 /* ArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE36B6022358EF80041A544 /* ArticleAPI.swift */; };
 		EFE36B6322358F4B0041A544 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE36B6222358F4B0041A544 /* FakeData.swift */; };
+		EFEFB8AC22376CC5003E2305 /* ColorAndFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEFB8AB22376CC5003E2305 /* ColorAndFonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +88,10 @@
 		27C3B85E2235D8C600162AB6 /* SlideInTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		5C21BDC5CF609D926A4A21B0 /* Pods-YouthLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.release.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.release.xcconfig"; sourceTree = "<group>"; };
 		725BC15723A9C6045743599C /* Pods-YouthLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.debug.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.debug.xcconfig"; sourceTree = "<group>"; };
+		EF2042A8223F192C009442E8 /* VAGRoundedStd-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Thin.otf"; sourceTree = "<group>"; };
+		EF2042A9223F192D009442E8 /* VAGRoundedStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Light.otf"; sourceTree = "<group>"; };
+		EF2042AA223F192D009442E8 /* VAGRoundedStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Bold.otf"; sourceTree = "<group>"; };
+		EF2042AB223F192D009442E8 /* VAGRoundedStd-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Black.otf"; sourceTree = "<group>"; };
 		EF5A28BA22347B74001FFD61 /* UIColor+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ex.swift"; sourceTree = "<group>"; };
 		EF5A28BB22347B74001FFD61 /* UIButton+ZHEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+ZHEx.swift"; sourceTree = "<group>"; };
 		EF5A28BC22347B74001FFD61 /* UIScrollView+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ex.swift"; sourceTree = "<group>"; };
@@ -115,6 +124,7 @@
 		EFE36B5D22358EDA0041A544 /* ArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		EFE36B6022358EF80041A544 /* ArticleAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleAPI.swift; sourceTree = "<group>"; };
 		EFE36B6222358F4B0041A544 /* FakeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
+		EFEFB8AB22376CC5003E2305 /* ColorAndFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAndFonts.swift; sourceTree = "<group>"; };
 		F2B1656207B3172740706D86 /* Pods_YouthLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YouthLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -218,6 +228,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EF2042A3223F18ED009442E8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EF2042AB223F192D009442E8 /* VAGRoundedStd-Black.otf */,
+				EF2042AA223F192D009442E8 /* VAGRoundedStd-Bold.otf */,
+				EF2042A9223F192D009442E8 /* VAGRoundedStd-Light.otf */,
+				EF2042A8223F192C009442E8 /* VAGRoundedStd-Thin.otf */,
+			);
+			name = Fonts;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		EF5A28B922347B74001FFD61 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +261,8 @@
 		EFBC105722346C0800703135 = {
 			isa = PBXGroup;
 			children = (
+				EF2042A3223F18ED009442E8 /* Fonts */,
+				EFEFB8AB22376CC5003E2305 /* ColorAndFonts.swift */,
 				EF82A9D522349E9900CBDFA6 /* Assets.xcassets */,
 				EF5A28C022347B81001FFD61 /* Vendor */,
 				EF5A28B922347B74001FFD61 /* Category */,
@@ -471,10 +495,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF5A28F422348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png in Resources */,
+				EF2042AD223F193C009442E8 /* VAGRoundedStd-Thin.otf in Resources */,
 				279F19E32235D65500DE8221 /* Cell1.xib in Resources */,
 				27C3B8592235D8BD00162AB6 /* HomePageSearchVC.xib in Resources */,
 				EFBC107022346C0A00703135 /* LaunchScreen.storyboard in Resources */,
 				EF5A28F322348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png in Resources */,
+				EF2042AF223F1941009442E8 /* VAGRoundedStd-Black.otf in Resources */,
+				EF2042AC223F193B009442E8 /* VAGRoundedStd-Light.otf in Resources */,
+				EF2042AE223F193F009442E8 /* VAGRoundedStd-Bold.otf in Resources */,
 				EF82A9D622349E9900CBDFA6 /* Assets.xcassets in Resources */,
 				279F19E42235D65500DE8221 /* User.storyboard in Resources */,
 				EFBC106B22346C0800703135 /* Main.storyboard in Resources */,
@@ -584,6 +612,7 @@
 				27C3B8582235D8BD00162AB6 /* HomeDetailHeaderView.swift in Sources */,
 				EFBC10A42234799C00703135 /* HeaderView.swift in Sources */,
 				EFBC108522346FF800703135 /* HomePageVC.swift in Sources */,
+				EFEFB8AC22376CC5003E2305 /* ColorAndFonts.swift in Sources */,
 				EFBC106822346C0800703135 /* SecondViewController.swift in Sources */,
 				27C3B8512235D8BD00162AB6 /* NewsFeedModel.swift in Sources */,
 				27C3B85F2235D8C600162AB6 /* WebViewController.swift in Sources */,

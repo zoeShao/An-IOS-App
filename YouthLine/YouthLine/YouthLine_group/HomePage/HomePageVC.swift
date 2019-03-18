@@ -15,6 +15,7 @@ class HomePageVC: BaseViewController {
     
     lazy var pageView: DNSPageView = {
         let style = DNSPageStyle()
+        style.contentViewBackgroundColor = custom_menuBarPink
         style.isTitleViewScrollEnabled = false
         style.isTitleScaleEnabled = false
         style.isShowBottomLine = true
@@ -32,6 +33,8 @@ class HomePageVC: BaseViewController {
         return pageView
     }()
     
+    
+    
     lazy var searchTextField: UITextField = {
         let textField = UITextField.init(frame: CGRect(x: 15, y: StatusBarHeight + 10, width: ScreenWidth - 100, height: 30))
         textField.placeholder = "Enter any keywords you want"
@@ -46,8 +49,8 @@ class HomePageVC: BaseViewController {
     lazy var questionBtn: UIButton = {
         let questionBtn = UIButton.init(type: UIButtonType.system)
         questionBtn.frame = CGRect(x: ScreenWidth - 85, y: StatusBarHeight + 10, width: 80, height: 30)
-        questionBtn.setTitle("(- -)", for: UIControlState.normal)
-        questionBtn.setImage(UIImage(named: "AskPost"), for: UIControlState.normal)
+        questionBtn.setTitle("", for: UIControlState.normal)
+        questionBtn.setImage(UIImage(named: "form"), for: UIControlState.normal)
         questionBtn.blueTheme()
         questionBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
         return questionBtn
@@ -55,6 +58,7 @@ class HomePageVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = custom_menuBarPink //.white
         initSearchBar()
         
         for vc in viewControllers {

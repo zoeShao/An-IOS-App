@@ -52,10 +52,12 @@ class PersonalPageVC: UITableViewController {
                                                                  target: self,
                                                                  action: #selector(openNextView))
         
+
+        var custom_color =  UIColor(red: 255/255, green: 105/255, blue: 180/255, alpha: 0.5)
         // Making resource button
         let button = UIButton()
         button.frame = CGRect(x:50, y:200, width: 250, height: 50)
-        button.backgroundColor = UIColor.gray
+        button.backgroundColor = custom_color
         button.setTitle("My Event ", for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         headerView.addSubview(button)
@@ -67,6 +69,8 @@ class PersonalPageVC: UITableViewController {
         self.definesPresentationContext = true
         self.navigationController?.pushViewController(subvc, animated: true)
     }
+    
+
     
     //button action for resoucres
     @objc func buttonAction(sender: UIButton!) {

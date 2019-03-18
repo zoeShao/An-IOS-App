@@ -45,18 +45,41 @@ class EventBaseVC: BaseViewController {
     
     lazy var questionBtn: UIButton = {
         let questionBtn = UIButton.init(type: UIButtonType.system)
-        questionBtn.frame = CGRect(x: ScreenWidth - 85, y: StatusBarHeight + 10, width: 80, height: 30)
-        questionBtn.setTitle("(- -)", for: UIControlState.normal)
-        questionBtn.setImage(UIImage(named: "AskPost"), for: UIControlState.normal)
-        questionBtn.blueTheme()
+        questionBtn.frame = CGRect(x: ScreenWidth/2 - 50, y: StatusBarHeight + 10, width: 95, height: 30)
+        questionBtn.setTitle("", for: UIControlState.normal)
+        questionBtn.setImage(UIImage(named: "YouthLine_transparent"), for: UIControlState.normal)
+//        questionBtn.blueTheme()
         questionBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
         return questionBtn
+    }()
+    
+    lazy var searchBtn: UIButton = {
+        let searchBtn = UIButton.init(type: UIButtonType.system)
+        searchBtn.frame = CGRect(x: ScreenWidth - 50, y: StatusBarHeight + 13, width: 25, height: 25)
+        searchBtn.setTitle("", for: UIControlState.normal)
+        searchBtn.setImage(UIImage(named: "search"), for: UIControlState.normal)
+
+        searchBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
+        return searchBtn
+    }()
+    
+    lazy var filterBtn: UIButton = {
+        let filterBtn = UIButton.init(type: UIButtonType.system)
+        filterBtn.frame = CGRect(x: 20, y: StatusBarHeight + 15, width: 25, height: 25)
+        filterBtn.setTitle("", for: UIControlState.normal)
+        filterBtn.setImage(UIImage(named: "slider"), for: UIControlState.normal)
+        
+        filterBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
+        return filterBtn
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initSearchBar()
+        //view.addSubview(searchTextField)
+        view.addSubview(questionBtn)
+        view.addSubview(searchBtn)
+        view.addSubview(filterBtn)
         
         for vc in viewControllers {
             addChildViewController(vc)

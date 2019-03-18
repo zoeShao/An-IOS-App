@@ -14,6 +14,14 @@ import SwiftyJSON
 import HandyJSON
 import SwiftMessages
 
+
+
+//用来查找并打印所有的字体名称，装完字体以后用
+//for family in UIFont.familyNames.sorted() {
+//    let names = UIFont.fontNames(forFamilyName: family)
+//    print("Family: \(family) Font names: \(names)")
+//}
+
 // iphone X
 func isIPhoneXSeries() -> Bool {
     var isIPhoneXSeries : Bool = false
@@ -30,7 +38,7 @@ func isIPhoneXSeries() -> Bool {
 }
 
 let StatusBarHeight : CGFloat = isIPhoneXSeries() ? 44 : 20
-let NavigationBarHeight : CGFloat = isIPhoneXSeries() ? 88 : 64
+let NavigationBarHeight : CGFloat = isIPhoneXSeries() ? 99 : 72
 let TabBarHeight : CGFloat = isIPhoneXSeries() ? 49 + 34 : 49
 let SafeBottomHeight : CGFloat = isIPhoneXSeries() ? 34 : 0
 let ScreenWidth = UIScreen.main.bounds.size.width

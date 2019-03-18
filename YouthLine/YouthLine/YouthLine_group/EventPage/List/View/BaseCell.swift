@@ -10,22 +10,24 @@ import HandyJSON
 import Moya
 import SwiftyJSON
 import UIKit
+import QuartzCore
 
 class BaseCell: UITableViewCell {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
+        label.font = UIFont.init(name: "VAGRoundedStd-thin", size: 16)
         label.numberOfLines = 2
+        label.textColor = UIColor.black
         return label
     }()
     
     
     var contentLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.init(name: "VAGRoundedStd-light", size: 12)
         label.textColor = RGBColor(80, 80, 80)
-        label.numberOfLines = 3
+        label.numberOfLines = 4
         label.lineBreakMode = NSLineBreakMode.byTruncatingTail
         return label
     }()
@@ -35,35 +37,59 @@ class BaseCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 9
+        imageView.layer.cornerRadius = 6
         return imageView
+    }()
+    
+    var headImgLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 9)
+        label.textColor = RGBColor(80, 80, 80)
+        label.numberOfLines = 1
+
+        return label
     }()
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+//        contentView.alpha = 1
+        contentView.backgroundColor = UIColor.clear
+        contentView.layer.cornerRadius = 250
+        
+//        
+//        contentView.addSubview(headImgLabel)
+//        headImgLabel.snp.makeConstraints {make in
+//              make.width.equalTo(150)
+//              make.height.equalTo(10)
+//
+//              make.left.equalTo(contentView).offset(15)
+//
+//        }
         
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.left.equalTo(contentView).offset(15)
             make.top.equalTo(contentView).offset(12)
             make.right.equalToSuperview().offset(-15)
+
         }
         
         contentView.addSubview(headImgView)
         headImgView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(8);
+            make.top.equalTo(titleLabel.snp.bottom).offset(8); //8
             make.left.equalTo(contentView).offset(14)
             make.width.height.equalTo(18)
-        }
+}
         
         contentView.addSubview(contentLabel)
         contentLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(34)
+            make.top.equalTo(headImgView.snp.bottom).offset(5)// 34
             make.left.equalToSuperview().offset(15)
-            make.right.equalToSuperview().offset(-15)
-            make.bottom.lessThanOrEqualToSuperview().offset(-35)
+            make.right.equalTo(contentView.snp.left).offset(5)
+//            make.right.equalToSuperview().offset(-15)
+            make.bottom.lessThanOrEqualToSuperview().offset(-10)
         }
     }
     
@@ -85,6 +111,7 @@ class BaseCell: UITableViewCell {
         didSet {
             titleLabel.text = model?.common_card?.feed_content?.title?.panel_text
             contentLabel.text = model?.common_card?.feed_content?.content?.panel_text
+            headImgLabel.text = "posted on FaceBook, 10:00 a.m."
             
             let reasonType = model?.uninterest_reasons?.last?.reason_type
             if reasonType == "creator" {

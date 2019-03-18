@@ -18,13 +18,21 @@ class ListBaseVC: BaseViewController {
     
     var ModelList: [Model]?
     var pageIndex: Int = 0
+
+    var tableBackGroundView: UIImageView = {
+        let tableBackGroundView = UIImageView(image: UIImage(named: "rainbow_3"))
+        tableBackGroundView.contentMode = .scaleAspectFill
+        tableBackGroundView.layer.masksToBounds = true
+        return tableBackGroundView
+    }()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: UITableViewStyle.grouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ImageCell.self, forCellReuseIdentifier: ImageCellID)
-        
+        tableView.backgroundColor = UIColor.lightGray //格子背后的背景色
+        tableView.backgroundView = tableBackGroundView
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         return tableView

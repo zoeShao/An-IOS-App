@@ -20,13 +20,14 @@ class ImageCell: BaseCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.backgroundColor = UIColor.clear
         contentLabel.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-120)
         }
         
         contentView.addSubview(ImageView)
         ImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(5)
+            make.top.equalTo(headImgView).offset(0)
             make.right.equalTo(contentView).offset(-10)
             make.width.equalTo(100)
             make.height.equalTo(70)
@@ -39,7 +40,6 @@ class ImageCell: BaseCell {
     
     override var model: Model? {
         didSet {
-            let content = (model?.common_card?.feed_content ?? Feed_content())!
             let url = URL(string: imageUrl[count])
             self.ImageView.kf.setImage(with: url)
             count += 1
