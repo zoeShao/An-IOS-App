@@ -44,10 +44,25 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+<<<<<<< HEAD
 	<key>UIAppFonts</key>
 	<array>
 		<string>VAGRoundedStd-Thin.otf</string>
 		<string>VAGRoundedStd-Light.otf</string>
+=======
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>youtube</string>
+		<string>tumbler</string>
+		<string>twitter</string>
+		<string>facebook</string>
+		<string>instagram</string>
+>>>>>>> 32c604e6b760833061bc0366def689da581f5a4c
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

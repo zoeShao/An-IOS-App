@@ -28,7 +28,7 @@ class HomeListVC: BaseViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: view.frame.width, height: 300)
         
-        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 60, width: ScreenWidth, height: 300), collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 300), collectionViewLayout: layout)
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -37,33 +37,10 @@ class HomeListVC: BaseViewController {
         
         return collectionView
     }()
-    
-    lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView(frame: view.frame)
-        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height)
-        scrollView.delegate = self
-        scrollView.backgroundColor = UIColor.white
-        // add label
-        let viewLable = UILabel(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 60))
-        viewLable.textAlignment = NSTextAlignment.center
-        viewLable.text = "Upcoming Events"
-        viewLable.font =  UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
-        scrollView.addSubview(viewLable)
-        // add collection view
-        scrollView.addSubview(collectionView)
-        // add news feed label
-        let newsFeedLable = UILabel(frame: CGRect(x: 0, y: 360, width: ScreenWidth, height: 60))
-        newsFeedLable.textAlignment = NSTextAlignment.center
-        newsFeedLable.text = "News Feed"
-        newsFeedLable.font =  UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
-        scrollView.addSubview(newsFeedLable)
-        
-        scrollView.addSubview(tableView)
-        return scrollView
-    }()
+
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 420, width: ScreenWidth, height: view.frame.height), style: UITableViewStyle.grouped)
+        let tableView = UITableView(frame: CGRect(x: 0, y: 380, width: ScreenWidth, height: view.frame.height), style: UITableViewStyle.grouped)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -76,8 +53,60 @@ class HomeListVC: BaseViewController {
         return tableView
     }()
     
+    lazy var insButton: UIButton = {
+        let insButton = UIButton.init(type: UIButtonType.custom) as UIButton
+        insButton.frame = CGRect(x: 20, y: 310, width: 60, height: 60)
+        insButton.setImage(UIImage(named: "Instagram"), for: UIControlState.normal)
+        insButton.addTarget(self, action: #selector(openInstagram(sender:)), for: .touchUpInside)
+        return insButton
+    }()
+
+    lazy var twitterButton: UIButton = {
+        let twitterButton = UIButton.init(type: UIButtonType.custom) as UIButton
+        twitterButton.frame = CGRect(x: 100, y: 310, width: 60, height: 60)
+        twitterButton.setImage(UIImage(named: "Twitter"), for: UIControlState.normal)
+        twitterButton.addTarget(self, action: #selector(openTwitter(sender:)), for: .touchUpInside)
+        return twitterButton
+    }()
     
+    lazy var fbButton: UIButton = {
+        let fbButton = UIButton.init(type: UIButtonType.custom) as UIButton
+        fbButton.frame = CGRect(x: 180, y: 310, width: 60, height: 60)
+        fbButton.setImage(UIImage(named: "Facebook"), for: UIControlState.normal)
+        fbButton.addTarget(self, action: #selector(openFacebook(sender:)), for: .touchUpInside)
+        return fbButton
+    }()
     
+    lazy var youtbButton: UIButton = {
+        let youtbButton = UIButton.init(type: UIButtonType.custom) as UIButton
+        youtbButton.frame = CGRect(x: 260, y: 310, width: 60, height: 60)
+        youtbButton.setImage(UIImage(named: "Youtube"), for: UIControlState.normal)
+        youtbButton.addTarget(self, action: #selector(openYoutube(sender:)), for: .touchUpInside)
+        return youtbButton
+    }()
+    
+    lazy var tumblrButton: UIButton = {
+        let tumblrButton = UIButton.init(type: UIButtonType.custom) as UIButton
+        tumblrButton.frame = CGRect(x: 340, y: 310, width: 60, height: 60)
+        tumblrButton.setImage(UIImage(named: "Tumblr"), for: UIControlState.normal)
+        tumblrButton.addTarget(self, action: #selector(openTumblr(sender:)), for: .touchUpInside)
+        return tumblrButton
+    }()
+    
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView(frame: view.frame)
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height)
+        scrollView.delegate = self
+        scrollView.backgroundColor = UIColor.white
+        scrollView.addSubview(collectionView)
+        scrollView.addSubview(insButton)
+        scrollView.addSubview(twitterButton)
+        scrollView.addSubview(fbButton)
+        scrollView.addSubview(youtbButton)
+        scrollView.addSubview(tumblrButton)
+        scrollView.addSubview(tableView)
+        return scrollView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -179,3 +208,69 @@ extension HomeListVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
+extension HomeListVC {
+    @objc func openInstagram(sender: UIButton) {
+        let instURL: NSURL = NSURL (string: "instagram://user?username=lgbtyouthline")! // Replace = Instagram by the your instagram user name
+        let instWB: NSURL = NSURL (string: "https://www.instagram.com/lgbtyouthline/")! // Replace the link by your instagram weblink
+
+        if (UIApplication.shared.canOpenURL(instURL as URL)) {
+            // Open Instagram application
+            UIApplication.shared.openURL(instURL as URL)
+        } else {
+            // Open in Safari
+            UIApplication.shared.openURL(instWB as URL)
+        }
+    }
+    
+    @objc func openTwitter(sender: UIButton) {
+        let instURL: NSURL = NSURL (string: "twitter://user?screen_name=LGBTYouthLine")! // Replace = Instagram by the your instagram user name
+        let instWB: NSURL = NSURL (string: "https://twitter.com/LGBTYouthLine")! // Replace the link by your instagram weblink
+        
+        if (UIApplication.shared.canOpenURL(instURL as URL)) {
+            // Open Instagram application
+            UIApplication.shared.openURL(instURL as URL)
+        } else {
+            // Open in Safari
+            UIApplication.shared.openURL(instWB as URL)
+        }
+    }
+    
+    @objc func openFacebook(sender: UIButton) {
+        let instURL: NSURL = NSURL (string: "fb://profile")! // Replace = Instagram by the your instagram user name
+        let instWB: NSURL = NSURL (string: "https://www.facebook.com/lgbtyouthline")! // Replace the link by your instagram weblink
+        
+        if (UIApplication.shared.canOpenURL(instURL as URL)) {
+            // Open Instagram application
+            UIApplication.shared.openURL(instURL as URL)
+        } else {
+            // Open in Safari
+            UIApplication.shared.openURL(instWB as URL)
+        }
+    }
+    
+    @objc func openYoutube(sender: UIButton) {
+        let instURL: NSURL = NSURL (string: "youtube://www.youtube.com/user/lgbtyouthline")! // Replace = Instagram by the your instagram user name
+        let instWB: NSURL = NSURL (string: "https://www.youtube.com/user/lgbtyouthline")! // Replace the link by your instagram weblink
+        
+        if (UIApplication.shared.canOpenURL(instURL as URL)) {
+            // Open Instagram application
+            UIApplication.shared.openURL(instURL as URL)
+        } else {
+            // Open in Safari
+            UIApplication.shared.openURL(instWB as URL)
+        }
+    }
+    
+    @objc func openTumblr(sender: UIButton) {
+        let instURL: NSURL = NSURL (string: "tumblr://x-callback-url/blog?blogName=lgbtyouthline")! // Replace = Instagram by the your instagram user name
+        let instWB: NSURL = NSURL (string: "http://lgbtyouthline.tumblr.com")! // Replace the link by your instagram weblink
+        
+        if (UIApplication.shared.canOpenURL(instURL as URL)) {
+            // Open Instagram application
+            UIApplication.shared.openURL(instURL as URL)
+        } else {
+            // Open in Safari
+            UIApplication.shared.openURL(instWB as URL)
+        }
+    }
+}

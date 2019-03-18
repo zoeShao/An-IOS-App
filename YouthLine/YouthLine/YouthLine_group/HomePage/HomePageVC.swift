@@ -32,9 +32,13 @@ class HomePageVC: BaseViewController {
                                    startIndex: 0)
         return pageView
     }()
+<<<<<<< HEAD
     
     
     
+=======
+
+>>>>>>> 32c604e6b760833061bc0366def689da581f5a4c
     lazy var searchTextField: UITextField = {
         let textField = UITextField.init(frame: CGRect(x: 15, y: StatusBarHeight + 10, width: ScreenWidth - 100, height: 30))
         textField.placeholder = "Enter any keywords you want"
