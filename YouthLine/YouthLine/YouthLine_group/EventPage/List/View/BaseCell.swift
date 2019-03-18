@@ -55,8 +55,8 @@ class BaseCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
 //        contentView.alpha = 1
-        contentView.backgroundColor = UIColor.clear
-        contentView.layer.cornerRadius = 250
+        contentView.backgroundColor = UIColor.white
+        contentView.layer.cornerRadius = 2
         
 //        
 //        contentView.addSubview(headImgLabel)
