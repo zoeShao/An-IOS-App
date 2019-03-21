@@ -1,10 +1,10 @@
 ## Team Deliverable 2, team-03
 
-#### Total : 45 (out of 100)
+#### Total : 88 (out of 100)
 
 | Component   | 0    |  1   |  2   |  3   |  4   |
 | ----------- | ---- | ---- | ---- | ---- | ---- |
-| `product` | X |   |   |   |   |
+| `product` |   |   |   | X |   |
 | `readme` |   |   |   | X |   |
 | `iteration-01.plan.md`   |   |   |   | X |   |
 | `iteration-01.review.md` |   |   |   |   | X |
@@ -21,7 +21,9 @@ _Reminder:_ The 0-4 marking scale means:
  * 0 : Missing (0%)
 
 Product
-- neither TA could run the application - it crashed. Please schedule a demo with the TAs to get a grade.
+- App makes clear initial steps towards an MVP which solves the problem at hand.
+- Perhaps this is an upcoming feature but the events may benefit from a calendar style presentation since time is an important factor for events.
+  - Not clear how the events under "My Events" in the profile lead to the Events tab.
 
 README.md
 - Description is concise yet given good background info for the motivation for this project. Consider adding a sentence or two about the partner/app content for context. 
