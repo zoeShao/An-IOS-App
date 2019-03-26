@@ -35,7 +35,8 @@ def verify_pw(password):
 
 @app.route('/pw', methods=['POST'])
 def pw():
-    password = request.json[""]
+    password = request.json
+    print(request.json)
 
 @app.route('/resources/category/<cat>')
 def fetch_res_cat(cat):
