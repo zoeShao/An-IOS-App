@@ -1,28 +1,73 @@
 from flask import Flask, jsonify, request, redirect, url_for
 from flask_cors import CORS
-from werkzeug import secure_filename
 import os
 
 # Start the app and setup the static directory for the html, css, and js files.
 app = Flask(__name__, static_url_path='', static_folder='static')
 CORS(app)
 
+eventDB = None
+resourcesDB = None
+
 class DB:
     # init
     def __init__(self):
-        core = [] # list of dictionary
+        self.core = [] # list of list
+        self.tags = []
 
     # load from csv file
     def loadFromFile(self, path):
-        pass
+        # open file
+        file = open(path)
+        lines = file.read().splitlines()
+
+        # read the first line
+        header = lines[0]
+        for tag in header.split(","):
+            self.tags.append(tag)
+
+        # for the rest
+        for line in lines[1:]:
+            # split
+            record = []
+            for item in line.split(','):
+                record.append(item)
+            # add to core
+            self.core.append(record)
+
+        print("DB loaded.")
+        #print(self.core)
+
     # return all records in Json
+    # {"Events" : [list of single event]}
     def getAllAsJSON(self):
-        pass
+        lst = []
+        # for in core
+        for record in self.core:
+            json = {}
+            # format in json
+            for i in range(len(self.tags)):
+                key = self.tags[i]
+                value = record[i]
+                json[key] = value
+            # add to list
+            lst.append(json)
+
+        #print(lst)
+        return {"Events" : lst}
 
 
 # If new CSV file uploaded to server, use it to build new db
 def reload_DB():
     pass
+
+# setup everything before running the server
+def init():
+    global eventDB
+    eventDB = DB()
+    eventDB.loadFromFile("./data/event.csv")
+
+init()
 
 @app.route('/')
 def index():
@@ -38,6 +83,7 @@ def verify_pw(password):
 @app.route('/pw', methods=['POST'])
 def pw():
     password = request.json
+    print("in pw")
     print(request.json)
 
 @app.route('/resources/category/<cat>')
@@ -73,9 +119,10 @@ def fetch_all_event():
                     }
         }
     """
-    json = {"test":"test"}
 
-    return jsonify(json)
+    return jsonify(eventDB.getAllAsJSON())
+
+
 
 if __name__ == "__main__":
     # Only for debugging while developing
