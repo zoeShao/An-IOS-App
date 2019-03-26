@@ -8,6 +8,7 @@ CORS(app)
 
 eventDB = None
 resourcesDB = None
+admin_pw = None
 
 class DB:
     # init
@@ -56,42 +57,60 @@ class DB:
         #print(lst)
         return {"Events" : lst}
 
+    def clear(self):
+        self.core.clear()
+        self.tags.clear()
+
 
 # If new CSV file uploaded to server, use it to build new db
 def reload_DB():
-    pass
+    global eventDB, resourcesDB
+    eventDB.clear()
+    eventDB.loadFromFile("./data/event.csv")
+
+
+def read_admin_pw():
+    file = open("./data/pw")
+    admin_pw = file.read()
+    return admin_pw
+
 
 # setup everything before running the server
 def init():
-    global eventDB
+    global eventDB, resourcesDB, admin_pw
+
+    admin_pw = read_admin_pw()
+    print("Admin Password:" + admin_pw)
+
     eventDB = DB()
     eventDB.loadFromFile("./data/event.csv")
 
+# Setup everything
 init()
+
 
 @app.route('/')
 def index():
     return redirect("/admin_login.html")
 
-@app.route('/password/<password>')
-def verify_pw(password):
-    if password == "youthlinel2019":
+# @app.route('/password/<password>')
+# def verify_pw(password):
+#     if password == "youthlinel2019":
+#         return redirect("/upload.html")
+#     else:
+#         return "wrong password"
+
+
+@app.route('/pw', methods=['POST'])
+def pw():
+    password = request.json["password"]
+    if password == admin_pw:
         return redirect("/upload.html")
     else:
         return "wrong password"
 
-@app.route('/pw', methods=['POST'])
-def pw():
-    password = request.json
-    print("in pw")
-    print(request.json)
 
-@app.route('/resources/category/<cat>')
-def fetch_res_cat(cat):
-
-    return jsonify(None)
-
-@app.route('/resources/all')
+@app.route('/resources')
 def fetch_all_resources():
     """
     Expected JSON Format:
@@ -121,7 +140,6 @@ def fetch_all_event():
     """
 
     return jsonify(eventDB.getAllAsJSON())
-
 
 
 if __name__ == "__main__":
