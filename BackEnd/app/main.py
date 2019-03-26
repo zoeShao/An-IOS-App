@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect, url_for
 from flask_cors import CORS
 import os
 
@@ -6,9 +6,36 @@ import os
 app = Flask(__name__, static_url_path='', static_folder='static')
 CORS(app)
 
+class DB:
+    # init
+    def __init__(self):
+        core = [] # list of dictionary
+
+    def loadFromFile(self, path):
+        pass
+
+    def getAll(self):
+        pass
+
+
+# If new CSV file uploaded to server, use it to build new db
+def reload_DB():
+    pass
+
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def index():
+    return redirect("/admin_login.html")
+
+@app.route('/password/<password>')
+def verify_pw(password):
+    if password == "youthlinel2019":
+        return redirect("/upload.html")
+    else:
+        return "wrong password"
+
+@app.route('/pw', methods=['POST'])
+def pw():
+    password = request.json[""]
 
 @app.route('/resources/category/<cat>')
 def fetch_res_cat(cat):
