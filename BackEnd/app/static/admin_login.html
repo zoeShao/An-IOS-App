@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
+
+
+<head>LGBT-youthLine</head>
+<script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <body>
-
-<h2>LGBT-youthLine</h2>
-
+</br>
   <input type="password" name="password" id = "psw" placeholder="password">
   <br>
   <button type = "button"  id = "log"> Log-in </button>
@@ -13,7 +20,7 @@
 </body>
 <script>
   function submitpas(psw){
-    var data = JSON.stringgift({"password":psw})
+    var data = JSON.stringify({"password":psw})
     $.ajax({
       url:'https:',
       method:"Post",
@@ -24,8 +31,13 @@
     })
   };
   $("#log").click(function(){
+<<<<<<< HEAD
       submitpas(psw)
       console.log("op")
+=======
+    submitpas(psw)
+    console.log("111")
+>>>>>>> 106fa13b8ae9871e8b75473c6e5cd815e8704a2c
   })
 </script>
 </html>
