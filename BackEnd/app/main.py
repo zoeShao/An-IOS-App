@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request, redirect, url_for
 from flask_cors import CORS
+from werkzeug import secure_filename
 import os
 
 # Start the app and setup the static directory for the html, css, and js files.
@@ -11,10 +12,11 @@ class DB:
     def __init__(self):
         core = [] # list of dictionary
 
+    # load from csv file
     def loadFromFile(self, path):
         pass
-
-    def getAll(self):
+    # return all records in Json
+    def getAllAsJSON(self):
         pass
 
 
