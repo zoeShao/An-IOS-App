@@ -10,6 +10,11 @@ eventDB = None
 resourcesDB = None
 admin_pw = None
 
+# prefix = ""
+prefix = "./app/"
+
+
+
 class DB:
     # init
     def __init__(self):
@@ -62,11 +67,11 @@ class DB:
 def reload_DB():
     global eventDB, resourcesDB
     eventDB.clear()
-    eventDB.loadFromFile("./data/event.csv")
+    eventDB.loadFromFile(prefix + "data/event.csv")
 
 
 def read_admin_pw():
-    file = open("./data/pw")
+    file = open(prefix + "data/pw")
     admin_pw = file.read()
     return admin_pw
 
@@ -79,9 +84,9 @@ def init():
     print("Admin Password:" + admin_pw)
 
     eventDB = DB()
-    eventDB.loadFromFile("./data/event.csv")
+    eventDB.loadFromFile(prefix + "data/event.csv")
     resourcesDB = DB()
-    resourcesDB.loadFromFile("./data/res.csv")
+    resourcesDB.loadFromFile(prefix + "data/res.csv")
 
 # Setup everything
 init()
@@ -180,7 +185,7 @@ def fetch_all_event():
     """
 
 
-    return jsonify({"Events": eventDB.getAllAsJSON()})
+    return jsonify({"Events": eventDB.getAll()})
 
 
 if __name__ == "__main__":
