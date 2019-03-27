@@ -37,25 +37,21 @@ class DB:
             self.core.append(record)
 
         print("DB loaded.")
-        #print(self.core)
 
-    # return all records in Json
-    # {"Events" : [list of single event]}
-    def getAllAsJSON(self):
+    def getAll(self):
         lst = []
         # for in core
         for record in self.core:
-            json = {}
+            dict = {}
             # format in json
             for i in range(len(self.tags)):
                 key = self.tags[i]
                 value = record[i]
-                json[key] = value
+                dict[key] = value
             # add to list
-            lst.append(json)
+            lst.append(dict)
 
-        #print(lst)
-        return {"Events" : lst}
+        return lst
 
     def clear(self):
         self.core.clear()
@@ -84,6 +80,8 @@ def init():
 
     eventDB = DB()
     eventDB.loadFromFile("./data/event.csv")
+    resourcesDB = DB()
+    resourcesDB.loadFromFile("./data/res.csv")
 
 # Setup everything
 init()
@@ -114,32 +112,75 @@ def pw():
 def fetch_all_resources():
     """
     Expected JSON Format:
-        {
+        { "Resources":
+            [
+                { "category": String
+                  "contents":
+                  [
+                    {
+                        "title"       : String
+                        "resource_url": String
+                        "img"         : String
+                    },
+                    {
+                        second content...
+                    }
+                  ]
+                },
+                {
+                    second category...
+                }
+            ]
 
         }
     """
+    json = {"Resources":[]}
+    raw = resourcesDB.getAll()
+    cat_set = dict()
 
-    return jsonify(None)
+    for record in raw:
+        type = record["category"]
+        if type in cat_set.keys():
+            cat_set[type].append(record)
+        else:
+            cat_set[type] = [record]
+
+    # Now all records had been split
+    for cat in cat_set.items():  # For each category
+        cat_name = cat[0]
+        cat_json = {"category": cat_name,
+                    "contents": []}
+        for record in cat[1]:  # For each record in each category
+            each_content = {}
+            each_content["title"] = record["title"]
+            each_content["resource_url"] = record["resource_url"]
+            each_content["img"] = record["img"]
+            cat_json["contents"].append(each_content)
+        json["Resources"].append(cat_json)
+
+    return jsonify(json)
 
 @app.route('/event')
 def fetch_all_event():
     """ Expected JSON Format:
-        { "title"        : String - Event title,
-          "source"       : String - Facebook, Twitter, ...,
-          "release_date" : String - Time that this event was created,
-          "b_content"    : String - Short content that displayed in main page
-          "image_url"    : String - URL to event image,
-          "main_content" : String - Main Content,
-          "extra" : { "address"       : String - Event address,
-                      "event_date"    : String - Date that event will be held,
-                      "event_time"    : String - Time that event will be held,
-                      "map"           : String - Reserved keyword,
-                      "event_website" : String - URL to the event website
-                    }
+        { "Events" : [{
+                       "title"        : String - Event title,
+                       "source"       : String - Facebook, Twitter, ...,
+                       "release_date" : String - Time that this event was created,
+                       "b_content"    : String - Short content that displayed in main page
+                       "image_url"    : String - URL to event image,
+                       "main_content" : String - Main Content,
+                       "address"       : String - Event address,
+                       "event_date"    : String - Date that event will be held,
+                       "event_time"    : String - Time that event will be held,
+                       "map"           : String - Reserved keyword,
+                       "event_website" : String - URL to the event website
+                      }, ...]
         }
     """
 
-    return jsonify(eventDB.getAllAsJSON())
+
+    return jsonify({"Events": eventDB.getAllAsJSON()})
 
 
 if __name__ == "__main__":
