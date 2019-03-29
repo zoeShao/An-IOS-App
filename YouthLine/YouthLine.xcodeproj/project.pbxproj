@@ -28,6 +28,7 @@
 		27C3B8612235D8C600162AB6 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B85C2235D8C600162AB6 /* Resource.swift */; };
 		27C3B8622235D8C600162AB6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B85D2235D8C600162AB6 /* MenuViewController.swift */; };
 		27C3B8632235D8C600162AB6 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B85E2235D8C600162AB6 /* SlideInTransition.swift */; };
+		27CE0116224EDFD2006147DE /* MyResourceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CE0115224EDFD2006147DE /* MyResourceVC.swift */; };
 		972817696DA0247967D54B36 /* Pods_YouthLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B1656207B3172740706D86 /* Pods_YouthLine.framework */; };
 		EF2042AC223F193B009442E8 /* VAGRoundedStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042A9223F192D009442E8 /* VAGRoundedStd-Light.otf */; };
 		EF2042AD223F193C009442E8 /* VAGRoundedStd-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042A8223F192C009442E8 /* VAGRoundedStd-Thin.otf */; };
@@ -88,6 +89,7 @@
 		27C3B85C2235D8C600162AB6 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		27C3B85D2235D8C600162AB6 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		27C3B85E2235D8C600162AB6 /* SlideInTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
+		27CE0115224EDFD2006147DE /* MyResourceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyResourceVC.swift; sourceTree = "<group>"; };
 		5C21BDC5CF609D926A4A21B0 /* Pods-YouthLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.release.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.release.xcconfig"; sourceTree = "<group>"; };
 		725BC15723A9C6045743599C /* Pods-YouthLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.debug.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.debug.xcconfig"; sourceTree = "<group>"; };
 		EF2042A8223F192C009442E8 /* VAGRoundedStd-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Thin.otf"; sourceTree = "<group>"; };
@@ -213,6 +215,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		27CE0114224EDF7A006147DE /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				27CE0115224EDFD2006147DE /* MyResourceVC.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		AD5222A78F63EA7AED61F3D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				279F19DB2235D65500DE8221 /* eventCell */,
+				27CE0114224EDF7A006147DE /* Resource */,
 				279F19D92235D65500DE8221 /* myEvent */,
 				279F19DF2235D65500DE8221 /* setting */,
 				279F19DE2235D65500DE8221 /* User.storyboard */,
@@ -630,6 +641,7 @@
 				273BAFE9224AE0D10039B7D9 /* Model.xcdatamodeld in Sources */,
 				EFE36B6122358EF80041A544 /* ArticleAPI.swift in Sources */,
 				EFE36B5E22358EDA0041A544 /* ArticleModel.swift in Sources */,
+				27CE0116224EDFD2006147DE /* MyResourceVC.swift in Sources */,
 				27C3B8502235D8BD00162AB6 /* HomePageSearchVC.swift in Sources */,
 				EFBC106622346C0800703135 /* BaseViewController.swift in Sources */,
 				27C3B8612235D8C600162AB6 /* Resource.swift in Sources */,

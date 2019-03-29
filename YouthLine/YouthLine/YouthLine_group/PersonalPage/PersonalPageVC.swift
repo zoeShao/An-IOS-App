@@ -1,67 +1,82 @@
 import UIKit
 
-struct cellData {
-    let cellId : Int!
-    let img : UIImage!
-}
+//struct MainCell {
+//    var eventName : String
+//}
 
 class PersonalPageVC: UITableViewController {
     
+    
+    let cellId = "cellId"
+//    var events : [MainCell] = [MainCell]()
+    let events = ["Events","Resources"]
+    
+//    func createProductArray() {
+//        events.append(MainCell(eventName: "Event"))
+//        events.append(MainCell(eventName: "Resources"))
+//
+//    }
+//
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 1000))
-        
-        //user profile pic
-        let imageView: UIImageView = UIImageView(frame: CGRect(x: 150, y: 0, width: 100, height: 100))
-        imageView.image = #imageLiteral(resourceName: "Night_Tabbar_More_Highlight_28x28_")
-        headerView.addSubview(imageView)
-        
-        //user information
-        let userNameLabel: UILabel = UILabel(frame: CGRect(x: 50, y: 80, width: 100, height: 100))
-        userNameLabel.text = "User Name"
-        headerView.addSubview(userNameLabel)
-        
-        //User Place holder
-        let userNameTextField = UITextField(frame: CGRect(x: 160, y: 80, width: 100, height: 100))
-        userNameTextField.placeholder = NSLocalizedString("User Name", comment: "")
-        userNameTextField.autocorrectionType = .yes
-        userNameTextField.returnKeyType = .done
-        userNameTextField.clearButtonMode = .never
-        headerView.addSubview(userNameTextField)
-        
-        //Contact information
-        let contactNameLabel: UILabel = UILabel(frame: CGRect(x: 50, y: 120, width: 100, height: 100))
-        contactNameLabel.text = "Contact"
-        headerView.addSubview(contactNameLabel)
-        
-        //Contact Place holder
-        let contactTextField = UITextField(frame: CGRect(x: 160, y: 120, width: 100, height: 100))
-        contactTextField.placeholder = NSLocalizedString("Contact Info", comment: "")
-        contactTextField.autocorrectionType = .yes
-        contactTextField.returnKeyType = .done
-        contactTextField.clearButtonMode = .never
-        headerView.addSubview(contactTextField)
-        
-        self.tableView.tableHeaderView = headerView
-        
-        //add navigation button
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Setting",
                                                                  style: .plain,
                                                                  target: self,
                                                                  action: #selector(openNextView))
+//        createProductArray()
+        tableView.register(SubtitleTableViewCell.self, forCellReuseIdentifier: cellId)
+        
+    
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let currentLastItem = events[indexPath.row]
+        cell.textLabel?.text = currentLastItem
+        
+        return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = events[indexPath[1]]
+        if model == "Events"{
+            let vc = MyEventVC()
+            //        vc.questionTitle = model?.news?.news_content?.title?.panel_text ?? ""
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+
+        } else {
+            let vc = MyResourceVC()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
 
-        var custom_color =  UIColor(red: 255/255, green: 105/255, blue: 180/255, alpha: 0.5)
-        // Making resource button
-        let button = UIButton()
-        button.frame = CGRect(x:50, y:200, width: 250, height: 50)
-        button.backgroundColor = custom_color
-        button.setTitle("My Event ", for: .normal)
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        headerView.addSubview(button)
+    
     }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return events.count
+    }
+    
+    //Make it subtitle style
+    class SubtitleTableViewCell: UITableViewCell {
+        
+        override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+            super.init(style: .default, reuseIdentifier: reuseIdentifier)
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    }
+    
+
     
     //button action for setting
     @objc func openNextView(){
@@ -80,38 +95,8 @@ class PersonalPageVC: UITableViewController {
     }
     
     
-    //try to send data
-//    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-//        if (segue.identifier == "segueTest") {
-//            //Checking identifier is crucial as there might be multiple
-//            // segues attached to same view
-//            var detailVC = segue!.MyEventVC as DetailViewController;
-//            detailVC.toPass = textField.text
-//        }
-//    }
+
     
     
 }
 
-
-// data for cell data
-
-//        var arraryOfCelldata = [cellData]()
-//        arraryOfCelldata = [cellData(cellId: 1, img: #imageLiteral(resourceName: "AppIcon_76x76_")),
-//                            cellData(cellId: 1, img: #imageLiteral(resourceName: "AppIcon_76x76_"))]
-//
-
-//controll cell1 and cell2
-//        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//            return arraryOfCelldata.count
-//        }
-
-//        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//            let cell = Bundle.main.loadNibNamed("Cell1", owner: self, options: nil)?.first as! Cell1
-//            cell.img1.image = arraryOfCelldata[indexPath.row].img
-//            cell.img2.image = arraryOfCelldata[indexPath.row].img
-//            cell.img2.image = arraryOfCelldata[indexPath.row].img
-//            return cell
-//
-//        }

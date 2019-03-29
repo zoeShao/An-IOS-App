@@ -1,17 +1,23 @@
-
+//
+//  MyResourceVC.swift
+//  YouthLine
+//
+//  Created by NOKEYUAN on 2019-03-29.
+//  Copyright © 2019 RainbowWarrior. All rights reserved.
+//
 
 import UIKit
 
 
-struct Myevent {
+struct Myresource {
     var eventName : String
     var date : String
 }
 
-class MyEventVC: UITableViewController {
+class MyResourceVC: UITableViewController {
     
     let cellId = "cellId"
-    var events : [Myevent] = [Myevent]()
+    var events : [Myresource] = [Myresource]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +49,9 @@ class MyEventVC: UITableViewController {
     }
     
     func createProductArray() {
-        events.append(Myevent(eventName: "Event1",date:"2018-01-22" ))
-        events.append(Myevent(eventName: "Event2",date:"2018-01-22" ))
-        events.append(Myevent(eventName: "Event3",date:"2018-01-22" ))
+        events.append(Myresource(eventName: "Event1",date:"2018-01-22" ))
+        events.append(Myresource(eventName: "Event2",date:"2018-01-22" ))
+        events.append(Myresource(eventName: "Event3",date:"2018-01-22" ))
     }
     
     
@@ -65,5 +71,6 @@ class MyEventVC: UITableViewController {
         // do something when button was hitted!
     }
     
-
+    
 }
+
