@@ -14,7 +14,6 @@ admin_pw = None
 prefix = "./app/"
 
 
-
 class DB:
     # init
     def __init__(self):
@@ -68,6 +67,8 @@ def reload_DB():
     global eventDB, resourcesDB
     eventDB.clear()
     eventDB.loadFromFile(prefix + "data/event.csv")
+    resourcesDB.clear()
+    resourcesDB.loadFromFile(prefix + "data/res.csv")
 
 
 def read_admin_pw():
@@ -95,13 +96,6 @@ init()
 @app.route('/')
 def index():
     return redirect("/admin_login.html")
-
-# @app.route('/password/<password>')
-# def verify_pw(password):
-#     if password == "youthlinel2019":
-#         return redirect("/upload.html")
-#     else:
-#         return "wrong password"
 
 
 @app.route('/pw', methods=['POST'])
@@ -183,7 +177,6 @@ def fetch_all_event():
                       }, ...]
         }
     """
-
 
     return jsonify({"Events": eventDB.getAll()})
 
