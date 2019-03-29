@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273BAFE9224AE0D10039B7D9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 273BAFE7224AE0D10039B7D9 /* Model.xcdatamodeld */; };
 		279F19E12235D65500DE8221 /* myEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F19DA2235D65500DE8221 /* myEvent.swift */; };
 		279F19E22235D65500DE8221 /* Cell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F19DC2235D65500DE8221 /* Cell1.swift */; };
 		279F19E32235D65500DE8221 /* Cell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F19DD2235D65500DE8221 /* Cell1.xib */; };
@@ -66,6 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		273BAFE8224AE0D10039B7D9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		279F19DA2235D65500DE8221 /* myEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myEvent.swift; sourceTree = "<group>"; };
 		279F19DC2235D65500DE8221 /* Cell1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell1.swift; sourceTree = "<group>"; };
 		279F19DD2235D65500DE8221 /* Cell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell1.xib; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				EF5A28F222348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png */,
 				EFBC106E22346C0A00703135 /* LaunchScreen.storyboard */,
 				EFBC107122346C0A00703135 /* Info.plist */,
+				273BAFE7224AE0D10039B7D9 /* Model.xcdatamodeld */,
 			);
 			path = YouthLine;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				EFBC106422346C0800703135 /* AppDelegate.swift in Sources */,
 				279F19E22235D65500DE8221 /* Cell1.swift in Sources */,
 				EFBC108122346F5500703135 /* PersonalPageVC.swift in Sources */,
+				273BAFE9224AE0D10039B7D9 /* Model.xcdatamodeld in Sources */,
 				EFE36B6122358EF80041A544 /* ArticleAPI.swift in Sources */,
 				EFE36B5E22358EDA0041A544 /* ArticleModel.swift in Sources */,
 				27C3B8502235D8BD00162AB6 /* HomePageSearchVC.swift in Sources */,
@@ -843,6 +847,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		273BAFE7224AE0D10039B7D9 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				273BAFE8224AE0D10039B7D9 /* Model.xcdatamodel */,
+			);
+			currentVersion = 273BAFE8224AE0D10039B7D9 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EFBC105822346C0800703135 /* Project object */;
 }

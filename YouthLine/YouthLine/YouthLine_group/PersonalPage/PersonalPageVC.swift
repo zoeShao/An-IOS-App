@@ -78,6 +78,19 @@ class PersonalPageVC: UITableViewController {
         self.definesPresentationContext = true
         self.navigationController?.pushViewController(subvc, animated: true)
     }
+    
+    
+    //try to send data
+//    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+//        if (segue.identifier == "segueTest") {
+//            //Checking identifier is crucial as there might be multiple
+//            // segues attached to same view
+//            var detailVC = segue!.MyEventVC as DetailViewController;
+//            detailVC.toPass = textField.text
+//        }
+//    }
+    
+    
 }
 
 

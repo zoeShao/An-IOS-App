@@ -65,4 +65,16 @@ class MyEventVC: UITableViewController {
         // do something when button was hitted!
     }
     
+    
+    
+    // ------------------Using Core data---------------------------
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
