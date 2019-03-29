@@ -11,7 +11,7 @@
 
 <body>
 </br>
-  <input type="password" name="password" id = "pass" placeholder="password">
+  <input type="password" name="password" id = "pass" placeholder="passwords">
   <br>
   <button type = "button"  id = "log"> Log-in 
     </button>
@@ -22,7 +22,8 @@
 </body>
 <script >
     function senduser(userp){
-    var data = JSON.stringify({"password":userp})
+    var data = JSON.stringify({"password":$(userp).val()})
+    console.log(data)
       $.ajax({
         url:'http://localhost:80/pw',
         method: 'POST',
@@ -31,7 +32,7 @@
         success:
           console.log("success")
       })
-  }
+   }
     $("#log").click(function(){
       senduser(pass);
     })
