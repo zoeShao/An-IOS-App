@@ -10,7 +10,7 @@ import UIKit
 
 class ResourcePageVC: BaseViewController {
     
-    let viewControllers = [UIViewController(), ResourcePageVC_1(), UIViewController(), UIViewController()]
+    let viewControllers = [UIViewController(), ResourceBaseVC(), UIViewController(), UIViewController()]
     let transition = SlideInTransition()
     var resourcesCollection = [String: [Resource]]()
     var resources: [Resource] = []

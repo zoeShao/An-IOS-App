@@ -1,68 +1,100 @@
 //
-//  ResourcePageVC_1.swift
+//  ResourceBaseVC.swift
 //  YouthLine
 //
-//  Created by Yecheng Song on 2019-03-09.
+//  Created by Yuting Shao on 2019-03-30.
 //  Copyright © 2019 RainbowWarrior. All rights reserved.
 //
 
 import UIKit
+import Alamofire
+import HandyJSON
+import MJRefresh
+import SwiftyJSON
 
-class ResourcePageVC_1: UITableViewController {
+class ResourceBaseVC: BaseViewController {
     let transition = SlideInTransition()
     var resourcesCollection = [String: [Resource]]()
     var resources: [Resource] = []
     
+    var ModelList: [Model]?
+    var pageIndex: Int = 0
     
-    lazy var searchTextField: UITextField = {
-        let textField = UITextField.init(frame: CGRect(x: 15, y: StatusBarHeight + 10, width: ScreenWidth - 100, height: 30))
-        textField.placeholder = "Enter search texts here"
-        textField.layer.masksToBounds = true
-        textField.layer.cornerRadius = 5
-        textField.textAlignment = NSTextAlignment.center
-        textField.backgroundColor = RGBColor(240, 240, 240)
-        textField.delegate = self
-        return textField
+    var tableBackGroundView: UIImageView = {
+        let tableBackGroundView = UIImageView(image: UIImage(named: "rainbow_3"))
+        tableBackGroundView.contentMode = .scaleAspectFill
+        tableBackGroundView.layer.masksToBounds = true
+        return tableBackGroundView
     }()
     
+    //    lazy var searchTextField: UITextField = {
+    //        let textField = UITextField.init(frame: CGRect(x: 15, y: StatusBarHeight + 10, width: ScreenWidth - 100, height: 30))
+    //        textField.placeholder = "Enter search texts here"
+    //        textField.layer.masksToBounds = true
+    //        textField.layer.cornerRadius = 5
+    //        textField.textAlignment = NSTextAlignment.center
+    //        textField.backgroundColor = RGBColor(240, 240, 240)
+    //        textField.delegate = self
+    //        return textField
+    //    }()
     
+    lazy var questionBtn: UIButton = {
+        let questionBtn = UIButton.init(type: UIButtonType.system)
+        questionBtn.frame = CGRect(x: ScreenWidth/2 - 50, y: StatusBarHeight + 10, width: 95, height: 30)
+        questionBtn.setTitle("", for: UIControlState.normal)
+        questionBtn.setImage(UIImage(named: "YouthLine_transparent"), for: UIControlState.normal)
+        //        questionBtn.blueTheme()
+        //        questionBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
+        return questionBtn
+    }()
     
+    lazy var searchBtn: UIButton = {
+        let searchBtn = UIButton.init(type: UIButtonType.system)
+        searchBtn.frame = CGRect(x: ScreenWidth - 50, y: StatusBarHeight + 13, width: 25, height: 25)
+        searchBtn.setTitle("", for: UIControlState.normal)
+        searchBtn.setImage(UIImage(named: "search"), for: UIControlState.normal)
+        
+        //        searchBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
+        return searchBtn
+    }()
+    
+    lazy var filterBtn: UIButton = {
+        let filterBtn = UIButton.init(type: UIButtonType.system)
+        filterBtn.frame = CGRect(x: 20, y: StatusBarHeight + 15, width: 25, height: 25)
+        filterBtn.setTitle("", for: UIControlState.normal)
+        filterBtn.setImage(UIImage(named: "slider"), for: UIControlState.normal)
+        
+        filterBtn.addTarget(self, action: #selector(didTapFilter(sender:)), for: UIControlEvents.touchUpInside)
+        return filterBtn
+    }()
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: CGRect(x: 0, y: NavigationBarHeight, width: ScreenWidth, height: ScreenHeight - NavigationBarHeight - 44), style: UITableViewStyle.plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = UIColor.lightGray //格子背后的背景色
+        tableView.backgroundView = tableBackGroundView
+        
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.register(ResourceCell.self, forCellReuseIdentifier: "ResourceCell")
+        return tableView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(ResourceCell.self, forCellReuseIdentifier: "ResourceCell")
-        
+        view.backgroundColor = UIColor.white
+        view.addSubview(questionBtn)
+        view.addSubview(searchBtn)
+        view.addSubview(filterBtn)
+        view.addSubview(tableView)
         resourcesCollection = createDic()
         resources = resourcesCollection["all"]!
         
-        
-        //        initSearchBar()
-        // Do any additional setup after loading the view.
-        self.navigationItem.titleView = searchTextField
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-        }
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(didTapFilter(sender:)))
     }
-    
-    //    func initSearchBar() {
-    //        view.addSubview(searchTextField)
-    //    }
-    
-//        override func viewWillAppear(_ animated: Bool) {
-//            super.viewWillAppear(animated)
-//    
-//            navigationController?.setNavigationBarHidden(true, animated: false)
-//        }
-    
     
     func createDic() -> [String: [Resource]] {
         var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": [], "forms": [], "service":[], "education":[], "type":[]]
-//        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": []]
+        //        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": []]
         
         let resource1 = Resource(image: #imageLiteral(resourceName: "settlement"), title: "Settlement.Org: Sexual Orientation and Gender Identity", url: URL(string: "https://settlement.org/ontario/health/sexual-and-reproductive-health/sexual-orientation-and-gender-identity/")!)
         let resource2 = Resource(image: #imageLiteral(resourceName: "forward_partners"), title: "transACTION: A Transgender Curriculum and Learner's Guide For Churches and Religious Institutions", url: URL(string: "https://www.youthline.ca/get-support/links-resources/")!)
@@ -132,27 +164,18 @@ class ResourcePageVC_1: UITableViewController {
         case .type:
             resources = resourcesCollection["type"]!
             self.tableView.reloadData()
-//        default:
-//            break
+            //        default:
+            //            break
         }
     }
+    
 }
 
 
-extension ResourcePageVC_1: UITextFieldDelegate, UIViewControllerTransitioningDelegate {
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resources.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let resource = resources[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell") as! ResourceCell
-        cell.setImage(resource: resource)
-        cell.minHeight = 80
-        return cell
-    }
-    
+extension ResourceBaseVC: UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate {
+    //    func numberOfSections(in tableView: UITableView) -> Int {
+    //        return ModelList?.count ?? 0
+    //    }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = true
@@ -174,13 +197,59 @@ extension ResourcePageVC_1: UITextFieldDelegate, UIViewControllerTransitioningDe
         return false
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return resources.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 3
+    }
+    
+    //    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    //        return 0.01
+    //    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    //    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    //        return nil
+    //    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let resource = resources[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell") as! ResourceCell
+        cell.setImage(resource: resource)
+        cell.minHeight = 80
+        cell.contentView.backgroundColor = UIColor.clear
+        
+        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 100))
+        
+        whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
+        whiteRoundedView.layer.masksToBounds = false
+        whiteRoundedView.layer.cornerRadius = 2.0
+        whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
+        whiteRoundedView.layer.shadowOpacity = 0.2
+        
+        cell.contentView.addSubview(whiteRoundedView)
+        cell.contentView.sendSubview(toBack: whiteRoundedView)
+        
+        return cell
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.isToolbarHidden = true
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let resourceURL = self.resources[indexPath.row]
         
         let webVC = WebViewController()
