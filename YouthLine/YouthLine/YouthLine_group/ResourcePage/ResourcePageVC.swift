@@ -7,23 +7,24 @@
 //
 
 import UIKit
-
+var menuSelected = "settlement"
 class ResourcePageVC: UITableViewController {
-    let transition = SlideInTransition()
+//    let transition = SlideInTransition()
     var resourcesCollection = [String: [Resource]]()
     var resources: [Resource] = []
+//    var menuSelected = "all"
     
     
-    lazy var searchTextField: UITextField = {
-        let textField = UITextField.init(frame: CGRect(x: 15, y: StatusBarHeight + 10, width: ScreenWidth - 100, height: 30))
-        textField.placeholder = "Enter search texts here"
-        textField.layer.masksToBounds = true
-        textField.layer.cornerRadius = 5
-        textField.textAlignment = NSTextAlignment.center
-        textField.backgroundColor = RGBColor(240, 240, 240)
-        textField.delegate = self
-        return textField
-    }()
+//    lazy var searchTextField: UITextField = {
+//        let textField = UITextField.init(frame: CGRect(x: 15, y: StatusBarHeight + 10, width: ScreenWidth - 100, height: 30))
+//        textField.placeholder = "Enter search texts here"
+//        textField.layer.masksToBounds = true
+//        textField.layer.cornerRadius = 5
+//        textField.textAlignment = NSTextAlignment.center
+//        textField.backgroundColor = RGBColor(240, 240, 240)
+//        textField.delegate = self
+//        return textField
+//    }()
     
     
     
@@ -37,16 +38,18 @@ class ResourcePageVC: UITableViewController {
         tableView.register(ResourceCell.self, forCellReuseIdentifier: "ResourceCell")
         
         resourcesCollection = createDic()
-        resources = resourcesCollection["all"]!
+        print(menuSelected)
+        resources = resourcesCollection[menuSelected]!
+        print(resources)
         
         
         //        initSearchBar()
         // Do any additional setup after loading the view.
-        self.navigationItem.titleView = searchTextField
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-        }
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(didTapFilter(sender:)))
+//        self.navigationItem.titleView = searchTextField
+//        if #available(iOS 11.0, *) {
+//            navigationController?.navigationBar.prefersLargeTitles = true
+//        }
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(didTapFilter(sender:)))
     }
     
     //    func initSearchBar() {
@@ -90,52 +93,59 @@ class ResourcePageVC: UITableViewController {
         return tempResources
     }
     
-    @objc func didTapFilter(sender: UIBarButtonItem) {
-        let menuViewController: MenuViewController = MenuViewController()
-        menuViewController.didTapMenuTypte = { menuType in
-            print(menuType)
-            self.transitionToNew(menuType)
-        }
-        menuViewController.modalPresentationStyle = .overCurrentContext
-        menuViewController.transitioningDelegate = self
-        present(menuViewController, animated: true)
-        self.tabBarController!.tabBar.items![0].isEnabled = false
-        self.tabBarController!.tabBar.items![1].isEnabled = false
-        self.tabBarController!.tabBar.items![3].isEnabled = false
+    func didTapFilter(menuViewController: MenuViewController) {
+//        print(123)
+//        let menuViewController: MenuViewController = MenuViewController()
+//        menuViewController.didTapMenuTypte = { menuType in
+//            print(menuType)
+//            self.transitionToNew(menuType)
+//        }
+//        menuViewController.modalPresentationStyle = .overCurrentContext
+//        menuViewController.transitioningDelegate = self
+//        present(menuViewController, animated: true)
+//        self.tabBarController!.tabBar.items![0].isEnabled = false
+//        self.tabBarController!.tabBar.items![1].isEnabled = false
+//        self.tabBarController!.tabBar.items![3].isEnabled = false
         
     }
     
-    func transitionToNew(_ menuType: MenuType) {
-        
-        switch menuType {
-        case .all:
-            resources = resourcesCollection["all"]!
-            self.tableView.reloadData()
-        case .settlement:
-            resources = resourcesCollection["settlement"]!
-            self.tableView.reloadData()
-        case .faith:
-            resources = resourcesCollection["faith"]!
-            self.tableView.reloadData()
-        case .sex:
-            resources = resourcesCollection["sex"]!
-            self.tableView.reloadData()
-        case .forms:
-            resources = resourcesCollection["forms"]!
-            self.tableView.reloadData()
-        case .service:
-            resources = resourcesCollection["service"]!
-            self.tableView.reloadData()
-        case .education:
-            resources = resourcesCollection["education"]!
-            self.tableView.reloadData()
-        case .type:
-            resources = resourcesCollection["type"]!
-            self.tableView.reloadData()
-//        default:
-//            break
-        }
-    }
+//    func transitionToNew(_ menuType: MenuType) {
+//        resourcesCollection = createDic()
+//        switch menuType {
+//        case .all:
+////            resourcesCollection = createDic()
+//            print(resourcesCollection["all"]!)
+//            resources = resourcesCollection["all"]!
+//            self.tableView.reloadData()
+//            
+//        case .settlement:
+//            resources = resourcesCollection["settlement"]!
+//            print(resourcesCollection["settlement"]!)
+//            ResourceBaseVC().view.reloadInputViews()
+////            self.tableView.reloadData()
+////            ResourceBaseVC().view.reloadInputViews()
+//        case .faith:
+//            resources = resourcesCollection["faith"]!
+//            self.tableView.reloadData()
+//        case .sex:
+//            resources = resourcesCollection["sex"]!
+//            self.tableView.reloadData()
+//        case .forms:
+//            resources = resourcesCollection["forms"]!
+//            self.tableView.reloadData()
+//        case .service:
+//            resources = resourcesCollection["service"]!
+//            self.tableView.reloadData()
+//        case .education:
+//            resources = resourcesCollection["education"]!
+//            self.tableView.reloadData()
+//        case .type:
+//            resources = resourcesCollection["type"]!
+//            self.tableView.reloadData()
+////        default:
+////            break
+//        }
+//    }
 }
 
 
@@ -154,18 +164,18 @@ extension ResourcePageVC: UITextFieldDelegate, UIViewControllerTransitioningDele
     }
     
     
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.isPresenting = true
-        return transition
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.isPresenting = false
-        self.tabBarController!.tabBar.items![0].isEnabled = true
-        self.tabBarController!.tabBar.items![1].isEnabled = true
-        self.tabBarController!.tabBar.items![3].isEnabled = true
-        return transition
-    }
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        transition.isPresenting = true
+//        return transition
+//    }
+//    
+//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        transition.isPresenting = false
+//        self.tabBarController!.tabBar.items![0].isEnabled = true
+//        self.tabBarController!.tabBar.items![1].isEnabled = true
+//        self.tabBarController!.tabBar.items![3].isEnabled = true
+//        return transition
+//    }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         let vc = HomePageSearchVC()
@@ -174,12 +184,12 @@ extension ResourcePageVC: UITextFieldDelegate, UIViewControllerTransitioningDele
         return false
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationController?.isToolbarHidden = true
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+////        navigationController?.setNavigationBarHidden(false, animated: false)
+//        navigationController?.isToolbarHidden = true
+//    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let resourceURL = self.resources[indexPath.row]
