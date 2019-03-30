@@ -20,14 +20,14 @@ class ImageCell: BaseCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = UIColor.clear
+        contentView.backgroundColor = UIColor.white
         contentLabel.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-120)
         }
         
         contentView.addSubview(ImageView)
         ImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(headImgView).offset(0)
+            make.bottom.equalTo(contentView).offset(-20)
             make.right.equalTo(contentView).offset(-10)
             make.width.equalTo(100)
             make.height.equalTo(70)

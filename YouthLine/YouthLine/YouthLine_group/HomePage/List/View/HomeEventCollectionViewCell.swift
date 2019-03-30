@@ -15,7 +15,7 @@ class HomeEventCollectionViewCell: UICollectionViewCell {
 
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
+        label.font = UIFont.init(name: "VAGRoundedStd-thin", size: 18)
         label.numberOfLines = 2
         label.textAlignment = .center
         return label

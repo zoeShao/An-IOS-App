@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 
 
-class WebViewController: UIViewController, WKNavigationDelegate {
+class WebViewController: BaseViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var url : URL!
     //    var offset: Int = 0
@@ -23,10 +23,11 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(false, animated: false)
         
         // 1
         //        print(url!)
-//        let url = URL(string: "https://settlement.org/ontario/health/sexual-and-reproductive-health/sexual-orientation-and-gender-identity/")!
+        //        let url = URL(string: "https://settlement.org/ontario/health/sexual-and-reproductive-health/sexual-orientation-and-gender-identity/")!
         print(url)
         webView.load(URLRequest(url: url))
         

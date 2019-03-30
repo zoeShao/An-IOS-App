@@ -57,7 +57,7 @@ class EventBaseVC: BaseViewController {
         let searchBtn = UIButton.init(type: UIButtonType.system)
         searchBtn.frame = CGRect(x: ScreenWidth - 50, y: StatusBarHeight + 13, width: 25, height: 25)
         searchBtn.setTitle("", for: UIControlState.normal)
-        searchBtn.setImage(UIImage(named: "search"), for: UIControlState.normal)
+        searchBtn.setImage(UIImage(named: "slider"), for: UIControlState.normal)
 
         searchBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
         return searchBtn
@@ -67,7 +67,7 @@ class EventBaseVC: BaseViewController {
         let filterBtn = UIButton.init(type: UIButtonType.system)
         filterBtn.frame = CGRect(x: 20, y: StatusBarHeight + 15, width: 25, height: 25)
         filterBtn.setTitle("", for: UIControlState.normal)
-        filterBtn.setImage(UIImage(named: "slider"), for: UIControlState.normal)
+        filterBtn.setImage(UIImage(named: "search"), for: UIControlState.normal)
         
         filterBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
         return filterBtn
@@ -75,8 +75,9 @@ class EventBaseVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //view.addSubview(searchTextField)
+    
+        view.addSubview(searchTextField)
+        searchTextField.isHidden = true
         view.addSubview(questionBtn)
         view.addSubview(searchBtn)
         view.addSubview(filterBtn)
@@ -85,27 +86,58 @@ class EventBaseVC: BaseViewController {
             addChildViewController(vc)
         }
         view.addSubview(pageView)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped))
+        view.addGestureRecognizer(tap)
+        
     }
+    
+    @objc func tableTapped(tap:UITapGestureRecognizer) {
+        if (searchTextField.isHidden == false){
+          let location = tap.location(in: self.view)
+          let location_2 = CGPointFromString("(100, 100)")
+          if location.equalTo(location_2) {
+
+          } else {
+              searchTextField.isHidden = true
+              filterBtn.isHidden = false
+              questionBtn.isHidden = false
+              // handle tap on empty space below existing rows however you want
+          }
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
     }
     
     func initSearchBar() {
         view.addSubview(searchTextField)
         view.addSubview(questionBtn)
     }
+    
+
 }
 
 extension EventBaseVC {
 }
+
 
 extension EventBaseVC {
     @objc func questionAction(button: UIButton) {
+        searchTextField.isHidden = false
+        filterBtn.isHidden = true
+        questionBtn.isHidden = true
     }
+
+    
+
 }
+
 
 extension EventBaseVC: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

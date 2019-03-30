@@ -12,7 +12,7 @@ class HomePageSearchVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = custom_menuBarPink;
+        self.view.backgroundColor = .white;
     }
     
     @IBAction func cancelAction(_ sender: Any) {
