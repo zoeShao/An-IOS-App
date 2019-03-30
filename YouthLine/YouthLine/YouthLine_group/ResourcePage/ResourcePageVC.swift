@@ -5,7 +5,7 @@
 ////  Created by Yecheng Song on 2019-03-09.
 ////  Copyright © 2019 RainbowWarrior. All rights reserved.
 ////
-//
+
 //import UIKit
 ////var menuSelected = "settlement"
 //var resourcesCollection = [String: [Resource]]()
