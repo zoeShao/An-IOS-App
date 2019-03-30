@@ -20,7 +20,7 @@ class ListBaseVC: BaseViewController {
     var pageIndex: Int = 0
 
     var tableBackGroundView: UIImageView = {
-        let tableBackGroundView = UIImageView(image: UIImage(named: "rainbow_7"))
+        let tableBackGroundView = UIImageView(image: UIImage(named: "rainbow_3"))
         tableBackGroundView.contentMode = .scaleAspectFill
         tableBackGroundView.layer.masksToBounds = true
         return tableBackGroundView
@@ -42,7 +42,6 @@ class ListBaseVC: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.gray
         view.addSubview(tableView)
-        tableView.rowHeight = 150
         tableView.snp.makeConstraints { make in
             make.left.right.top.bottom.equalToSuperview()
         }

@@ -28,7 +28,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.init(name: "VAGRoundedStd-thin", size: 16)
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
         label.numberOfLines = 2
         return label
     }()
@@ -36,7 +36,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
     
     var contentLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.init(name: "VAGRoundedStd-thin", size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = RGBColor(80, 80, 80)
         label.numberOfLines = 8
         label.lineBreakMode = NSLineBreakMode.byTruncatingTail
@@ -56,7 +56,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
     var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.darkGray
-        label.font = UIFont.init(name: "VAGRoundedStd-thin", size: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         return label
     }()
     

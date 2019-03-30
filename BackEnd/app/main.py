@@ -17,6 +17,7 @@ if heroku_env:
 else:
     prefix = ""  # local python env
 
+
 class DB:
     # init
     def __init__(self):

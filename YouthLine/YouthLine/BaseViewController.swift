@@ -14,7 +14,7 @@ class BaseViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.white //custom_menuBarPink//RGBColor(49, 242, 75)//custom_menuBarPink
         navigationController?.setNavigationBarHidden(true, animated: false)
-        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.barTintColor = custom_menuBarPink //.white
         navigationController?.navigationBar.tintColor = .gray
         
         backBtn.addTarget(self, action: #selector(backAction(button:)), for: .touchUpInside)

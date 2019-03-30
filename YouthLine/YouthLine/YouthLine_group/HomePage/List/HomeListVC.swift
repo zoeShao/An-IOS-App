@@ -113,8 +113,7 @@ class HomeListVC: BaseViewController {
         view.backgroundColor = UIColor.gray
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
-            make.top.equalToSuperview().offset(2)
+            make.left.right.top.bottom.equalToSuperview()
         }
         
         //no need to write following if checked in storyboard
