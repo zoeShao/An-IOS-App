@@ -72,7 +72,7 @@ class ResourceBaseVC: BaseViewController {
         let tableView = UITableView(frame: CGRect(x: 0, y: NavigationBarHeight, width: ScreenWidth, height: ScreenHeight - NavigationBarHeight - 44), style: UITableViewStyle.plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.lightGray //格子背后的背景色
+        tableView.backgroundColor = UIColor.lightGray //the colour before the cell
         tableView.backgroundView = tableBackGroundView
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
