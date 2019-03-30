@@ -15,7 +15,7 @@ class HomePageVC: BaseViewController {
 
     lazy var pageView: DNSPageView = {
         let style = DNSPageStyle()
-        style.contentViewBackgroundColor = custom_menuBarPink
+        style.contentViewBackgroundColor = .white
         style.isTitleViewScrollEnabled = false
         style.isTitleScaleEnabled = false
         style.isShowBottomLine = true
@@ -88,7 +88,7 @@ class HomePageVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = custom_menuBarPink //.white
+        navigationController?.navigationBar.barTintColor = .white
         //initSearchBar()
         
         view.addSubview(questionBtn)
