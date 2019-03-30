@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 
 
-class WebViewController: BaseViewController, WKNavigationDelegate {
+class WebViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var url : URL!
     //    var offset: Int = 0
@@ -23,7 +23,6 @@ class WebViewController: BaseViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(false, animated: false)
         
         // 1
         //        print(url!)
