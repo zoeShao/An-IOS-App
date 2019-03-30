@@ -166,10 +166,7 @@ public class KingfisherManager {
     {
         if options.forceRefresh {
             return loadAndCacheImage(
-                source: source,
-                options: options,
-                progressBlock: progressBlock,
-                completionHandler: completionHandler)?.value
+                source: source, options: options, progressBlock: progressBlock, completionHandler: completionHandler)
         } else {
             let loadedFromCache = retrieveImageFromCache(
                 source: source,
@@ -187,10 +184,7 @@ public class KingfisherManager {
             }
             
             return loadAndCacheImage(
-                source: source,
-                options: options,
-                progressBlock: progressBlock,
-                completionHandler: completionHandler)?.value
+                source: source, options: options, progressBlock: progressBlock, completionHandler: completionHandler)
         }
     }
 
@@ -236,7 +230,7 @@ public class KingfisherManager {
         source: Source,
         options: KingfisherParsedOptionsInfo,
         progressBlock: DownloadProgressBlock? = nil,
-        completionHandler: ((Result<RetrieveImageResult, KingfisherError>) -> Void)?) -> DownloadTask.WrappedTask?
+        completionHandler: ((Result<RetrieveImageResult, KingfisherError>) -> Void)?) -> DownloadTask?
     {
         func cacheImage(_ result: Result<ImageLoadingResult, KingfisherError>)
         {
@@ -282,18 +276,14 @@ public class KingfisherManager {
         switch source {
         case .network(let resource):
             let downloader = options.downloader ?? self.downloader
-            guard let task = downloader.downloadImage(
+            return downloader.downloadImage(
                 with: resource.downloadURL,
                 options: options,
                 progressBlock: progressBlock,
-                completionHandler: cacheImage) else
-            {
-                return nil
-            }
-            return .download(task)
+                completionHandler: cacheImage)
         case .provider(let provider):
             provideImage(provider: provider, options: options, completionHandler: cacheImage)
-            return .dataProviding
+            return nil
         }
     }
     

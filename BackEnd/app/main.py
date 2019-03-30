@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request, redirect, url_for
 from flask_cors import CORS
 import os
-import csv
 
 # Start the app and setup the static directory for the html, css, and js files.
 app = Flask(__name__, static_url_path='', static_folder='static')
@@ -9,15 +8,10 @@ CORS(app)
 
 eventDB = None
 resourcesDB = None
-homeDB = None
 admin_pw = None
 
-heroku_env = False
-
-if heroku_env:
-    prefix = "./app/"  # heroku env
-else:
-    prefix = ""  # local python env
+# prefix = ""
+prefix = "./app/"
 
 
 class DB:
@@ -25,75 +19,28 @@ class DB:
     def __init__(self):
         self.core = [] # list of list
         self.tags = []
-        self.rid_counter = 0  # rowid
-
-    def get_next_rid(self):
-        ret = self.rid_counter
-        self.rid_counter += 1
-        return ret
 
     # load from csv file
-    def loadFromCSV(self, path):
-        # drop the previous db first
-        self.drop()
-
+    def loadFromFile(self, path):
         # open file
         file = open(path)
-        reader = csv.reader(file, delimiter=',')
-        rows = []
-        for row in reader:
-            rows.append(row)
+        lines = file.read().splitlines()
 
         # read the first line
-        header = rows[0]
-        for tag in header:
+        header = lines[0]
+        for tag in header.split(","):
             self.tags.append(tag)
 
         # for the rest
-        for line in rows[1:]:
+        for line in lines[1:]:
             # split
             record = []
-            record.append(self.get_next_rid())  # assign rid to each record
-            for item in line:
+            for item in line.split(','):
                 record.append(item)
             # add to core
             self.core.append(record)
 
         print("DB loaded.")
-
-    # Save current DB to csv file
-    def saveToCSV(self, path):
-        # remove the previous file
-        os.remove(path)
-
-        # open file
-        file = open(path, "w")
-
-        # write the first line tags into file
-        tags = ""
-        for tag in self.tags[:-1]:
-            tags += "\"" + tag + "\","
-        tags += "\"" + self.tags[-1] + "\"\n"
-        file.write(tags)
-
-        # write the rest line
-        for record in self.core:
-            line = ""
-            for item in record[1:-1]:  # skip the rid part
-                line += "\"" + item + "\","
-            line += "\"" + record[-1] + "\"\n"
-            file.write(line)
-
-        file.close()
-
-        file = open(path, "ab")
-        # remove the "\n" for the last line
-        file.seek(-1, 2)
-        file.truncate()
-
-        file.close()
-
-        print("DB saved")
 
     def getAll(self):
         lst = []
@@ -103,50 +50,14 @@ class DB:
             # format in json
             for i in range(len(self.tags)):
                 key = self.tags[i]
-                value = record[i + 1]  # we don't want to include the rid here
+                value = record[i]
                 dict[key] = value
             # add to list
             lst.append(dict)
 
         return lst
 
-    def getAllWithRid(self):
-        lst = []
-        # for in core
-        for record in self.core:
-            dict = {}
-            # Add rid
-            key = "rid"
-            value = record[0]
-            dict[key] = str(value)
-
-            # Add the rest
-            for i in range(len(self.tags)):
-                key = self.tags[i]
-                value = record[i + 1]  # we don't want to include the rid here
-                dict[key] = value
-            # add to list
-            lst.append(dict)
-
-        return lst
-
-    def add(self, lst):
-        record = []
-        record.append(self.get_next_rid())
-        record += lst
-
-        # add the database
-        self.core.append(record)
-
-    def delete(self, target_rid):
-        target_rid = int(target_rid)
-        for index in range(len(self.core)):
-            if self.core[index][0] == target_rid:
-                self.core.pop(index)
-                return
-
-    # Drop the database
-    def drop(self):
+    def clear(self):
         self.core.clear()
         self.tags.clear()
 
@@ -165,32 +76,18 @@ def read_admin_pw():
     admin_pw = file.read()
     return admin_pw
 
-# Tester of DB
-def DB_tester():
-    db = DB()
-    db.loadFromCSV(prefix + "data/test.csv")
-    print(db.getAll())
-    print(db.getAllWithRid())
-    db.delete("0")
-    db.saveToCSV(prefix + "data/test_save.csv")
-
-# running db tester
-# DB_tester()
 
 # setup everything before running the server
 def init():
-    global eventDB, resourcesDB, homeDB, admin_pw
+    global eventDB, resourcesDB, admin_pw
 
     admin_pw = read_admin_pw()
     print("Admin Password:" + admin_pw)
 
     eventDB = DB()
-    eventDB.loadFromCSV(prefix + "data/event.csv")
+    eventDB.loadFromFile(prefix + "data/event.csv")
     resourcesDB = DB()
-    resourcesDB.loadFromCSV(prefix + "data/res.csv")
-    homeDB = DB()
-    homeDB.loadFromCSV(prefix + "data/home.csv")
-    print(homeDB.getAll())
+    resourcesDB.loadFromFile(prefix + "data/res.csv")
 
 # Setup everything
 init()
@@ -208,20 +105,6 @@ def pw():
         return redirect("/upload.html")
     else:
         return "wrong password"
-
-@app.route('/home')
-def home():
-    """
-    Expected JSON Format:
-    { title        : String - new title  (optional),
-      time         : String - time,
-      news_content : String - news content,
-      image        : String - url to image (optional)
-    }
-    """
-    raw = homeDB.getAll()
-
-    return jsonify(raw)
 
 
 @app.route('/resources')
