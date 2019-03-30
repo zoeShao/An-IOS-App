@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, redirect, url_for
 from flask_cors import CORS
 import os
+import csv
 
 # Start the app and setup the static directory for the html, css, and js files.
 app = Flask(__name__, static_url_path='', static_folder='static')
@@ -8,6 +9,7 @@ CORS(app)
 
 eventDB = None
 resourcesDB = None
+homeDB = None
 admin_pw = None
 
 heroku_env = False
@@ -37,19 +39,22 @@ class DB:
 
         # open file
         file = open(path)
-        lines = file.read().splitlines()
+        reader = csv.reader(file, delimiter=',')
+        rows = []
+        for row in reader:
+            rows.append(row)
 
         # read the first line
-        header = lines[0]
-        for tag in header.split(","):
+        header = rows[0]
+        for tag in header:
             self.tags.append(tag)
 
         # for the rest
-        for line in lines[1:]:
+        for line in rows[1:]:
             # split
             record = []
             record.append(self.get_next_rid())  # assign rid to each record
-            for item in line.split(','):
+            for item in line:
                 record.append(item)
             # add to core
             self.core.append(record)
@@ -67,16 +72,16 @@ class DB:
         # write the first line tags into file
         tags = ""
         for tag in self.tags[:-1]:
-            tags += tag + ","
-        tags += self.tags[-1] + "\n"
+            tags += "\"" + tag + "\","
+        tags += "\"" + self.tags[-1] + "\"\n"
         file.write(tags)
 
         # write the rest line
         for record in self.core:
             line = ""
             for item in record[1:-1]:  # skip the rid part
-                line += item + ","
-            line += record[-1] + "\n"
+                line += "\"" + item + "\","
+            line += "\"" + record[-1] + "\"\n"
             file.write(line)
 
         file.close()
@@ -166,6 +171,7 @@ def DB_tester():
     db.loadFromCSV(prefix + "data/test.csv")
     print(db.getAll())
     print(db.getAllWithRid())
+    db.delete("0")
     db.saveToCSV(prefix + "data/test_save.csv")
 
 # running db tester
@@ -173,7 +179,7 @@ def DB_tester():
 
 # setup everything before running the server
 def init():
-    global eventDB, resourcesDB, admin_pw
+    global eventDB, resourcesDB, homeDB, admin_pw
 
     admin_pw = read_admin_pw()
     print("Admin Password:" + admin_pw)
@@ -182,6 +188,9 @@ def init():
     eventDB.loadFromCSV(prefix + "data/event.csv")
     resourcesDB = DB()
     resourcesDB.loadFromCSV(prefix + "data/res.csv")
+    homeDB = DB()
+    homeDB.loadFromCSV(prefix + "data/home.csv")
+    print(homeDB.getAll())
 
 # Setup everything
 init()
@@ -199,6 +208,20 @@ def pw():
         return redirect("/upload.html")
     else:
         return "wrong password"
+
+@app.route('/home')
+def home():
+    """
+    Expected JSON Format:
+    { title        : String - new title  (optional),
+      time         : String - time,
+      news_content : String - news content,
+      image        : String - url to image (optional)
+    }
+    """
+    raw = homeDB.getAll()
+
+    return jsonify(raw)
 
 
 @app.route('/resources')
