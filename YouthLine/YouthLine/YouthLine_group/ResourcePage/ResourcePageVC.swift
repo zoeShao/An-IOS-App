@@ -1,102 +1,202 @@
-//  EventBaseVC.swift
+//
+//  ResourcePageVC.swift
 //  YouthLine
 //
 //  Created by Yecheng Song on 2019-03-09.
 //  Copyright © 2019 RainbowWarrior. All rights reserved.
 //
-import DNSPageView
+
 import UIKit
-
-
-class ResourcePageVC: BaseViewController {
-    
-    let viewControllers = [UIViewController(), ResourcePageVC_1(), UIViewController(), UIViewController()]
-    let transition = SlideInTransition()
+var menuSelected = "settlement"
+class ResourcePageVC: UITableViewController {
+    //    let transition = SlideInTransition()
     var resourcesCollection = [String: [Resource]]()
     var resources: [Resource] = []
-    
-    lazy var pageView: DNSPageView = {
-        
-        let style = DNSPageStyle()
-        style.isTitleViewScrollEnabled = false
-        style.isTitleScaleEnabled = false
-        style.isShowBottomLine = true
-        style.titleSelectedColor = UIColor.black
-        style.titleColor = UIColor.gray
-        style.bottomLineColor = UIColor.black
-        style.bottomLineHeight = 2
-        
-        let frame = CGRect(x: 0, y: NavigationBarHeight, width: ScreenWidth, height: ScreenHeight - NavigationBarHeight - 44)
-        let pageView = DNSPageView(frame: frame,
-                                   style: style,
-                                   titles:[],
-                                   childViewControllers: viewControllers,
-                                   startIndex: 1)
-        return pageView
-    }()
+    //    var menuSelected = "all"
     
     
-    lazy var questionBtn: UIButton = {
-        let questionBtn = UIButton.init(type: UIButtonType.system)
-        questionBtn.frame = CGRect(x: ScreenWidth/2 - 50, y: StatusBarHeight + 10, width: 95, height: 30)
-        questionBtn.setTitle("", for: UIControlState.normal)
-        questionBtn.setImage(UIImage(named: "YouthLine_transparent"), for: UIControlState.normal)
-        //        questionBtn.blueTheme()
-        questionBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
-        return questionBtn
-    }()
+    //    lazy var searchTextField: UITextField = {
+    //        let textField = UITextField.init(frame: CGRect(x: 15, y: StatusBarHeight + 10, width: ScreenWidth - 100, height: 30))
+    //        textField.placeholder = "Enter search texts here"
+    //        textField.layer.masksToBounds = true
+    //        textField.layer.cornerRadius = 5
+    //        textField.textAlignment = NSTextAlignment.center
+    //        textField.backgroundColor = RGBColor(240, 240, 240)
+    //        textField.delegate = self
+    //        return textField
+    //    }()
     
-    lazy var searchBtn: UIButton = {
-        let searchBtn = UIButton.init(type: UIButtonType.system)
-        searchBtn.frame = CGRect(x: ScreenWidth - 50, y: StatusBarHeight + 13, width: 25, height: 25)
-        searchBtn.setTitle("", for: UIControlState.normal)
-        searchBtn.setImage(UIImage(named: "search"), for: UIControlState.normal)
-        
-        searchBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
-        return searchBtn
-    }()
     
-    lazy var filterBtn: UIButton = {
-        let filterBtn = UIButton.init(type: UIButtonType.system)
-        filterBtn.frame = CGRect(x: 20, y: StatusBarHeight + 15, width: 25, height: 25)
-        filterBtn.setTitle("", for: UIControlState.normal)
-        filterBtn.setImage(UIImage(named: "slider"), for: UIControlState.normal)
-        
-        filterBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
-        return filterBtn
-    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
         
-        //view.addSubview(searchTextField)
-        view.addSubview(questionBtn)
-        view.addSubview(searchBtn)
-        view.addSubview(filterBtn)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(ResourceCell.self, forCellReuseIdentifier: "ResourceCell")
         
-        for vc in viewControllers {
-            addChildViewController(vc)
-        }
-        view.addSubview(pageView)
+        resourcesCollection = createDic()
+        print(menuSelected)
+        resources = resourcesCollection[menuSelected]!
+        print(resources)
+        
+        
+        //        initSearchBar()
+        // Do any additional setup after loading the view.
+        //        self.navigationItem.titleView = searchTextField
+        //        if #available(iOS 11.0, *) {
+        //            navigationController?.navigationBar.prefersLargeTitles = true
+        //        }
+        //        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(didTapFilter(sender:)))
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    //    func initSearchBar() {
+    //        view.addSubview(searchTextField)
+    //    }
+    
+    //        override func viewWillAppear(_ animated: Bool) {
+    //            super.viewWillAppear(animated)
+    //
+    //            navigationController?.setNavigationBarHidden(true, animated: false)
+    //        }
+    
+    
+    func createDic() -> [String: [Resource]] {
+        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": [], "forms": [], "service":[], "education":[], "type":[]]
+        //        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": []]
         
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        let resource1 = Resource(image: #imageLiteral(resourceName: "settlement"), title: "Settlement.Org: Sexual Orientation and Gender Identity", url: URL(string: "https://settlement.org/ontario/health/sexual-and-reproductive-health/sexual-orientation-and-gender-identity/")!)
+        let resource2 = Resource(image: #imageLiteral(resourceName: "forward_partners"), title: "transACTION: A Transgender Curriculum and Learner's Guide For Churches and Religious Institutions", url: URL(string: "https://www.youthline.ca/get-support/links-resources/")!)
+        let resource3 = Resource(image: #imageLiteral(resourceName: "BexTalksSex"), title: "Yes No Maybe: sex, kink, and language spreadsheets", url: URL(string: "https://www.bextalkssex.com/yes-no-maybe/")!)
+        let resource4 = Resource(image: #imageLiteral(resourceName: "form"), title: "How Do I Change the Sex Designation on my Identity Documents?", url: URL(string: "https://jfcy.org/en/rights/government-issued-identification/")!)
+        let resource5 = Resource(image: #imageLiteral(resourceName: "TransCareGuide"), title: "Trans Primary Care: My Guide to Caring for Trans and Gender-Diverse Clients", url: URL(string: "https://www.rainbowhealthontario.ca/TransHealthGuide/")!)
+        let resource6 = Resource(image: #imageLiteral(resourceName: "thebodyisnotanapology"), title: "The Body is Not An Apology", url: URL(string: "https://thebodyisnotanapology.com/")!)
+        let resource7 = Resource(image: #imageLiteral(resourceName: "2spirit"), title: "Briarpatch Magazine: Hearing Two Spirits", url: URL(string: "https://briarpatchmagazine.com/articles/view/hearing-two-spirits")!)
+        tempResources["all"]!.append(resource1)
+        tempResources["all"]!.append(resource2)
+        tempResources["all"]!.append(resource3)
+        tempResources["all"]!.append(resource4)
+        tempResources["all"]!.append(resource5)
+        tempResources["all"]!.append(resource6)
+        tempResources["all"]!.append(resource7)
+        tempResources["settlement"]!.append(resource1)
+        tempResources["faith"]!.append(resource2)
+        tempResources["sex"]!.append(resource3)
+        tempResources["forms"]!.append(resource4)
+        tempResources["service"]!.append(resource5)
+        tempResources["education"]!.append(resource6)
+        tempResources["type"]!.append(resource7)
+        
+        
+        return tempResources
     }
     
-    func initSearchBar() {
-        view.addSubview(questionBtn)
+    func didTapFilter(menuViewController: MenuViewController) {
+        //        print(123)
+        //        let menuViewController: MenuViewController = MenuViewController()
+        //        menuViewController.didTapMenuTypte = { menuType in
+        //            print(menuType)
+        //            self.transitionToNew(menuType)
+        //        }
+        //        menuViewController.modalPresentationStyle = .overCurrentContext
+        //        menuViewController.transitioningDelegate = self
+        //        present(menuViewController, animated: true)
+        //        self.tabBarController!.tabBar.items![0].isEnabled = false
+        //        self.tabBarController!.tabBar.items![1].isEnabled = false
+        //        self.tabBarController!.tabBar.items![3].isEnabled = false
+        
+    }
+    
+    //    func transitionToNew(_ menuType: MenuType) {
+    //        resourcesCollection = createDic()
+    //        switch menuType {
+    //        case .all:
+    ////            resourcesCollection = createDic()
+    //            print(resourcesCollection["all"]!)
+    //            resources = resourcesCollection["all"]!
+    //            self.tableView.reloadData()
+    //
+    //        case .settlement:
+    //            resources = resourcesCollection["settlement"]!
+    //            print(resourcesCollection["settlement"]!)
+    //            ResourceBaseVC().view.reloadInputViews()
+    ////            self.tableView.reloadData()
+    ////            ResourceBaseVC().view.reloadInputViews()
+    //        case .faith:
+    //            resources = resourcesCollection["faith"]!
+    //            self.tableView.reloadData()
+    //        case .sex:
+    //            resources = resourcesCollection["sex"]!
+    //            self.tableView.reloadData()
+    //        case .forms:
+    //            resources = resourcesCollection["forms"]!
+    //            self.tableView.reloadData()
+    //        case .service:
+    //            resources = resourcesCollection["service"]!
+    //            self.tableView.reloadData()
+    //        case .education:
+    //            resources = resourcesCollection["education"]!
+    //            self.tableView.reloadData()
+    //        case .type:
+    //            resources = resourcesCollection["type"]!
+    //            self.tableView.reloadData()
+    ////        default:
+    ////            break
+    //        }
+    //    }
+}
+
+
+extension ResourcePageVC: UITextFieldDelegate, UIViewControllerTransitioningDelegate {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return resources.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let resource = resources[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell") as! ResourceCell
+        cell.setImage(resource: resource)
+        cell.minHeight = 80
+        return cell
+    }
+    
+    
+    //    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    //        transition.isPresenting = true
+    //        return transition
+    //    }
+    //
+    //    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    //        transition.isPresenting = false
+    //        self.tabBarController!.tabBar.items![0].isEnabled = true
+    //        self.tabBarController!.tabBar.items![1].isEnabled = true
+    //        self.tabBarController!.tabBar.items![3].isEnabled = true
+    //        return transition
+    //    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let vc = HomePageSearchVC()
+        navigationController?.pushViewController(vc, animated: false)
+        navigationController?.viewWillAppear(true)
+        return false
+    }
+    
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        super.viewWillAppear(animated)
+    //
+    ////        navigationController?.setNavigationBarHidden(false, animated: false)
+    //        navigationController?.isToolbarHidden = true
+    //    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let resourceURL = self.resources[indexPath.row]
+        
+        let webVC = WebViewController()
+        webVC.url = resourceURL.url
+        //        webVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(webVC, animated: true)
     }
 }
-
-extension ResourcePageVC {
-}
-
-extension ResourcePageVC {
-    @objc func questionAction(button: UIButton) {
-    }
-}
-
-
