@@ -338,6 +338,7 @@
 		EFBC107E22346E2800703135 /* ResourcePage */ = {
 			isa = PBXGroup;
 			children = (
+				EFBC107D22346E1C00703135 /* PersonalPage */,
 				27C3B85D2235D8C600162AB6 /* MenuViewController.swift */,
 				27C3B85C2235D8C600162AB6 /* Resource.swift */,
 				27C3B85B2235D8C600162AB6 /* ResourceCell.swift */,
@@ -396,7 +397,6 @@
 				EFE36B6222358F4B0041A544 /* FakeData.swift */,
 				EFBC1094223472BE00703135 /* ImageCell.swift */,
 				EFBC1092223472B300703135 /* BaseCell.swift */,
-				EFBC107D22346E1C00703135 /* PersonalPage */,
 			);
 			path = View;
 			sourceTree = "<group>";
