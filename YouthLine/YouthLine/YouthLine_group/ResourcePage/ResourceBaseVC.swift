@@ -76,7 +76,7 @@ class ResourceBaseVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("here")
         //view.addSubview(searchTextField)
         view.addSubview(questionBtn)
         view.addSubview(searchBtn)
@@ -125,6 +125,8 @@ class ResourceBaseVC: BaseViewController {
             ResourcePageVC().tableView.reloadData()
             self.viewDidLoad()
             self.viewWillAppear(true)
+            self.view.setNeedsLayout()
+//            self.loadView()
         }
         menuViewController.modalPresentationStyle = .overCurrentContext
         menuViewController.transitioningDelegate = self
