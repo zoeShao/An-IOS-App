@@ -123,9 +123,9 @@ class ResourceBaseVC: BaseViewController {
             }
             //            ResourcePageVC().transitionToNew(menuType)
             ResourcePageVC().tableView.reloadData()
-            self.viewDidLoad()
-            self.viewWillAppear(true)
             self.view.setNeedsLayout()
+            self.view.setNeedsDisplay()
+            
 //            self.loadView()
         }
         menuViewController.modalPresentationStyle = .overCurrentContext
