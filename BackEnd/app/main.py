@@ -10,8 +10,12 @@ eventDB = None
 resourcesDB = None
 admin_pw = None
 
-# prefix = ""
-prefix = "./app/"
+heroku_env = False
+
+if heroku_env:
+    prefix = "./app/"  # heroku env
+else:
+    prefix = ""  # local python env
 
 
 class DB:
@@ -19,9 +23,18 @@ class DB:
     def __init__(self):
         self.core = [] # list of list
         self.tags = []
+        self.rid_counter = 0  # rowid
+
+    def get_next_rid(self):
+        ret = self.rid_counter
+        self.rid_counter += 1
+        return ret
 
     # load from csv file
-    def loadFromFile(self, path):
+    def loadFromCSV(self, path):
+        # drop the previous db first
+        self.drop()
+
         # open file
         file = open(path)
         lines = file.read().splitlines()
@@ -35,12 +48,47 @@ class DB:
         for line in lines[1:]:
             # split
             record = []
+            record.append(self.get_next_rid())  # assign rid to each record
             for item in line.split(','):
                 record.append(item)
             # add to core
             self.core.append(record)
 
         print("DB loaded.")
+
+    # Save current DB to csv file
+    def saveToCSV(self, path):
+        # remove the previous file
+        os.remove(path)
+
+        # open file
+        file = open(path, "w")
+
+        # write the first line tags into file
+        tags = ""
+        for tag in self.tags[:-1]:
+            tags += tag + ","
+        tags += self.tags[-1] + "\n"
+        file.write(tags)
+
+        # write the rest line
+        for record in self.core:
+            line = ""
+            for item in record[1:-1]:  # skip the rid part
+                line += item + ","
+            line += record[-1] + "\n"
+            file.write(line)
+
+        file.close()
+
+        file = open(path, "ab")
+        # remove the "\n" for the last line
+        file.seek(-1, 2)
+        file.truncate()
+
+        file.close()
+
+        print("DB saved")
 
     def getAll(self):
         lst = []
@@ -50,14 +98,50 @@ class DB:
             # format in json
             for i in range(len(self.tags)):
                 key = self.tags[i]
-                value = record[i]
+                value = record[i + 1]  # we don't want to include the rid here
                 dict[key] = value
             # add to list
             lst.append(dict)
 
         return lst
 
-    def clear(self):
+    def getAllWithRid(self):
+        lst = []
+        # for in core
+        for record in self.core:
+            dict = {}
+            # Add rid
+            key = "rid"
+            value = record[0]
+            dict[key] = str(value)
+
+            # Add the rest
+            for i in range(len(self.tags)):
+                key = self.tags[i]
+                value = record[i + 1]  # we don't want to include the rid here
+                dict[key] = value
+            # add to list
+            lst.append(dict)
+
+        return lst
+
+    def add(self, lst):
+        record = []
+        record.append(self.get_next_rid())
+        record += lst
+
+        # add the database
+        self.core.append(record)
+
+    def delete(self, target_rid):
+        target_rid = int(target_rid)
+        for index in range(len(self.core)):
+            if self.core[index][0] == target_rid:
+                self.core.pop(index)
+                return
+
+    # Drop the database
+    def drop(self):
         self.core.clear()
         self.tags.clear()
 
@@ -76,6 +160,16 @@ def read_admin_pw():
     admin_pw = file.read()
     return admin_pw
 
+# Tester of DB
+def DB_tester():
+    db = DB()
+    db.loadFromCSV(prefix + "data/test.csv")
+    print(db.getAll())
+    print(db.getAllWithRid())
+    db.saveToCSV(prefix + "data/test_save.csv")
+
+# running db tester
+# DB_tester()
 
 # setup everything before running the server
 def init():
@@ -85,9 +179,9 @@ def init():
     print("Admin Password:" + admin_pw)
 
     eventDB = DB()
-    eventDB.loadFromFile(prefix + "data/event.csv")
+    eventDB.loadFromCSV(prefix + "data/event.csv")
     resourcesDB = DB()
-    resourcesDB.loadFromFile(prefix + "data/res.csv")
+    resourcesDB.loadFromCSV(prefix + "data/res.csv")
 
 # Setup everything
 init()
