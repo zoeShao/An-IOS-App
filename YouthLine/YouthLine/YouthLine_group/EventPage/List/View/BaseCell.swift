@@ -16,7 +16,7 @@ class BaseCell: UITableViewCell {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.init(name: "VAGRoundedStd-thin", size: 16)
+        label.font = UIFont.init(name: "VAGRoundedStd-thin", size: 18)
         label.numberOfLines = 2
         label.textColor = UIColor.black
         return label
@@ -25,7 +25,7 @@ class BaseCell: UITableViewCell {
     
     var contentLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.init(name: "VAGRoundedStd-light", size: 12)
+        label.font = UIFont.init(name: "VAGRoundedStd-light", size: 14)
         label.textColor = RGBColor(80, 80, 80)
         label.numberOfLines = 4
         label.lineBreakMode = NSLineBreakMode.byTruncatingTail
@@ -56,7 +56,7 @@ class BaseCell: UITableViewCell {
         selectionStyle = .none
 //        contentView.alpha = 1
         contentView.backgroundColor = UIColor.white
-        contentView.layer.cornerRadius = 2
+        contentView.layer.cornerRadius = 8
         
 //        
 //        contentView.addSubview(headImgLabel)
@@ -78,14 +78,14 @@ class BaseCell: UITableViewCell {
         
         contentView.addSubview(headImgView)
         headImgView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(8); //8
+            make.top.equalTo(titleLabel.snp.bottom).offset(15); //8
             make.left.equalTo(contentView).offset(14)
-            make.width.height.equalTo(18)
+            make.width.height.equalTo(25)
 }
         
         contentView.addSubview(contentLabel)
         contentLabel.snp.makeConstraints { make in
-            make.top.equalTo(headImgView.snp.bottom).offset(5)// 34
+            make.top.equalTo(headImgView.snp.bottom).offset(15)// 34
             make.left.equalToSuperview().offset(15)
             make.right.equalTo(contentView.snp.left).offset(5)
 //            make.right.equalToSuperview().offset(-15)

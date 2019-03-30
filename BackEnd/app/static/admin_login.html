@@ -23,6 +23,7 @@
 <script >
     function senduser(userp){
     var data = JSON.stringify({"password":$(userp).val()})
+    console.log(data)
       $.ajax({
         url:'http://localhost:80/pw',
         method: 'POST',
