@@ -28,12 +28,13 @@ import UIKit
 
 public class DNSPageStyle {
     
+    
     /// titleView
-    public var titleViewHeight: CGFloat = 44
-    public var titleColor: UIColor = UIColor.black
+    public var titleViewHeight: CGFloat = 0 //把值设置成0就是删掉titleView的意思
+    public var titleColor: UIColor = UIColor(red: 255/255, green: 128/255, blue: 171/255, alpha: 0.5)
     public var titleSelectedColor: UIColor = UIColor.blue
     public var titleFont: UIFont = UIFont.systemFont(ofSize: 15)
-    public var titleViewBackgroundColor: UIColor = UIColor.white
+    public var titleViewBackgroundColor: UIColor = UIColor(red: 255/255, green: 128/255, blue: 171/255, alpha: 0.5)
     public var titleMargin: CGFloat = 30
     public var titleViewSelectedColor: UIColor = UIColor.clear
 
