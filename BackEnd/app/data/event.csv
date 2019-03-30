@@ -1,7 +1,7 @@
-title,source,release_data,b_content,image_url,main_content,address,event_date,event_time,map,event_website
-test_title_1,ins,2019-01-01,this is b_content,http://image1.jpg,this is the main content,1 bloor E,2019-02-01,17:00,None,http://event1.website
-test_title_2,facebook,2019-01-02,this is b_content,http://image1.jpg,this is the main content,2 bloor E,2019-02-02,18:00,None,http://event1.website
-test_title_3,youtube,2019-01-03,this is b_content,http://image1.jpg,this is the main content,3 bloor E,2019-02-03,19:00,None,http://event1.website
-test_title_4,ins,2019-01-04,this is b_content,http://image1.jpg,this is the main content,4 bloor E,2019-02-04,20:00,None,http://event1.website
-test_title_5,facebook,2019-01-05,this is b_content,http://image1.jpg,this is the main content,5 bloor E,2019-02-05,21:00,None,http://event1.website
-test_title_6,youtube,2019-01-06,this is b_content,http://image1.jpg,this is the main content,6 bloor E,2019-02-06,22:00,None,http://event1.website
+"title","source","release_data","b_content","image_url","main_content","address","event_date","event_time","map","event_website"
+"test_title_1","ins","2019-01-01","this is b_content","http://image1.jpg","this is the main content","1 bloor E","2019-02-01","17:00","None","http://event1.website"
+"test_title_1","ins","2019-01-01","this is b_content","http://image1.jpg","this is the main content","1 bloor E","2019-02-01","17:00","None","http://event1.website"
+"test_title_1","ins","2019-01-01","this is b_content","http://image1.jpg","this is the main content","1 bloor E","2019-02-01","17:00","None","http://event1.website"
+"test_title_1","ins","2019-01-01","this is b_content","http://image1.jpg","this is the main content","1 bloor E","2019-02-01","17:00","None","http://event1.website"
+"test_title_1","ins","2019-01-01","this is b_content","http://image1.jpg","this is the main content","1 bloor E","2019-02-01","17:00","None","http://event1.website"
+"test_title_1","ins","2019-01-01","this is b_content","http://image1.jpg","this is the main content","1 bloor E","2019-02-01","17:00","None","http://event1.website"
