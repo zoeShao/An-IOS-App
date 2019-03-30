@@ -178,6 +178,7 @@ extension ResourcePageVC: UITextFieldDelegate, UIViewControllerTransitioningDele
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.isToolbarHidden = true
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
