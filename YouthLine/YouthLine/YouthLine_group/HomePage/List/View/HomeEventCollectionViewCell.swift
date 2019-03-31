@@ -6,29 +6,27 @@
 //  Copyright © 2019 RainbowWarrior. All rights reserved.
 //
 
-
 import HandyJSON
 import Moya
 import SwiftyJSON
 import UIKit
 
 class HomeEventCollectionViewCell: UICollectionViewCell {
+
+    var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.init(name: "VAGRoundedStd-thin", size: 18)
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        return label
+    }()
     
-    //    var titleLabel: UILabel = {
-    //        let label = UILabel()
-    //        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
-    //        label.numberOfLines = 2
-    //        label.textAlignment = .center
-    //        return label
-    //    }()
-    
-    
+
     var zhImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 5
-        //        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -37,19 +35,19 @@ class HomeEventCollectionViewCell: UICollectionViewCell {
         backgroundColor = UIColor.white
         contentView.addSubview(zhImageView)
         zhImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(contentView).offset(5)
-            //            make.left.equalToSuperview()
-            make.width.equalTo(frame.width)
-            make.height.equalTo(150)
+            make.top.equalToSuperview().offset(15)
+            make.left.equalTo(contentView).offset(5)
+            make.width.equalTo(frame.width - 10)
+            //make.height.equalTo(250)
         }
         
-        //        contentView.addSubview(titleLabel)
-        //        titleLabel.snp.makeConstraints { make in
-        //            make.top.equalTo(self.zhImageView.snp.bottom).offset(5)
-        //            make.left.equalTo(contentView).offset(5)
-        //            make.bottom.equalTo(contentView).offset(-5)
-        //            make.right.equalToSuperview().offset(-5)
-        //        }
+        contentView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.zhImageView.snp.bottom).offset(5)
+            make.left.equalTo(contentView).offset(5)
+            make.bottom.equalTo(contentView).offset(-5)
+            make.right.equalToSuperview().offset(-5)
+        }
         
     }
     
@@ -57,15 +55,15 @@ class HomeEventCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var model: YouthlineIntroModel? {
+    var model: UpcomingEventModel? {
         didSet {
-            //            titleLabel.text = model?.title?.panel_text
-            let url = (model?.image)!
-            print("head:" + (model?.image)!)
-            if (model?.image)! == "" {
+            titleLabel.text = model?.title?.panel_text
+            let url = URL(string: (model?.image?.image_url)!)
+            print("head:" + (model?.image?.image_url)!)
+            if (model?.image?.image_url)! == "" {
                 print("空")
             }
-            self.zhImageView.image = UIImage(named: url)
+            self.zhImageView.kf.setImage(with: url)
         }
     }
 }

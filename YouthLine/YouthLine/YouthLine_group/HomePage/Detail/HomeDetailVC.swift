@@ -7,7 +7,6 @@
 //
 
 
-
 import HandyJSON
 import MJRefresh
 import Moya
@@ -19,15 +18,13 @@ import WebKit
 
 class HomeDetailVC: BaseViewController {
     var questionTitle: String = ""
-    var questionTime: String = ""
-    var questionImage: String = ""
-    var questionContent: String = ""
+    var questionId: String = ""
     var answerIdList: [String]?
     var index: Int = 0
     
-    let headerView: HomeDetailView = {
-        let headerView = HomeDetailView()
-        headerView.frame = CGRect(x: 0, y: NavigationBarHeight, width: ScreenWidth, height: ScreenHeight - NavigationBarHeight)
+    let headerView: HomeDetailHeaderView = {
+        let headerView = HomeDetailHeaderView()
+        headerView.frame = CGRect(x: 0, y: NavigationBarHeight, width: ScreenWidth, height: 150)
         return headerView
     }()
     
@@ -50,28 +47,17 @@ class HomeDetailVC: BaseViewController {
         return label
     }()
     
-    lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView(frame: view.frame)
-        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height)
-        scrollView.delegate = self
-        scrollView.backgroundColor = UIColor.gray
-        scrollView.addSubview(headerView)
-        return scrollView
-    }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.titleView = searchField
         view.backgroundColor = BGColor
+        
         headerView.titleLabel.text = questionTitle
-        headerView.timeLabel.text = "Posted on" + questionTime
-        headerView.contentLabel.text = questionContent
-        let url = URL.init(string: questionImage)
-        headerView.imageView.kf.setImage(with: url, placeholder: UIImage(named: "Default"))
-        view.addSubview(scrollView)
         titleLabel.text = questionTitle
+        view.addSubview(headerView)
     }
 }
 
@@ -96,4 +82,3 @@ extension HomeDetailVC: UIScrollViewDelegate {
         }
     }
 }
-

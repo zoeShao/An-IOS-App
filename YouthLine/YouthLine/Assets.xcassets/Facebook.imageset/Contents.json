@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-facebook-f-100.png",
+      "filename" : "if_social_media_isometric_1-facebook_3529651.png",
       "scale" : "1x"
     },
     {
@@ -17,5 +17,8 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
   }
 }

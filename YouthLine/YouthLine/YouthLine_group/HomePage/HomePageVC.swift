@@ -12,10 +12,10 @@ import DNSPageView
 class HomePageVC: BaseViewController {
     let titles = [] as [String]
     let viewControllers = [HomeListVC()]
-    
+
     lazy var pageView: DNSPageView = {
         let style = DNSPageStyle()
-        style.contentViewBackgroundColor = custom_menuBarPink
+        style.contentViewBackgroundColor = .white
         style.isTitleViewScrollEnabled = false
         style.isTitleScaleEnabled = false
         style.isShowBottomLine = true
@@ -23,7 +23,7 @@ class HomePageVC: BaseViewController {
         style.titleColor = UIColor.gray
         style.bottomLineColor = UIColor.black
         style.bottomLineHeight = 2
-        
+
         let frame = CGRect(x: 0, y: NavigationBarHeight, width: ScreenWidth, height: ScreenHeight - NavigationBarHeight - 44)
         let pageView = DNSPageView(frame: frame,
                                    style: style,
@@ -32,12 +32,36 @@ class HomePageVC: BaseViewController {
                                    startIndex: 0)
         return pageView
     }()
+
+//    lazy var searchTextField: UITextField = {
+//        let textField = UITextField.init(frame: CGRect(x: 15, y: StatusBarHeight + 10, width: ScreenWidth - 100, height: 30))
+//        textField.placeholder = "Enter any keywords you want"
+//        textField.layer.masksToBounds = true
+//        textField.layer.cornerRadius = 5
+//        textField.textAlignment = NSTextAlignment.center
+//        textField.backgroundColor = RGBColor(240, 240, 240)
+//        textField.delegate = self
+//        return textField
+//    }()
+//
+//    lazy var questionBtn: UIButton = {
+//        let questionBtn = UIButton.init(type: UIButtonType.system)
+//        questionBtn.frame = CGRect(x: ScreenWidth - 85, y: StatusBarHeight + 10, width: 80, height: 30)
+//        questionBtn.setTitle("", for: UIControlState.normal)
+//        questionBtn.setImage(UIImage(named: "form"), for: UIControlState.normal)
+//        questionBtn.blueTheme()
+//        questionBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
+//        return questionBtn
+//    }()
+    
+    //加了三个lazy var, comment 掉了你两个lazy var, 分别是以前的搜索条和以前的图标按钮
     
     lazy var questionBtn: UIButton = {
         let questionBtn = UIButton.init(type: UIButtonType.system)
         questionBtn.frame = CGRect(x: ScreenWidth/2 - 50, y: StatusBarHeight + 10, width: 95, height: 30)
         questionBtn.setTitle("", for: UIControlState.normal)
         questionBtn.setImage(UIImage(named: "YouthLine_transparent"), for: UIControlState.normal)
+        //        questionBtn.blueTheme()
         questionBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
         return questionBtn
     }()
@@ -61,33 +85,33 @@ class HomePageVC: BaseViewController {
         filterBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
         return filterBtn
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = custom_menuBarPink //.white
+        navigationController?.navigationBar.barTintColor = .white
         //initSearchBar()
         
         view.addSubview(questionBtn)
         view.addSubview(searchBtn)
         //view.addSubview(filterBtn)
-        
+
         for vc in viewControllers {
             addChildViewController(vc)
         }
         view.addSubview(pageView)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
+
     func initSearchBar() {
         //view.addSubview(searchTextField)
         view.addSubview(questionBtn)
     }
-    
+
 }
 
 extension HomePageVC {

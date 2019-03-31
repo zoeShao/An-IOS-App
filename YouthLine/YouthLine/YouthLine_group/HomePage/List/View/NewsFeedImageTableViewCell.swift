@@ -21,7 +21,7 @@ class NewsFeedImageTableViewCell: NewsFeedBaseTableViewCell {
         // Configure the view for the selected state
     }
     
-    
+
     var zhImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -52,10 +52,11 @@ class NewsFeedImageTableViewCell: NewsFeedBaseTableViewCell {
     
     override var model: NewsFeedModel? {
         didSet {
-            let url = URL.init(string: (model?.image)!)
+            let content = (model?.news?.news_content ?? NewsContent())!
+            let url = URL.init(string: (content.image?.image_url)!)
             
-            print("head:" + (model?.image)!)
-            if (model?.image)! == "" {
+            print("head:" + (content.image?.image_url)!)
+            if (content.image?.image_url)! == "" {
                 print("空")
             }
             self.zhImageView.kf.setImage(with: url)

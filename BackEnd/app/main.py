@@ -1,119 +1,48 @@
-# Import everything we need
 from flask import Flask, jsonify, request, redirect, url_for
 from flask_cors import CORS
-
-# model
 import os
-import csv
 
 # Start the app and setup the static directory for the html, css, and js files.
 app = Flask(__name__, static_url_path='', static_folder='static')
 CORS(app)
 
-# Global Varible
 eventDB = None
 resourcesDB = None
-homeDB = None
 admin_pw = None
 
-# If in production env?
-heroku_env = True
-if heroku_env:
-    prefix = "./app/"  # heroku env
-else:
-    prefix = ""  # local python env
+# prefix = ""
+prefix = "./app/"
 
 
 class DB:
-    """
-    This is the DBMS of the backend, it support:
-        loading from csv file,
-        save to csv file,
-        add new record to database,
-        delete record from database.
-    """
     # init
     def __init__(self):
         self.core = [] # list of list
         self.tags = []
-        self.rid_counter = 0  # rowid
-
-    # Private method
-    # return the next available RowID
-    def get_next_rid(self):
-        ret = self.rid_counter
-        self.rid_counter += 1
-        return ret
 
     # load from csv file
-    def loadFromCSV(self, path):
-        # drop the previous db first
-        self.drop()
-
-        # open file, setup csv reader
+    def loadFromFile(self, path):
+        # open file
         file = open(path)
-        reader = csv.reader(file, delimiter=',')
-        rows = []
-        for row in reader:
-            rows.append(row)
+        lines = file.read().splitlines()
 
         # read the first line
-        header = rows[0]
-        for tag in header:
+        header = lines[0]
+        for tag in header.split(","):
             self.tags.append(tag)
 
         # for the rest
-        for line in rows[1:]:
+        for line in lines[1:]:
             # split
             record = []
-            record.append(self.get_next_rid())  # assign rid to each record
-            for item in line:
+            for item in line.split(','):
                 record.append(item)
             # add to core
             self.core.append(record)
 
-        # print("DB loaded.")
-
-    # Save current DB to csv file
-    def saveToCSV(self, path):
-        # remove the previous file
-        os.remove(path)
-
-        # open file
-        file = open(path, "w")
-
-        # write the first line tags into file
-        tags = ""
-        for tag in self.tags[:-1]:
-            tags += "\"" + tag + "\","
-        tags += "\"" + self.tags[-1] + "\"\n"
-        file.write(tags)
-
-        # write the rest line
-        for record in self.core:
-            line = ""
-            for item in record[1:-1]:  # skip the rid part
-                line += "\"" + item + "\","
-            line += "\"" + record[-1] + "\"\n"
-            file.write(line)
-
-        file.close()
-
-        # remove the last "\n"
-        file = open(path, "ab")
-        # remove the "\n" for the last line
-        file.seek(-1, 2)
-        file.truncate()
-
-        file.close()
-
-        # print("DB saved")
+        print("DB loaded.")
 
     def getAll(self):
-        """
-        Get all records
-        :return: a list of dictionary which contain the tag and it's value
-        """
         lst = []
         # for in core
         for record in self.core:
@@ -121,70 +50,14 @@ class DB:
             # format in json
             for i in range(len(self.tags)):
                 key = self.tags[i]
-                value = record[i + 1]  # we don't want to include the rid here
+                value = record[i]
                 dict[key] = value
             # add to list
             lst.append(dict)
 
         return lst
 
-    def getAllWithRid(self):
-        """
-        Get all records with ROWID
-        :return: a list of dictionary which contain the tag and it's value + ROWID
-        """
-        lst = []
-        # for in core
-        for record in self.core:
-            dict = {}
-            # Add rid
-            key = "rid"
-            value = record[0]
-            dict[key] = str(value)
-
-            # Add the rest
-            for i in range(len(self.tags)):
-                key = self.tags[i]
-                value = record[i + 1]  # we don't want to include the rid here
-                dict[key] = value
-            # add to list
-            lst.append(dict)
-
-        return lst
-
-    def add(self, lst):
-        """
-        Add record to database.
-        :param lst: list of element in current order corresponding to tags
-        :return: If operation success return True, otherwise return False.
-        """
-        if len(lst) != len(self.tags):
-            return False
-        record = []
-        record.append(self.get_next_rid())
-        record += lst
-
-        # add the database
-        self.core.append(record)
-
-        return True
-
-    def delete(self, target_rid):
-        """
-        Delete record according to the ROWID
-        :param target_rid: RowID
-        :return: If operation success return True, otherwise return False.
-        """
-        target_rid = int(target_rid)
-        for index in range(len(self.core)):
-            if self.core[index][0] == target_rid:
-                self.core.pop(index)
-                return True
-
-        return False
-
-    # Drop the database
-    def drop(self):
+    def clear(self):
         self.core.clear()
         self.tags.clear()
 
@@ -192,12 +65,10 @@ class DB:
 # If new CSV file uploaded to server, use it to build new db
 def reload_DB():
     global eventDB, resourcesDB
-    eventDB.drop()
+    eventDB.clear()
     eventDB.loadFromFile(prefix + "data/event.csv")
-    resourcesDB.drop()
+    resourcesDB.clear()
     resourcesDB.loadFromFile(prefix + "data/res.csv")
-    homeDB.drop()
-    homeDB.loadFromFile(prefix + "data/home.csv")
 
 
 def read_admin_pw():
@@ -206,33 +77,19 @@ def read_admin_pw():
     return admin_pw
 
 
-# Tester of DB
-def DB_tester():
-    db = DB()
-    db.loadFromCSV(prefix + "data/test.csv")
-    print(db.getAll())
-    print(db.getAllWithRid())
-    db.delete("0")
-    db.saveToCSV(prefix + "data/test_save.csv")
-
-# running db tester
-# DB_tester()
-
 # setup everything before running the server
 def init():
-    global eventDB, resourcesDB, homeDB, admin_pw
+    global eventDB, resourcesDB, admin_pw
 
     admin_pw = read_admin_pw()
     print("Admin Password:" + admin_pw)
 
     eventDB = DB()
-    eventDB.loadFromCSV(prefix + "data/event.csv")
+    eventDB.loadFromFile(prefix + "data/event.csv")
     resourcesDB = DB()
-    resourcesDB.loadFromCSV(prefix + "data/res.csv")
-    homeDB = DB()
-    homeDB.loadFromCSV(prefix + "data/home.csv")
+    resourcesDB.loadFromFile(prefix + "data/res.csv")
 
-# Setup everything before accept any request
+# Setup everything
 init()
 
 
@@ -241,44 +98,13 @@ def index():
     return redirect("/admin_login.html")
 
 
-##################################################################
-##########################  password   ###########################
-##################################################################
-
-
 @app.route('/pw', methods=['POST'])
 def pw():
     password = request.json["password"]
     if password == admin_pw:
-        return jsonify({"pw_ok": "T",
-                        "upload_url":"/upload.html"})
+        return redirect("/upload.html")
     else:
-        return jsonify({"pw_ok": "F"})
-
-
-##################################################################
-##########################    home     ###########################
-##################################################################
-
-
-@app.route('/home')
-def home():
-    """
-    Expected JSON Format:
-    { title        : String - new title  (optional),
-      time         : String - time,
-      news_content : String - news content,
-      image        : String - url to image (optional)
-    }
-    """
-    raw = homeDB.getAll()
-
-    return jsonify(raw)
-
-
-##################################################################
-########################    resources     ########################
-##################################################################
+        return "wrong password"
 
 
 @app.route('/resources')
@@ -333,40 +159,6 @@ def fetch_all_resources():
 
     return jsonify(json)
 
-@app.route('/resources', methods = ['POST'])
-def addResource():
-    temp = []
-    category = request.json["category"]
-    title = request.json["title"]
-    url = request.json["resource_url"]
-    img = request.json["img"]
-    temp.append(category)
-    temp.append(title)
-    temp.append(url)
-    temp.append(img)
-    resourcesDB.add(temp)
-    return("True")
-
-
-@app.route('/resources', methods=['DELETE'])
-def deleteResource():
-    temp = request.json["rid"]
-    print(temp)
-    resourcesDB.delete(temp)
-    return("true")
-
-@app.route('/resources/rid', methods=['GET'])
-def allResourceRid():
-    records = resourcesDB.getAllWithRid()
-    return jsonify(records)
-
-
-
-##################################################################
-########################       Event      ########################
-##################################################################
-
-
 @app.route('/event')
 def fetch_all_event():
     """ Expected JSON Format:
@@ -386,53 +178,8 @@ def fetch_all_event():
         }
     """
 
-    return jsonify({"Events": eventDB.getAllWithRid()})
+    return jsonify({"Events": eventDB.getAll()})
 
-
-@app.route('/event/rid', methods=['GET'])
-def allEventRid():
-    records = eventDB.getAllWithRid()
-    return jsonify(records)
-
-
-@app.route('/event', methods = ['POST'])
-def getEvent():
-    if("eid" in request.json):
-        pass
-    else:
-        temp = []
-        title = request.json["title"]
-        source = request.json["source"]
-        release_date = request.json["release_date"]
-        b_content = request.json["b_content"]
-        image_url = request.json["image_url"]
-        main_content = request.json["main_content"]
-        address = request.json["address"]
-        event_date = request.json["event_date"]
-        event_time = request.json["event_time"]
-        map = request.json["map"]
-        event_website = request.json["event_website"]
-        temp.append(title)
-        temp.append(source)
-        temp.append(release_date)
-        temp.append(b_content)
-        temp.append(image_url)
-        temp.append(main_content)
-        temp.append(address)
-        temp.append(event_date)
-        temp.append(event_time)
-        temp.append(map)
-        temp.append(event_website)
-        eventDB.add(temp)
-        return("True")
-
-
-@app.route('/event', methods = ['DELETE'])
-def deleteEvent():
-    temp = request.json["eid"]
-    eventDB.delete(temp)
-    print(temp)
-    return("true")
 
 if __name__ == "__main__":
     # Only for debugging while developing

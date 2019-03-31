@@ -6,6 +6,7 @@
 //  Copyright © 2019 RainbowWarrior. All rights reserved.
 //
 
+
 import HandyJSON
 import Moya
 import SwiftyJSON
@@ -27,7 +28,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
+        label.font = UIFont.init(name: "VAGRoundedStd-thin", size: 16)
         label.numberOfLines = 2
         return label
     }()
@@ -35,7 +36,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
     
     var contentLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.init(name: "VAGRoundedStd-thin", size: 14)
         label.textColor = RGBColor(80, 80, 80)
         label.numberOfLines = 8
         label.lineBreakMode = NSLineBreakMode.byTruncatingTail
@@ -43,10 +44,19 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
     }()
     
     
-    var timeLabel: UILabel = {
+    var headImgView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 9
+        return imageView
+    }()
+    
+    
+    var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.darkGray
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.init(name: "VAGRoundedStd-thin", size: 12)
         return label
     }()
     
@@ -62,16 +72,23 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
             make.right.equalToSuperview().offset(-15)
         }
         
-        contentView.addSubview(timeLabel)
-        timeLabel.snp.makeConstraints { make in
+        contentView.addSubview(headImgView)
+        headImgView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.left.equalTo(titleLabel)
+            make.width.height.equalTo(18)
         }
-        timeLabel.setContentHuggingPriority(UILayoutPriority.required, for: UILayoutConstraintAxis.horizontal)
+        
+        contentView.addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(headImgView)
+            make.left.equalTo(headImgView.snp.right).offset(6)
+        }
+        nameLabel.setContentHuggingPriority(UILayoutPriority.required, for: UILayoutConstraintAxis.horizontal)
         
         contentView.addSubview(contentLabel)
         contentLabel.snp.makeConstraints { make in
-            make.top.equalTo(timeLabel.snp.bottom).offset(8)
+            make.top.equalTo(headImgView.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
             make.bottom.lessThanOrEqualToSuperview().offset(-15)
@@ -85,14 +102,13 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
     
     var model: NewsFeedModel? {
         didSet {
-            titleLabel.text = model?.title
-            contentLabel.text = model?.news_content
-            timeLabel.text = model?.time
+            titleLabel.text = model?.news?.news_content?.title?.panel_text
+            contentLabel.text = model?.news?.news_content?.content?.panel_text
+            headImgView.image = UIImage(named: (model?.news?.type)!)
+            nameLabel.text = model?.news?.type
         }
     }
     
     
 }
-
-
 
