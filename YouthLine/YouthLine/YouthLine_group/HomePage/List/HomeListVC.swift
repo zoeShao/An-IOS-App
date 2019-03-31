@@ -17,11 +17,16 @@ class HomeListVC: BaseViewController {
     let NewsFeedBaseTableViewCellID = "NewsFeedBaseTableViewCell"
     let NewsFeedImageTableViewCellID = "NewsFeedImageTableViewCell"
     let HomeEventCollectionViewCellID = "HomeEventCollectionViewCell"
+    var fetchingMore = false
+    var currentNewsIndex = 0
+    // fixed size = 8
+    var AllNewsFeedModelList: [NewsFeedModel]? = []
+    // fixed size = 2
+    var CurrentNewsFeedModelList: [NewsFeedModel]? = []
+    // never changed
+    var YouthlineIntroModelList: [YouthlineIntroModel]? = [event1, event2, event3]
     
-    var NewsFeedModelList: [NewsFeedModel]? = []
-    var UpcomingEventModelList: [YouthlineIntroModel]? = [event1, event2, event3]
-    
-    var pageIndex: Int = 0
+    //    var pageIndex: Int = 0
     
     lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -62,18 +67,53 @@ class HomeListVC: BaseViewController {
     }
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 300, width: ScreenWidth, height: view.frame.height), style: UITableViewStyle.grouped)
-        
+        let tableView = UITableView(frame: CGRect(x: 0, y: 50, width: ScreenWidth, height: view.frame.height - NavigationBarHeight), style: UITableViewStyle.grouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(NewsFeedBaseTableViewCell.self, forCellReuseIdentifier: NewsFeedBaseTableViewCellID)
         tableView.register(NewsFeedImageTableViewCell.self, forCellReuseIdentifier: NewsFeedImageTableViewCellID)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        tableView.backgroundColor = UIColor.lightGray
         tableView.isScrollEnabled = false
         tableView.bounces = true
         
         return tableView
+    }()
+    
+    func tableUIView() -> UIView {
+        let tableUIView = UIView.init()
+        tableUIView.frame = CGRect(x: 0, y: 300, width: ScreenWidth, height: view.frame.height)
+        tableUIView.backgroundColor = UIColor.white
+        tableUIView.addSubview(newsLabel)
+        tableUIView.addSubview(changeNewsButton())
+        tableUIView.addSubview(tableView)
+        return tableUIView
+    }
+    
+    func changeNewsButton() -> UIButton{
+        let title = "Next"
+        let iconName = "refresh"
+        let button = UIButton.init(type: UIButtonType.custom) as UIButton
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 10)
+        button.setImage(UIImage(named: iconName), for: .normal)
+        button.addTarget(self, action: #selector(nextNews(sender:)), for: .touchUpInside)
+        let imageWidth = button.imageView!.frame.width
+        let textWidth = (title as NSString).size(withAttributes:[NSAttributedStringKey.font:button.titleLabel!.font!]).width
+        let width = textWidth + imageWidth + 24
+        button.frame = CGRect(x: ScreenWidth - 60, y: 30, width: width, height: 20)
+        button.layoutIfNeeded()
+        return button
+    }
+    
+    lazy var newsLabel: UILabel = {
+        let label = UILabel()
+        label.frame = CGRect(x: 10, y: 30, width: ScreenWidth, height: 20)
+        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)
+        label.numberOfLines = 1
+        label.textColor = UIColor.darkGray
+        label.text = "Check out our news below!"
+        return label
     }()
     
     lazy var buttonLabel: UILabel = {
@@ -167,8 +207,6 @@ class HomeListVC: BaseViewController {
         let imageWidth = button.imageView!.frame.width
         let textWidth = (title as NSString).size(withAttributes:[NSAttributedStringKey.font:button.titleLabel!.font!]).width
         let width = textWidth + imageWidth + 40
-        //24 - the sum of your insets from left and right
-        //        widthConstraints.constant = width
         button.frame = CGRect(x: 240, y: 25, width: width, height: 30)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
@@ -188,43 +226,56 @@ class HomeListVC: BaseViewController {
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView(frame: view.frame)
-        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height)
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: 1.0)
+        
+        //        scrollView.contentSize.height = 1.0 // disable vertical scroll
         scrollView.delegate = self
-        scrollView.backgroundColor = UIColor.gray
+        scrollView.backgroundColor = UIColor.lightGray
         scrollView.addSubview(collectionView)
         scrollView.addSubview(contactView())
         scrollView.addSubview(buttonView())
-        scrollView.addSubview(tableView)
+        //        scrollView.addSubview(tableView)
+        scrollView.addSubview(tableUIView())
+        
         return scrollView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let news1 = test() {
-            NewsFeedModelList?.append(news1)
+            //            CurrentNewsFeedModelList?.append(news1)
+            AllNewsFeedModelList?.append(news1)
+            AllNewsFeedModelList?.append(news1)
         } else {
-            NewsFeedModelList = []
+            CurrentNewsFeedModelList = []
+            AllNewsFeedModelList = []
         }
         if let news2 = test1() {
-            NewsFeedModelList?.append(news2)
+            //            CurrentNewsFeedModelList?.append(news2)
+            AllNewsFeedModelList?.append(news2)
+            AllNewsFeedModelList?.append(news2)
         } else {
-            NewsFeedModelList = []
+            CurrentNewsFeedModelList = []
+            AllNewsFeedModelList = []
         }
-        view.backgroundColor = UIColor.gray
+        CurrentNewsFeedModelList?.append(AllNewsFeedModelList![0])
+        CurrentNewsFeedModelList?.append(AllNewsFeedModelList![1])
+        view.backgroundColor = UIColor.lightGray
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
             make.top.equalToSuperview().offset(2)
         }
-        //no need to write following if checked in storyboard
         self.scrollView.bounces = false
         self.scrollView.isScrollEnabled = true
+        
     }
 }
 
 extension HomeListVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return NewsFeedModelList?.count ?? 0
+        return CurrentNewsFeedModelList?.count ?? 0
+        //        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -232,7 +283,7 @@ extension HomeListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -248,9 +299,8 @@ extension HomeListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = NewsFeedModelList?[indexPath.section]
+        let model = CurrentNewsFeedModelList?[indexPath.section]
         let cell: NewsFeedBaseTableViewCell
-        //        let content = (model?.news?.news_content ?? NewsContent())!
         if model?.image != nil {
             cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedImageTableViewCellID, for: indexPath) as! NewsFeedImageTableViewCell
         } else {
@@ -261,9 +311,8 @@ extension HomeListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = NewsFeedModelList?[indexPath.section]
+        let model = CurrentNewsFeedModelList?[indexPath.section]
         let vc = HomeDetailVC()
-        //        vc.questionTitle = model?.news?.news_content?.title?.panel_text ?? ""
         vc.questionTitle = model?.title ?? ""
         vc.questionTime = model?.time ?? ""
         vc.questionImage = model?.image ?? ""
@@ -274,30 +323,42 @@ extension HomeListVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 
-extension HomeListVC: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView == self.scrollView {
-            tableView.isScrollEnabled = (self.scrollView.contentOffset.y >= 200)
-        }
-        
-        if scrollView == self.tableView {
-            self.tableView.isScrollEnabled = (tableView.contentOffset.y > 0)
-        }
-    }
-}
+//extension HomeListVC: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//
+//        if scrollView == self.scrollView {
+//            tableView.isScrollEnabled = (self.scrollView.contentOffset.y >= 200)
+//        }
+//
+//        if scrollView == self.tableView {
+//            self.tableView.isScrollEnabled = (tableView.contentOffset.y > 0)
+//        }
+//    }
+//
+//    func beginBatchFetch() {
+//        fetchingMore = true
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 , execute: {
+//            let newItems = self.NewsFeedModelList!
+//            self.NewsFeedModelList?.append(contentsOf: newItems)
+//            self.fetchingMore = false
+//            self.tableView.reloadData()
+//        })
+//    }
+//}
 
 extension HomeListVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return UpcomingEventModelList?.count ?? 0
+        return YouthlineIntroModelList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return 1
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let model = UpcomingEventModelList?[indexPath.section]
+        let model = YouthlineIntroModelList?[indexPath.section]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeEventCollectionViewCell", for: indexPath) as! HomeEventCollectionViewCell
         cell.model = model
         return cell
@@ -410,5 +471,18 @@ extension HomeListVC {
     
     @objc func sendMessage(sender: UIButton) {
         displayMessageInterface()
+    }
+    
+    @objc func nextNews(sender: UIButton) {
+        print("update news")
+        currentNewsIndex = currentNewsIndex + 2
+        if currentNewsIndex == AllNewsFeedModelList!.count {
+            currentNewsIndex = 0
+        }
+        print(currentNewsIndex)
+        CurrentNewsFeedModelList?.removeAll()
+        CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex])
+        CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex+1])
+        self.tableView.reloadData()
     }
 }
