@@ -307,6 +307,7 @@
 		EFBC107B22346DF800703135 /* YouthLine_group */ = {
 			isa = PBXGroup;
 			children = (
+				EFBC107D22346E1C00703135 /* PersonalPage */,
 				EFBC107F22346E3400703135 /* HomePage */,
 				EFBC107E22346E2800703135 /* ResourcePage */,
 				EFBC107C22346E0F00703135 /* EventPage */,
@@ -398,7 +399,6 @@
 				EFE36B6222358F4B0041A544 /* FakeData.swift */,
 				EFBC1094223472BE00703135 /* ImageCell.swift */,
 				EFBC1092223472B300703135 /* BaseCell.swift */,
-				EFBC107D22346E1C00703135 /* PersonalPage */,
 			);
 			path = View;
 			sourceTree = "<group>";
