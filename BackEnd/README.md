@@ -69,4 +69,3 @@ http://youthline-test-server.herokuapp.com/
 "Post" at /home
 ## Admin Password Verifycation
 "POST" at /pw
-## Delete Resources
