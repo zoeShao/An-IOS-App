@@ -17,7 +17,7 @@ class ResourceBaseVC: BaseViewController {
     var resources: [Resource] = []
     
     var tableBackGroundView: UIImageView = {
-        let tableBackGroundView = UIImageView(image: UIImage(named: "rainbow_3"))
+        let tableBackGroundView = UIImageView(image: UIImage(named: "rainbow_7"))
         tableBackGroundView.contentMode = .scaleAspectFill
         tableBackGroundView.layer.masksToBounds = true
         return tableBackGroundView
@@ -78,7 +78,15 @@ class ResourceBaseVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
+        print("1ajksdhkajhsdkhaksd")
+        tableView.initRefreshView()
+        tableView.mj_header.refreshingBlock = { [weak self] in
+            //            self?.pageIndex = 0
+            self?.fetchData()
+            self?.tableView.mj_footer.endRefreshingWithNoMoreData()
+        }
+        tableView.mj_header.beginRefreshing()
+//        fetchData()
         //        hello()
         //        if let resourcesCollectionAll = loadResource() {
         //            print(resourcesCollectionAll)
@@ -217,6 +225,7 @@ extension ResourceBaseVC: UITableViewDelegate, UITableViewDataSource, UIViewCont
                                         let resource = Resource(image: imageURL, title: resourceTitle, url: URL(string: resourceURL)!)
                                         //                                        resourcesCollection["all"]!.append(resource)
                                         resourcesCollection[categoryName]!.append(resource)
+                                        self.tableView.mj_header.endRefreshing()
                                     }
                                     
                                 } else {
