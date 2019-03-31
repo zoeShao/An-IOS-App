@@ -16,9 +16,9 @@ class ListBaseVC: BaseViewController {
     let ImageCellID = "ImageCell"
     let BigImageCellID = "BigImageCell"
     
-    var ModelList: [Model]?
+    var ModelList: [EventModel]?
     var pageIndex: Int = 0
-
+    
     var tableBackGroundView: UIImageView = {
         let tableBackGroundView = UIImageView(image: UIImage(named: "rainbow_7"))
         tableBackGroundView.contentMode = .scaleAspectFill
@@ -59,27 +59,38 @@ class ListBaseVC: BaseViewController {
     }
     
     func refreshDataSource() {
-                
-                
-                if true{
-                    var noAdList: [Model] = []
-                    for model in mappedObject as! [Model] {
-                        if model.common_card != nil || model.fields != nil {
-                            noAdList.append(model)
-                        }
-                        self.tableView.mj_header.endRefreshing()
-                        self.tableView.mj_footer.endRefreshing()
+        Alamofire.request("http://youthline-test-server.herokuapp.com/event").responseJSON { (responseObject) -> Void in
+            
+            print(responseObject)
+            let json = JSON(responseObject.result.value!)
+            print(json["Events"], "hello")
+            
+            if let mappedObject_1 = JSONDeserializer<EventModel>.deserializeModelArrayFrom(json: json["Events"].description){
+                print(mappedObject_1, "yesyesyes")
+                var noAdList: [EventModel] = []
+                for model in mappedObject_1 as! [EventModel] {
+                    //                    if model.common_card != nil || model.fields != nil
+                    if model.rid != nil {
+                        noAdList.append(model)
                     }
-                    if self.pageIndex == 0 {
-                        self.ModelList = noAdList
-                    } else {
-                        self.ModelList? += noAdList
-                    }
-                    self.pageIndex += 1
-                    self.tableView.reloadData()
+                    self.tableView.mj_header.endRefreshing()
+                    self.tableView.mj_footer.endRefreshing()
                 }
+                if self.pageIndex == 0 {
+                    self.ModelList = noAdList
+                } else {
+                    self.ModelList? += noAdList
+                }
+                self.pageIndex += 1
+                self.tableView.reloadData()
             }
+            
+            
+            
         }
+        
+    }
+}
 //    }
 //}
 
@@ -110,9 +121,9 @@ extension ListBaseVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = ModelList?[indexPath.section]
-        if model?.common_card != nil {
+        if model?.rid != nil {
             let cell: BaseCell
-            let content = (model?.common_card?.feed_content ?? Feed_content())!
+            let content = (model?.b_content ?? "content not found")!
             if true {
                 cell = tableView.dequeueReusableCell(withIdentifier: ImageCellID, for: indexPath) as! ImageCell
             } else {
@@ -130,11 +141,17 @@ extension ListBaseVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = ModelList?[indexPath.section]
-        if model?.common_card != nil {
+        if model?.rid != nil {
             let vc = ArticleDetailVC()
-            vc.answerId = model?.extra?.id
-            vc.questionTitle = "data not yet prepared"
+            vc.questionId = model?.rid ?? ""
+            vc.questionTitle = model?.title ?? "title not found"
             vc.hidesBottomBarWhenPushed = true
+            vc.question_content = model?.main_content ?? "content not found"
+            vc.address = model?.address ?? "address not defined"
+            vc.time = model?.event_time ?? "event time not defined"
+            vc.website = model?.event_website ?? "event website not defined"
+            vc.date = model?.event_date ?? "date not defined"
+            vc.imageUrl = model?.image_url ?? "image not found"
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

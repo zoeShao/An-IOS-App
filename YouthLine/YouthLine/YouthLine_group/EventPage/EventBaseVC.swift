@@ -48,7 +48,7 @@ class EventBaseVC: BaseViewController {
         questionBtn.frame = CGRect(x: ScreenWidth/2 - 50, y: StatusBarHeight + 10, width: 95, height: 30)
         questionBtn.setTitle("", for: UIControlState.normal)
         questionBtn.setImage(UIImage(named: "YouthLine_transparent"), for: UIControlState.normal)
-//        questionBtn.blueTheme()
+        //        questionBtn.blueTheme()
         questionBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
         return questionBtn
     }()
@@ -58,7 +58,7 @@ class EventBaseVC: BaseViewController {
         searchBtn.frame = CGRect(x: ScreenWidth - 50, y: StatusBarHeight + 13, width: 25, height: 25)
         searchBtn.setTitle("", for: UIControlState.normal)
         searchBtn.setImage(UIImage(named: "slider"), for: UIControlState.normal)
-
+        
         searchBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
         return searchBtn
     }()
@@ -75,7 +75,7 @@ class EventBaseVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         view.addSubview(searchTextField)
         searchTextField.isHidden = true
         view.addSubview(questionBtn)
@@ -87,25 +87,10 @@ class EventBaseVC: BaseViewController {
         }
         view.addSubview(pageView)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped))
-        view.addGestureRecognizer(tap)
         
     }
     
-    @objc func tableTapped(tap:UITapGestureRecognizer) {
-        if (searchTextField.isHidden == false){
-          let location = tap.location(in: self.view)
-          let location_2 = CGPointFromString("(100, 100)")
-          if location.equalTo(location_2) {
-
-          } else {
-              searchTextField.isHidden = true
-              filterBtn.isHidden = false
-              questionBtn.isHidden = false
-              // handle tap on empty space below existing rows however you want
-          }
-        }
-    }
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,7 +105,7 @@ class EventBaseVC: BaseViewController {
         view.addSubview(questionBtn)
     }
     
-
+    
 }
 
 extension EventBaseVC {
@@ -133,9 +118,9 @@ extension EventBaseVC {
         filterBtn.isHidden = true
         questionBtn.isHidden = true
     }
-
     
-
+    
+    
 }
 
 
