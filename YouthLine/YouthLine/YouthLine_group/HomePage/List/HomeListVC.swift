@@ -25,8 +25,22 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
     var CurrentNewsFeedModelList: [NewsFeedModel]? = []
     // never changed
     var YouthlineIntroModelList: [YouthlineIntroModel]? = [event1, event2, event3]
-    
     //    var pageIndex: Int = 0
+    var galleryPageControl: UIPageControl = UIPageControl(frame: CGRect(x: ScreenWidth/2, y: 165, width: 30, height: 10))
+    
+    var timer:Timer!
+    lazy var introScrollView: UIScrollView = {
+        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 160))
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: 1.0)
+        
+        //        scrollView.contentSize.height = 1.0 // disable vertical scroll
+        scrollView.delegate = self
+        scrollView.backgroundColor = UIColor.lightGray
+        
+        return scrollView
+    }()
+    
+
     
     lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -233,6 +247,8 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
         scrollView.delegate = self
         scrollView.backgroundColor = UIColor.lightGray
         scrollView.addSubview(collectionView)
+//        scrollView.addSubview(introScrollView)
+//        scrollView.addSubview(galleryPageControl)
         scrollView.addSubview(contactView())
         scrollView.addSubview(buttonView())
         //        scrollView.addSubview(tableView)
@@ -252,9 +268,9 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
             make.left.right.bottom.equalToSuperview()
             make.top.equalToSuperview().offset(2)
         }
+//        introDisplay()
         self.scrollView.bounces = false
         self.scrollView.isScrollEnabled = true
-       
     }
     func fetchData(){
         Alamofire.request("http://youthline-test-server.herokuapp.com/home").responseJSON { (responseObject) -> Void in
@@ -270,7 +286,7 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
                         self.AllNewsFeedModelList!.append(model)
                         print("neic")
                     }
-                    print(self.AllNewsFeedModelList!.count)
+//                    print(self.AllNewsFeedModelList!.count)
                     if self.AllNewsFeedModelList!.count >= 2 {
                         self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![0])
                         self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![1])
@@ -293,4 +309,57 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
 
 
 
+extension HomeListVC {
+    func introDisplay(){   //实现图片滚动播放；
+        //image width
+        let imageW:CGFloat = self.introScrollView.frame.size.width;//获取ScrollView的宽作为图片的宽；
+        let imageH:CGFloat = self.introScrollView.frame.size.height;//获取ScrollView的高作为图片的高；
+        let imageY:CGFloat = 0;//图片的Y坐标就在ScrollView的顶端；
+        let totalCount: NSInteger = 3;//轮播的图片数量；
+        for index in 0..<totalCount{
+            print(index)
+            let imageView:UIImageView = UIImageView();
+            let imageX:CGFloat = CGFloat(index) * imageW;
+            imageView.frame = CGRect(x:imageX, y:imageY, width:imageW, height:imageH);//设置图片的大小，注意Image和ScrollView的关系，其实几张图片是按顺序从左向右依次放置在ScrollView中的，但是ScrollView在界面中显示的只是一张图片的大小，效果类似与画廊；
+            let name:String = String(format: "HomePage%d", index+1);
+            imageView.image = UIImage(named: name);
+            print("image")
+            self.introScrollView.showsHorizontalScrollIndicator = false;//不设置水平滚动条；
+            self.introScrollView.addSubview(imageView);//把图片加入到ScrollView中去，实现轮播的效果；
+        }
+        
+        //需要非常注意的是：ScrollView控件一定要设置contentSize;包括长和宽；
+        let contentW:CGFloat = imageW * CGFloat(totalCount);//这里的宽度就是所有的图片宽度之和；
+        self.introScrollView.contentSize = CGSize(width:contentW, height:0);
+        self.introScrollView.isPagingEnabled = true;
+        self.introScrollView.delegate = self;
+        print(self.galleryPageControl)
+        self.galleryPageControl.numberOfPages = totalCount;//下面的页码提示器；
+        self.addTimer()
+    }
+    
+    func nextImage(sender:AnyObject!){//图片轮播；
+        var page:Int = self.galleryPageControl.currentPage;
+        if(page == 2){   //循环；
+            page = 0;
+        }else{
+            page = page + 1
+        }
+        let x:CGFloat = CGFloat(page) * self.introScrollView.frame.size.width;
+        self.introScrollView.contentOffset = CGPoint(x:x, y:0);//注意：contentOffset就是设置ScrollView的偏移；
+    }
 
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        //这里的代码是在ScrollView滚动后执行的操作，并不是执行ScrollView的代码；
+        //这里只是为了设置下面的页码提示器；该操作是在图片滚动之后操作的；
+        let scrollviewW:CGFloat = introScrollView.frame.size.width;
+        let x:CGFloat = introScrollView.contentOffset.x;
+        let page:Int = (Int)((x + scrollviewW / 2) / scrollviewW);
+        self.galleryPageControl.currentPage = page;
+    }
+    
+    func addTimer(){   //图片轮播的定时器；
+        self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: Selector(("nextImage:")), userInfo: nil, repeats: true);
+    }
+
+}

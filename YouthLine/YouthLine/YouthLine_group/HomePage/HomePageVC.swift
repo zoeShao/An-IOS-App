@@ -68,7 +68,7 @@ class HomePageVC: BaseViewController {
         //initSearchBar()
         
         view.addSubview(questionBtn)
-        view.addSubview(searchBtn)
+//        view.addSubview(searchBtn)
         //view.addSubview(filterBtn)
         
         for vc in viewControllers {
