@@ -12,12 +12,13 @@ import HandyJSON
 import MJRefresh
 import SwiftyJSON
 import MessageUI
+//import MaterialComponents.MaterialPageControl
 
 class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,UICollectionViewDelegate, UICollectionViewDataSource {
     let NewsFeedBaseTableViewCellID = "NewsFeedBaseTableViewCell"
     let NewsFeedImageTableViewCellID = "NewsFeedImageTableViewCell"
     let HomeEventCollectionViewCellID = "HomeEventCollectionViewCell"
-//    var fetchingMore = false
+    //    var fetchingMore = false
     var currentNewsIndex = 0
     // fixed size = 8
     var AllNewsFeedModelList: [NewsFeedModel]? = []
@@ -26,7 +27,7 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
     // never changed
     var YouthlineIntroModelList: [YouthlineIntroModel]? = [event1, event2, event3]
     //    var pageIndex: Int = 0
-    var galleryPageControl: UIPageControl = UIPageControl(frame: CGRect(x: ScreenWidth/2, y: 165, width: 30, height: 10))
+    var galleryPageControl: UIPageControl = UIPageControl(frame: CGRect(x: ScreenWidth/2 - 15, y: 145, width: 30, height: 10))
     
     var timer:Timer!
     lazy var introScrollView: UIScrollView = {
@@ -40,7 +41,7 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
         return scrollView
     }()
     
-
+    
     
     lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -246,9 +247,9 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
         //        scrollView.contentSize.height = 1.0 // disable vertical scroll
         scrollView.delegate = self
         scrollView.backgroundColor = UIColor.lightGray
-        scrollView.addSubview(collectionView)
-//        scrollView.addSubview(introScrollView)
-//        scrollView.addSubview(galleryPageControl)
+        //        scrollView.addSubview(collectionView)
+        scrollView.addSubview(introScrollView)
+        scrollView.addSubview(galleryPageControl)
         scrollView.addSubview(contactView())
         scrollView.addSubview(buttonView())
         //        scrollView.addSubview(tableView)
@@ -259,7 +260,7 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        updateData()
+        //        updateData()
         fetchData()
         print(AllNewsFeedModelList!.count)
         view.backgroundColor = UIColor.lightGray
@@ -268,7 +269,7 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
             make.left.right.bottom.equalToSuperview()
             make.top.equalToSuperview().offset(2)
         }
-//        introDisplay()
+        introDisplay()
         self.scrollView.bounces = false
         self.scrollView.isScrollEnabled = true
     }
@@ -286,7 +287,7 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
                         self.AllNewsFeedModelList!.append(model)
                         print("neic")
                     }
-//                    print(self.AllNewsFeedModelList!.count)
+                    //                    print(self.AllNewsFeedModelList!.count)
                     if self.AllNewsFeedModelList!.count >= 2 {
                         self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![0])
                         self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![1])
@@ -326,6 +327,7 @@ extension HomeListVC {
             print("image")
             self.introScrollView.showsHorizontalScrollIndicator = false;//不设置水平滚动条；
             self.introScrollView.addSubview(imageView);//把图片加入到ScrollView中去，实现轮播的效果；
+            
         }
         
         //需要非常注意的是：ScrollView控件一定要设置contentSize;包括长和宽；
@@ -335,31 +337,60 @@ extension HomeListVC {
         self.introScrollView.delegate = self;
         print(self.galleryPageControl)
         self.galleryPageControl.numberOfPages = totalCount;//下面的页码提示器；
+        self.galleryPageControl.currentPageIndicatorTintColor = UIColor.lightGray
+        //        self.galleryPageControl.addTarget(self, action: #selector(didChangePage(sender:)), for: .valueChanged)
+        //        self.galleryPageControl.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
         self.addTimer()
     }
+    //
+    //    func didChangePage(sender: MDCPageControl){
+    //        var offset = scrollView.contentOffset
+    //        offset.x = CGFloat(sender.currentPage) * scrollView.bounds.size.width;
+    //        scrollView.setContentOffset(offset, animated: true)
+    //    }
     
-    func nextImage(sender:AnyObject!){//图片轮播；
+    @objc func nextImage(sender:AnyObject!){//图片轮播；
         var page:Int = self.galleryPageControl.currentPage;
+        print(page)
         if(page == 2){   //循环；
             page = 0;
+            self.galleryPageControl.currentPage = 0
         }else{
             page = page + 1
+            self.galleryPageControl.currentPage = page
         }
+        
         let x:CGFloat = CGFloat(page) * self.introScrollView.frame.size.width;
         self.introScrollView.contentOffset = CGPoint(x:x, y:0);//注意：contentOffset就是设置ScrollView的偏移；
     }
-
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        //这里的代码是在ScrollView滚动后执行的操作，并不是执行ScrollView的代码；
-        //这里只是为了设置下面的页码提示器；该操作是在图片滚动之后操作的；
+    
+    //    func scrollViewDidScroll(scrollView: UIScrollView) {
+    //        //这里的代码是在ScrollView滚动后执行的操作，并不是执行ScrollView的代码；
+    //        //这里只是为了设置下面的页码提示器；该操作是在图片滚动之后操作的；
+    //        let scrollviewW:CGFloat = introScrollView.frame.size.width;
+    //        let x:CGFloat = introScrollView.contentOffset.x;
+    //        let page:Int = (Int)((x + scrollviewW / 2) / scrollviewW);
+    //        self.galleryPageControl.currentPage = page;
+    //    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollviewW:CGFloat = introScrollView.frame.size.width;
         let x:CGFloat = introScrollView.contentOffset.x;
         let page:Int = (Int)((x + scrollviewW / 2) / scrollviewW);
         self.galleryPageControl.currentPage = page;
+        //        self.galleryPageControl.scrollViewDidScroll(scrollView)
     }
     
+    //    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    //        self.galleryPageControl.scrollViewDidEndDecelerating(scrollView)
+    //    }
+    //
+    //    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    //        self.galleryPageControl.scrollViewDidEndScrollingAnimation(scrollView)
+    //    }
+    
     func addTimer(){   //图片轮播的定时器；
-        self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: Selector(("nextImage:")), userInfo: nil, repeats: true);
+        self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(nextImage(sender:)), userInfo: nil, repeats: true);
     }
-
+    
 }

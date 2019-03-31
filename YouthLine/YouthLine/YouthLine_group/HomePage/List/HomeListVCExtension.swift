@@ -208,64 +208,64 @@ extension HomeListVC {
 
 // extension for data fetching
 extension HomeListVC {
-//    func updateData(){
-////        if let news1 = test() {
-////            //            CurrentNewsFeedModelList?.append(news1)
-////            AllNewsFeedModelList?.append(news1)
-////            AllNewsFeedModelList?.append(news1)
-////        } else {
-////            CurrentNewsFeedModelList = []
-////            AllNewsFeedModelList = []
-////        }
-////        if let news2 = test1() {
-////            //            CurrentNewsFeedModelList?.append(news2)
-////            AllNewsFeedModelList?.append(news2)
-////            AllNewsFeedModelList?.append(news2)
-////        } else {
-////            CurrentNewsFeedModelList = []
-////            AllNewsFeedModelList = []
-////        }
-//        let resJson = fetchData()
-//        print(resJson)
-//        if let mappedObject = JSONDeserializer<NewsFeedModel>.deserializeModelArrayFrom(json: resJson.description){
-//            print("heyy")
-//            for model in mappedObject as! [NewsFeedModel] {
-//                // if model.common_card != nil || model.fields != nil
-//                AllNewsFeedModelList!.append(model)
-//                print("neic")
-//            }
-//            print(AllNewsFeedModelList!.count)
-//            if AllNewsFeedModelList!.count >= 2 {
-//
-//                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![0])
-//                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![1])
-//                print("buling")
-//            } else if AllNewsFeedModelList!.count == 1{
-//                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![0])
-//            }
-//        }
-//        print(AllNewsFeedModelList!.count)
-//
-//    }
+    //    func updateData(){
+    ////        if let news1 = test() {
+    ////            //            CurrentNewsFeedModelList?.append(news1)
+    ////            AllNewsFeedModelList?.append(news1)
+    ////            AllNewsFeedModelList?.append(news1)
+    ////        } else {
+    ////            CurrentNewsFeedModelList = []
+    ////            AllNewsFeedModelList = []
+    ////        }
+    ////        if let news2 = test1() {
+    ////            //            CurrentNewsFeedModelList?.append(news2)
+    ////            AllNewsFeedModelList?.append(news2)
+    ////            AllNewsFeedModelList?.append(news2)
+    ////        } else {
+    ////            CurrentNewsFeedModelList = []
+    ////            AllNewsFeedModelList = []
+    ////        }
+    //        let resJson = fetchData()
+    //        print(resJson)
+    //        if let mappedObject = JSONDeserializer<NewsFeedModel>.deserializeModelArrayFrom(json: resJson.description){
+    //            print("heyy")
+    //            for model in mappedObject as! [NewsFeedModel] {
+    //                // if model.common_card != nil || model.fields != nil
+    //                AllNewsFeedModelList!.append(model)
+    //                print("neic")
+    //            }
+    //            print(AllNewsFeedModelList!.count)
+    //            if AllNewsFeedModelList!.count >= 2 {
+    //
+    //                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![0])
+    //                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![1])
+    //                print("buling")
+    //            } else if AllNewsFeedModelList!.count == 1{
+    //                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![0])
+    //            }
+    //        }
+    //        print(AllNewsFeedModelList!.count)
+    //
+    //    }
     
-//    func fetchData() -> JSON?{
-//        var json = JSON()
-//        Alamofire.request("http://youthline-test-server.herokuapp.com/home").responseJSON { (responseObject) -> Void in
-//            
-////            print(responseObject)
-//            if responseObject.result.isSuccess {
-//                json = JSON(responseObject.result.value!)
-//                print("fetchsuccess")
-//                
-//            }
-//            if responseObject.result.isFailure {
-//                let error : NSError = responseObject.result.error! as NSError
-//                print("news fetch failed")
-//            }
-//        }
-//        print("pass")
-//        return json
-//    }
+    //    func fetchData() -> JSON?{
+    //        var json = JSON()
+    //        Alamofire.request("http://youthline-test-server.herokuapp.com/home").responseJSON { (responseObject) -> Void in
+    //
+    ////            print(responseObject)
+    //            if responseObject.result.isSuccess {
+    //                json = JSON(responseObject.result.value!)
+    //                print("fetchsuccess")
+    //
+    //            }
+    //            if responseObject.result.isFailure {
+    //                let error : NSError = responseObject.result.error! as NSError
+    //                print("news fetch failed")
+    //            }
+    //        }
+    //        print("pass")
+    //        return json
+    //    }
 }
 
 
