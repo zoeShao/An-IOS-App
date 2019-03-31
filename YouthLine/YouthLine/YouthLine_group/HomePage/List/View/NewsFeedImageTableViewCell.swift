@@ -38,10 +38,11 @@ class NewsFeedImageTableViewCell: NewsFeedBaseTableViewCell {
         
         contentView.addSubview(zhImageView)
         zhImageView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(5)
             make.right.equalTo(contentView).offset(-10)
             make.width.equalTo(100)
-            make.height.equalTo(70)
-            make.bottom.equalTo(contentView).offset(-60)
+            //make.height.equalTo(70)
+            make.bottom.lessThanOrEqualToSuperview()
         }
     }
     
