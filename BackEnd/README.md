@@ -53,8 +53,20 @@ http://youthline-test-server.herokuapp.com/
 ## Fetch All Resources
 "Get" at /resources
 
+## Delete Resources
+"Delete" at /resources
+
+## Post new Resources
+"Post" at /Resources
+
 ## Fetch Home
 "Get" at /home
 
+## Delete Home
+"Delete" at /home
+
+## Post Home
+"Post" at /home
 ## Admin Password Verifycation
 "POST" at /pw
+## Delete Resources

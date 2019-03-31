@@ -37,7 +37,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = RGBColor(80, 80, 80)
-        label.numberOfLines = 6
+        label.numberOfLines = 8
         label.lineBreakMode = NSLineBreakMode.byTruncatingTail
         return label
     }()
@@ -54,8 +54,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-        //        contentView.layer.masksToBounds = true
-        //        contentView.layer.cornerRadius = 30
+        
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.left.equalTo(contentView).offset(15)
