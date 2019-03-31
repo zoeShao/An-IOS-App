@@ -14,7 +14,7 @@
 		279F19E52235D65500DE8221 /* subVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F19E02235D65500DE8221 /* subVC.swift */; };
 		27C3B8502235D8BD00162AB6 /* HomePageSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B8412235D8BC00162AB6 /* HomePageSearchVC.swift */; };
 		27C3B8512235D8BD00162AB6 /* NewsFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B8442235D8BC00162AB6 /* NewsFeedModel.swift */; };
-		27C3B8522235D8BD00162AB6 /* UpcomingEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B8452235D8BC00162AB6 /* UpcomingEventModel.swift */; };
+		27C3B8522235D8BD00162AB6 /* YouthlineIntroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B8452235D8BC00162AB6 /* YouthlineIntroModel.swift */; };
 		27C3B8532235D8BD00162AB6 /* NewsFeedBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B8472235D8BC00162AB6 /* NewsFeedBaseTableViewCell.swift */; };
 		27C3B8542235D8BD00162AB6 /* NewsFeedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B8482235D8BC00162AB6 /* NewsFeedImageTableViewCell.swift */; };
 		27C3B8552235D8BD00162AB6 /* HomeEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B8492235D8BC00162AB6 /* HomeEventCollectionViewCell.swift */; };
@@ -76,7 +76,7 @@
 		279F19E02235D65500DE8221 /* subVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subVC.swift; sourceTree = "<group>"; };
 		27C3B8412235D8BC00162AB6 /* HomePageSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageSearchVC.swift; sourceTree = "<group>"; };
 		27C3B8442235D8BC00162AB6 /* NewsFeedModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedModel.swift; sourceTree = "<group>"; };
-		27C3B8452235D8BC00162AB6 /* UpcomingEventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingEventModel.swift; sourceTree = "<group>"; };
+		27C3B8452235D8BC00162AB6 /* YouthlineIntroModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouthlineIntroModel.swift; sourceTree = "<group>"; };
 		27C3B8472235D8BC00162AB6 /* NewsFeedBaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedBaseTableViewCell.swift; sourceTree = "<group>"; };
 		27C3B8482235D8BC00162AB6 /* NewsFeedImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedImageTableViewCell.swift; sourceTree = "<group>"; };
 		27C3B8492235D8BC00162AB6 /* HomeEventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeEventCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				27C3B8442235D8BC00162AB6 /* NewsFeedModel.swift */,
-				27C3B8452235D8BC00162AB6 /* UpcomingEventModel.swift */,
+				27C3B8452235D8BC00162AB6 /* YouthlineIntroModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -346,11 +346,11 @@
 			isa = PBXGroup;
 			children = (
 				27C3B85D2235D8C600162AB6 /* MenuViewController.swift */,
-				27C3B85C2235D8C600162AB6 /* Resource.swift */,
 				27C3B85B2235D8C600162AB6 /* ResourceCell.swift */,
-				27C3B85E2235D8C600162AB6 /* SlideInTransition.swift */,
-				27C3B85A2235D8C600162AB6 /* WebViewController.swift */,
 				EFBC108222346FB900703135 /* ResourceBaseVC.swift */,
+				27C3B85A2235D8C600162AB6 /* WebViewController.swift */,
+				27C3B85C2235D8C600162AB6 /* Resource.swift */,
+				27C3B85E2235D8C600162AB6 /* SlideInTransition.swift */,
 			);
 			path = ResourcePage;
 			sourceTree = "<group>";
@@ -712,7 +712,7 @@
 				27C3B8612235D8C600162AB6 /* Resource.swift in Sources */,
 				EFBC107A22346D6D00703135 /* Settings.swift in Sources */,
 				EFE36B5B22358E7F0041A544 /* Model.swift in Sources */,
-				27C3B8522235D8BD00162AB6 /* UpcomingEventModel.swift in Sources */,
+				27C3B8522235D8BD00162AB6 /* YouthlineIntroModel.swift in Sources */,
 				EFBC1095223472BE00703135 /* ImageCell.swift in Sources */,
 				27C3B8632235D8C600162AB6 /* SlideInTransition.swift in Sources */,
 				27C3B8542235D8BD00162AB6 /* NewsFeedImageTableViewCell.swift in Sources */,
