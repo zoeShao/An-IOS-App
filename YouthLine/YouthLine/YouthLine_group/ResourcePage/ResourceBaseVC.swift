@@ -72,7 +72,7 @@ class ResourceBaseVC: BaseViewController {
         let tableView = UITableView(frame: CGRect(x: 0, y: NavigationBarHeight, width: ScreenWidth, height: ScreenHeight - NavigationBarHeight - 44), style: UITableViewStyle.plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.lightGray //格子背后的背景色
+        tableView.backgroundColor = UIColor.lightGray //The background colour behind the cell
         tableView.backgroundView = tableBackGroundView
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
@@ -93,8 +93,7 @@ class ResourceBaseVC: BaseViewController {
     }
     
     func createDic() -> [String: [Resource]] {
-        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": [], "forms": [], "service":[], "education":[], "type":[]]
-        //        var tempResources:[String: [Resource]] = ["all":[], "settlement":[], "faith":[], "sex": []]
+        var tempResources:[String: [Resource]] = ["all":[], "favourite": [], "settlement":[], "faith":[], "sex": [], "forms": [], "service":[], "education":[], "type":[], "health":[], "parents": [], "gender": [], "selfcare": [], "homelessness": [], "trans": [], "school": [], "comingout": [], "emergency": [], "community": [], "selfharm": [], "bullying": []]
         
         let resource1 = Resource(image: #imageLiteral(resourceName: "settlement"), title: "Settlement.Org: Sexual Orientation and Gender Identity", url: URL(string: "https://settlement.org/ontario/health/sexual-and-reproductive-health/sexual-orientation-and-gender-identity/")!)
         let resource2 = Resource(image: #imageLiteral(resourceName: "forward_partners"), title: "transACTION: A Transgender Curriculum and Learner's Guide For Churches and Religious Institutions", url: URL(string: "https://www.youthline.ca/get-support/links-resources/")!)
@@ -117,15 +116,14 @@ class ResourceBaseVC: BaseViewController {
         tempResources["service"]!.append(resource5)
         tempResources["education"]!.append(resource6)
         tempResources["type"]!.append(resource7)
-        
-        
+
         return tempResources
     }
     
     @objc func didTapFilter(sender: UIBarButtonItem) {
         let menuViewController: MenuViewController = MenuViewController()
         menuViewController.didTapMenuTypte = { menuType in
-            print(menuType)
+//            print(menuType)
             self.transitionToNew(menuType)
         }
         menuViewController.modalPresentationStyle = .overCurrentContext
@@ -144,7 +142,7 @@ class ResourceBaseVC: BaseViewController {
             resources = resourcesCollection["all"]!
             self.tableView.reloadData()
         case .favourite:
-            resources = resourcesCollection["all"]!
+            resources = resourcesCollection["favourite"]!
             self.tableView.reloadData()
         case .settlement:
             resources = resourcesCollection["settlement"]!
@@ -168,40 +166,40 @@ class ResourceBaseVC: BaseViewController {
             resources = resourcesCollection["type"]!
             self.tableView.reloadData()
         case .health:
-            resources = resourcesCollection["settlement"]!
+            resources = resourcesCollection["health"]!
             self.tableView.reloadData()
         case .parents:
-            resources = resourcesCollection["settlement"]!
+            resources = resourcesCollection["parents"]!
             self.tableView.reloadData()
         case .gender:
-            resources = resourcesCollection["settlement"]!
+            resources = resourcesCollection["gender"]!
             self.tableView.reloadData()
         case .selfcare:
-            resources = resourcesCollection["settlement"]!
+            resources = resourcesCollection["selfcare"]!
             self.tableView.reloadData()
         case .homelessness:
-            resources = resourcesCollection["settlement"]!
+            resources = resourcesCollection["homelessness"]!
             self.tableView.reloadData()
         case .trans:
-            resources = resourcesCollection["settlement"]!
+            resources = resourcesCollection["trans"]!
             self.tableView.reloadData()
         case .school:
-            resources = resourcesCollection["settlement"]!
+            resources = resourcesCollection["school"]!
             self.tableView.reloadData()
         case .comingout:
-            resources = resourcesCollection["settlement"]!
+            resources = resourcesCollection["comingout"]!
             self.tableView.reloadData()
         case .emergency:
-            resources = resourcesCollection["settlement"]!
+            resources = resourcesCollection["emergency"]!
             self.tableView.reloadData()
         case .community:
-            resources = resourcesCollection["settlement"]!
+            resources = resourcesCollection["community"]!
             self.tableView.reloadData()
         case .selfharm:
-            resources = resourcesCollection["settlement"]!
+            resources = resourcesCollection["selfharm"]!
             self.tableView.reloadData()
         case .bullying:
-            resources = resourcesCollection["settlement"]!
+            resources = resourcesCollection["bullying"]!
             self.tableView.reloadData()
         }
     }
