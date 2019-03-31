@@ -14,11 +14,7 @@ import SwiftyJSON
 
 class ResourceBaseVC: BaseViewController {
     let transition = SlideInTransition()
-    var resourcesCollection = [String: [Resource]]()
     var resources: [Resource] = []
-    
-    var ModelList: [Model]?
-    var pageIndex: Int = 0
     
     var tableBackGroundView: UIImageView = {
         let tableBackGroundView = UIImageView(image: UIImage(named: "rainbow_3"))
@@ -82,42 +78,23 @@ class ResourceBaseVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        hello()
+//        if let resourcesCollectionAll = loadResource() {
+//            print(resourcesCollectionAll)
+//        } else {
+//            print(123)
+//        }
         view.backgroundColor = UIColor.white
         view.addSubview(questionBtn)
         view.addSubview(searchBtn)
         view.addSubview(filterBtn)
         view.addSubview(tableView)
         resourcesCollection = createDic()
+//        fetchData()
         resources = resourcesCollection["all"]!
+//        self.tableView.reloadData()
         
-    }
-    
-    func createDic() -> [String: [Resource]] {
-        var tempResources:[String: [Resource]] = ["all":[], "favourite": [], "settlement":[], "faith":[], "sex": [], "forms": [], "service":[], "education":[], "type":[], "health":[], "parents": [], "gender": [], "selfcare": [], "homelessness": [], "trans": [], "school": [], "comingout": [], "emergency": [], "community": [], "selfharm": [], "bullying": []]
         
-        let resource1 = Resource(image: #imageLiteral(resourceName: "settlement"), title: "Settlement.Org: Sexual Orientation and Gender Identity", url: URL(string: "https://settlement.org/ontario/health/sexual-and-reproductive-health/sexual-orientation-and-gender-identity/")!)
-        let resource2 = Resource(image: #imageLiteral(resourceName: "forward_partners"), title: "transACTION: A Transgender Curriculum and Learner's Guide For Churches and Religious Institutions", url: URL(string: "https://www.youthline.ca/get-support/links-resources/")!)
-        let resource3 = Resource(image: #imageLiteral(resourceName: "BexTalksSex"), title: "Yes No Maybe: sex, kink, and language spreadsheets", url: URL(string: "https://www.bextalkssex.com/yes-no-maybe/")!)
-        let resource4 = Resource(image: #imageLiteral(resourceName: "form"), title: "How Do I Change the Sex Designation on my Identity Documents?", url: URL(string: "https://jfcy.org/en/rights/government-issued-identification/")!)
-        let resource5 = Resource(image: #imageLiteral(resourceName: "TransCareGuide"), title: "Trans Primary Care: My Guide to Caring for Trans and Gender-Diverse Clients", url: URL(string: "https://www.rainbowhealthontario.ca/TransHealthGuide/")!)
-        let resource6 = Resource(image: #imageLiteral(resourceName: "thebodyisnotanapology"), title: "The Body is Not An Apology", url: URL(string: "https://thebodyisnotanapology.com/")!)
-        let resource7 = Resource(image: #imageLiteral(resourceName: "2spirit"), title: "Briarpatch Magazine: Hearing Two Spirits", url: URL(string: "https://briarpatchmagazine.com/articles/view/hearing-two-spirits")!)
-        tempResources["all"]!.append(resource1)
-        tempResources["all"]!.append(resource2)
-        tempResources["all"]!.append(resource3)
-        tempResources["all"]!.append(resource4)
-        tempResources["all"]!.append(resource5)
-        tempResources["all"]!.append(resource6)
-        tempResources["all"]!.append(resource7)
-        tempResources["settlement"]!.append(resource1)
-        tempResources["faith"]!.append(resource2)
-        tempResources["sex"]!.append(resource3)
-        tempResources["forms"]!.append(resource4)
-        tempResources["service"]!.append(resource5)
-        tempResources["education"]!.append(resource6)
-        tempResources["type"]!.append(resource7)
-
-        return tempResources
     }
     
     @objc func didTapFilter(sender: UIBarButtonItem) {
@@ -211,6 +188,57 @@ extension ResourceBaseVC: UITableViewDelegate, UITableViewDataSource, UIViewCont
     //    func numberOfSections(in tableView: UITableView) -> Int {
     //        return ModelList?.count ?? 0
     //    }
+    
+    func fetchData() {
+        let url = "http://youthline-test-server.herokuapp.com/resources"
+        Alamofire.request(url, method: .get, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                //            print(response)
+                //to get status code
+                if let status = response.response?.statusCode {
+                    switch(status){
+                    case 200:
+                        print("example success")
+                        //to get JSON return value
+                        if let result = response.result.value {
+                            //                        let JSON = result as! NSDictionary
+                            let json = JSON(result)
+                            for i in 0..<json["Resources"].count {
+                                if let categoryName = json["Resources"][i]["category"].string {
+                                    print(categoryName)
+                                    for j in 0..<json["Resources"][i]["contents"].count {
+                                        
+                                        let resourceTitle = json["Resources"][i]["contents"][j]["title"].string!
+                                        let resourceURL = json["Resources"][i]["contents"][j]["resource_url"].string!
+                                        let imageURL = json["Resources"][i]["contents"][j]["img"].string!
+                                        print(resourceTitle)
+                                        print(resourceURL)
+                                        print(imageURL)
+                                        let resource = Resource(image: imageURL, title: resourceTitle, url: URL(string: resourceURL)!)
+                                        resourcesCollection["all"]!.append(resource)
+                                        resourcesCollection[categoryName]!.append(resource)
+                                    }
+                                    
+                                } else {
+                                    //Print the error
+                                    print("error, wrong key")
+                                }
+                            }
+                            self.resources = resourcesCollection["all"]!
+                            self.tableView.reloadData()
+                            //                        print(json)
+                        }
+                    default:
+                        print("error with response status: \(status)")
+                    }
+                }
+                //            //to get JSON return value
+                //            if let result = response.result.value {
+                //                let JSON = result as! NSDictionary
+                //                print(JSON)
+                //            }
+        }
+    }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = true

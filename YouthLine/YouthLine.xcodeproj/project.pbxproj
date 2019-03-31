@@ -28,6 +28,8 @@
 		27C3B8622235D8C600162AB6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B85D2235D8C600162AB6 /* MenuViewController.swift */; };
 		27C3B8632235D8C600162AB6 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B85E2235D8C600162AB6 /* SlideInTransition.swift */; };
 		972817696DA0247967D54B36 /* Pods_YouthLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B1656207B3172740706D86 /* Pods_YouthLine.framework */; };
+		C8DB9362225047AB00BA069E /* ResourceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DB9361225047AB00BA069E /* ResourceData.swift */; };
+		C8DB9364225048DB00BA069E /* ResourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DB9363225048DB00BA069E /* ResourceModel.swift */; };
 		EF2042AC223F193B009442E8 /* VAGRoundedStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042A9223F192D009442E8 /* VAGRoundedStd-Light.otf */; };
 		EF2042AD223F193C009442E8 /* VAGRoundedStd-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042A8223F192C009442E8 /* VAGRoundedStd-Thin.otf */; };
 		EF2042AE223F193F009442E8 /* VAGRoundedStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042AA223F192D009442E8 /* VAGRoundedStd-Bold.otf */; };
@@ -88,6 +90,8 @@
 		27C3B85E2235D8C600162AB6 /* SlideInTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		5C21BDC5CF609D926A4A21B0 /* Pods-YouthLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.release.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.release.xcconfig"; sourceTree = "<group>"; };
 		725BC15723A9C6045743599C /* Pods-YouthLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.debug.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.debug.xcconfig"; sourceTree = "<group>"; };
+		C8DB9361225047AB00BA069E /* ResourceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceData.swift; sourceTree = "<group>"; };
+		C8DB9363225048DB00BA069E /* ResourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceModel.swift; sourceTree = "<group>"; };
 		EF2042A8223F192C009442E8 /* VAGRoundedStd-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Thin.otf"; sourceTree = "<group>"; };
 		EF2042A9223F192D009442E8 /* VAGRoundedStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Light.otf"; sourceTree = "<group>"; };
 		EF2042AA223F192D009442E8 /* VAGRoundedStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Bold.otf"; sourceTree = "<group>"; };
@@ -342,6 +346,8 @@
 				27C3B85A2235D8C600162AB6 /* WebViewController.swift */,
 				27C3B85C2235D8C600162AB6 /* Resource.swift */,
 				27C3B85E2235D8C600162AB6 /* SlideInTransition.swift */,
+				C8DB9361225047AB00BA069E /* ResourceData.swift */,
+				C8DB9363225048DB00BA069E /* ResourceModel.swift */,
 			);
 			path = ResourcePage;
 			sourceTree = "<group>";
@@ -618,6 +624,7 @@
 				27C3B85F2235D8C600162AB6 /* WebViewController.swift in Sources */,
 				27C3B8552235D8BD00162AB6 /* HomeEventCollectionViewCell.swift in Sources */,
 				EFBC108E223471F500703135 /* ListBaseVC.swift in Sources */,
+				C8DB9364225048DB00BA069E /* ResourceModel.swift in Sources */,
 				EFBC10992234753700703135 /* ArticleDetailVC.swift in Sources */,
 				EF5A28BD22347B75001FFD61 /* UIColor+Ex.swift in Sources */,
 				EFBC109F2234790E00703135 /* ArticleTitle.swift in Sources */,
@@ -636,6 +643,7 @@
 				27C3B8632235D8C600162AB6 /* SlideInTransition.swift in Sources */,
 				27C3B8542235D8BD00162AB6 /* NewsFeedImageTableViewCell.swift in Sources */,
 				EFBC10A6223479A800703135 /* ArticleCell.swift in Sources */,
+				C8DB9362225047AB00BA069E /* ResourceData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,11 +11,13 @@ import UIKit
 
 class Resource {
     
-    var image: UIImage
+//    var image: UIImage
+    var image: String
     var title: String
     var url: URL
     
-    init(image: UIImage, title: String, url: URL) {
+//    init(image: UIImage, title: String, url: URL) {
+    init(image: String, title: String, url: URL) {
         self.image = image
         self.title = title
         self.url = url
