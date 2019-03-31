@@ -2,7 +2,11 @@
 <html>
 
 
-<head>LGBT-youthLine</head>
+<head></head>
+<h2>Youth Line</h2>
+<h3>Log in as Administrator</h3>
+<link rel="stylesheet" type="text/css" href="styleForLog.css"/> 
+
 <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -15,7 +19,8 @@
   <br>
   <button type = "button"  id = "log"> Log-in 
     </button>
-
+  <button type = "button" id = "show_password">show password</button>
+  <button type = "button" id = "hide_password">hide password</button>
 
 
 
@@ -24,26 +29,43 @@
     function senduser(userp){
     var data = JSON.stringify({"password":$(userp).val()})
       $.ajax({
-        url:'/pw',
+        url:'http://localhost:80/pw',
         method: 'POST',
         data: data,
         contentType:"application/json",
         success: function(data){
           console.log(data)
-          if(data.pw_ok === "T"){
-            window.location.href = data.upload_url
-          } else {
-              console.log("wrong password")
+          if(data.pw_ok == "T"){
+            window.location.href = "http://localhost:80/upload.html"
           }
         }
-
       })
    }
+
+
+   function showPassword(){
+    document.getElementById('pass').type = "text";
+   }
+
+
+   function hidePassword(){
+    document.getElementById('pass').type = "password";
+   }
+
+
     $("#log").click(function(){
       senduser(pass);
     })
 
-  
+
+    $("#show_password").click(function(){
+      showPassword();
+    })
+
+
+    $("#hide_password").click(function(){
+      hidePassword();
+    })
 
 </script>
 </html>

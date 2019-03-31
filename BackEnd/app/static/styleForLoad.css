@@ -1,0 +1,211 @@
+body{
+	background-color: #FFC0CB;
+}
+
+
+h2{
+	font-size: 30px;
+}
+
+#title{
+	position: relative;
+	height:30px;
+	top:0px;
+
+}
+
+
+#source{
+	position: relative;
+	width:125px;
+	height: 30px;
+	top:5px;
+}
+
+
+#date{
+	position: relative;
+	width:125px;
+	height: 30px;
+	top:10px;
+}
+
+
+#content{
+	position: relative;
+	width:200px;
+	height: 50px;
+	top:40px;
+}
+
+
+#image{
+	position: relative;
+	width:125px;
+	height: 30px;
+	top:15px;
+}
+
+
+#main{
+	position: relative;
+	width:200px;
+	height: 60px;
+	top:45px;
+}
+
+
+#address{
+	position: relative;
+	width:125px;
+	height: 30px;
+	top:20px;
+}
+
+
+#event_date{
+	position: relative;
+	width:125px;
+	height: 30px;
+	top:25px;
+}
+
+
+#event_time{
+	position: relative;
+	width:125px;
+	height: 30px;
+	top:30px;
+}
+
+
+#event_website{
+	position: relative;
+	width:125px;
+	height: 30px;
+	top:35px;
+}
+#submit_event{
+	position:relative;
+	top:50px;
+
+}
+
+
+#list_event{
+	position:relative;
+	top:35px;
+}
+
+
+#get_event{
+	position:relative;
+	top:25px;
+}
+
+
+#delete_event{
+	position:relative;
+	top:25px;
+}
+
+
+#deleteb_event{
+	position: relative;
+	top:25px;
+}
+
+
+h3{
+	position:relative;
+	font-size: 30px;
+}
+
+
+#r_category{
+	position: relative;
+	width:125px;
+	height: 30px;
+}
+
+
+#r_title{
+	position: relative;
+	top:5px;
+	width: 125px;
+	height: 30px;
+}
+
+
+#r_url{
+	position: relative;
+	top:10px;
+	width: 125px;
+	height: 30px;
+}
+
+
+#r_image{
+	position: relative;
+	top:15px;
+	width: 125px;
+	height: 30px;
+}
+
+
+#resource_submit{
+	position: relative;
+	top:20px;
+}
+
+
+#list_resource{
+	position: relative;
+}
+
+
+#get_resource{
+	position: relative;
+}
+
+
+h4{
+	position:relative;
+	font-size: 30px;
+}
+
+
+#home_title{
+	position: relative;
+	width: 125px;
+	height: 30px;
+}
+
+#home_time{
+	position: relative;
+	top:5px;
+	width: 125px;
+	height: 30px;
+}
+
+
+#home_newsContent{
+	position: relative;
+	top:10px;
+	width: 125px;
+	height: 30px;	
+}
+
+
+#home_image{
+	position: relative;
+	top:15px;
+	width: 125px;
+	height: 30px;	
+}
+
+
+#home_submit{
+	position: relative;
+	top: 20px
+}

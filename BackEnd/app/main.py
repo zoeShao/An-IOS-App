@@ -17,7 +17,7 @@ homeDB = None
 admin_pw = None
 
 # If in production env?
-heroku_env = True
+heroku_env = False
 if heroku_env:
     prefix = "./app/"  # heroku env
 else:
@@ -275,6 +275,26 @@ def home():
 
     return jsonify(raw)
 
+
+@app.route('/home', methods = ['POST'])
+def addHome():
+    result = []
+    title = request.json["title"]
+    time = request.json["time"]
+    news_content = request.json["new_content"]
+    image = request.json["image"]
+    result.append(title)
+    result.append(time)
+    result.append(news_content)
+    result.append(image)
+    homeDB.add(result)
+    return ("True")
+
+@app.route('/home', methods = ['DELETE'])
+def deleteHome():
+    hid = request.json["hid"]
+    resourcesDB.delete(hid)
+    return("True")
 
 ##################################################################
 ########################    resources     ########################

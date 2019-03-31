@@ -5,30 +5,31 @@
       crossorigin="anonymous"></script>
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
- <head>LGBT-Youth Line</head>
+ <head></head>
+ <link rel="stylesheet" type="text/css" href="styleForLoad.css"/> 
  <body>
  </br>
  	<h2> Event</h2>
  </br>
- 	<input type = "text" id = "title" placeholder = "type event title">
+ 	<input type = "text" id = "title" placeholder = "event title">
  </br>
- 	<input type = "text" id = "source" placeholder = "type your source">
+ 	<input type = "text" id = "source" placeholder = "source URL">
  </br>
- 	<input type = "text" id = "date" placeholder = "type your submit date">
+ 	<input type = "text" id = "date" placeholder = "submit date">
   </br>
-  	<input type = "text" id = "content" placeholder = "type your brief content">
+ 	<input type = "text" id = "image" placeholder="image url">
  </br>
- 	<input type = "text" id = "image" placeholder="type your image url">
+ 	<input type = "text" id = "address" placeholder="event place">
  </br>
- 	<input type = "text" id = "main" placeholder="type your main content">
+ 	<input type = "text" id = "event_date" placeholder="event date">
  </br>
- 	<input type = "text" id = "address" placeholder="type your event place">
+ 	<input type = "text" id = "event_time" placeholder="event time">
  </br>
- 	<input type = "text" id = "event_date" placeholder="type your event date">
- </br>
- 	<input type = "text" id = "event_time" placeholder="type your event time">
- </br>
- 	<input type = "text" id = "evnet_website" placeholder="type your event website">
+ 	<input type = "text" id = "event_website" placeholder="event website URL">
+</br>
+	<input type = "text" id = "content" placeholder = "brief content">
+</br>
+	<input type = "text" id = "main" placeholder="main content">
 </br>
 	<button type = "button" id = "submit_event">submit</button>
 <table id = "list_event" cellspacing = "0px" cellpadding = "20px" text-align = "center">
@@ -46,11 +47,11 @@
 	<button type = "button" id = "get_event"> get all event</button>
 </br>
 	<input type = "text" id = "delete_event" placeholder = "type event id">
-	<button type = "button" id = deleteb_event> delete</button>
-
-<h2> resources</h2>
+	<button type = "button" id = deleteb_event> Delete</button>
 </br>
-	<input type = "text" id = "r_category" placeholder = "type your category">
+<h3> resources</h3>
+</br>
+<input type = "text" id = "r_category" placeholder = "type your category">
 </br>
 	<input type = "text" id = "r_title" placeholder = "type your title">
 </br>
@@ -64,6 +65,7 @@
                 <tr>
                     <td>resource ID</td>
                     <td>resource Title</td>
+                    <td>resource Category</td>
                 </tr>
             </thead>
 
@@ -76,8 +78,96 @@
 </br>
 	<input type = "text" id = "delet_resource" placeholder = "type resource id">
 	<button type = "button" id = deletb_resource>Delete</button>
+<h4>Home</h4>
+	<input type = "text" id = "home_title" placeholder="title">
+</br>
+	<input type = "text" id = "home_time" placeholder="time">
+</br>	
+	<input type = "text" id = "home_newsContent" placeholder="news content">
+</br>
+	<input type="text" id = "home_image" placeholder="image">
+</br>
+	<button type = "button" id = "home_submit"> Submit</button>
+</br>
+<table id = "list_home" cellspacing = "0px" cellpadding = "20px" text-align = "center">
+            <thead>
+                <tr>
+                    <td>Home ID</td>
+                    <td>Home Title</td>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+</table>
+</br>
+	<button type = "button" id = "get_home">get all home</button>
+</br>
+	<input type = "text" id = "delete_home" placeholder="Home Id">
+	<button type = "button" id = "deleteb_home">Delete</button>
+
+
 </body>
+
 <script >
+	const sleep = (milliseconds) => {
+  		return new Promise(resolve => setTimeout(resolve, milliseconds))
+	}
+
+
+	function addHome(){
+	$.ajax({
+      url: '/home/rid',
+      method: 'GET',
+      dataType: 'html'
+        }).then(data => {
+          $("#list_event tbody tr").remove();
+          d = JSON.parse(data)
+          console.log("reload event");
+          var rows = "";
+          d.forEach(elem =>{
+          	var hid = elem["hid"]
+          	var title = elem["title"]
+          	rows += "<tr><td>" + hid + "</td><td>" + title  + "</td></tr>";
+          })
+          $(rows).appendTo("#list_home tbody");
+        })
+	}
+
+
+	function sendHome(){
+		var title = $(home_title).val();
+		var time = $(home_time).val();
+		var news_content = $(home_newsContent).val();
+		var image = $(home_image).val();
+		var data = JSON.stringify({"title":title, "time":time, "news_content": news_content, 
+									"image": image})
+		$.ajax({
+			url:'/home',
+			method:'POST',
+			data: data,
+        	contentType:"application/json",
+        	success:
+        		console.log("success")
+			})
+	}
+
+
+	function deleteHome(){
+		var hid = $(delete_home).val();
+		var data = JSON.stringify({"hid":hid})
+		$.ajax({
+			url:'/home',
+			method:'DELETE',
+			data: data,
+        	contentType:"application/json",
+        	success:
+        		console.log("success")		
+		})
+	}
+
+
 	function addEvent(){
     $.ajax({
       url: '/event/rid',
@@ -92,11 +182,12 @@
           	var rid = elem["rid"]
           	var title = elem["title"]
           	rows += "<tr><td>" + rid + "</td><td>" + title  + "</td></tr>";
-
           })
           $(rows).appendTo("#list_event tbody");
         })
 	}
+
+
 	function sendEvent(){
 		var etitle = $(title).val();
 		var esource = $(source).val();
@@ -107,12 +198,11 @@
 		var eaddress = $(address).val();
 		var eEventDate = $(event_date).val();
 		var eEventTime = $(event_time).val();
-		var eEventW = $(evnet_website).val();
+		var eEventW = $(event_website).val();
 		var data = JSON.stringify({"title":etitle, "source":esource, "release_date":edate,
 									"b_content":econtent, "image_url":eimage, "main_content":emain,
 									"address":eaddress, "event_date":eEventDate, "event_time":eEventTime,
 									"map":"", "event_website":eEventW});
-		console.log(data);
 		$.ajax({
 			url:'/event',
 			method:'POST',
@@ -120,9 +210,10 @@
         	contentType:"application/json",
         	success:
         		console.log("success")
-
 			})
 	}
+
+
 	function addResource(){
     $.ajax({
       url: '/resources/rid',
@@ -136,12 +227,14 @@
           d.forEach(elem =>{
           	var rid = elem["rid"]
           	var title = elem["title"]
-          	rows += "<tr><td>" + rid + "</td><td>" + title  + "</td></tr>";
-
+          	var category = elem["category"]
+          	rows += "<tr><td>" + rid + "</td><td>" + title  +"</td><td>" + category + "</td></tr>";
           })
           $(rows).appendTo("#list_resource tbody");
         })
 	}
+
+
 	function sendResource(){
 		var rtitle = $(r_title).val();
 		var rcategory = $(r_category).val();
@@ -159,7 +252,9 @@
         		console.log("success")
 		})
 	}
-	function sendEid(){
+
+
+	function deleteEvent(){
 		var eid = $(delete_event).val();
 		var data = JSON.stringify({"eid":eid})
 		$.ajax({
@@ -171,7 +266,9 @@
         		console.log("success")
 		})
 	}
-	function sendrid(){
+
+
+	function deleteResource(){
 		var rid = $(delet_resource).val();
 		var data = JSON.stringify({"rid":rid})
 		$.ajax({
@@ -181,30 +278,79 @@
         	contentType:"application/json",
         	success:
         		console.log("success")
-        		
-
 		})
 	}
+
+
+	$("#get_home").click(function(){
+		addHome();
+	})
+
+
+	$("#home_submit").click(function(){
+		sendHome();
+		document.getElementById("home_image").value = ''
+		document.getElementById("home_time").value = ''
+		document.getElementById("home_title").value = ''
+		document.getElementById("home_newsContent").value = ''
+	})
+
+
+	$("#deleteb_home").click(function(){
+		deleteHome();
+		sleep(100).then(() => {
+			addHome();
+		})
+	})
+
+
 	$("#get_event").click(function(){
 		addEvent();
 	})
 
+
 	$("#get_resource").click(function(){
 		addResource();
 	})
+
+
 	$("#submit_event").click(function(){
 		sendEvent();
+		document.getElementById("title").value = ''
+		document.getElementById("source").value = ''
+		document.getElementById("date").value = ''
+		document.getElementById("image").value = ''
+		document.getElementById("address").value = ''
+		document.getElementById("event_date").value = ''
+		document.getElementById("event_time").value = ''
+		document.getElementById("event_website").value = ''
+		document.getElementById("content").value = ''
+		document.getElementById("main").value = ''
 	})
+
+
 	$("#resource_submit").click(function(){
 		sendResource();
+		document.getElementById("r_category").value = ''
+		document.getElementById("r_image").value = ''
+		document.getElementById("r_url").value = ''
+		document.getElementById("r_title").value = ''
 	})
+
+
 	$("#deleteb_event").click(function(){
-		sendEid();
+		deleteEvent();
+		sleep(100).then(() => {
+  			addEvent();
+		})
 	})
+
+
 	$("#deletb_resource").click(function(){
-		sendrid();
-		// $("#list_resource tbody tr").remove();
-		// addResource();
+		deleteResource();
+		sleep(100).then(() => {
+			addResource();
+		})
 	})
 
 </script>
