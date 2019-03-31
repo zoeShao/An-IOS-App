@@ -44,8 +44,17 @@ http://youthline-test-server.herokuapp.com/
 ## Fetch All Event
 "Get" at /event
 
+## Post new Event
+"Post" at /event
+
+## Delete Event
+"Delete" at /event
+
 ## Fetch All Resources
 "Get" at /resources
+
+## Fetch Home
+"Get" at /home
 
 ## Admin Password Verifycation
 "POST" at /pw
