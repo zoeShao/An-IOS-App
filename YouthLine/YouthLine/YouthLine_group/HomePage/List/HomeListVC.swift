@@ -13,11 +13,11 @@ import MJRefresh
 import SwiftyJSON
 import MessageUI
 
-class HomeListVC: BaseViewController {
+class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,UICollectionViewDelegate, UICollectionViewDataSource {
     let NewsFeedBaseTableViewCellID = "NewsFeedBaseTableViewCell"
     let NewsFeedImageTableViewCellID = "NewsFeedImageTableViewCell"
     let HomeEventCollectionViewCellID = "HomeEventCollectionViewCell"
-    var fetchingMore = false
+//    var fetchingMore = false
     var currentNewsIndex = 0
     // fixed size = 8
     var AllNewsFeedModelList: [NewsFeedModel]? = []
@@ -75,6 +75,7 @@ class HomeListVC: BaseViewController {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.isScrollEnabled = false
         tableView.bounces = true
+        tableView.rowHeight = 177.5
         
         return tableView
     }()
@@ -242,24 +243,9 @@ class HomeListVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let news1 = test() {
-            //            CurrentNewsFeedModelList?.append(news1)
-            AllNewsFeedModelList?.append(news1)
-            AllNewsFeedModelList?.append(news1)
-        } else {
-            CurrentNewsFeedModelList = []
-            AllNewsFeedModelList = []
-        }
-        if let news2 = test1() {
-            //            CurrentNewsFeedModelList?.append(news2)
-            AllNewsFeedModelList?.append(news2)
-            AllNewsFeedModelList?.append(news2)
-        } else {
-            CurrentNewsFeedModelList = []
-            AllNewsFeedModelList = []
-        }
-        CurrentNewsFeedModelList?.append(AllNewsFeedModelList![0])
-        CurrentNewsFeedModelList?.append(AllNewsFeedModelList![1])
+//        updateData()
+        fetchData()
+        print(AllNewsFeedModelList!.count)
         view.backgroundColor = UIColor.lightGray
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
@@ -268,221 +254,43 @@ class HomeListVC: BaseViewController {
         }
         self.scrollView.bounces = false
         self.scrollView.isScrollEnabled = true
-        
+       
     }
-}
-
-extension HomeListVC: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return CurrentNewsFeedModelList?.count ?? 0
-        //        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.01
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView()
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = CurrentNewsFeedModelList?[indexPath.section]
-        let cell: NewsFeedBaseTableViewCell
-        if model?.image != nil {
-            cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedImageTableViewCellID, for: indexPath) as! NewsFeedImageTableViewCell
-        } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedBaseTableViewCellID, for: indexPath) as! NewsFeedBaseTableViewCell
-        }
-        cell.model = model
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = CurrentNewsFeedModelList?[indexPath.section]
-        let vc = HomeDetailVC()
-        vc.questionTitle = model?.title ?? ""
-        vc.questionTime = model?.time ?? ""
-        vc.questionImage = model?.image ?? ""
-        vc.questionContent = model?.news_content ?? ""
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
-
-//extension HomeListVC: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//
-//        if scrollView == self.scrollView {
-//            tableView.isScrollEnabled = (self.scrollView.contentOffset.y >= 200)
-//        }
-//
-//        if scrollView == self.tableView {
-//            self.tableView.isScrollEnabled = (tableView.contentOffset.y > 0)
-//        }
-//    }
-//
-//    func beginBatchFetch() {
-//        fetchingMore = true
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 , execute: {
-//            let newItems = self.NewsFeedModelList!
-//            self.NewsFeedModelList?.append(contentsOf: newItems)
-//            self.fetchingMore = false
-//            self.tableView.reloadData()
-//        })
-//    }
-//}
-
-extension HomeListVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return YouthlineIntroModelList?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return 1
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let model = YouthlineIntroModelList?[indexPath.section]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeEventCollectionViewCell", for: indexPath) as! HomeEventCollectionViewCell
-        cell.model = model
-        return cell
-    }
-}
-
-extension HomeListVC:  MFMessageComposeViewControllerDelegate {
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func displayMessageInterface() {
-        let composeVC = MFMessageComposeViewController()
-        composeVC.messageComposeDelegate = self
-        
-        // Configure the fields of the interface.
-        //        composeVC.recipients = ["6476944275"]
-        composeVC.recipients = ["6479396177"]
-        composeVC.body = "Enter texting messages here:"
-        
-        // Present the view controller modally.
-        if MFMessageComposeViewController.canSendText() {
-            self.present(composeVC, animated: true, completion: nil)
-        } else {
-            print("Can't send messages.")
+    func fetchData(){
+        Alamofire.request("http://youthline-test-server.herokuapp.com/home").responseJSON { (responseObject) -> Void in
+            
+            //            print(responseObject)
+            if responseObject.result.isSuccess {
+                let resJson = JSON(responseObject.result.value!)
+                print("fetchsuccess")
+                if let mappedObject = JSONDeserializer<NewsFeedModel>.deserializeModelArrayFrom(json: resJson.description){
+                    print("heyy")
+                    for model in mappedObject as! [NewsFeedModel] {
+                        // if model.common_card != nil || model.fields != nil
+                        self.AllNewsFeedModelList!.append(model)
+                        print("neic")
+                    }
+                    print(self.AllNewsFeedModelList!.count)
+                    if self.AllNewsFeedModelList!.count >= 2 {
+                        self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![0])
+                        self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![1])
+                        print("buling")
+                    } else if self.AllNewsFeedModelList!.count == 1{
+                        self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![0])
+                    }
+                    self.tableView.reloadData()
+                }
+                
+            }
+            if responseObject.result.isFailure {
+                let error : NSError = responseObject.result.error! as NSError
+                print("news fetch failed")
+            }
         }
     }
 }
 
-extension HomeListVC {
-    @objc func openInstagram(sender: UIButton) {
-        let instURL: NSURL = NSURL (string: "instagram://user?username=lgbtyouthline")! // Replace = Instagram by the your instagram user name
-        let instWB: NSURL = NSURL (string: "https://www.instagram.com/lgbtyouthline/")! // Replace the link by your instagram weblink
-        
-        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-            // Open Instagram application
-            UIApplication.shared.open(instURL as URL)
-        } else {
-            // Open in Safari
-            UIApplication.shared.open(instWB as URL)
-        }
-    }
-    
-    @objc func openTwitter(sender: UIButton) {
-        let instURL: NSURL = NSURL (string: "twitter://user?screen_name=LGBTYouthLine")! // Replace = Instagram by the your instagram user name
-        let instWB: NSURL = NSURL (string: "https://twitter.com/LGBTYouthLine")! // Replace the link by your instagram weblink
-        
-        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-            // Open Instagram application
-            UIApplication.shared.open(instURL as URL)
-        } else {
-            // Open in Safari
-            UIApplication.shared.open(instWB as URL)
-        }
-    }
-    
-    @objc func openFacebook(sender: UIButton) {
-        let instURL: NSURL = NSURL (string: "fb://profile")! // Replace = Instagram by the your instagram user name
-        let instWB: NSURL = NSURL (string: "https://www.facebook.com/lgbtyouthline")! // Replace the link by your instagram weblink
-        
-        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-            // Open Instagram application
-            UIApplication.shared.open(instURL as URL)
-        } else {
-            // Open in Safari
-            UIApplication.shared.open(instWB as URL)
-        }
-    }
-    
-    @objc func openYoutube(sender: UIButton) {
-        let instURL: NSURL = NSURL (string: "youtube://www.youtube.com/user/lgbtyouthline")! // Replace = Instagram by the your instagram user name
-        let instWB: NSURL = NSURL (string: "https://www.youtube.com/user/lgbtyouthline")! // Replace the link by your instagram weblink
-        
-        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-            // Open Instagram application
-            UIApplication.shared.open(instURL as URL)
-        } else {
-            // Open in Safari
-            UIApplication.shared.open(instWB as URL)
-        }
-    }
-    
-    @objc func openTumblr(sender: UIButton) {
-        let instURL: NSURL = NSURL (string: "tumblr://x-callback-url/blog?blogName=lgbtyouthline")! // Replace = Instagram by the your instagram user name
-        let instWB: NSURL = NSURL (string: "http://lgbtyouthline.tumblr.com")! // Replace the link by your instagram weblink
-        
-        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-            // Open Instagram application
-            UIApplication.shared.open(instURL as URL)
-        } else {
-            // Open in Safari
-            UIApplication.shared.open(instWB as URL)
-        }
-    }
-    
-    @objc func makePhoneCall(sender: UIButton) {
-        //18002689688
-        guard let number = URL(string: "tel://" + "+18002689688") else { return }
-        if (UIApplication.shared.canOpenURL(number)) {
-            // Open Instagram application
-            UIApplication.shared.open(number)
-        } else {
-            print("phone call not available")
-        }
-    }
-    
-    @objc func sendMessage(sender: UIButton) {
-        displayMessageInterface()
-    }
-    
-    @objc func nextNews(sender: UIButton) {
-        print("update news")
-        currentNewsIndex = currentNewsIndex + 2
-        if currentNewsIndex == AllNewsFeedModelList!.count {
-            currentNewsIndex = 0
-        }
-        print(currentNewsIndex)
-        CurrentNewsFeedModelList?.removeAll()
-        CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex])
-        CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex+1])
-        self.tableView.reloadData()
-    }
-}
+
+
+
+
