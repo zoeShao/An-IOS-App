@@ -27,6 +27,9 @@
 		27C3B8612235D8C600162AB6 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B85C2235D8C600162AB6 /* Resource.swift */; };
 		27C3B8622235D8C600162AB6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B85D2235D8C600162AB6 /* MenuViewController.swift */; };
 		27C3B8632235D8C600162AB6 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3B85E2235D8C600162AB6 /* SlideInTransition.swift */; };
+		27CE020A22502B32006147DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27CE020922502B32006147DE /* GoogleService-Info.plist */; };
+		27CE020C22502F6D006147DE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CE020B22502F6D006147DE /* LoginVC.swift */; };
+		27CE0228225047F6006147DE /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CE0227225047F6006147DE /* MainVC.swift */; };
 		972817696DA0247967D54B36 /* Pods_YouthLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B1656207B3172740706D86 /* Pods_YouthLine.framework */; };
 		EF2042AC223F193B009442E8 /* VAGRoundedStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042A9223F192D009442E8 /* VAGRoundedStd-Light.otf */; };
 		EF2042AD223F193C009442E8 /* VAGRoundedStd-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042A8223F192C009442E8 /* VAGRoundedStd-Thin.otf */; };
@@ -86,6 +89,9 @@
 		27C3B85C2235D8C600162AB6 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		27C3B85D2235D8C600162AB6 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		27C3B85E2235D8C600162AB6 /* SlideInTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
+		27CE020922502B32006147DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		27CE020B22502F6D006147DE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		27CE0227225047F6006147DE /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		5C21BDC5CF609D926A4A21B0 /* Pods-YouthLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.release.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.release.xcconfig"; sourceTree = "<group>"; };
 		725BC15723A9C6045743599C /* Pods-YouthLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.debug.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.debug.xcconfig"; sourceTree = "<group>"; };
 		EF2042A8223F192C009442E8 /* VAGRoundedStd-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Thin.otf"; sourceTree = "<group>"; };
@@ -284,6 +290,9 @@
 		EFBC106222346C0800703135 /* YouthLine */ = {
 			isa = PBXGroup;
 			children = (
+				27CE020922502B32006147DE /* GoogleService-Info.plist */,
+				27CE0227225047F6006147DE /* MainVC.swift */,
+				27CE020B22502F6D006147DE /* LoginVC.swift */,
 				EFBC106322346C0800703135 /* AppDelegate.swift */,
 				EFBC106522346C0800703135 /* BaseViewController.swift */,
 				EFBC106722346C0800703135 /* SecondViewController.swift */,
@@ -446,6 +455,7 @@
 				EFBC105D22346C0800703135 /* Frameworks */,
 				EFBC105E22346C0800703135 /* Resources */,
 				41B0D61548CE5CEEE7B91A8B /* [CP] Embed Pods Frameworks */,
+				D51B7197E1F05F183EE87457 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -494,6 +504,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27CE020A22502B32006147DE /* GoogleService-Info.plist in Resources */,
 				EF5A28F422348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png in Resources */,
 				EF2042AD223F193C009442E8 /* VAGRoundedStd-Thin.otf in Resources */,
 				279F19E32235D65500DE8221 /* Cell1.xib in Resources */,
@@ -522,46 +533,114 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YouthLine/Pods-YouthLine-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/DNSPageView/DNSPageView.framework",
 				"${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/JXMarqueeView/JXMarqueeView.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LTScrollView/LTScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/StreamingKit/StreamingKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DNSPageView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXMarqueeView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StreamingKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YouthLine/Pods-YouthLine-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D51B7197E1F05F183EE87457 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YouthLine/Pods-YouthLine-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAnonymousAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseEmailAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAnonymousAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseEmailAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YouthLine/Pods-YouthLine-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F931A4809A7CC04488E35613 /* [CP] Check Pods Manifest.lock */ = {
@@ -615,6 +694,7 @@
 				EFEFB8AC22376CC5003E2305 /* ColorAndFonts.swift in Sources */,
 				EFBC106822346C0800703135 /* SecondViewController.swift in Sources */,
 				27C3B8512235D8BD00162AB6 /* NewsFeedModel.swift in Sources */,
+				27CE020C22502F6D006147DE /* LoginVC.swift in Sources */,
 				27C3B85F2235D8C600162AB6 /* WebViewController.swift in Sources */,
 				27C3B8552235D8BD00162AB6 /* HomeEventCollectionViewCell.swift in Sources */,
 				EFBC108E223471F500703135 /* ListBaseVC.swift in Sources */,
@@ -623,6 +703,7 @@
 				EFBC109F2234790E00703135 /* ArticleTitle.swift in Sources */,
 				EFBC106422346C0800703135 /* AppDelegate.swift in Sources */,
 				279F19E22235D65500DE8221 /* Cell1.swift in Sources */,
+				27CE0228225047F6006147DE /* MainVC.swift in Sources */,
 				EFBC108122346F5500703135 /* PersonalPageVC.swift in Sources */,
 				EFE36B6122358EF80041A544 /* ArticleAPI.swift in Sources */,
 				EFE36B5E22358EDA0041A544 /* ArticleModel.swift in Sources */,
@@ -791,7 +872,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Youthline.ca;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Youthline.ca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -813,7 +894,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Youthline.ca;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Youthline.ca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
