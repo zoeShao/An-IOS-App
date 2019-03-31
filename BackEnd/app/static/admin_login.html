@@ -23,16 +23,17 @@
 <script >
     function senduser(userp){
     var data = JSON.stringify({"password":$(userp).val()})
-    console.log(data)
       $.ajax({
-        url:'http://localhost:80/pw',
+        url:'/pw',
         method: 'POST',
         data: data,
         contentType:"application/json",
         success: function(data){
           console.log(data)
-          if(data.pw_ok == "T"){
-            window.location.href = "http://localhost:80/upload.html"
+          if(data.pw_ok === "T"){
+            window.location.href = data.upload_url
+          } else {
+              console.log("wrong password")
           }
         }
 
