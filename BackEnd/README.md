@@ -81,7 +81,7 @@ http://youthline-test-server.herokuapp.com/
                        "event_date"    : "String - Date that event will be held",
                        "event_time"    : "String - Time that event will be held",
                        "map"           : "String - Reserved keyword",
-                       "event_website" : "String - URL to the event website"
+                       "event_website" : "String - URL to the event website",
                        "fav"           : "favoriate indicator"
                       }, ...]
         }
@@ -97,10 +97,10 @@ http://youthline-test-server.herokuapp.com/
   "b_content"   : "econtent", 
   "image_url"   : "eimage", 
   "main_content": "emain",
-	"address"     : "eaddress", 
+  "address"     : "eaddress", 
   "event_date"  : "eEventDate", 
   "event_time"  : "eEventTime",
-	"map"         : "None", 
+  "map"         : "None", 
   "event_website":"eEventW"
 }
 ```
@@ -189,7 +189,7 @@ http://youthline-test-server.herokuapp.com/
        "title"        : "title", 
        "time"         : "time", 
        "news_content" : "news_content", 
-			 "image"        : "image"
+       "image"        : "image"
        }
 ```
 
@@ -201,3 +201,6 @@ http://youthline-test-server.herokuapp.com/
 
 ## Admin Password Verifycation
 "POST" at "/pw": Verify if password is correct.
+```json
+	{"password":"password"}
+```
