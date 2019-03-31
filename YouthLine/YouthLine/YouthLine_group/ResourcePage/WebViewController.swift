@@ -13,7 +13,6 @@ import WebKit
 class WebViewController: BaseViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var url : URL!
-    //    var offset: Int = 0
     
     override func loadView() {
         webView = WKWebView()
@@ -24,14 +23,9 @@ class WebViewController: BaseViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
-        
-        // 1
-        //        print(url!)
-        //        let url = URL(string: "https://settlement.org/ontario/health/sexual-and-reproductive-health/sexual-orientation-and-gender-identity/")!
-        print(url)
+//        print(url)
         webView.load(URLRequest(url: url))
         
-        // 2
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
         toolbarItems = [refresh]
         navigationController?.isToolbarHidden = false
