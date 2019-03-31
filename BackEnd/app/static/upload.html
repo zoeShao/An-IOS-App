@@ -7,8 +7,8 @@
 
  <head></head>
  <link rel="stylesheet" type="text/css" href="styleForLoad.css"/> 
+ <body>
  </br>
- <div class = "EventDiv">
  	<h2> Event</h2>
  </br>
  	<input type = "text" id = "title" placeholder = "event title">
@@ -32,8 +32,6 @@
 	<input type = "text" id = "main" placeholder="main content">
 </br>
 	<button type = "button" id = "submit_event">submit</button>
-</div>
-<div  class = "event_div" >
 <table id = "list_event" cellspacing = "0px" cellpadding = "20px" text-align = "center">
             <thead>
                 <tr>
@@ -51,8 +49,6 @@
 	<input type = "text" id = "delete_event" placeholder = "type event id">
 	<button type = "button" id = deleteb_event> Delete</button>
 </br>
-</div>
-<div class = "resourceDiv">
 <h3> resources</h3>
 </br>
 <input type = "text" id = "r_category" placeholder = "type your category">
@@ -64,8 +60,6 @@
 	<input type = "text" id = "r_image" placeholder = "type your image">
 </br>
 	<button type = "button" id = "resource_submit" >Submit</button>
-</div>
-<div class = "resource_div" >
 <table id = "list_resource" cellspacing = "0px" cellpadding = "20px" text-align = "center">
             <thead>
                 <tr>
@@ -84,8 +78,6 @@
 </br>
 	<input type = "text" id = "delet_resource" placeholder = "type resource id">
 	<button type = "button" id = deletb_resource>Delete</button>
-</div>
-<div class = "homeDiv">
 <h4>Home</h4>
 	<input type = "text" id = "home_title" placeholder="title">
 </br>
@@ -97,8 +89,6 @@
 </br>
 	<button type = "button" id = "home_submit"> Submit</button>
 </br>
-</div>
-<div class = "home_div">
 <table id = "list_home" cellspacing = "0px" cellpadding = "20px" text-align = "center">
             <thead>
                 <tr>
@@ -116,7 +106,9 @@
 </br>
 	<input type = "text" id = "delete_home" placeholder="Home Id">
 	<button type = "button" id = "deleteb_home">Delete</button>
-</div>
+
+
+</body>
 
 <script >
 	const sleep = (milliseconds) => {

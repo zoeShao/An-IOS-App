@@ -26,7 +26,7 @@ class HeaderView: UIView {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = UIFont(name: "VAGRoundedStd-thin", size: 18)
         label.numberOfLines = 0
         return label
     }()

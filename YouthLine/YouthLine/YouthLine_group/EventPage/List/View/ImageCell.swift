@@ -38,12 +38,10 @@ class ImageCell: BaseCell {
         super.init(coder: aDecoder)
     }
     
-    override var model: Model? {
+    override var model: EventModel? {
         didSet {
-            let url = URL(string: imageUrl[count])
+            let url = URL(string: model?.image_url ?? "https://pic4.zhimg.com/v2-57025d3b940f9039d056632b1281ba77_400x224.jpeg")
             self.ImageView.kf.setImage(with: url)
-            count += 1
-            if count > 4 {count = 0}
         }
     }
 }

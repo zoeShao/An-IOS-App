@@ -1,14 +1,7 @@
 # App Backend
 We will use assignment 1 as the starting point to build the backend.
-The Backend will provide database access. Database will preserve after app restart.
-
-Front-End mobile app can fetch event, resources and homepage data from Backend.
-Front-End mobile app can save which resources or event has been bookmarked by which user to Backend.
-
+The Backend will provide database access. Front-End mobile app can fetch data from Backend.
 Backend also has GUI for admin to update the database.
-Admin can see all event, resources and homepage data thought GUI Admin page.
-Admin can delete any event, resources and homepage data thought GUI Admin page.
-Admin can add event, resources and homepage data thought GUI Admin page.
 
 # docker
 To start:
@@ -48,25 +41,8 @@ http://youthline-test-server.herokuapp.com/
 
 # API
 
-## Event 
-### Fetch All Event
-"GET" at /event
-```json
-{ "Events" : [{
-                       "title"        : String - Event title,
-                       "source"       : String - Facebook, Twitter, ...,
-                       "release_date" : String - Time that this event was created,
-                       "b_content"    : String - Short content that displayed in main page
-                       "image_url"    : String - URL to event image,
-                       "main_content" : String - Main Content,
-                       "address"       : String - Event address,
-                       "event_date"    : String - Date that event will be held,
-                       "event_time"    : String - Time that event will be held,
-                       "map"           : String - Reserved keyword,
-                       "event_website" : String - URL to the event website
-                      }, ...]
-        }
-```
+## Fetch All Event
+"Get" at /event
 
 ## Post new Event
 "Post" at /event
@@ -77,20 +53,8 @@ http://youthline-test-server.herokuapp.com/
 ## Fetch All Resources
 "Get" at /resources
 
-## Delete Resources
-"Delete" at /resources
-
-## Post new Resources
-"Post" at /Resources
-
 ## Fetch Home
 "Get" at /home
 
-## Delete Home
-"Delete" at /home
-
-## Post Home
-"Post" at /home
 ## Admin Password Verifycation
 "POST" at /pw
-## Delete Resources
