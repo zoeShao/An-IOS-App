@@ -39,7 +39,7 @@ class ArticleDetailVC: BaseViewController {
     
     lazy var pageView: DNSPageView = {
         let style = DNSPageStyle()
-        style.contentViewBackgroundColor = custom_menuBarPink
+        style.contentViewBackgroundColor = .white
         style.isTitleViewScrollEnabled = false
         style.isTitleScaleEnabled = false
         style.isShowBottomLine = true
@@ -110,7 +110,11 @@ class ArticleDetailVC: BaseViewController {
             make.right.equalToSuperview().offset(0)
         }
         pageView.addSubview(imgView)
-        
+        imgView.snp.makeConstraints { make in
+            make.left.equalTo(pageView).offset(0)
+            make.top.equalTo(pageView).offset(200)
+            make.right.equalTo(pageView).offset(0)
+        }
         
     }
     

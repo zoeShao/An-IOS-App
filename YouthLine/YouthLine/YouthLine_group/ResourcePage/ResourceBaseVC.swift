@@ -17,7 +17,7 @@ class ResourceBaseVC: BaseViewController {
     var resourcesCollection = [String: [Resource]]()
     var resources: [Resource] = []
     
-    var ModelList: [Model]?
+    var ModelList: [EventModel]?
     var pageIndex: Int = 0
     
     var tableBackGroundView: UIImageView = {
