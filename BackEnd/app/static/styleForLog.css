@@ -1,0 +1,51 @@
+
+body {
+  	background-color: #FF69B4;
+
+}
+
+#head{
+  	font-size: 800px;
+}
+
+#pass {
+ 	background-color: #FFC0CB;
+ 	text-align: center;
+ 	position: relative;
+  	left: 600px;
+  	top:350px;
+}
+#log{
+	height: 30px;
+	width:80px;
+	background-color: #FFC0CB;
+  	position: relative;
+  	left: 620px;
+  	top:370px;
+}
+h2 {
+	position: relative;
+	left:550px;
+	font-size: 30px;
+}
+
+h3{
+	position:relative;
+	left:560px;
+	top:350px;
+}
+
+#show_password{
+	background-color: #FFC0CB;
+	position:relative;
+	left:650px;
+	top:300px;
+}
+
+
+#hide_password{
+	background-color: #FFC0CB;
+	position: relative;
+	left:545px;
+	top:340px;
+}

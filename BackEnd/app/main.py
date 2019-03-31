@@ -391,6 +391,26 @@ def home():
     return jsonify(json)
 
 
+@app.route('/home', methods = ['POST'])
+def addHome():
+    result = []
+    title = request.json["title"]
+    time = request.json["time"]
+    news_content = request.json["new_content"]
+    image = request.json["image"]
+    result.append(title)
+    result.append(time)
+    result.append(news_content)
+    result.append(image)
+    homeDB.add(result)
+    return ("True")
+
+@app.route('/home', methods = ['DELETE'])
+def deleteHome():
+    hid = request.json["hid"]
+    resourcesDB.delete(hid)
+    return("True")
+
 ##################################################################
 ########################    resources     ########################
 ##################################################################
