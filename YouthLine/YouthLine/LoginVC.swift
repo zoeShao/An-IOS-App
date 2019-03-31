@@ -17,13 +17,23 @@ class LoginVC: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         //header view
-        let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 500, height: 1000))
+        let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight))
+        headerView.backgroundColor = .white
         
+        
+        let imageView: UIImageView = UIImageView(frame: CGRect(x: ScreenWidth/4, y: ScreenHeight/5, width: 200, height: 200))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "Default")
+
+         headerView.addSubview(imageView)
         
         // This button
         let button = UIButton()
-        button.frame = CGRect(x:50, y:200, width: 250, height: 50)
-        button.backgroundColor = .blue
+        button.frame = CGRect(x:ScreenWidth/5, y:ScreenHeight/2.5, width: 250, height: 50)
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor(red:0.97, green:0.80, blue:0.80, alpha:1.0)
         button.setTitle("Login ", for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         
