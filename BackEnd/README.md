@@ -64,7 +64,7 @@ http://youthline-test-server.herokuapp.com/
                        "event_time"    : "String - Time that event will be held",
                        "map"           : "String - Reserved keyword",
                        "event_website" : "String - URL to the event website"
-                      }, ...]
+                      }]
         }
 ```
 ### Fetch User Favoriate Event
@@ -83,7 +83,7 @@ http://youthline-test-server.herokuapp.com/
                        "map"           : "String - Reserved keyword",
                        "event_website" : "String - URL to the event website",
                        "fav"           : "favoriate indicator"
-                      }, ...]
+                      }]
         }
 ```
 
@@ -119,7 +119,7 @@ http://youthline-test-server.herokuapp.com/
 ```json
     { "Resources":
             [
-                { "category": "String - category"
+                { "category": "String - category",
                   "contents":
                   [
                     {
@@ -127,17 +127,10 @@ http://youthline-test-server.herokuapp.com/
                         "resource_url": "String - event url",
                         "img"         : "String - image url",
                         "rid"         : "String - Event unique ID"
-                    },
-                    {
-                        second content...
                     }
                   ]
-                },
-                {
-                    second category...
                 }
             ]
-
     }
 ```
 ### Fetch User Favoriate Resources
@@ -164,9 +157,9 @@ http://youthline-test-server.herokuapp.com/
 ```json
     {
      "category"     : "category", 
-     "title"        : "title, 
+     "title"        : "title", 
      "resource_url" : "resource url", 
-		 "img"          : "image url"
+     "img"          : "image url"
     }
 ```
 
@@ -177,8 +170,7 @@ http://youthline-test-server.herokuapp.com/
       "time"         : "String - time",
       "news_content" : "String - news content",
       "image"        : "String - url to image (optional)"
-    },
-    ...
+    }
     ]
 ```
 
@@ -188,7 +180,7 @@ http://youthline-test-server.herokuapp.com/
       {
        "title"        : "title", 
        "time"         : "time", 
-       "news_content" : "news_content", 
+       "news_content" : "news content", 
        "image"        : "image"
        }
 ```
@@ -202,5 +194,5 @@ http://youthline-test-server.herokuapp.com/
 ## Admin Password Verifycation
 "POST" at "/pw": Verify if password is correct.
 ```json
-	{"password":"password"}
+    {"password":"password"}
 ```
