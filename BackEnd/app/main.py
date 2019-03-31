@@ -5,6 +5,7 @@ from flask_cors import CORS
 # model
 import os
 import csv
+import hashlib
 
 # Start the app and setup the static directory for the html, css, and js files.
 app = Flask(__name__, static_url_path='', static_folder='static')
@@ -14,15 +15,87 @@ CORS(app)
 eventDB = None
 resourcesDB = None
 homeDB = None
+userManager = None
 admin_pw = None
 
 # If in production env?
-heroku_env = True
+heroku_env = False
 if heroku_env:
     prefix = "./app/"  # heroku env
 else:
     prefix = ""  # local python env
 
+
+class UserManager:
+    """
+    UserDB:     uid,    name,   email,  fav_event,     fav_res      password_hash
+                int     String  String  [int: rid]     [int: rid]   hash
+    """
+    def __init__(self, path):
+        self.users = []  # list of dictionary
+        self.uid_counter = 0
+
+    def get_next_uid(self):
+        ret = self.uid_counter
+        self.uid_counter += 1
+
+        return ret
+
+    def addUser(self, username, email, password):
+        user_id = self.get_next_uid()
+        user = {
+                "uid": user_id,
+                "username": username,
+                "email": email,
+                "password_hash": hashlib.sha256(password.encode('utf-8')).hexdigest(),
+                "fav_event": [],
+                "fav_res": []
+                }
+        self.users.append(user)
+
+        return user_id
+
+    def delUser(self, uid):
+        pass
+
+    def addEventFav(self, uid, rid):
+        for user in self.users:
+            if user["uid"] == uid:
+                user["fav_event"].append(rid)
+                return True
+        print("No such a user" + str(uid))
+        return False
+
+    def addResFav(self, uid, rid):
+        for user in self.users:
+            if user["uid"] == uid:
+                user["fav_res"].append(rid)
+                return True
+        print("No such a user" + str(uid))
+        return False
+
+    def delEvetnFav(self, uid, rid):
+        pass
+
+    def delResFav(self, uid, rid):
+        pass
+
+    def isEventFav(self, uid, rid):
+        for user in self.users:
+            if user["uid"] == uid:
+                if rid in user["fav_event"]:
+                    return True
+        # print("No such a user" + str(uid))
+        return False
+
+    def isResFav(self, uid, rid):
+        for user in self.users:
+            if user["uid"] == uid:
+                if rid in user["fav_res"]:
+                    return True
+
+        # print("No such a user" + str(uid))
+        return False
 
 class DB:
     """
@@ -37,6 +110,7 @@ class DB:
         self.core = [] # list of list
         self.tags = []
         self.rid_counter = 0  # rowid
+        self.path = ""
 
     # Private method
     # return the next available RowID
@@ -47,6 +121,9 @@ class DB:
 
     # load from csv file
     def loadFromCSV(self, path):
+        # save the path
+        self.path = path
+
         # drop the previous db first
         self.drop()
 
@@ -75,7 +152,10 @@ class DB:
         # print("DB loaded.")
 
     # Save current DB to csv file
-    def saveToCSV(self, path):
+    def saveToCSV(self):
+
+        path = self.path
+
         # remove the previous file
         os.remove(path)
 
@@ -152,6 +232,17 @@ class DB:
 
         return lst
 
+    def getByRid(self, target_rid):
+        """
+        Get record by it's rid
+        :param target_rid: row id
+        :return: return the record if found, return None if no rid match
+        """
+        for record in self.core:
+            if record[0] == target_rid:
+                return self.tags, record
+        return None
+
     def add(self, lst):
         """
         Add record to database.
@@ -167,6 +258,7 @@ class DB:
         # add the database
         self.core.append(record)
 
+        self.saveToCSV()
         return True
 
     def delete(self, target_rid):
@@ -179,6 +271,7 @@ class DB:
         for index in range(len(self.core)):
             if self.core[index][0] == target_rid:
                 self.core.pop(index)
+                self.saveToCSV()
                 return True
 
         return False
@@ -220,10 +313,9 @@ def DB_tester():
 
 # setup everything before running the server
 def init():
-    global eventDB, resourcesDB, homeDB, admin_pw
+    global eventDB, resourcesDB, homeDB, userManager, admin_pw
 
     admin_pw = read_admin_pw()
-    print("Admin Password:" + admin_pw)
 
     eventDB = DB()
     eventDB.loadFromCSV(prefix + "data/event.csv")
@@ -231,6 +323,16 @@ def init():
     resourcesDB.loadFromCSV(prefix + "data/res.csv")
     homeDB = DB()
     homeDB.loadFromCSV(prefix + "data/home.csv")
+    userManager = UserManager(prefix + "data/users.csv")
+
+    # for test
+    user1id = userManager.addUser("user1", "user1@email.com", "user1password")
+    # print(user1id)
+    userManager.addEventFav(user1id, 0)
+    userManager.addEventFav(user1id, 2)
+    # print(userManager.users)
+    userManager.addResFav(user1id, 0)
+    userManager.addResFav(user1id, 2)
 
 # Setup everything before accept any request
 init()
@@ -249,7 +351,8 @@ def index():
 @app.route('/pw', methods=['POST'])
 def pw():
     password = request.json["password"]
-    if password == admin_pw:
+    password_hash = hashlib.sha256(password.encode('utf-8')).hexdigest()
+    if password_hash == admin_pw:
         return jsonify({"pw_ok": "T",
                         "upload_url":"/upload.html"})
     else:
@@ -265,15 +368,27 @@ def pw():
 def home():
     """
     Expected JSON Format:
-    { title        : String - new title  (optional),
+    [{title        : String - new title  (optional),
       time         : String - time,
       news_content : String - news content,
       image        : String - url to image (optional)
-    }
+    },
+    ...
+    ]
     """
     raw = homeDB.getAll()
+    json = []
+    json.append(raw[-1])
+    json.append(raw[-2])
+    json.append(raw[-3])
+    json.append(raw[-4])
+    json.append(raw[-5])
+    json.append(raw[-6])
+    json.append(raw[-7])
+    json.append(raw[-8])
 
-    return jsonify(raw)
+
+    return jsonify(json)
 
 
 ##################################################################
@@ -347,6 +462,30 @@ def fetch_all_resources():
 
     return jsonify(json)
 
+@app.route('/resources_w_fav/<int:uid>')
+def fetch_res_with_fav(uid):
+    raw = resourcesDB.getAllWithRid()
+    json = {"Resources":[]}
+    for record in raw:
+        if userManager.isResFav(uid, int(record["rid"])):
+            each_content = {}
+            each_content["title"] = record["title"]
+            each_content["resource_url"] = record["resource_url"]
+            each_content["img"] = record["img"]
+            json["Resources"].append(each_content)
+
+    return jsonify(json)
+
+@app.route('/resources_w_fav/', methods=['POST'])
+def add_res_fav():
+    uid = request.json["uid"]
+    rid = request.json["rid"]
+
+    userManager.addResFav(uid, rid)
+
+    return jsonify(request.json)
+
+
 @app.route('/resources', methods = ['POST'])
 def addResource():
     temp = []
@@ -379,8 +518,6 @@ def allResourceRid():
 ##################################################################
 ########################       Event      ########################
 ##################################################################
-
-
 @app.route('/event')
 def fetch_all_event():
     """ Expected JSON Format:
@@ -402,6 +539,27 @@ def fetch_all_event():
 
     return jsonify({"Events": eventDB.getAllWithRid()})
 
+@app.route('/event_w_fav/<int:uid>')
+def fetch_event_with_fav(uid):
+    raw = eventDB.getAllWithRid()
+    ret = []
+    for record in raw:
+        if userManager.isEventFav(uid, int(record["rid"])):
+            record["fav"] = "True"
+        else:
+            record["fav"] = "False"
+        ret.append(record)
+
+    return jsonify(ret)
+
+@app.route('/event_w_fav/', methods=['POST'])
+def add_event_fav():
+    uid = request.json["uid"]
+    rid = request.json["rid"]
+
+    userManager.addEventFav(uid, rid)
+
+    return jsonify(request.json)
 
 @app.route('/event/rid', methods=['GET'])
 def allEventRid():
@@ -447,6 +605,14 @@ def deleteEvent():
     eventDB.delete(temp)
     print(temp)
     return("true")
+
+
+##################################################################
+#####################       Favourite      #######################
+##################################################################
+
+
+
 
 if __name__ == "__main__":
     # Only for debugging while developing
