@@ -10,6 +10,7 @@ import UIKit
 
 enum MenuType: Int {
     case all
+    case favourite
     case settlement
     case faith
     case sex
@@ -17,12 +18,25 @@ enum MenuType: Int {
     case service
     case education
     case type
+    case health
+    case parents
+    case gender
+    case selfcare
+    case homelessness
+    case trans
+    case school
+    case comingout
+    case emergency
+    case community
+    case selfharm
+    case bullying
 }
 
 class MenuViewController: UITableViewController {
     
     var didTapMenuTypte: ((MenuType) -> Void)?
     var allCell: UITableViewCell = UITableViewCell()
+    var favouriteCell: UITableViewCell = UITableViewCell()
     var settlementCell: UITableViewCell = UITableViewCell()
     var faithCell: UITableViewCell = UITableViewCell()
     var sexCell: UITableViewCell = UITableViewCell()
@@ -30,7 +44,19 @@ class MenuViewController: UITableViewController {
     var serviceCell: UITableViewCell = UITableViewCell()
     var educationCell: UITableViewCell = UITableViewCell()
     var typeCell: UITableViewCell = UITableViewCell()
-    var rowsInTableSection = 8
+    var healthCell: UITableViewCell = UITableViewCell()
+    var parentsCell: UITableViewCell = UITableViewCell()
+    var genderCell: UITableViewCell = UITableViewCell()
+    var selfcareCell: UITableViewCell = UITableViewCell()
+    var homelessnessCell: UITableViewCell = UITableViewCell()
+    var transCell: UITableViewCell = UITableViewCell()
+    var schoolCell: UITableViewCell = UITableViewCell()
+    var comingoutCell: UITableViewCell = UITableViewCell()
+    var emergencyCell: UITableViewCell = UITableViewCell()
+    var communityCell: UITableViewCell = UITableViewCell()
+    var selfharmCell: UITableViewCell = UITableViewCell()
+    var bullyingCell: UITableViewCell = UITableViewCell()
+    var rowsInTableSection = 21
     
     
     
@@ -38,13 +64,16 @@ class MenuViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
-        self.allCell.textLabel?.text = "all"
+        self.allCell.textLabel?.text = "All"
         self.allCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         self.allCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
-        self.settlementCell.textLabel?.text = "settlement"
+        self.favouriteCell.textLabel?.text = "My Favourite"
+        self.favouriteCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.favouriteCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
+        self.settlementCell.textLabel?.text = "Settlement"
         self.settlementCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         self.settlementCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
-        self.faithCell.textLabel?.text = "faith"
+        self.faithCell.textLabel?.text = "Faith"
         self.faithCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         self.faithCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
         self.sexCell.textLabel?.text = "Sex, Sexual Health & More"
@@ -62,7 +91,54 @@ class MenuViewController: UITableViewController {
         self.typeCell.textLabel?.text = "Indigenous & Two-Spirit"
         self.typeCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         self.typeCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
-        
+        //health
+        self.healthCell.textLabel?.text = "Health & Mental Health"
+        self.healthCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.healthCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
+        //parents
+        self.parentsCell.textLabel?.text = "Parents"
+        self.parentsCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.parentsCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
+        //gender
+        self.genderCell.textLabel?.text = "Gender"
+        self.genderCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.genderCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
+        //self-care
+        self.selfcareCell.textLabel?.text = "Self-Care"
+        self.selfcareCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.selfcareCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
+        //homelessness
+        self.homelessnessCell.textLabel?.text = "Homelessness"
+        self.homelessnessCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.homelessnessCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
+        //trans
+        self.transCell.textLabel?.text = "Trans Resources"
+        self.transCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.transCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
+        //school
+        self.schoolCell.textLabel?.text = "School"
+        self.schoolCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.schoolCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
+        //coming out
+        self.comingoutCell.textLabel?.text = "Coming Out"
+        self.comingoutCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.comingoutCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
+        //emergency
+        self.emergencyCell.textLabel?.text = "Emergency/Crisis Services"
+        self.emergencyCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.emergencyCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
+        //community
+        self.communityCell.textLabel?.text = "Community and Organizing"
+        self.communityCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.communityCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
+        //self-harm
+        self.selfharmCell.textLabel?.text = "Self-Harm"
+        self.selfharmCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.selfharmCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
+        //bullying
+        self.bullyingCell.textLabel?.text = "Bullying, Abuse & Violence"
+        self.bullyingCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        self.bullyingCell.textLabel?.font = UIFont(name:"Avenir Book", size: 18)
         //        self.shareCell.accessoryType = UITableViewCellAccessoryType.Checkmark
     }
     
@@ -87,13 +163,26 @@ class MenuViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch(indexPath.row) {
         case 0: return self.allCell
-        case 1: return self.settlementCell
-        case 2: return self.faithCell
-        case 3: return self.sexCell
-        case 4: return self.formsCell
-        case 5: return self.serviceCell
-        case 6: return self.educationCell
-        case 7: return self.typeCell
+        case 1: return self.favouriteCell
+        case 2: return self.settlementCell
+        case 3: return self.faithCell
+        case 4: return self.sexCell
+        case 5: return self.formsCell
+        case 6: return self.serviceCell
+        case 7: return self.educationCell
+        case 8: return self.typeCell
+        case 9: return self.healthCell
+        case 10: return self.parentsCell
+        case 11: return self.genderCell
+        case 12: return self.selfcareCell
+        case 13: return self.homelessnessCell
+        case 14: return self.transCell
+        case 15: return self.schoolCell
+        case 16: return self.comingoutCell
+        case 17: return self.emergencyCell
+        case 18: return self.communityCell
+        case 19: return self.selfharmCell
+        case 20: return self.bullyingCell
         default: fatalError("Unknown row in section 1")
         }
     }

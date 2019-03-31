@@ -143,6 +143,9 @@ class ResourceBaseVC: BaseViewController {
         case .all:
             resources = resourcesCollection["all"]!
             self.tableView.reloadData()
+        case .favourite:
+            resources = resourcesCollection["all"]!
+            self.tableView.reloadData()
         case .settlement:
             resources = resourcesCollection["settlement"]!
             self.tableView.reloadData()
@@ -164,8 +167,42 @@ class ResourceBaseVC: BaseViewController {
         case .type:
             resources = resourcesCollection["type"]!
             self.tableView.reloadData()
-            //        default:
-            //            break
+        case .health:
+            resources = resourcesCollection["settlement"]!
+            self.tableView.reloadData()
+        case .parents:
+            resources = resourcesCollection["settlement"]!
+            self.tableView.reloadData()
+        case .gender:
+            resources = resourcesCollection["settlement"]!
+            self.tableView.reloadData()
+        case .selfcare:
+            resources = resourcesCollection["settlement"]!
+            self.tableView.reloadData()
+        case .homelessness:
+            resources = resourcesCollection["settlement"]!
+            self.tableView.reloadData()
+        case .trans:
+            resources = resourcesCollection["settlement"]!
+            self.tableView.reloadData()
+        case .school:
+            resources = resourcesCollection["settlement"]!
+            self.tableView.reloadData()
+        case .comingout:
+            resources = resourcesCollection["settlement"]!
+            self.tableView.reloadData()
+        case .emergency:
+            resources = resourcesCollection["settlement"]!
+            self.tableView.reloadData()
+        case .community:
+            resources = resourcesCollection["settlement"]!
+            self.tableView.reloadData()
+        case .selfharm:
+            resources = resourcesCollection["settlement"]!
+            self.tableView.reloadData()
+        case .bullying:
+            resources = resourcesCollection["settlement"]!
+            self.tableView.reloadData()
         }
     }
     
