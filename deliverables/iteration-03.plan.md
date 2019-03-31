@@ -11,7 +11,7 @@
 
 ## Process
 
-(Optional:) Quick introduction
+In this iteration, we will focus on the front-end imporvement and back-end building . The goal for this iteration is having a responsive user interface.
 
 #### Changes from previous iteration
 
@@ -24,15 +24,13 @@ List the most significant changes you made to your process (if any).
 
  > *Note:* If you are not making any changes to your process, it means that you are happy with all of the decisions you made in the previous iterations.
  > In this case, list what you consider to be the most significant process decisions your team made. For each decision, explain why you consider it successful, and what success metric you are using (or could use) to assert that the decision is successful.
+changing group structure is the most significant. IOS App is front-end heavy, three group member will not enough for front-end.
+workload for each group member can be used as success metric.
  
  #### Roles & responsibilities
 
 Describe the different roles on the team and the responsibilities associated with each role. 
  * Roles should reflect the structure of your team and be appropriate for your project. Not necessarily one role to one team member.
-
-List each team member and:
- * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
- * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
 
 
 Yecheng Song, Yuting Shao (Note that Yecheng and Yuting are also assigned with coding-based jobs, see below)
@@ -87,6 +85,7 @@ We keep every of our team member acknowledged about our current tasks, by sendin
 
 * We plan to let every front-end member(Shiqi Lin, Yecheng Song, Yuting Shao, Baijiang Yuan) create a project on their own branch and implement their responsible page (Home Page, Event Page, Resource Page, User Page respectively) for the app. After everyone finished their part, we meet together and merge the projects.
 * Back-end developers will build the back end for our app using python on their own branch.
+* Back-end developers will build Adminstor website.
 * After everyone finish there own part, we will have a offline group meeting to merge everyone's code, doing so, we can have the conflict or the bug caused by merging being solved quickly.
 * All group member will follow the naming conventions and coding style suggested by Swift 4. 
 * iOS Simulator is a convenient tool provided by XCode, in the simulator, we can easily compile our code and run it in iOS simulation environment. Also, XCode provides some tools helping developers to install the app on their iPhone without upload the app to App-Store by installing a developer cerification on iPhone. So we will take this advantage to deploy our app in a small range.
@@ -98,14 +97,14 @@ We keep every of our team member acknowledged about our current tasks, by sendin
 
 #### Goals and tasks
 
-* The main goal for this iteration is: Having a deployable iOS front-end app which has basically a finished layout (working buttoms and navigation inside app) with some hard-coded local data for demo. 
- * The secondary goal is: To work out the data structure of Back-End, what data back-end is expected to storage? What is the JSON format to use in the communication between front-end and back-end?
+* The main goal for this iteration is: Having a deployable iOS front-end app which has  a finished layout (working buttoms and navigation inside app) with retrive data from back-end 
+ * The secondary goal is: Some imporvement of front-end UI
 ##### To achieve the Goals, following tasks is required:
- * Design the user interface in detail, and draw the full flow chart of the app.
+ * Design the back-end in detail, and draw the full flow chart of the app.
  * Come up with a working flow that everyone can share the same code base and have comfortable experience to commit their code to the team repo.
  * Get familiar with the developing environment of XCode, and learn how to create views or controllers of user interface. Experiment the iOS App develop flow. 
  * Assign work in detail to each group member.
  * Back-end developers and front-end developers will have meetings to design the communication "protocol".
 #### Artifacts
-There will be a responsive iOS App for this iteration, although it can't actually fetch data from the backend, but it uses some fake data stored in local for this early demo.
-User can explore the freely and have basic impression of the app.
+There will be a responsive iOS App for this iteration, it can actually fetch data from the backend,
+User can explore the freely of the app.
