@@ -24,7 +24,8 @@ List the most significant changes you made to your process (if any).
 
  > *Note:* If you are not making any changes to your process, it means that you are happy with all of the decisions you made in the previous iterations.
  > In this case, list what you consider to be the most significant process decisions your team made. For each decision, explain why you consider it successful, and what success metric you are using (or could use) to assert that the decision is successful.
-changing group structure is the most significant. IOS App is front-end heavy, three group member will not enough for front-end.
+ </br>
+*changing group structure is the most significant. IOS App is front-end heavy, three group member will not enough for front-end.
 workload for each group member can be used as success metric.
  
  #### Roles & responsibilities
