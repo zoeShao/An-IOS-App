@@ -40,6 +40,7 @@
 		EF5A28F322348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5A28F122348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png */; };
 		EF5A28F422348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5A28F222348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png */; };
 		EF82A9D622349E9900CBDFA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF82A9D522349E9900CBDFA6 /* Assets.xcassets */; };
+		EF9A18F22250A3DD0039C0F7 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A18F12250A3DD0039C0F7 /* EventModel.swift */; };
 		EFBC106422346C0800703135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC106322346C0800703135 /* AppDelegate.swift */; };
 		EFBC106622346C0800703135 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC106522346C0800703135 /* BaseViewController.swift */; };
 		EFBC106822346C0800703135 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC106722346C0800703135 /* SecondViewController.swift */; };
@@ -101,6 +102,7 @@
 		EF5A28F122348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZHProfile_BackArrow_Active@2x.png"; sourceTree = "<group>"; };
 		EF5A28F222348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZHProfile_BackArrow_Active@3x.png"; sourceTree = "<group>"; };
 		EF82A9D522349E9900CBDFA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = YouthLine/Assets.xcassets; sourceTree = "<group>"; };
+		EF9A18F12250A3DD0039C0F7 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		EFBC106022346C0800703135 /* YouthLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouthLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFBC106322346C0800703135 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFBC106522346C0800703135 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				EFE36B5A22358E7F0041A544 /* Model.swift */,
+				EF9A18F12250A3DD0039C0F7 /* EventModel.swift */,
 			);
 			name = Model;
 			path = View/Model;
@@ -624,6 +627,7 @@
 				EFBC108E223471F500703135 /* ListBaseVC.swift in Sources */,
 				EFBC10992234753700703135 /* ArticleDetailVC.swift in Sources */,
 				EF5A28BD22347B75001FFD61 /* UIColor+Ex.swift in Sources */,
+				EF9A18F22250A3DD0039C0F7 /* EventModel.swift in Sources */,
 				EFBC109F2234790E00703135 /* ArticleTitle.swift in Sources */,
 				EFBC106422346C0800703135 /* AppDelegate.swift in Sources */,
 				279F19E22235D65500DE8221 /* Cell1.swift in Sources */,
