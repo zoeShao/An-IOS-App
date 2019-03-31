@@ -36,7 +36,9 @@
         success: function(data){
           console.log(data)
           if(data.pw_ok == "T"){
-            window.location.href = "http://localhost:80/upload.html"
+            window.location.href = data.upload_url
+          }else{
+            window.alert("wrong password")
           }
         }
       })
