@@ -14,24 +14,22 @@ import SwiftMessages
 import SwiftyJSON
 import UIKit
 import WebKit
+import DNSPageView
 
 class ArticleDetailVC: BaseViewController {
     var questionTitle: String = ""
     var questionId: String = ""
     var answerIdList: [String]?
     var index: Int = 0
+    var question_content: String = ""
+    var address: String = ""
+    var time: String = ""
+    var website: String = ""
+    var imageUrl: String = ""
+    var date: String = ""
     
-    var answerId: String? {
-        didSet {
-            
-            let urlString = "https://www.zhihu.com/appview/v2/answer/" + answerId!
-            let contentURL = URL(string: urlString)
-            var request = URLRequest(url: contentURL!)
-            request.allHTTPHeaderFields = Headers
-            
-        }
-    }
-    
+    let childrenVC =  [] as [UIViewController]
+    let titles = [] as [String]
     
     let headerView: HeaderView = {
         let headerView = HeaderView()
@@ -39,6 +37,33 @@ class ArticleDetailVC: BaseViewController {
         return headerView
     }()
     
+    lazy var pageView: DNSPageView = {
+        let style = DNSPageStyle()
+        style.contentViewBackgroundColor = .white
+        style.isTitleViewScrollEnabled = false
+        style.isTitleScaleEnabled = false
+        style.isShowBottomLine = true
+        style.titleSelectedColor = UIColor.black
+        style.titleColor = UIColor.gray
+        style.bottomLineColor = UIColor.black
+        style.bottomLineHeight = 2
+        
+        let frame = CGRect(x: 0, y: NavigationBarHeight, width: ScreenWidth, height: ScreenHeight - NavigationBarHeight)
+        let pageView = DNSPageView(frame: frame,
+                                   style: style,
+                                   titles: [],
+                                   childViewControllers: [],
+                                   startIndex: 0)
+        return pageView
+    }()
+    
+    var imgView : UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 5
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -48,8 +73,13 @@ class ArticleDetailVC: BaseViewController {
         return label
     }()
     
-    @objc func writeAnswerClick() {
-    }
+    let contentLabel: UILabel = {
+        let label = UILabel()
+        label.frame = CGRect(x: 0, y: 0, width: ScreenWidth - 100, height: 300)
+        label.textAlignment = .center
+        label.textColor = .black
+        return label
+    }()
     
     
     override func viewDidLoad() {
@@ -59,12 +89,31 @@ class ArticleDetailVC: BaseViewController {
         view.backgroundColor = BGColor
         
         headerView.titleLabel.text = questionTitle
-        titleLabel.text = questionTitle
+        
+        let url = URL(string: imageUrl)
+        print(imageUrl, "hahaha")
+        let data = try? Data(contentsOf: url!)
+        if let imageData = data {
+            let image = UIImage(data: imageData)
+            imgView.image = image
+        }
+        
+        contentLabel.text = question_content
         view.addSubview(headerView)
-        headerView.actionBlock = { [unowned self] (btnIndex: Int) in
-            if btnIndex == 0 {
-                self.writeAnswerClick()
-            }
+        view.addSubview(imgView)
+        view.addSubview(pageView)
+        
+        pageView.addSubview(headerView)
+        headerView.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(0)
+            make.top.equalToSuperview().offset(0)
+            make.right.equalToSuperview().offset(0)
+        }
+        pageView.addSubview(imgView)
+        imgView.snp.makeConstraints { make in
+            make.left.equalTo(pageView).offset(0)
+            make.top.equalTo(pageView).offset(200)
+            make.right.equalTo(pageView).offset(0)
         }
         
     }

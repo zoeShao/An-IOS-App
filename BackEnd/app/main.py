@@ -351,20 +351,6 @@ def fetch_all_resources():
             cat_json["contents"].append(each_content)
         json["Resources"].append(cat_json)
 
-    # Create cat all
-    cat_all = {"category": "all",
-               "contents": []}
-
-
-    for record in raw:
-        each_content = {}
-        each_content["title"] = record["title"]
-        each_content["resource_url"] = record["resource_url"]
-        each_content["img"] = record["img"]
-        cat_all["contents"].append(each_content)
-
-    json["Resources"].append(cat_all)
-
     return jsonify(json)
 
 @app.route('/resources', methods = ['POST'])

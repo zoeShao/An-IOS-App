@@ -20,14 +20,14 @@ class ResourceCell: UITableViewCell {
     
     var ResourceTitleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17, weight:UIFont.Weight.bold)
+        label.font = UIFont(name: "VAGRoundedStd-Bold", size: 17)
         label.numberOfLines = 0
         return label
     }()
     
     var footerLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont(name: "VAGRoundedStd-thin", size: 14)
         label.textColor = RGBColor(150, 150, 150)
         return label
     }()
