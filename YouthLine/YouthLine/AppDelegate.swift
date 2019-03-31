@@ -8,7 +8,6 @@
 
 import UIKit
 import ESTabBarController_swift
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,10 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        let barController = ESTabBarController()
+        barController.delegate = self as? UITabBarControllerDelegate
+        self.window?.rootViewController = barController
         self.window?.makeKeyAndVisible()
-        let login = LoginVC()
-        self.window?.rootViewController = login
-        FirebaseApp.configure()
+        
+        let vc1 = HomePageVC()
+        let vc2 = EventBaseVC()
+        let vc3 = ResourceBaseVC()
+        let vc4 = PersonalPageVC()
+        
+        vc2.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "Events", image: UIImage(named: "event"), selectedImage: UIImage(named: "event_color"))
+        vc1.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "HomePage", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_color"))
+        vc3.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "Resources", image: UIImage(named: "books"), selectedImage: UIImage(named: "books_color"))
+        vc4.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "PersonalPage", image: UIImage(named: "person"), selectedImage: UIImage(named: "person_color"))
+        
+        
+        let n1 = UINavigationController.init(rootViewController: vc1)
+        let n2 = UINavigationController.init(rootViewController: vc2)
+        let n3 = UINavigationController.init(rootViewController: vc3)
+        let n4 = UINavigationController.init(rootViewController: vc4)
+        
+        
+        barController.viewControllers = [n1, n2, n3, n4]
         return true
     }
     
