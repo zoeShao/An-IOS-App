@@ -21,6 +21,7 @@ class BaseViewController: UIViewController {
         let item1 = UIBarButtonItem(customView: backBtn)
         navigationItem.leftBarButtonItem = item1
         
+        
     }
     
     @objc func backAction(button: UIButton) {

@@ -22,4 +22,5 @@ struct EventModel: HandyJSON {
     var title: String?
     var event_website: String?
     var b_content: String?
+    var fav: String?
 }

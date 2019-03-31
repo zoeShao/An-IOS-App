@@ -57,7 +57,7 @@ class EventBaseVC: BaseViewController {
         let searchBtn = UIButton.init(type: UIButtonType.system)
         searchBtn.frame = CGRect(x: ScreenWidth - 50, y: StatusBarHeight + 13, width: 25, height: 25)
         searchBtn.setTitle("", for: UIControlState.normal)
-        searchBtn.setImage(UIImage(named: "slider"), for: UIControlState.normal)
+        searchBtn.setImage(UIImage(named: "search"), for: UIControlState.normal)
         
         searchBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
         return searchBtn
@@ -66,8 +66,8 @@ class EventBaseVC: BaseViewController {
     lazy var filterBtn: UIButton = {
         let filterBtn = UIButton.init(type: UIButtonType.system)
         filterBtn.frame = CGRect(x: 20, y: StatusBarHeight + 15, width: 25, height: 25)
-        filterBtn.setTitle("", for: UIControlState.normal)
-        filterBtn.setImage(UIImage(named: "search"), for: UIControlState.normal)
+        filterBtn.setTitle("See my likes", for: UIControlState.normal)
+        filterBtn.setImage(UIImage(named: "book_dark"), for: UIControlState.normal)
         
         filterBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
         return filterBtn
@@ -79,7 +79,7 @@ class EventBaseVC: BaseViewController {
         view.addSubview(searchTextField)
         searchTextField.isHidden = true
         view.addSubview(questionBtn)
-        view.addSubview(searchBtn)
+//        view.addSubview(searchBtn)
         view.addSubview(filterBtn)
         
         for vc in viewControllers {
@@ -89,9 +89,6 @@ class EventBaseVC: BaseViewController {
         
         
     }
-    
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
