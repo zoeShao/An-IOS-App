@@ -7,6 +7,39 @@ h2{
 	font-size: 30px;
 }
 
+
+div.event_div{
+	position:relative;
+	width:800px;
+	top:-540px;
+	left:500px;
+	background-color:#FFC0CB;
+    overflow-y: scroll;
+    max-width:800px;
+
+}
+
+
+div.resource_div{
+	position: relative;
+	top:-250px;
+	left:500px;
+	background-color:#FFC0CB;
+    overflow-y: scroll;
+    max-width:800px;
+}
+
+
+div.home_div{
+	position:relative;
+	top:-250px;
+	left:500px;
+	background-color:#FFC0CB;
+    overflow-y: scroll;
+    max-width:800px;
+}
+
+
 #title{
 	position: relative;
 	height:30px;
