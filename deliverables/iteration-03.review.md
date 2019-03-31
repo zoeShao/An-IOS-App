@@ -7,8 +7,8 @@
 
 ## Iteration XX - Review & Retrospect
 
- * When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
- * Where: PHYSICAL LOCATION AND/OR ONLINE
+ * When: March 31, 2019
+ * Where: Bahen Centre 3175
 
 ## Process - Reflection
 
@@ -23,7 +23,9 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
  * Ordered from most to least important.
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
  * Feel free to refer/link to process artifact(s).
-
+* Choose to draw flow chart before coding. Flow chart help us to see each pages relation more clearly.
+ * Assign work in detail to each group member. This improve our work efficiency a lot, each member have clear idea what they need to do.
+ * Assign front-end work for 4 team members. IOS app is front-end heavy and for this iteration, the back-end does not have too much work.
 #### Decisions that did not turn out as well as we hoped
 
 List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
@@ -32,6 +34,8 @@ List process-related (i.e. team organization) decisions that, in retrospect, wer
  * Ordered from most to least important.
  * Feel free to refer/link to process artifact(s).
 
+ * It is hard to merge different projects. 
+ * Combing back-end and front-end have more work than we expected
 
 #### Planned changes
 
@@ -43,17 +47,16 @@ List any process-related changes you are planning to make (if there are any)
 
 ## Product - Review
 
+
+
 #### Goals and/or tasks that were met/completed:
 
- * From most to least important.
- * Refer/link to artifact(s) that show that a goal/task was met/completed.
- * If a goal/task was not part of the original iteration plan, please mention it.
-
+ * iOS front-end app which has finished layout (working buttoms and navigation inside app) 
+ * Back-end is completed.
+ * Front-end can retrive data from Back-end and sending data to back-end.
+ 
 #### Goals and/or tasks that were planned but not met/completed:
 
- * From most to least important.
- * For each goal/task, explain why it was not met/completed.      
-   e.g. Did you change your mind, or did you just not get to it yet?
 
 ## Meeting Highlights
 
@@ -64,3 +67,4 @@ Going into the next iteration, our main insights are:
  * High-level concepts that should guide your work for the next iteration.
  * These concepts should help you decide on where to focus your efforts.
  * Can be related to product and/or process.
+There is no next iteration
