@@ -49,8 +49,9 @@ http://youthline-test-server.herokuapp.com/
 
 # Databse:
 we using CSV to serialize our database. There are serveral advantages of using CSV file
-*CSV file is easily programmatically manipulate, since it is simple text file.
-*Import CSV file is fast and less memory consuming.
+</br>
+*CSV file is easily programmatically manipulate, since it is simple text file.</br>
+*Import CSV file is fast and less memory consuming.</br>
 *CSV file is easy to generate by lots of lanagues.
 
 
