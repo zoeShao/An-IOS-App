@@ -102,11 +102,11 @@ class ListBaseVC: BaseViewController {
     
     lazy var questionBtn: UIButton = {
         let questionBtn = UIButton.init(type: UIButtonType.system)
-        questionBtn.frame = CGRect(x: ScreenWidth - 115, y: StatusBarHeight + 5, width: 95, height: 45)
+        questionBtn.frame = CGRect(x: ScreenWidth - 115, y: StatusBarHeight + 5, width: 110, height: 50)
         questionBtn.setTitle("", for: UIControlState.normal)
         questionBtn.setImage(UIImage(named: "filterOff"), for: UIControlState.normal)
         //        questionBtn.blueTheme()
-        questionBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
+        questionBtn.addTarget(self, action: #selector(seeLikeAction(button:)), for: UIControlEvents.touchUpInside)
         return questionBtn
     }()
     
@@ -131,7 +131,7 @@ class ListBaseVC: BaseViewController {
         likeLabel.text = "Like Filter: off"
         view.addSubview(likeLabel)
         pageView.addSubview(tableView)
-        view.addSubview(filterBtn)
+//        view.addSubview(filterBtn)
         
         tableView.rowHeight = 150
         tableView.snp.makeConstraints { make in
