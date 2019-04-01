@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         let vc1 = HomePageVC()
-        let vc2 = EventBaseVC()
+        let vc2 = ListBaseVC()
         let vc3 = ResourceBaseVC()
         let vc4 = PersonalPageVC()
         
