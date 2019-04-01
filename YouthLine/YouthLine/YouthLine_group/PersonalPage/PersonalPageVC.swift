@@ -34,7 +34,7 @@ class PersonalPageVC: UIViewController {
 
         //user profile pic
         
-        imageView.image = #imageLiteral(resourceName: "person_color")
+        imageView.image = UIImage(named: "user")
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
         
