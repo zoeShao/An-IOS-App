@@ -25,6 +25,7 @@ class BaseViewController: UIViewController {
     }
     
     @objc func backAction(button: UIButton) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController?.popViewController(animated: true)
     }
 }

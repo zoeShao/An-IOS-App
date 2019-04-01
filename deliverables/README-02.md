@@ -1,6 +1,4 @@
-# YOUR PRODUCT/TEAM NAME
-
-> _Note:_ This document is intended to be relatively short. Be concise and precise. Assume the reader has no prior knowledge of your application and is non-technical. 
+# LGBT YouthLine/Rainbow Warriors
 
 ## Description 
 LGBT youthline provides various supporting resources and events information on their website. However, their website is only compatible with PC. It is a hard time if user want to access the website on a mobilephone. Our app is able to display the resources and events on a mobilephone in a friendly way by reorganizing the layout, adding bookmark feature, adding search feature.
@@ -16,15 +14,15 @@ In this page, user are able to browse all the helping resources provided by LGBT
 In the event page, user can see all the events (both the upcoming ones and the past ones). By pressing the each event, user can see the detail of the event.
 
 ### Me Page:
-This is user personal profile page, user can see the resources they "like" and change the settings of app.
+This page authenticates the user using Firebase. The user requires to registered using email. If the email does not in the database, it will ask the user to create a new account then log in. After logging in, the user is enabled to see their unique user id and login email in the dashboard. Also, the user can log out using the log out button.
 
+### Back-end:
+See README.md file in BackEnd folder.
 ## Instructions
- * Clear instructions for how to use the application from the end-user's perspective
- * How do you access it? Are accounts pre-created or does a user register? Where do you start? etc. 
- * Provide clear steps for using each feature described above
- * if we try to deploy our application in AppStroe, we need to have Apple developer membership, which will cost
+ * If we try to deploy our application in AppStroe, we need to have Apple developer membership, which will cost
  119 CAD per year. We cannot reach our partner for several weeks. At this situation, we cannot use AppStore to do universal
  deploy, we can only use Xcode to deploy in developer environment.
+ # Option1:
 * Step 1: Clone the project repo to a Mac computer.
 * Step 2: Download Xcode.
 * Step 3: Open terminal, type the following command to install the CocoaPods lib using by our app.
@@ -36,3 +34,5 @@ This is user personal profile page, user can see the resources they "like" and c
 * Step 7: In the Xcode window, press "Command" + "," to open preference menu, go to "Component" tab, download the iOS 12 Simulator.
 * Step 8: Click the "Run" buttom at the top left corner of Xcode. Now the code should compile and simulator will pop-up after the compilation success.
 * Final Step: Now you can explore the app with mouse.
+# Option2:
+*Our team can provide a iphone which deploy the App to demonstrate each function
