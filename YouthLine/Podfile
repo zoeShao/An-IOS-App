@@ -1,6 +1,11 @@
 platform:ios,'10.0'
 target 'YouthLine' do
 use_frameworks!
+# Pods for LogIn
+
+    pod 'FirebaseUI'
+    pod 'Firebase/Core'
+    pod 'Firebase/Auth'
     pod 'SnapKit'
     pod 'Kingfisher'
     #tabbar样式
