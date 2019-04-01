@@ -95,7 +95,7 @@ class ResourceBaseVC: BaseViewController {
         //        }
         view.backgroundColor = UIColor.white
         view.addSubview(questionBtn)
-        view.addSubview(searchBtn)
+//        view.addSubview(searchBtn)
         view.addSubview(filterBtn)
         view.addSubview(tableView)
         //        resourcesCollection = createDic()

@@ -29,18 +29,21 @@ class PersonalPageVC: UIViewController {
 //        let backgroupd: UIImageView = UIImageView(frame: CGRect(x: 150, y: 30, width: 100, height: 100))
 //        backgroupd.image = #imageLiteral(resourceName: "rainbow_3")
 //        headerView.backgroundColor = UIColor(patternImage: UIImage(named: "rainbow_3.jpg")!)
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "rainbow_3.jpg")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "rainbow_6.jpg")!)
     
 
         //user profile pic
+
         
         imageView.image = UIImage(named: "user")
+        let size = CGSize(width: 150, height: 150)
+        imageView.sizeThatFits(size)
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
         
         //user information
         
-        userNameLabel.text = "User Name"
+        userNameLabel.text = "User"
         userNameLabel.font = UIFont(name: "Copperplate-Bold", size: 23)
         userNameLabel.isHighlighted = true
 //        view.addSubview(userNameLabel)
