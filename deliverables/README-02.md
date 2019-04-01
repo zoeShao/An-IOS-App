@@ -22,6 +22,9 @@ This is user personal profile page, user can see the resources they "like" and c
  * Clear instructions for how to use the application from the end-user's perspective
  * How do you access it? Are accounts pre-created or does a user register? Where do you start? etc. 
  * Provide clear steps for using each feature described above
+ * if we try to deploy our application in AppStroe, we need to have Apple developer membership, which will cost
+ 119 CAD per year. We cannot reach our partner for several weeks. At this situation, we cannot use AppStore to do universal
+ deploy, we can only use Xcode to deploy in developer environment.
 * Step 1: Clone the project repo to a Mac computer.
 * Step 2: Download Xcode.
 * Step 3: Open terminal, type the following command to install the CocoaPods lib using by our app.
