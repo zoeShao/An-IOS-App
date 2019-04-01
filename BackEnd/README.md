@@ -210,3 +210,14 @@ http://youthline-test-server.herokuapp.com/
 ```json
     {"password":"password"}
 ```
+
+## User
+
+### Post User
+"Post" at "/users": Add user element to backend database
+```json
+    {"uid":"uid",
+      "username":"username",
+      "email":"email",
+      "password":"password"}
+```
