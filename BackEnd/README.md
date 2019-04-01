@@ -10,6 +10,8 @@ Backend also has GUI for admin to update the database.
 * Admin can delete any event, resources and homepage data thought GUI Admin page.
 * Admin can add event, resources and homepage data thought GUI Admin page.
 
+If user did not log-in, the user Id will be 999, and this user can not add favourite.
+
 # Desige Choices
 ## FireBase
 * Because we are not professional Developer yet, so we want to keep away from touching or storing sensitive data, like user email or password. So, we use Firebase firmwork developed by Google as our user authorization and management system, user's email and hashed password will be stored on firebase server instead of us.
