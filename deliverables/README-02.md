@@ -20,7 +20,7 @@ This is user personal profile page, user can see the resources they "like" and c
  * If we try to deploy our application in AppStroe, we need to have Apple developer membership, which will cost
  119 CAD per year. We cannot reach our partner for several weeks. At this situation, we cannot use AppStore to do universal
  deploy, we can only use Xcode to deploy in developer environment.
- #Option1:
+ # Option1:
 * Step 1: Clone the project repo to a Mac computer.
 * Step 2: Download Xcode.
 * Step 3: Open terminal, type the following command to install the CocoaPods lib using by our app.
@@ -32,5 +32,5 @@ This is user personal profile page, user can see the resources they "like" and c
 * Step 7: In the Xcode window, press "Command" + "," to open preference menu, go to "Component" tab, download the iOS 12 Simulator.
 * Step 8: Click the "Run" buttom at the top left corner of Xcode. Now the code should compile and simulator will pop-up after the compilation success.
 * Final Step: Now you can explore the app with mouse.
-#Option2:
+# Option2:
 *Our team can provide a iphone which deploy the App to demonstrate each function
