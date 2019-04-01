@@ -66,7 +66,7 @@ class HomeDetailView: UIView {
         titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         timeLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(32)
-            make.top.equalToSuperview().offset(55)
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
         }
         
         imageView.snp.makeConstraints { make in
