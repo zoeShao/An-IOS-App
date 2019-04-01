@@ -14,8 +14,12 @@ In this page, user are able to browse all the helping resources provided by LGBT
 In the event page, user can see all the events (both the upcoming ones and the past ones). By pressing the each event, user can see the detail of the event.
 
 ### Me Page:
-This is user personal profile page, user can see the resources they "like" and change the settings of app.
+This page authenticate user using Firebase. User requires to registered using email. If the email does not in databse,it
+will ask user to creat a new account then log in. After logging in, user is enable to see their unique user id and log
+in email in the dashboard. In addition, user can log out using log out button.
 
+### Back-end:
+See README.md file in BackEnd folder.
 ## Instructions
  * If we try to deploy our application in AppStroe, we need to have Apple developer membership, which will cost
  119 CAD per year. We cannot reach our partner for several weeks. At this situation, we cannot use AppStore to do universal
