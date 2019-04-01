@@ -1,7 +1,5 @@
 # LGBT YouthLine/Rainbow Warriors
 
-> _Note:_ This document is intended to be relatively short. Be concise and precise. Assume the reader has no prior knowledge of your application and is non-technical. 
-
 ## Description 
 LGBT youthline provides various supporting resources and events information on their website. However, their website is only compatible with PC. It is a hard time if user want to access the website on a mobilephone. Our app is able to display the resources and events on a mobilephone in a friendly way by reorganizing the layout, adding bookmark feature, adding search feature.
 
