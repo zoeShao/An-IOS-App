@@ -174,7 +174,7 @@ http://youthline-test-server.herokuapp.com/
      "img"          : "image url"
     }
 ```
-
+## HomePage
 ### Fetch Home
 "Get" at "/home": Return the homepage element in JSON Formate
 ```json
