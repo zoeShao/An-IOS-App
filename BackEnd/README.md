@@ -10,11 +10,19 @@ Backend also has GUI for admin to update the database.
 * Admin can delete any event, resources and homepage data thought GUI Admin page.
 * Admin can add event, resources and homepage data thought GUI Admin page.
 
-# Design Choices
-* Because we are not professional Developer yet, so we want to keep away from touching or storing sensitive data, like user email or password. So we use Firebase firmwork developed by Goolge as our user authorization and managerment system, user's email and hashed password will be stored on firebase server instead of us.
+# Desige Choices
+## FireBase
+* Because we are not professional Developer yet, so we want to keep away from touching or storing sensitive data, like user email or password. So, we use Firebase firmwork developed by Google as our user authorization and management system, user's email and hashed password will be stored on firebase server instead of us.
 * We embed the firebase login kit in our App, which work like a black box, after user login, the black box will return a unique user identifier(UUID) to the our App, so the App can send or request data from our server without letting us know who he\she is.
 
-# docker
+## Database
+We are using CSV to serialize our database. There are serveral advantages of using CSV file.
+* CSV file is easily programmatically manipulate, since it is simple text file.
+* Import CSV file is fast and less memory consuming.
+* CSV file is easy to generate by lots of language.
+
+# Deploy Back-end
+## docker
 To start:
 
 `docker build -t youthline-backend .`
@@ -33,7 +41,7 @@ To restart container:
 
 `docker stop youthline-backend-container;docker rm youthline-backend-container;docker build -t youthline-backend .;docker run -d --name youthline-backend-container -p 80:80 youthline-backend:latest;docker start youthline-backend-container`
 
-# heroku
+## heroku
 `heroku login`
 
 `heroku create --app youthline-test-server`
