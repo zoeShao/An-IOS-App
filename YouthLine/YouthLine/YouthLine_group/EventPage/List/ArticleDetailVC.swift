@@ -192,12 +192,12 @@ class ArticleDetailVC: BaseViewController {
 extension ArticleDetailVC {
     @objc func questionAction(button: UIButton) {
         if star_flag == 0{
-            submitAction(uid: "0", rid: questionId, action: "POST")
+            submitAction(uid: String(userID), rid: questionId, action: "POST")
             likeBtn.setImage(image_2, for: .normal)
             star_flag = 1
         } else if star_flag == 1{
             print("change")
-            submitAction(uid: "0", rid: questionId, action: "DELETE")
+            submitAction(uid: String(userID), rid: questionId, action: "DELETE")
             likeBtn.setImage(image_1, for: .normal)
             star_flag = 0
         }

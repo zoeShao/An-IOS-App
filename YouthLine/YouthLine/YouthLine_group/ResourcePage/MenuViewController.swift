@@ -10,7 +10,7 @@ import UIKit
 
 enum MenuType: Int {
     case all
-    case favourite
+//    case favourite
     case settlement
     case faith
     case sex
@@ -36,7 +36,7 @@ class MenuViewController: UITableViewController {
     
     var didTapMenuTypte: ((MenuType) -> Void)?
     var allCell: UITableViewCell = UITableViewCell()
-    var favouriteCell: UITableViewCell = UITableViewCell()
+//    var favouriteCell: UITableViewCell = UITableViewCell()
     var settlementCell: UITableViewCell = UITableViewCell()
     var faithCell: UITableViewCell = UITableViewCell()
     var sexCell: UITableViewCell = UITableViewCell()
@@ -56,7 +56,7 @@ class MenuViewController: UITableViewController {
     var communityCell: UITableViewCell = UITableViewCell()
     var selfharmCell: UITableViewCell = UITableViewCell()
     var bullyingCell: UITableViewCell = UITableViewCell()
-    var rowsInTableSection = 21
+    var rowsInTableSection = 20
     
     
     
@@ -69,9 +69,9 @@ class MenuViewController: UITableViewController {
         self.allCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         self.allCell.textLabel?.font = UIFont(name: "VAGRoundedStd-thin", size: 18)
         //favourite
-        self.favouriteCell.textLabel?.text = "My Favourite"
-        self.favouriteCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
-        self.favouriteCell.textLabel?.font = UIFont(name: "VAGRoundedStd-thin", size: 18)
+//        self.favouriteCell.textLabel?.text = "My Favourite"
+//        self.favouriteCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+//        self.favouriteCell.textLabel?.font = UIFont(name: "VAGRoundedStd-thin", size: 18)
         //settlement
         self.settlementCell.textLabel?.text = "Settlement"
         self.settlementCell.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
@@ -172,26 +172,26 @@ class MenuViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch(indexPath.row) {
         case 0: return self.allCell
-        case 1: return self.favouriteCell
-        case 2: return self.settlementCell
-        case 3: return self.faithCell
-        case 4: return self.sexCell
-        case 5: return self.formsCell
-        case 6: return self.serviceCell
-        case 7: return self.educationCell
-        case 8: return self.typeCell
-        case 9: return self.healthCell
-        case 10: return self.parentsCell
-        case 11: return self.genderCell
-        case 12: return self.selfcareCell
-        case 13: return self.homelessnessCell
-        case 14: return self.transCell
-        case 15: return self.schoolCell
-        case 16: return self.comingoutCell
-        case 17: return self.emergencyCell
-        case 18: return self.communityCell
-        case 19: return self.selfharmCell
-        case 20: return self.bullyingCell
+//        case 1: return self.favouriteCell
+        case 1: return self.settlementCell
+        case 2: return self.faithCell
+        case 3: return self.sexCell
+        case 4: return self.formsCell
+        case 5: return self.serviceCell
+        case 6: return self.educationCell
+        case 7: return self.typeCell
+        case 8: return self.healthCell
+        case 9: return self.parentsCell
+        case 10: return self.genderCell
+        case 11: return self.selfcareCell
+        case 12: return self.homelessnessCell
+        case 13: return self.transCell
+        case 14: return self.schoolCell
+        case 15: return self.comingoutCell
+        case 16: return self.emergencyCell
+        case 17: return self.communityCell
+        case 18: return self.selfharmCell
+        case 19: return self.bullyingCell
         default: fatalError("Unknown row in section 1")
         }
     }
