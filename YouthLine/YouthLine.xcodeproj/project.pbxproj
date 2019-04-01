@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		130D5DFF22507B9900011457 /* HomeListVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130D5DFE22507B9900011457 /* HomeListVCExtension.swift */; };
+		134F83F92251AEF8003B0994 /* PersonalPage_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134F83F82251AEF8003B0994 /* PersonalPage_VC.swift */; };
 		279F19E12235D65500DE8221 /* myEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F19DA2235D65500DE8221 /* myEvent.swift */; };
 		279F19E22235D65500DE8221 /* Cell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F19DC2235D65500DE8221 /* Cell1.swift */; };
 		279F19E32235D65500DE8221 /* Cell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F19DD2235D65500DE8221 /* Cell1.xib */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		130D5DFE22507B9900011457 /* HomeListVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListVCExtension.swift; sourceTree = "<group>"; };
+		134F83F82251AEF8003B0994 /* PersonalPage_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPage_VC.swift; sourceTree = "<group>"; };
 		279F19DA2235D65500DE8221 /* myEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myEvent.swift; sourceTree = "<group>"; };
 		279F19DC2235D65500DE8221 /* Cell1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell1.swift; sourceTree = "<group>"; };
 		279F19DD2235D65500DE8221 /* Cell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell1.xib; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				279F19DE2235D65500DE8221 /* User.storyboard */,
 				27CE023F22515218006147DE /* LoginVC.swift */,
 				EFBC108022346F5500703135 /* PersonalPageVC.swift */,
+				134F83F82251AEF8003B0994 /* PersonalPage_VC.swift */,
 			);
 			path = PersonalPage;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				EFBC108522346FF800703135 /* HomePageVC.swift in Sources */,
 				EFEFB8AC22376CC5003E2305 /* ColorAndFonts.swift in Sources */,
 				EFBC106822346C0800703135 /* SecondViewController.swift in Sources */,
+				134F83F92251AEF8003B0994 /* PersonalPage_VC.swift in Sources */,
 				27CE024022515218006147DE /* LoginVC.swift in Sources */,
 				27C3B8512235D8BD00162AB6 /* NewsFeedModel.swift in Sources */,
 				27C3B85F2235D8C600162AB6 /* WebViewController.swift in Sources */,

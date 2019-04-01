@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc1 = HomePageVC()
         let vc2 = EventBaseVC()
         let vc3 = ResourceBaseVC()
-        let vc4 = PersonalPageVC()
+        let vc4 = PersonalPage_VC()
         
         vc2.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "Events", image: UIImage(named: "event"), selectedImage: UIImage(named: "event_color"))
         vc1.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "HomePage", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_color"))
