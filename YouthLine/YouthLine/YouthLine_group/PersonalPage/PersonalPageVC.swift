@@ -1,9 +1,19 @@
 import UIKit
+import FirebaseUI
 
 struct cellData {
     let cellId : Int!
     let img : UIImage!
 }
+public var myUserid = UILabel(frame: CGRect(x: 160, y: 80, width: 200, height: 100))
+public var userID = 9999
+let userEmail = UILabel(frame: CGRect(x: 160, y: 120, width: 200, height: 100))
+let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 1000))
+let button = UIButton()
+var barButton: UIBarButtonItem!
+//public var uuid = 0
+
+
 
 class PersonalPageVC: UITableViewController {
     
@@ -11,7 +21,6 @@ class PersonalPageVC: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 1000))
         
         //user profile pic
         let imageView: UIImageView = UIImageView(frame: CGRect(x: 150, y: 0, width: 100, height: 100))
@@ -20,85 +29,142 @@ class PersonalPageVC: UITableViewController {
         
         //user information
         let userNameLabel: UILabel = UILabel(frame: CGRect(x: 50, y: 80, width: 100, height: 100))
-        userNameLabel.text = "User Name"
+        userNameLabel.text = "User ID"
         headerView.addSubview(userNameLabel)
         
         //User Place holder
-        let userNameTextField = UITextField(frame: CGRect(x: 160, y: 80, width: 100, height: 100))
-        userNameTextField.placeholder = NSLocalizedString("User Name", comment: "")
-        userNameTextField.autocorrectionType = .yes
-        userNameTextField.returnKeyType = .done
-        userNameTextField.clearButtonMode = .never
-        headerView.addSubview(userNameTextField)
+        
+        myUserid.text = "N/A"
+        headerView.addSubview(myUserid)
         
         //Contact information
         let contactNameLabel: UILabel = UILabel(frame: CGRect(x: 50, y: 120, width: 100, height: 100))
-        contactNameLabel.text = "Contact"
+        contactNameLabel.text = "Email"
         headerView.addSubview(contactNameLabel)
         
         //Contact Place holder
-        let contactTextField = UITextField(frame: CGRect(x: 160, y: 120, width: 100, height: 100))
-        contactTextField.placeholder = NSLocalizedString("Contact Info", comment: "")
-        contactTextField.autocorrectionType = .yes
-        contactTextField.returnKeyType = .done
-        contactTextField.clearButtonMode = .never
-        headerView.addSubview(contactTextField)
+        userEmail.text = "N/A"
+        headerView.addSubview(userEmail)
         
         self.tableView.tableHeaderView = headerView
         
         //add navigation button
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Setting",
-                                                                 style: .plain,
-                                                                 target: self,
-                                                                 action: #selector(openNextView))
+        barButton = UIBarButtonItem(title: "Sign Out",
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(openNextView))
+       
+        self.navigationItem.rightBarButtonItem = nil
         
 
         var custom_color =  UIColor(red: 255/255, green: 105/255, blue: 180/255, alpha: 0.5)
         // Making resource button
-        let button = UIButton()
         button.frame = CGRect(x:50, y:200, width: 250, height: 50)
         button.backgroundColor = custom_color
-        button.setTitle("My Event ", for: .normal)
+        button.setTitle("Log In ", for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         headerView.addSubview(button)
     }
     
     //button action for setting
     @objc func openNextView(){
-        let subvc = ViewController()
-        self.definesPresentationContext = true
-        self.navigationController?.pushViewController(subvc, animated: true)
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            userEmail.text = "N/A"
+            myUserid.text = "N/A"
+            button.isHidden = false
+            self.navigationItem.rightBarButtonItem = nil
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+  
     }
-    
-
     
     //button action for resoucres
     @objc func buttonAction(sender: UIButton!) {
-        let subvc = MyEventVC()
-        self.definesPresentationContext = true
-        self.navigationController?.pushViewController(subvc, animated: true)
+        let authUI = FUIAuth.defaultAuthUI()
+        
+        // Check that it isn't nil
+        guard authUI != nil else {
+            return
+        }
+        
+        // Set delegate and specify sign in options
+        authUI?.delegate = self
+        authUI?.providers = [FUIEmailAuth()]
+        
+        // Get the auth view controller and present it
+        let authViewController = authUI!.authViewController()
+        present(authViewController, animated: true, completion: nil)
+        
     }
+    
 }
 
+extension PersonalPageVC: FUIAuthDelegate {
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        
+        // Check for error
+        guard error == nil else {
+            return
+        }
+        //after log in, do following..
+        let MyEmail = Auth.auth().currentUser?.email
+        let MyID = Auth.auth().currentUser?.uid
+        userEmail.text = MyEmail
+        myUserid.text = MyID
+        button.isHidden = true
+        //show side bar
+        self.navigationItem.rightBarButtonItem = barButton
+        submitAction(uuid: MyID!)
+}
 
-// data for cell data
-
-//        var arraryOfCelldata = [cellData]()
-//        arraryOfCelldata = [cellData(cellId: 1, img: #imageLiteral(resourceName: "AppIcon_76x76_")),
-//                            cellData(cellId: 1, img: #imageLiteral(resourceName: "AppIcon_76x76_"))]
-//
-
-//controll cell1 and cell2
-//        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//            return arraryOfCelldata.count
-//        }
-
-//        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//            let cell = Bundle.main.loadNibNamed("Cell1", owner: self, options: nil)?.first as! Cell1
-//            cell.img1.image = arraryOfCelldata[indexPath.row].img
-//            cell.img2.image = arraryOfCelldata[indexPath.row].img
-//            cell.img2.image = arraryOfCelldata[indexPath.row].img
-//            return cell
-//
-//        }
+func submitAction(uuid: String) {
+    
+    
+//    print("My uuid is")
+//    print(uuid)
+    let parameters = ["uuid": uuid]
+    let url = URL(string: "http://youthline-test-server.herokuapp.com/users")!
+    let session = URLSession.shared
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    
+    do {
+        request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+    } catch let error {
+        print(error.localizedDescription)
+    }
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.addValue("application/json", forHTTPHeaderField: "Accept")
+    
+    let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+        
+        guard error == nil else {
+            return
+        }
+        
+        guard let data = data else {
+            return
+        }
+        
+        do {
+            //create json object from data
+            if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                print(json, "response received")
+                // handle json...
+                userID = json["uid"]! as! Int
+//                print("my userID is")
+//                print(userID)
+//                print("-------------")
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    })
+    task.resume()
+    }
+}

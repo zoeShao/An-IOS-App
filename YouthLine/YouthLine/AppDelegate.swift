@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import ESTabBarController_swift
 
 @UIApplicationMain
@@ -30,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vc2.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "Events", image: UIImage(named: "event"), selectedImage: UIImage(named: "event_color"))
         vc1.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "HomePage", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_color"))
         vc3.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "Resources", image: UIImage(named: "books"), selectedImage: UIImage(named: "books_color"))
-        vc4.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "PersonalPage", image: UIImage(named: "person"), selectedImage: UIImage(named: "person_color"))
+        vc4.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "Me", image: UIImage(named: "person"), selectedImage: UIImage(named: "person_color"))
         
         
         let n1 = UINavigationController.init(rootViewController: vc1)
@@ -40,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         barController.viewControllers = [n1, n2, n3, n4]
+        FirebaseApp.configure()
         return true
     }
     

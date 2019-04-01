@@ -59,13 +59,13 @@ class ListBaseVC: BaseViewController {
     }
     
     func refreshDataSource() {
-        Alamofire.request("http://youthline-test-server.herokuapp.com/event").responseJSON { (responseObject) -> Void in
+        Alamofire.request("http://youthline-test-server.herokuapp.com/event_w_fav/0").responseJSON { (responseObject) -> Void in
             
             print(responseObject)
             let json = JSON(responseObject.result.value!)
             print(json["Events"], "hello")
             
-            if let mappedObject_1 = JSONDeserializer<EventModel>.deserializeModelArrayFrom(json: json["Events"].description){
+            if let mappedObject_1 = JSONDeserializer<EventModel>.deserializeModelArrayFrom(json: json.description){
                 print(mappedObject_1, "yesyesyes")
                 var noAdList: [EventModel] = []
                 for model in mappedObject_1 as! [EventModel] {
@@ -79,7 +79,9 @@ class ListBaseVC: BaseViewController {
                 if self.pageIndex == 0 {
                     self.ModelList = noAdList
                 } else {
+                    self.ModelList = []
                     self.ModelList? += noAdList
+                    //如果要连续刷就把上面两行改成self.ModelList? += noAdList
                 }
                 self.pageIndex += 1
                 self.tableView.reloadData()
@@ -88,7 +90,6 @@ class ListBaseVC: BaseViewController {
             
             
         }
-        
     }
 }
 //    }
@@ -140,7 +141,19 @@ extension ListBaseVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //used to force refresh to update like data
+//        tableView.initRefreshView()
+//        tableView.mj_header.refreshingBlock = { [weak self] in
+//            self?.pageIndex = 0
+//            self?.refreshDataSource()
+//            print("seansean")
+//        }
+//        tableView.mj_header.beginRefreshing()
+//        
+        // end of the enforcement
+        
         let model = ModelList?[indexPath.section]
+        print("seansean111111", model?.fav == "True")
         if model?.rid != nil {
             let vc = ArticleDetailVC()
             vc.questionId = model?.rid ?? ""
@@ -152,6 +165,7 @@ extension ListBaseVC: UITableViewDelegate, UITableViewDataSource {
             vc.website = model?.event_website ?? "event website not defined"
             vc.date = model?.event_date ?? "date not defined"
             vc.imageUrl = model?.image_url ?? "image not found"
+            vc.fav = model?.fav ?? "False"
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
