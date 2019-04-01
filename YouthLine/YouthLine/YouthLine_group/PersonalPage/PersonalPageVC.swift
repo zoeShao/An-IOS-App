@@ -5,10 +5,10 @@ struct cellData {
     let cellId : Int!
     let img : UIImage!
 }
-public var myUserid = UILabel(frame: CGRect(x: 160, y: 80, width: 200, height: 100))
+public var myUserid = UILabel(frame: CGRect(x: 210, y: 110, width: 200, height: 100))
 public var userID = 9999
-let userEmail = UILabel(frame: CGRect(x: 160, y: 120, width: 200, height: 100))
-let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 1000))
+let userEmail = UILabel(frame: CGRect(x: 210, y: 150, width: 200, height: 100))
+let headerView: UIView = UIView(frame: CGRect(x: 0, y: 30, width: ScreenWidth, height: 1000))
 let button = UIButton()
 var barButton: UIBarButtonItem!
 //public var uuid = 0
@@ -21,15 +21,23 @@ class PersonalPageVC: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+//        let backgroupd: UIImageView = UIImageView(frame: CGRect(x: 150, y: 30, width: 100, height: 100))
+//        backgroupd.image = #imageLiteral(resourceName: "rainbow_3")
+        headerView.backgroundColor = UIColor(patternImage: UIImage(named: "rainbow_3.jpg")!)
+    
+        
         
         //user profile pic
-        let imageView: UIImageView = UIImageView(frame: CGRect(x: 150, y: 0, width: 100, height: 100))
-        imageView.image = #imageLiteral(resourceName: "Night_Tabbar_More_Highlight_28x28_")
+        let imageView: UIImageView = UIImageView(frame: CGRect(x: 150, y: 30, width: 100, height: 100))
+        imageView.image = #imageLiteral(resourceName: "person_color")
+        imageView.contentMode = .scaleAspectFit
         headerView.addSubview(imageView)
         
         //user information
-        let userNameLabel: UILabel = UILabel(frame: CGRect(x: 50, y: 80, width: 100, height: 100))
+        let userNameLabel: UILabel = UILabel(frame: CGRect(x: 100, y: 110, width: 100, height: 100))
         userNameLabel.text = "User ID"
+        userNameLabel.font = UIFont(name: "Copperplate-Bold", size: 23)
+        userNameLabel.isHighlighted = true
         headerView.addSubview(userNameLabel)
         
         //User Place holder
@@ -38,8 +46,10 @@ class PersonalPageVC: UITableViewController {
         headerView.addSubview(myUserid)
         
         //Contact information
-        let contactNameLabel: UILabel = UILabel(frame: CGRect(x: 50, y: 120, width: 100, height: 100))
+        let contactNameLabel: UILabel = UILabel(frame: CGRect(x: 100, y: 150, width: 100, height: 100))
         contactNameLabel.text = "Email"
+        contactNameLabel.font = UIFont(name: "Copperplate-Bold", size: 23)
+        contactNameLabel.isHighlighted = true
         headerView.addSubview(contactNameLabel)
         
         //Contact Place holder
@@ -59,9 +69,13 @@ class PersonalPageVC: UITableViewController {
 
         var custom_color =  UIColor(red: 255/255, green: 105/255, blue: 180/255, alpha: 0.5)
         // Making resource button
-        button.frame = CGRect(x:50, y:200, width: 250, height: 50)
+        button.frame = CGRect(x:80, y:230, width: 250, height: 50)
+    
         button.backgroundColor = custom_color
         button.setTitle("Log In ", for: .normal)
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         headerView.addSubview(button)
     }
@@ -74,6 +88,7 @@ class PersonalPageVC: UITableViewController {
             userEmail.text = "N/A"
             myUserid.text = "N/A"
             button.isHidden = false
+            userID = 9999
             self.navigationItem.rightBarButtonItem = nil
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
