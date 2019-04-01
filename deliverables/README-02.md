@@ -14,9 +14,7 @@ In this page, user are able to browse all the helping resources provided by LGBT
 In the event page, user can see all the events (both the upcoming ones and the past ones). By pressing the each event, user can see the detail of the event.
 
 ### Me Page:
-This page authenticate user using Firebase. User requires to registered using email. If the email does not in databse,it
-will ask user to creat a new account then log in. After logging in, user is enable to see their unique user id and log
-in email in the dashboard. In addition, user can log out using log out button.
+This page authenticates the user using Firebase. The user requires to registered using email. If the email does not in the database, it will ask the user to create a new account then log in. After logging in, the user is enabled to see their unique user id and login email in the dashboard. Also, the user can log out using the log out button.
 
 ### Back-end:
 See README.md file in BackEnd folder.
