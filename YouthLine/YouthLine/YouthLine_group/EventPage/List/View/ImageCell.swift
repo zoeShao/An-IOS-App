@@ -22,15 +22,15 @@ class ImageCell: BaseCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = UIColor.white
         contentLabel.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().offset(-120)
+            make.right.equalToSuperview().offset(-140)
         }
         
         contentView.addSubview(ImageView)
         ImageView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(contentView).offset(-20)
+            make.bottom.equalTo(contentView).offset(-25)
             make.right.equalTo(contentView).offset(-10)
-            make.width.equalTo(100)
-            make.height.equalTo(70)
+            make.width.equalTo(120)
+            make.height.equalTo(84)
         }
     }
     

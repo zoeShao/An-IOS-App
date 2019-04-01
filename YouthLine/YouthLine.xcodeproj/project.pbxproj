@@ -31,6 +31,7 @@
 		27CE023E225151AD006147DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27CE023D225151AD006147DE /* GoogleService-Info.plist */; };
 		27CE024022515218006147DE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CE023F22515218006147DE /* LoginVC.swift */; };
 		972817696DA0247967D54B36 /* Pods_YouthLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B1656207B3172740706D86 /* Pods_YouthLine.framework */; };
+		C8DB936822514F3900BA069E /* ResourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DB936722514F3900BA069E /* ResourceModel.swift */; };
 		EF2042AC223F193B009442E8 /* VAGRoundedStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042A9223F192D009442E8 /* VAGRoundedStd-Light.otf */; };
 		EF2042AD223F193C009442E8 /* VAGRoundedStd-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042A8223F192C009442E8 /* VAGRoundedStd-Thin.otf */; };
 		EF2042AE223F193F009442E8 /* VAGRoundedStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF2042AA223F192D009442E8 /* VAGRoundedStd-Bold.otf */; };
@@ -41,9 +42,9 @@
 		EF5A28C222347B81001FFD61 /* WLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28C122347B81001FFD61 /* WLButton.swift */; };
 		EF5A28F322348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5A28F122348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png */; };
 		EF5A28F422348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5A28F222348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png */; };
-		EF82A9D622349E9900CBDFA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF82A9D522349E9900CBDFA6 /* Assets.xcassets */; };
 		EF9A18F22250A3DD0039C0F7 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A18F12250A3DD0039C0F7 /* EventModel.swift */; };
 		EF9A18F4225131E60039C0F7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A18F3225131E60039C0F7 /* HeaderView.swift */; };
+		EF9A18F622516E450039C0F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9A18F522516E450039C0F7 /* Assets.xcassets */; };
 		EFBC106422346C0800703135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC106322346C0800703135 /* AppDelegate.swift */; };
 		EFBC106622346C0800703135 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC106522346C0800703135 /* BaseViewController.swift */; };
 		EFBC106822346C0800703135 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC106722346C0800703135 /* SecondViewController.swift */; };
@@ -90,6 +91,7 @@
 		27CE023F22515218006147DE /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5C21BDC5CF609D926A4A21B0 /* Pods-YouthLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.release.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.release.xcconfig"; sourceTree = "<group>"; };
 		725BC15723A9C6045743599C /* Pods-YouthLine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouthLine.debug.xcconfig"; path = "Target Support Files/Pods-YouthLine/Pods-YouthLine.debug.xcconfig"; sourceTree = "<group>"; };
+		C8DB936722514F3900BA069E /* ResourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceModel.swift; sourceTree = "<group>"; };
 		EF2042A8223F192C009442E8 /* VAGRoundedStd-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Thin.otf"; sourceTree = "<group>"; };
 		EF2042A9223F192D009442E8 /* VAGRoundedStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Light.otf"; sourceTree = "<group>"; };
 		EF2042AA223F192D009442E8 /* VAGRoundedStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VAGRoundedStd-Bold.otf"; sourceTree = "<group>"; };
@@ -100,9 +102,9 @@
 		EF5A28C122347B81001FFD61 /* WLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLButton.swift; sourceTree = "<group>"; };
 		EF5A28F122348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZHProfile_BackArrow_Active@2x.png"; sourceTree = "<group>"; };
 		EF5A28F222348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZHProfile_BackArrow_Active@3x.png"; sourceTree = "<group>"; };
-		EF82A9D522349E9900CBDFA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = YouthLine/Assets.xcassets; sourceTree = "<group>"; };
 		EF9A18F12250A3DD0039C0F7 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		EF9A18F3225131E60039C0F7 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		EF9A18F522516E450039C0F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFBC106022346C0800703135 /* YouthLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouthLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFBC106322346C0800703135 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFBC106522346C0800703135 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -260,9 +262,9 @@
 		EFBC105722346C0800703135 = {
 			isa = PBXGroup;
 			children = (
+				EF9A18F522516E450039C0F7 /* Assets.xcassets */,
 				EF2042A3223F18ED009442E8 /* Fonts */,
 				EFEFB8AB22376CC5003E2305 /* ColorAndFonts.swift */,
-				EF82A9D522349E9900CBDFA6 /* Assets.xcassets */,
 				EF5A28C022347B81001FFD61 /* Vendor */,
 				EF5A28B922347B74001FFD61 /* Category */,
 				EFBC106222346C0800703135 /* YouthLine */,
@@ -344,6 +346,7 @@
 				27C3B85A2235D8C600162AB6 /* WebViewController.swift */,
 				27C3B85C2235D8C600162AB6 /* Resource.swift */,
 				27C3B85E2235D8C600162AB6 /* SlideInTransition.swift */,
+				C8DB936722514F3900BA069E /* ResourceModel.swift */,
 			);
 			path = ResourcePage;
 			sourceTree = "<group>";
@@ -363,8 +366,6 @@
 		EFBC10862234703A00703135 /* Article */ = {
 			isa = PBXGroup;
 			children = (
-				EF9A18F3225131E60039C0F7 /* HeaderView.swift */,
-				EFBC10982234753700703135 /* ArticleDetailVC.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -375,6 +376,8 @@
 				EFE36B5922358E730041A544 /* Model */,
 				EFBC108F2234722B00703135 /* View */,
 				EFBC108D223471F500703135 /* ListBaseVC.swift */,
+				EF9A18F3225131E60039C0F7 /* HeaderView.swift */,
+				EFBC10982234753700703135 /* ArticleDetailVC.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -476,8 +479,8 @@
 				EF2042AF223F1941009442E8 /* VAGRoundedStd-Black.otf in Resources */,
 				EF2042AC223F193B009442E8 /* VAGRoundedStd-Light.otf in Resources */,
 				EF2042AE223F193F009442E8 /* VAGRoundedStd-Bold.otf in Resources */,
-				EF82A9D622349E9900CBDFA6 /* Assets.xcassets in Resources */,
 				279F19E42235D65500DE8221 /* User.storyboard in Resources */,
+				EF9A18F622516E450039C0F7 /* Assets.xcassets in Resources */,
 				EFBC106B22346C0800703135 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -660,6 +663,7 @@
 				27C3B8512235D8BD00162AB6 /* NewsFeedModel.swift in Sources */,
 				27C3B85F2235D8C600162AB6 /* WebViewController.swift in Sources */,
 				27C3B8552235D8BD00162AB6 /* HomeEventCollectionViewCell.swift in Sources */,
+				C8DB936822514F3900BA069E /* ResourceModel.swift in Sources */,
 				EFBC108E223471F500703135 /* ListBaseVC.swift in Sources */,
 				EFBC10992234753700703135 /* ArticleDetailVC.swift in Sources */,
 				EF5A28BD22347B75001FFD61 /* UIColor+Ex.swift in Sources */,

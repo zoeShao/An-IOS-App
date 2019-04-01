@@ -84,13 +84,24 @@ class ResourceCell: UITableViewCell {
     }
     
     func setImage(resource: Resource) {
-//        if resource.image.size.width > 140 {
-//            let size = CGSize(width: 140, height: max(65, 140 * resource.image.size.height / resource.image.size.width))
-//            ResourceImgView.image = resource.image.scaledAspectFit(to: size)
-//        } else {
-//            ResourceImgView.image = resource.image
-//        }
-        ResourceImgView.image = resource.image
+        //        if resource.image.size.width > 140 {
+        //            let size = CGSize(width: 140, height: max(65, 140 * resource.image.size.height / resource.image.size.width))
+        //            ResourceImgView.image = resource.image.scaledAspectFit(to: size)
+        //        } else {
+        //            ResourceImgView.image = resource.image
+        //        }
+        let url = URL(string: resource.image)
+        let data = try? Data(contentsOf: url!)
+        
+        if let imageData = data {
+            // Finally convert that Data into an image and do what you wish with it.
+            let image = UIImage(data: imageData)
+            ResourceImgView.image = image
+            // Do something with your image.
+        } else {
+            print("Couldn't get image: Image is nil")
+        }
+        //        ResourceImgView.image = resource.image
         ResourceTitleLabel.text = resource.title
     }
     

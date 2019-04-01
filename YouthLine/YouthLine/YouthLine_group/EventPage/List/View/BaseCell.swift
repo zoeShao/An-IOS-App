@@ -27,7 +27,7 @@ class BaseCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.init(name: "VAGRoundedStd-light", size: 14)
         label.textColor = RGBColor(80, 80, 80)
-        label.numberOfLines = 4
+        label.numberOfLines = 8
         label.lineBreakMode = NSLineBreakMode.byTruncatingTail
         return label
     }()
@@ -85,7 +85,7 @@ class BaseCell: UITableViewCell {
         
         contentView.addSubview(contentLabel)
         contentLabel.snp.makeConstraints { make in
-            make.top.equalTo(headImgView.snp.bottom).offset(15)// 34
+            make.top.equalTo(titleLabel.snp.bottom).offset(15)// 34
             make.left.equalToSuperview().offset(15)
             make.right.equalTo(contentView.snp.left).offset(5)
             //            make.right.equalToSuperview().offset(-15)
@@ -110,7 +110,11 @@ class BaseCell: UITableViewCell {
     var model: EventModel? {
         didSet {
             titleLabel.text = model?.title
-            contentLabel.text = model?.b_content
+            let address = "address: " + String(model?.address ?? "address: unknown")
+            let time = "time: " + String(model?.event_time ?? "time: unknown")
+            let date = model?.event_date ?? "date: unknown"
+            let b_content = model?.b_content ?? "no content displayed"
+            contentLabel.text = (time + "\n" + address + "\n\n" + b_content)
             headImgLabel.text = model?.source
             
             let reasonType = model?.source
