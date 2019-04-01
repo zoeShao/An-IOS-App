@@ -20,6 +20,9 @@ class ListBaseVC: BaseViewController {
     let image_1 = UIImage(named: "book_dark")
     let image_2 = UIImage(named: "book")
     
+    let image_3 = UIImage(named: "filterOff")
+    let image_4 = UIImage(named: "filterOn")
+    
     var ModelList: [EventModel]?
     var pageIndex: Int = 0
     var see_like = true
@@ -99,22 +102,22 @@ class ListBaseVC: BaseViewController {
     
     lazy var questionBtn: UIButton = {
         let questionBtn = UIButton.init(type: UIButtonType.system)
+        questionBtn.frame = CGRect(x: ScreenWidth - 115, y: StatusBarHeight + 5, width: 95, height: 45)
+        questionBtn.setTitle("", for: UIControlState.normal)
+        questionBtn.setImage(UIImage(named: "filterOff"), for: UIControlState.normal)
+        //        questionBtn.blueTheme()
+        questionBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
+        return questionBtn
+    }()
+    
+    lazy var questionBtn_1: UIButton = {
+        let questionBtn = UIButton.init(type: UIButtonType.system)
         questionBtn.frame = CGRect(x: ScreenWidth/2 - 50, y: StatusBarHeight + 10, width: 95, height: 30)
         questionBtn.setTitle("", for: UIControlState.normal)
         questionBtn.setImage(UIImage(named: "YouthLine_transparent"), for: UIControlState.normal)
         //        questionBtn.blueTheme()
         questionBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
         return questionBtn
-    }()
-    
-    lazy var textBtn: UIButton = {
-        let textBtn = UIButton.init(type: UIButtonType.system)
-        textBtn.frame = CGRect(x: ScreenWidth-50, y: StatusBarHeight + 10, width: 95, height: 30)
-        textBtn.setTitle("", for: UIControlState.normal)
-        textBtn.setImage(UIImage(named: "filetrOn"), for: UIControlState.normal)
-        //        questionBtn.blueTheme()
-        textBtn.addTarget(self, action: #selector(questionAction(button:)), for: UIControlEvents.touchUpInside)
-        return textBtn
     }()
     
     
@@ -124,7 +127,7 @@ class ListBaseVC: BaseViewController {
         view.addSubview(pageView)
         
         view.addSubview(questionBtn)
-        view.addSubview(textBtn)
+        view.addSubview(questionBtn_1)
         likeLabel.text = "Like Filter: off"
         view.addSubview(likeLabel)
         pageView.addSubview(tableView)
@@ -151,6 +154,7 @@ class ListBaseVC: BaseViewController {
         if see_like == false{
             ModelList = []
             filterBtn.setImage(image_1, for: .normal)
+            questionBtn.setImage(image_3, for: .normal)
             refreshDataSource()
             see_like = true
         }
@@ -158,8 +162,9 @@ class ListBaseVC: BaseViewController {
         else if see_like == true{
             ModelList = []
         filterBtn.setImage(image_2, for: .normal)
+        questionBtn.setImage(image_4, for: .normal)
         let id = userID
-        Alamofire.request("http://youthline-test-server.herokuapp.com/event_w_fav/0" ).responseJSON { (responseObject) -> Void in
+        Alamofire.request("http://youthline-test-server.herokuapp.com/event_w_fav/" + String(id)).responseJSON { (responseObject) -> Void in
             
             let json = JSON(responseObject.result.value!)
             
@@ -193,7 +198,7 @@ class ListBaseVC: BaseViewController {
     
     func refreshDataSource() {
         let id = userID
-        Alamofire.request("http://youthline-test-server.herokuapp.com/event_w_fav/0").responseJSON { (responseObject) -> Void in
+        Alamofire.request("http://youthline-test-server.herokuapp.com/event_w_fav/" + String(id)).responseJSON { (responseObject) -> Void in
             
             print(responseObject)
             let json = JSON(responseObject.result.value!)
