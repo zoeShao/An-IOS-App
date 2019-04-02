@@ -13,7 +13,28 @@ import HandyJSON
 import SwiftyJSON
 // extension for message sender
 extension HomeListVC:  MFMessageComposeViewControllerDelegate {
+//    func noHandler(alert: UIAlertAction!) {
+//        dismiss(animated: true, completion: nil)
+//    }
+    
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch (result) {
+        case .cancelled:
+            print("Message was cancelled")
+            dismiss(animated: true, completion: nil)
+        case .failed:
+            print("Message failed")
+            dismiss(animated: true, completion: nil)
+        case .sent:
+            print("Message was sent")
+//            let alert = UIAlertController(title: "Message sent successfully!", message: "Do you want to send more?", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+////            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: noHandler))
+//            self.present(alert, animated: true)
+            dismiss(animated: true, completion: nil)
+        default:
+            break
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,12 +48,14 @@ extension HomeListVC:  MFMessageComposeViewControllerDelegate {
         
         // Configure the fields of the interface.
         //        composeVC.recipients = ["6476944275"]
-        composeVC.recipients = ["6479396177"]
+        composeVC.recipients = ["6478223876"]
         composeVC.body = "Enter texting messages here:"
         
         // Present the view controller modally.
         if MFMessageComposeViewController.canSendText() {
+//            let homeViewVC = self
             self.present(composeVC, animated: true, completion: nil)
+//            self.present(homeViewVC, animated: true, completion: nil)
         } else {
             print("Can't send messages.")
         }
