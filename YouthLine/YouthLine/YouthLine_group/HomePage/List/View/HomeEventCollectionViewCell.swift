@@ -22,7 +22,7 @@ class HomeEventCollectionViewCell: UICollectionViewCell {
     //    }()
     
     
-    var zhImageView: UIImageView = {
+    var eventImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
@@ -34,8 +34,8 @@ class HomeEventCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.white
-        contentView.addSubview(zhImageView)
-        zhImageView.snp.makeConstraints { (make) in
+        contentView.addSubview(eventImageView)
+        eventImageView.snp.makeConstraints { (make) in
             make.top.equalTo(contentView).offset(5)
             //            make.left.equalToSuperview()
             make.width.equalTo(frame.width)
@@ -44,7 +44,7 @@ class HomeEventCollectionViewCell: UICollectionViewCell {
         
         //        contentView.addSubview(titleLabel)
         //        titleLabel.snp.makeConstraints { make in
-        //            make.top.equalTo(self.zhImageView.snp.bottom).offset(5)
+        //            make.top.equalTo(self.eventImageView.snp.bottom).offset(5)
         //            make.left.equalTo(contentView).offset(5)
         //            make.bottom.equalTo(contentView).offset(-5)
         //            make.right.equalToSuperview().offset(-5)
@@ -62,9 +62,9 @@ class HomeEventCollectionViewCell: UICollectionViewCell {
             let url = (model?.image)!
             print("head:" + (model?.image)!)
             if (model?.image)! == "" {
-                print("空")
+                print("empty")
             }
-            self.zhImageView.image = UIImage(named: url)
+            self.eventImageView.image = UIImage(named: url)
         }
     }
 }

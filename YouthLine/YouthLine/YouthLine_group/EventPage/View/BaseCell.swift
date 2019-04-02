@@ -120,21 +120,9 @@ class BaseCell: UITableViewCell {
             let reasonType = model?.source
             if reasonType == "ins" {
                 headImgView.image = UIImage(named: "ins")
-            } else {
-                headImgView.image = UIImage(named: "UserGuestCenterBundle.bundle/Avatar_Liukanshan_Normal")
             }
         }
     }
     
-    var token: String? {
-        didSet {
-            
-            let catPictureURL = URL(string: iconUrl[count_1])
-            count_1 += 1
-            if count_1 > 4 {count_1 = 0}
-            
-            self.headImgView.kf.setImage(with: catPictureURL, placeholder: UIImage(named: "UserGuestCenterBundle.bundle/Avatar_Liukanshan_Normal"))
-        }
-    }
 }
 

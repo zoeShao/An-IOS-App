@@ -31,19 +31,6 @@ class HeaderView: UIView {
         return label
     }()
     
-    
-    var horLine: UIView = {
-        let line = UIView()
-        line.backgroundColor = UIColor(hex: 0xCCCCCC)
-        return line
-    }()
-    
-    var middleLine: UIView = {
-        let line = UIView()
-        line.backgroundColor = .lightGray
-        return line
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
