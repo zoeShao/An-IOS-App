@@ -422,7 +422,7 @@ def home():
 
 @app.route('/home/rid')
 def get_home_with_rid():
-    return jsonify(homeDB.getAllWithRide())
+    return jsonify(homeDB.getAllWithRid())
 
 
 @app.route('/home', methods = ['POST'])
@@ -430,7 +430,7 @@ def addHome():
     result = []
     title = request.json["title"]
     time = request.json["time"]
-    news_content = request.json["new_content"]
+    news_content = request.json["news_content"]
     image = request.json["image"]
     result.append(title)
     result.append(time)
@@ -441,8 +441,8 @@ def addHome():
 
 @app.route('/home', methods = ['DELETE'])
 def deleteHome():
-    hid = request.json["hid"]
-    resourcesDB.delete(hid)
+    hid = int(request.json["hid"])
+    homeDB.delete(hid)
     return("True")
 
 ##################################################################
