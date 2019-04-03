@@ -13,9 +13,6 @@ import HandyJSON
 import SwiftyJSON
 // extension for message sender
 extension HomeListVC:  MFMessageComposeViewControllerDelegate {
-//    func noHandler(alert: UIAlertAction!) {
-//        dismiss(animated: true, completion: nil)
-//    }
 
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         switch (result) {
@@ -27,10 +24,6 @@ extension HomeListVC:  MFMessageComposeViewControllerDelegate {
             dismiss(animated: true, completion: nil)
         case .sent:
             print("Message was sent")
-//            let alert = UIAlertController(title: "Message sent successfully!", message: "Do you want to send more?", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-////            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: noHandler))
-//            self.present(alert, animated: true)
             dismiss(animated: true, completion: nil)
         default:
             break
@@ -64,70 +57,6 @@ extension HomeListVC:  MFMessageComposeViewControllerDelegate {
 
 // extension for button action
 extension HomeListVC {
-//    @objc func openInstagram(sender: UIButton) {
-//        let instURL: NSURL = NSURL (string: "instagram://user?username=lgbtyouthline")! // Replace = Instagram by the your instagram user name
-//        let instWB: NSURL = NSURL (string: "https://www.instagram.com/lgbtyouthline/")! // Replace the link by your instagram weblink
-//
-//        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-//            // Open Instagram application
-//            UIApplication.shared.open(instURL as URL)
-//        } else {
-//            // Open in Safari
-//            UIApplication.shared.open(instWB as URL)
-//        }
-//    }
-//
-//    @objc func openTwitter(sender: UIButton) {
-//        let instURL: NSURL = NSURL (string: "twitter://user?screen_name=LGBTYouthLine")! // Replace = Instagram by the your instagram user name
-//        let instWB: NSURL = NSURL (string: "https://twitter.com/LGBTYouthLine")! // Replace the link by your instagram weblink
-//
-//        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-//            // Open Instagram application
-//            UIApplication.shared.open(instURL as URL)
-//        } else {
-//            // Open in Safari
-//            UIApplication.shared.open(instWB as URL)
-//        }
-//    }
-//
-//    @objc func openFacebook(sender: UIButton) {
-//        let instURL: NSURL = NSURL (string: "fb://profile")! // Replace = Instagram by the your instagram user name
-//        let instWB: NSURL = NSURL (string: "https://www.facebook.com/lgbtyouthline")! // Replace the link by your instagram weblink
-//
-//        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-//            // Open Instagram application
-//            UIApplication.shared.open(instURL as URL)
-//        } else {
-//            // Open in Safari
-//            UIApplication.shared.open(instWB as URL)
-//        }
-//    }
-//
-//    @objc func openYoutube(sender: UIButton) {
-//        let instURL: NSURL = NSURL (string: "youtube://www.youtube.com/user/lgbtyouthline")! // Replace = Instagram by the your instagram user name
-//        let instWB: NSURL = NSURL (string: "https://www.youtube.com/user/lgbtyouthline")! // Replace the link by your instagram weblink
-//
-//        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-//            // Open Instagram application
-//            UIApplication.shared.open(instURL as URL)
-//        } else {
-//            // Open in Safari
-//            UIApplication.shared.open(instWB as URL)
-//        }
-//    }
-//
-//    @objc func openTumblr(sender: UIButton) {
-//        let instURL: NSURL = NSURL (string: "tumblr://x-callback-url/blog?blogName=lgbtyouthline")! // Replace = Instagram by the your instagram user name
-//        let instWB: NSURL = NSURL (string: "http://lgbtyouthline.tumblr.com")! // Replace the link by your instagram weblink
-//
-//        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-//            // Open Instagram application
-//            UIApplication.shared.open(instURL as URL)
-//        } else {
-//            // Open in Safari
-//            UIApplication.shared.open(instWB as URL)
-//        }
-//    }
     
     @objc func makePhoneCall(sender: UIButton) {
         //18002689688
@@ -229,91 +158,3 @@ extension HomeListVC {
         return cell
     }
 }
-
-// extension for data fetching
-extension HomeListVC {
-    //    func updateData(){
-    ////        if let news1 = test() {
-    ////            //            CurrentNewsFeedModelList?.append(news1)
-    ////            AllNewsFeedModelList?.append(news1)
-    ////            AllNewsFeedModelList?.append(news1)
-    ////        } else {
-    ////            CurrentNewsFeedModelList = []
-    ////            AllNewsFeedModelList = []
-    ////        }
-    ////        if let news2 = test1() {
-    ////            //            CurrentNewsFeedModelList?.append(news2)
-    ////            AllNewsFeedModelList?.append(news2)
-    ////            AllNewsFeedModelList?.append(news2)
-    ////        } else {
-    ////            CurrentNewsFeedModelList = []
-    ////            AllNewsFeedModelList = []
-    ////        }
-    //        let resJson = fetchData()
-    //        print(resJson)
-    //        if let mappedObject = JSONDeserializer<NewsFeedModel>.deserializeModelArrayFrom(json: resJson.description){
-    //            print("heyy")
-    //            for model in mappedObject as! [NewsFeedModel] {
-    //                // if model.common_card != nil || model.fields != nil
-    //                AllNewsFeedModelList!.append(model)
-    //                print("neic")
-    //            }
-    //            print(AllNewsFeedModelList!.count)
-    //            if AllNewsFeedModelList!.count >= 2 {
-    //
-    //                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![0])
-    //                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![1])
-    //                print("buling")
-    //            } else if AllNewsFeedModelList!.count == 1{
-    //                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![0])
-    //            }
-    //        }
-    //        print(AllNewsFeedModelList!.count)
-    //
-    //    }
-    
-    //    func fetchData() -> JSON?{
-    //        var json = JSON()
-    //        Alamofire.request("http://youthline-test-server.herokuapp.com/home").responseJSON { (responseObject) -> Void in
-    //
-    ////            print(responseObject)
-    //            if responseObject.result.isSuccess {
-    //                json = JSON(responseObject.result.value!)
-    //                print("fetchsuccess")
-    //
-    //            }
-    //            if responseObject.result.isFailure {
-    //                let error : NSError = responseObject.result.error! as NSError
-    //                print("news fetch failed")
-    //            }
-    //        }
-    //        print("pass")
-    //        return json
-    //    }
-}
-
-
-//extension HomeListVC: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//
-//        if scrollView == self.scrollView {
-//            tableView.isScrollEnabled = (self.scrollView.contentOffset.y >= 200)
-//        }
-//
-//        if scrollView == self.tableView {
-//            self.tableView.isScrollEnabled = (tableView.contentOffset.y > 0)
-//        }
-//    }
-//
-//    func beginBatchFetch() {
-//        fetchingMore = true
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 , execute: {
-//            let newItems = self.NewsFeedModelList!
-//            self.NewsFeedModelList?.append(contentsOf: newItems)
-//            self.fetchingMore = false
-//            self.tableView.reloadData()
-//        })
-//    }
-//}
-//                let jsonArray = resJson.array!
-

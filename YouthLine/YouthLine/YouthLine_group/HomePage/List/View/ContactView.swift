@@ -20,7 +20,7 @@ class ContactView: UIView {
         button.backgroundColor = UIColor(red: 0.93, green: 0.80, blue: 0.80, alpha: 1)
         button.setTitle(title, for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 12)
+        button.titleLabel?.font = UIFont(name: "VAGRoundedStd-thin", size: 12)
         button.setImage(UIImage(named: iconName), for: .normal)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
@@ -33,7 +33,7 @@ class ContactView: UIView {
         button.backgroundColor = UIColor(red: 0.93, green: 0.80, blue: 0.80, alpha: 1)
         button.setTitle(title, for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 12)
+        button.titleLabel?.font = UIFont(name: "VAGRoundedStd-thin", size: 12)
         button.setImage(UIImage(named: iconName), for: .normal)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
@@ -41,7 +41,7 @@ class ContactView: UIView {
     }
     
     func contact(label: UILabel) {
-        label.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.bold)
+        label.font = UIFont(name: "VAGRoundedStd-thin", size: 10)
         label.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 30)
         label.numberOfLines = 1
         label.textAlignment = .center

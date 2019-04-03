@@ -14,7 +14,7 @@ class TableUIView: UIView {
     
     lazy var newsLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)
+        label.font = UIFont(name: "VAGRoundedStd-thin", size: 14)
         label.numberOfLines = 1
         label.textColor = UIColor.darkGray
         label.text = "Check out our news below!"
@@ -26,7 +26,7 @@ class TableUIView: UIView {
         let iconName = "refresh"
         button.setTitle(title, for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 10)
+        button.titleLabel?.font = UIFont(name: "VAGRoundedStd-thin", size: 10)
         button.setImage(UIImage(named: iconName), for: .normal)
         button.layoutIfNeeded()
     }
@@ -35,8 +35,6 @@ class TableUIView: UIView {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.isScrollEnabled = false
         tableView.bounces = true
-//        tableView.estimatedRowHeight = 177.5
-//        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override init(frame: CGRect) {
@@ -52,7 +50,7 @@ class TableUIView: UIView {
             make.top.equalToSuperview().offset(10)
             make.left.equalToSuperview().offset(10)
             make.width.equalTo(ScreenWidth)
-            make.height.equalTo(20)
+            make.height.equalTo(15)
         }
         
         let imageWidth = changeNewsButton.imageView!.frame.width
@@ -63,7 +61,7 @@ class TableUIView: UIView {
             make.top.equalToSuperview().offset(10)
             make.left.equalToSuperview().offset(ScreenWidth - width - 20)
             make.width.equalTo(width)
-            make.height.equalTo(20)
+            make.height.equalTo(15)
         }
         
         tableView.snp.makeConstraints { make in

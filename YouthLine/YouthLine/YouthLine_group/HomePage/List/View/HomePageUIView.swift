@@ -15,11 +15,7 @@ class HomePageUIView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        contentSize = CGSize(width: frame.width, height: 1.0)
-//        delegate = self
         backgroundColor = UIColor.lightGray
-//        addSubview(introScrollView)
-//        addSubview(galleryPageControl)
         addSubview(contactView)
         addSubview(buttonView)
         addSubview(tableUIView)

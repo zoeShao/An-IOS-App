@@ -15,27 +15,24 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
-        label.numberOfLines = 1
+        label.font = UIFont(name: "VAGRoundedStd-Bold", size: 16)
+        label.numberOfLines = 2
         return label
     }()
     
     
     var contentLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont(name: "VAGRoundedStd-thin", size: 14)
         label.textColor = RGBColor(80, 80, 80)
         label.numberOfLines = 4
         label.lineBreakMode = NSLineBreakMode.byTruncatingTail
@@ -46,7 +43,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
     var timeLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.darkGray
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont(name: "VAGRoundedStd-thin", size: 12)
         return label
     }()
     
@@ -54,8 +51,6 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-        //        contentView.layer.masksToBounds = true
-        //        contentView.layer.cornerRadius = 30
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.left.equalTo(contentView).offset(15)

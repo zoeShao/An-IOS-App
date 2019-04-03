@@ -9,17 +9,8 @@
 import UIKit
 
 class ButtonView: UIView {
-//    var buttonLabel = UILabel()
-//    var insButton = UIButton.init(type: UIButtonType.custom) as UIButton
-//    var twitterButton = UIButton.init(type: UIButtonType.custom) as UIButton
-//    var fbButton = UIButton.init(type: UIButtonType.custom) as UIButton
-//    var youtbButton = UIButton.init(type: UIButtonType.custom) as UIButton
-//    var tumblrButton = UIButton.init(type: UIButtonType.custom) as UIButton
-
-    
     lazy var insButton: UIButton = {
         let insButton = UIButton.init(type: UIButtonType.custom) as UIButton
-//        insButton.frame = CGRect(x: 20, y: 20, width: 60, height: 60)
         insButton.setImage(UIImage(named: "Instagram"), for: UIControlState.normal)
         insButton.addTarget(self, action: #selector(openInstagram(sender:)), for: .touchUpInside)
         return insButton
@@ -27,7 +18,6 @@ class ButtonView: UIView {
     
     lazy var twitterButton: UIButton = {
         let twitterButton = UIButton.init(type: UIButtonType.custom) as UIButton
-//        twitterButton.frame = CGRect(x: 100, y: 20, width: 60, height: 60)
         twitterButton.setImage(UIImage(named: "Twitter"), for: UIControlState.normal)
         twitterButton.addTarget(self, action: #selector(openTwitter(sender:)), for: .touchUpInside)
         return twitterButton
@@ -35,7 +25,6 @@ class ButtonView: UIView {
     
     lazy var fbButton: UIButton = {
         let fbButton = UIButton.init(type: UIButtonType.custom) as UIButton
-//        fbButton.frame = CGRect(x: 180, y: 20, width: 60, height: 60)
         fbButton.setImage(UIImage(named: "Facebook"), for: UIControlState.normal)
         fbButton.addTarget(self, action: #selector(openFacebook(sender:)), for: .touchUpInside)
         return fbButton
@@ -43,7 +32,6 @@ class ButtonView: UIView {
     
     lazy var youtbButton: UIButton = {
         let youtbButton = UIButton.init(type: UIButtonType.custom) as UIButton
-//        youtbButton.frame = CGRect(x: 260, y: 20, width: 60, height: 60)
         youtbButton.setImage(UIImage(named: "Youtube"), for: UIControlState.normal)
         youtbButton.addTarget(self, action: #selector(openYoutube(sender:)), for: .touchUpInside)
         return youtbButton
@@ -51,7 +39,6 @@ class ButtonView: UIView {
     
     lazy var tumblrButton: UIButton = {
         let tumblrButton = UIButton.init(type: UIButtonType.custom) as UIButton
-//        tumblrButton.frame = CGRect(x: 340, y: 20, width: 60, height: 60)
         tumblrButton.setImage(UIImage(named: "Tumblr"), for: UIControlState.normal)
         tumblrButton.addTarget(self, action: #selector(openTumblr(sender:)), for: .touchUpInside)
         return tumblrButton
@@ -60,7 +47,7 @@ class ButtonView: UIView {
     lazy var buttonLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: 30)
-        label.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.bold)
+        label.font = UIFont(name: "VAGRoundedStd-thin", size: 10)
         label.numberOfLines = 1
         label.textAlignment = .center
         label.text = "Check out our socialmedias!"
