@@ -40,7 +40,7 @@ class ImageCell: BaseCell {
     
     override var model: EventModel? {
         didSet {
-            let url = URL(string: model?.image_url ?? "https://pic4.zhimg.com/v2-57025d3b940f9039d056632b1281ba77_400x224.jpeg")
+            let url = URL(string: model?.image_url ?? "https://3.bp.blogspot.com/-1IoBgxlbNBs/WZnchQWxd4I/AAAAAAABJsY/pHJAN762VJsX_F-xHJ8Ro2fR4EKG8FeDACKgBGAs/s1600/doraemon_nobita3.png")
             self.ImageView.kf.setImage(with: url)
         }
     }

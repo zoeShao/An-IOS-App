@@ -12,17 +12,14 @@ class NewsFeedImageTableViewCell: NewsFeedBaseTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     
-    var zhImageView: UIImageView = {
+    var newsImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
@@ -36,12 +33,12 @@ class NewsFeedImageTableViewCell: NewsFeedBaseTableViewCell {
             make.right.equalToSuperview().offset(-120)
         }
         
-        contentView.addSubview(zhImageView)
-        zhImageView.snp.makeConstraints { (make) in
+        contentView.addSubview(newsImageView)
+        newsImageView.snp.makeConstraints { (make) in
             make.right.equalTo(contentView).offset(-10)
             make.width.equalTo(100)
             make.height.equalTo(70)
-            make.bottom.equalTo(contentView).offset(-60)
+            make.bottom.equalTo(contentView).offset(-30)
         }
     }
     
@@ -57,7 +54,7 @@ class NewsFeedImageTableViewCell: NewsFeedBaseTableViewCell {
             if (model?.image)! == "" {
                 print("空")
             }
-            self.zhImageView.kf.setImage(with: url)
+            self.newsImageView.kf.setImage(with: url)
         }
     }
     

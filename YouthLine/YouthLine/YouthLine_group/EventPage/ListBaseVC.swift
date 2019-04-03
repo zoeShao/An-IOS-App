@@ -235,8 +235,7 @@ class ListBaseVC: BaseViewController {
         }
     }
 }
-//    }
-//}
+
 
 extension ListBaseVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -285,16 +284,7 @@ extension ListBaseVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //used to force refresh to update like data
-//        tableView.initRefreshView()
-//        tableView.mj_header.refreshingBlock = { [weak self] in
-//            self?.pageIndex = 0
-//            self?.refreshDataSource()
-//            print("seansean")
-//        }
-//        tableView.mj_header.beginRefreshing()
-//
-        // end of the enforcement
+
         
         let model = ModelList?[indexPath.section]
         print("seansean111111", model?.fav == "True")

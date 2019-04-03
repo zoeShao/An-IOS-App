@@ -1,11 +1,3 @@
-//
-//  Cell1.swift
-//  ZhiHu
-//
-//  Created by NOKEYUAN on 2019-03-09.
-//  Copyright © 2019 陈逸辰. All rights reserved.
-//
-
 import UIKit
 
 class Cell1: UITableViewCell {
