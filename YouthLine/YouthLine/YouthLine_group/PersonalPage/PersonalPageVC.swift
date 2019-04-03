@@ -19,11 +19,11 @@ public var userName: String = ""
 //let myUserName = UILabel(frame: CGRect(x: 150, y: ScreenWidth/2 + 50, width: 200, height: 100))
 //let imageView: UIImageView = UIImageView(frame: CGRect(x: ScreenWidth/2 -  50, y: ScreenWidth/2 -  50, width: 100, height: 100))
 let contactNameLabel: UILabel = UILabel(frame: CGRect(x: 100, y: ScreenWidth/2 + 100, width: 100, height: 100))
-let userNameLabel: UILabel = UILabel(frame: CGRect(x: 60, y: ScreenWidth/2 + 50, width: 300, height: 100))
-let userNameLabel_1: UILabel = UILabel(frame: CGRect(x: 60, y: ScreenWidth/2 + 80, width: 300, height: 100))
+let userNameLabel: UILabel = UILabel(frame: CGRect(x: 50, y: ScreenWidth/2 + 50, width: 300, height: 100))
+let userNameLabel_1: UILabel = UILabel(frame: CGRect(x: 50, y: ScreenWidth/2 + 80, width: 300, height: 100))
 //let headerView: UIView = UIView(frame: CGRect(x: 0, y: 30, width: ScreenWidth, height: 1000))
-let button = TransitionButton(frame: CGRect(x:80, y:ScreenHeight/2 - 30, width: 250, height: 50))
-let signupbutton = TransitionButton(frame: CGRect(x:80, y:ScreenHeight/2  - 30, width: 250, height: 50))
+let button = TransitionButton(frame: CGRect(x:55, y:ScreenHeight/2 - 30, width: 250, height: 50))
+let signupbutton = TransitionButton(frame: CGRect(x:55, y:ScreenHeight/2  - 30, width: 250, height: 50))
 var barButton: UIBarButtonItem!
 var event_count = 0
 var monthDict:[String:String] = ["Jan":"01", "Feb":"02", "Mar":"03", "Apr": "04", "May": "05", "Jun": "06", "Jul": "07", "Aug": "08", "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12", "Jin": "13"]
