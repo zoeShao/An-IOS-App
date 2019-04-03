@@ -19,7 +19,7 @@ userManager = None
 admin_pw = None
 
 # If in production env?
-heroku_env = False
+heroku_env = True
 if heroku_env:
     prefix = "./app/"  # heroku env
 else:
@@ -41,18 +41,37 @@ class UserManager:
 
         return ret
 
-    def UUIDtoUID(self):
-        pass
+    def addUserWithUUID(self, uuid, username, email, password):
+        # see if uuid exist, if exist, return the match UID
+        for user in self.users:
+            if user["uuid"] == uuid:
+                return user["uid"]
+
+        # if not exist, create new user
+        user_id = self.get_next_uid()
+        user = {
+            "uid": user_id,
+            "username": username,
+            "email": email,
+            "password_hash": hashlib.sha256(password.encode('utf-8')).hexdigest(),
+            "fav_event": [],
+            "fav_res": [],
+            "uuid": uuid
+        }
+        self.users.append(user)
+
+        return user_id
 
     def addUser(self, username, email, password):
         user_id = self.get_next_uid()
         user = {
-                "uid": user_id,
-                "username": username,
-                "email": email,
-                "password_hash": hashlib.sha256(password.encode('utf-8')).hexdigest(),
-                "fav_event": [],
-                "fav_res": []
+                "uid"           : user_id,
+                "username"      : username,
+                "email"         : email,
+                "password_hash" : hashlib.sha256(password.encode('utf-8')).hexdigest(),
+                "fav_event"     : [],
+                "fav_res"       : [],
+                "uuid"          : ""
                 }
         self.users.append(user)
 
@@ -78,8 +97,14 @@ class UserManager:
         # print("No such a user" + str(uid))
         return False
 
-    def delEvetnFav(self, uid, rid):
-        pass
+    def delEventFav(self, uid, rid):
+        for user in self.users:
+            if user["uid"] == uid:
+                for idx, event_rid in enumerate(user["fav_event"]):
+                    if event_rid == rid:
+                        user["fav_event"].pop(idx)
+                        return True
+        return False
 
     def delResFav(self, uid, rid):
         pass
@@ -395,12 +420,17 @@ def home():
     return jsonify(json)
 
 
+@app.route('/home/rid')
+def get_home_with_rid():
+    return jsonify(homeDB.getAllWithRid())
+
+
 @app.route('/home', methods = ['POST'])
 def addHome():
     result = []
     title = request.json["title"]
     time = request.json["time"]
-    news_content = request.json["new_content"]
+    news_content = request.json["news_content"]
     image = request.json["image"]
     result.append(title)
     result.append(time)
@@ -411,8 +441,8 @@ def addHome():
 
 @app.route('/home', methods = ['DELETE'])
 def deleteHome():
-    hid = request.json["hid"]
-    resourcesDB.delete(hid)
+    hid = int(request.json["hid"])
+    homeDB.delete(hid)
     return("True")
 
 ##################################################################
@@ -588,6 +618,15 @@ def add_event_fav():
 
     return jsonify(request.json)
 
+@app.route('/event_w_fav/', methods=['DELETE'])
+def del_event_fav():
+    uid = int(request.json["uid"])
+    rid = int(request.json["rid"])
+
+    userManager.delEventFav(uid, rid)
+
+    return jsonify(request.json)
+
 @app.route('/event/rid', methods=['GET'])
 def allEventRid():
     records = eventDB.getAllWithRid()
@@ -640,10 +679,11 @@ def deleteEvent():
 @app.route('/users', methods=['POST'])
 def add_user():
     uuid = request.json["uuid"]
+    print(request.json)
+    print(uuid)
+    uid = userManager.addUserWithUUID(uuid, "UUID-User", "UUID-Email", "UUID-Password")
 
-    userManager.addUserWithUID(uid, "username", "email", "password")
-
-    return jsonify(request.json)
+    return jsonify({"uid": uid})
 
 
 

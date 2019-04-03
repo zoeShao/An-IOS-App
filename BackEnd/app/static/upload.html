@@ -130,12 +130,12 @@
       method: 'GET',
       dataType: 'html'
         }).then(data => {
-          $("#list_event tbody tr").remove();
+          $("#list_home tbody tr").remove();
           d = JSON.parse(data)
           console.log("reload event");
           var rows = "";
           d.forEach(elem =>{
-          	var hid = elem["hid"]
+          	var hid = elem["rid"]
           	var title = elem["title"]
           	rows += "<tr><td>" + hid + "</td><td>" + title  + "</td></tr>";
           })
@@ -301,6 +301,9 @@
 		document.getElementById("home_time").value = ''
 		document.getElementById("home_title").value = ''
 		document.getElementById("home_newsContent").value = ''
+		sleep(100).then(() => {
+  			addHome();
+		})
 	})
 
 
@@ -308,6 +311,9 @@
 		deleteHome();
 		sleep(100).then(() => {
 			addHome();
+		})
+		sleep(200).then(() =>{
+			document.getElementById("delete_home").value = ''
 		})
 	})
 
@@ -334,6 +340,9 @@
 		document.getElementById("event_website").value = ''
 		document.getElementById("content").value = ''
 		document.getElementById("main").value = ''
+		sleep(100).then(() => {
+  			addEvent();
+		})
 	})
 
 
@@ -343,6 +352,9 @@
 		document.getElementById("r_image").value = ''
 		document.getElementById("r_url").value = ''
 		document.getElementById("r_title").value = ''
+		sleep(100).then(() => {
+			addResource();
+		})
 	})
 
 
@@ -351,6 +363,9 @@
 		sleep(100).then(() => {
   			addEvent();
 		})
+		sleep(200).then(() => {
+			document.getElementById("delete_event").value = ''
+		})
 	})
 
 
@@ -358,6 +373,9 @@
 		deleteResource();
 		sleep(100).then(() => {
 			addResource();
+		})
+		sleep(200).then(() => {
+			document.getElementById("delet_resource").value = ''
 		})
 	})
 
