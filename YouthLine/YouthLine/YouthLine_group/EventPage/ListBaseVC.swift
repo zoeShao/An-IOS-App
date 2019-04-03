@@ -52,7 +52,7 @@ class ListBaseVC: BaseViewController {
         return tableBackGroundView
     }()
     
-
+    
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: UITableViewStyle.grouped)
@@ -131,7 +131,7 @@ class ListBaseVC: BaseViewController {
         likeLabel.text = "Like Filter: off"
         view.addSubview(likeLabel)
         pageView.addSubview(tableView)
-//        view.addSubview(filterBtn)
+        //        view.addSubview(filterBtn)
         
         tableView.rowHeight = 150
         tableView.snp.makeConstraints { make in
@@ -158,41 +158,41 @@ class ListBaseVC: BaseViewController {
             refreshDataSource()
             see_like = true
         }
-        
+            
         else if see_like == true{
             ModelList = []
-        filterBtn.setImage(image_2, for: .normal)
-        questionBtn.setImage(image_4, for: .normal)
-        let id = userID
-        Alamofire.request("http://youthline-test-server.herokuapp.com/event_w_fav/" + String(id)).responseJSON { (responseObject) -> Void in
-            
-            let json = JSON(responseObject.result.value!)
-            
-            if let mappedObject_1 = JSONDeserializer<EventModel>.deserializeModelArrayFrom(json: json.description){
-                var noAdList: [EventModel] = []
-                for model in mappedObject_1 as! [EventModel] {
-                    //                    if model.common_card != nil || model.fields != nil
-                    if model.rid != nil {
-                        if model.fav == "True"{
-                            noAdList.append(model)
+            filterBtn.setImage(image_2, for: .normal)
+            questionBtn.setImage(image_4, for: .normal)
+            let id = userID
+            Alamofire.request("http://youthline-test-server.herokuapp.com/event_w_fav/" + String(id)).responseJSON { (responseObject) -> Void in
+                
+                let json = JSON(responseObject.result.value!)
+                
+                if let mappedObject_1 = JSONDeserializer<EventModel>.deserializeModelArrayFrom(json: json.description){
+                    var noAdList: [EventModel] = []
+                    for model in mappedObject_1 as! [EventModel] {
+                        //                    if model.common_card != nil || model.fields != nil
+                        if model.rid != nil {
+                            if model.fav == "True"{
+                                noAdList.append(model)
+                            }
                         }
+                        self.tableView.mj_header.endRefreshing()
+                        self.tableView.mj_footer.endRefreshing()
                     }
-                    self.tableView.mj_header.endRefreshing()
-                    self.tableView.mj_footer.endRefreshing()
+                    if self.pageIndex == 0 {
+                        self.ModelList = noAdList
+                    } else {
+                        self.ModelList = []
+                        self.ModelList? += noAdList
+                        //如果要连续刷就把上面两行改成self.ModelList? += noAdList
+                    }
+                    self.pageIndex += 1
+                    self.tableView.reloadData()
                 }
-                if self.pageIndex == 0 {
-                    self.ModelList = noAdList
-                } else {
-                    self.ModelList = []
-                    self.ModelList? += noAdList
-                    //如果要连续刷就把上面两行改成self.ModelList? += noAdList
-                }
-                self.pageIndex += 1
-                self.tableView.reloadData()
+                
             }
-            
-        }
-        see_like = false
+            see_like = false
         }
     }
     
@@ -284,7 +284,7 @@ extension ListBaseVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         
         let model = ModelList?[indexPath.section]
         print("seansean111111", model?.fav == "True")

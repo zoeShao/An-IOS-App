@@ -180,11 +180,11 @@ class ArticleDetailVC: BaseViewController {
             make.right.equalToSuperview().offset(-10)
         }
         
-//        for view in scrollView.subviews {
-//            contentRect = contentRect.union(view.frame)
-//        }
-//
-//        scrollView.contentSize = contentRect.size
+        //        for view in scrollView.subviews {
+        //            contentRect = contentRect.union(view.frame)
+        //        }
+        //
+        //        scrollView.contentSize = contentRect.size
     }
     
 }
@@ -220,7 +220,7 @@ func submitAction(uid: String, rid: String, action: String) {
     }
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     request.addValue("application/json", forHTTPHeaderField: "Accept")
-
+    
     let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
         
         guard error == nil else {
@@ -235,6 +235,7 @@ func submitAction(uid: String, rid: String, action: String) {
             //create json object from data
             if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                 print(json, "response received")
+                refresh_matched_events(id: uid)
                 // handle json...
                 
             }

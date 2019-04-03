@@ -173,6 +173,7 @@ PODS:
   - JXMarqueeView (0.0.7)
   - Kingfisher (5.2.0)
   - leveldb-library (1.20)
+  - LGButton (1.1.6)
   - LTScrollView (0.2.1)
   - MJRefresh (3.1.15.7)
   - Moya (12.0.1):
@@ -197,6 +198,7 @@ PODS:
     - SwiftMessages/App (= 5.0.1)
   - SwiftMessages/App (5.0.1)
   - SwiftyJSON (4.2.0)
+  - TransitionButton (0.5.2)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.2):
     - TwitterCore (>= 3.2.0)
@@ -211,6 +213,7 @@ DEPENDENCIES:
   - HandyJSON (~> 4.2.0)
   - JXMarqueeView
   - Kingfisher
+  - LGButton
   - LTScrollView
   - MJRefresh
   - Moya
@@ -219,6 +222,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - SwiftMessages (~> 5.0.1)
   - SwiftyJSON
+  - TransitionButton
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -251,6 +255,7 @@ SPEC REPOS:
     - JXMarqueeView
     - Kingfisher
     - leveldb-library
+    - LGButton
     - LTScrollView
     - MJRefresh
     - Moya
@@ -263,6 +268,7 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftMessages
     - SwiftyJSON
+    - TransitionButton
     - TwitterCore
     - TwitterKit
 
@@ -296,6 +302,7 @@ SPEC CHECKSUMS:
   JXMarqueeView: a318eca76348b1ce8ed3ddc4fc7271ed4262bf30
   Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  LGButton: 9f0a7f9d3030e3f504108342f6b66d64a429371b
   LTScrollView: 93fff4aed9f9545f541a99b320b27808f5307c12
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
@@ -308,9 +315,10 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftMessages: 32ce3cfc8388b41aae56ff4853cc752a20101147
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  TransitionButton: fb271583d9c9e4bb116b97103047e5157653f233
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 90db93a2c929a2cfff55de13cff31c30facf4775
+PODFILE CHECKSUM: a5153eaf9364f20271a82dc8fa5d6bac2a021f53
 
 COCOAPODS: 1.6.1

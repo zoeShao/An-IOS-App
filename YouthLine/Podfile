@@ -29,5 +29,7 @@ use_frameworks!
     pod 'SVProgressHUD'
     #播放网络音频
     pod 'StreamingKit'
+    pod 'LGButton'
+    pod 'TransitionButton'
 
 end

@@ -111,8 +111,10 @@ class BaseCell: UITableViewCell {
         didSet {
             titleLabel.text = model?.title
             let address = "address: " + String(model?.address ?? "address: unknown")
-            let time = "time: " + String(model?.event_time ?? "time: unknown")
-            let date = model?.event_date ?? "date: unknown"
+            let sliced_time = String(model?.event_time ?? "time unknown")
+            let sliced_date = String(model?.event_date?.dropFirst(0).prefix(16) ?? "date unknown")
+            let time = "time: " + sliced_time + " ," + sliced_date
+            //            let date = model?.event_date ?? "date: unknown"
             let b_content = model?.b_content ?? "no content displayed"
             contentLabel.text = (time + "\n" + address + "\n\n" + b_content)
             headImgLabel.text = model?.source

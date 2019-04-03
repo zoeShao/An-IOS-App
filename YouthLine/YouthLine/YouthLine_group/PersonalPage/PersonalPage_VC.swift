@@ -14,7 +14,7 @@ class PersonalPage_VC: BaseViewController {
     
     lazy var pageView: DNSPageView = {
         let style = DNSPageStyle()
-        style.contentViewBackgroundColor = custom_menuBarPink
+        style.contentViewBackgroundColor = .white
         style.isTitleViewScrollEnabled = false
         style.isTitleScaleEnabled = false
         style.isShowBottomLine = true
@@ -64,7 +64,7 @@ class PersonalPage_VC: BaseViewController {
         //view.addSubview(searchTextField)
         view.addSubview(questionBtn)
     }
-
+    
 }
 
 extension PersonalPage_VC {
