@@ -34,12 +34,9 @@ class HomeDetailVC: BaseViewController {
         let tline = Int(((questionTitle as NSString).size(withAttributes:[NSAttributedStringKey.font:homeScrollView.titleLabel.font!]).width) / (ScreenWidth))
         
         let titleH = (homeScrollView.titleLabel.text! as NSString).size(withAttributes:[NSAttributedStringKey.font:homeScrollView.titleLabel.font!]).height * CGFloat(tline)
-
-        print(titleH)
         homeScrollView.timeLabel.text = questionTime
         
         let timeH = (homeScrollView.timeLabel.text! as NSString).size(withAttributes:[NSAttributedStringKey.font:homeScrollView.timeLabel.font!]).height
-        print(timeH)
         var imageH =  CGFloat(0)
         if questionImage != "" {
             let url = URL(string: questionImage)
@@ -50,15 +47,10 @@ class HomeDetailVC: BaseViewController {
                 imageH = image!.size.height
             }
         }
-        print(imageH)
         homeScrollView.contentLabel.text = questionContent
         let cline = Int(((questionContent as NSString).size(withAttributes:[NSAttributedStringKey.font:homeScrollView.contentLabel.font!]).width) / (ScreenWidth))
         let contentH = (homeScrollView.contentLabel.text! as NSString).size(withAttributes:[NSAttributedStringKey.font:homeScrollView.contentLabel.font!]).height * CGFloat(cline)
-        print(contentH)
         let height = titleH + timeH + imageH + contentH + 100
-                print("Here")
-                print(height)
-                print(ScreenHeight)
         homeScrollView.contentSize = CGSize(width:ScreenWidth, height: height)
         self.view = homeScrollView
     }

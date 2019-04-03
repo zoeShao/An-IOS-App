@@ -84,8 +84,8 @@ extension HomeListVC {
             print(AllNewsFeedModelList!.count)
             CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex])
             currentNewsIndex = currentNewsIndex + 1
-            if currentNewsIndex+1 < AllNewsFeedModelList!.count {
-                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex+1])
+            if currentNewsIndex < AllNewsFeedModelList!.count {
+                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex])
                 currentNewsIndex = currentNewsIndex+1
             }
             self.homePageUIView.tableUIView.tableView.reloadData()
