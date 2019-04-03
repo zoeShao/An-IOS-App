@@ -5,14 +5,12 @@
 //  Created by 林诗琪 on 2019-03-10.
 //  Copyright © 2019 RainbowWarrior. All rights reserved.
 //
-// new
 import UIKit
 import Alamofire
 import HandyJSON
 import MJRefresh
 import SwiftyJSON
 import MessageUI
-//import MaterialComponents.MaterialPageControl
 
 public let NewsFeedBaseTableViewCellID = "NewsFeedBaseTableViewCell"
 public let NewsFeedImageTableViewCellID = "NewsFeedImageTableViewCell"
@@ -114,16 +112,8 @@ extension HomeListVC {
         // set up page indicator for the scroll view
         self.galleryPageControl.numberOfPages = totalCount
         self.galleryPageControl.currentPageIndicatorTintColor = UIColor.lightGray
-        //        self.galleryPageControl.addTarget(self, action: #selector(didChangePage(sender:)), for: .valueChanged)
-        //        self.galleryPageControl.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
         self.addTimer()
     }
-    //
-    //    func didChangePage(sender: MDCPageControl){
-    //        var offset = scrollView.contentOffset
-    //        offset.x = CGFloat(sender.currentPage) * scrollView.bounds.size.width;
-    //        scrollView.setContentOffset(offset, animated: true)
-    //    }
     
     @objc func nextImage(sender:AnyObject!){
         var page:Int = self.galleryPageControl.currentPage;
@@ -134,35 +124,18 @@ extension HomeListVC {
             page = page + 1
             self.galleryPageControl.currentPage = page
         }
-        let x = CGFloat(page) * self.introScrollView.frame.size.width
-        // move to the next image
-        self.introScrollView.contentOffset = CGPoint(x:x, y:0)
+        var offset = introScrollView.contentOffset
+        offset.x = CGFloat(page) * introScrollView.bounds.size.width;
+        introScrollView.setContentOffset(offset, animated: true)
     }
-    
-    //    func scrollViewDidScroll(scrollView: UIScrollView) {
-    //        //这里的代码是在ScrollView滚动后执行的操作，并不是执行ScrollView的代码；
-    //        //这里只是为了设置下面的页码提示器；该操作是在图片滚动之后操作的；
-    //        let scrollviewW:CGFloat = introScrollView.frame.size.width;
-    //        let x:CGFloat = introScrollView.contentOffset.x;
-    //        let page:Int = (Int)((x + scrollviewW / 2) / scrollviewW);
-    //        self.galleryPageControl.currentPage = page;
-    //    }
+
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollviewW:CGFloat = introScrollView.frame.size.width
         let x = introScrollView.contentOffset.x;
         let page:Int = (Int)((x + scrollviewW / 2) / scrollviewW)
         self.galleryPageControl.currentPage = page
-        //        self.galleryPageControl.scrollViewDidScroll(scrollView)
     }
-    
-    //    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    //        self.galleryPageControl.scrollViewDidEndDecelerating(scrollView)
-    //    }
-    //
-    //    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-    //        self.galleryPageControl.scrollViewDidEndScrollingAnimation(scrollView)
-    //    }
     
     func addTimer(){
         self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(nextImage(sender:)), userInfo: nil, repeats: true);
