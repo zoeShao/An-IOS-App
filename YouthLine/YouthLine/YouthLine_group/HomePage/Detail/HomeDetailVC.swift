@@ -26,21 +26,13 @@ class HomeDetailVC: BaseViewController {
     var index: Int = 0
     
     var contentRect = CGRect.zero
-    
     let childrenVC =  [] as [UIViewController]
     let titles = [] as [String]
-//    let image_1 = UIImage(named: "star_dark")
-//    let image_2 = UIImage(named: "star")
-//    var star_flag = 0
-    
-    
     let headerView: HomeDetailView = {
         let headerView = HomeDetailView()
         headerView.frame = CGRect(x: 0, y: NavigationBarHeight, width: ScreenWidth, height: ScreenHeight - NavigationBarHeight)
         return headerView
     }()
-    
-    
     lazy var pageView: DNSPageView = {
         let style = DNSPageStyle()
         style.contentViewBackgroundColor = .white
@@ -104,8 +96,6 @@ class HomeDetailVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let item1 = UIBarButtonItem(customView: likeBtn)
-//        self.navigationItem.rightBarButtonItem = item1
         self.view = scrollView
         
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -159,49 +149,6 @@ class HomeDetailVC: BaseViewController {
             make.right.equalToSuperview().offset(-10)
         }
     }
-    //=================================
-//    let searchField: UITextField = {
-//        let field = UITextField()
-//        field.frame = CGRect(x: 0, y: 0, width: ScreenWidth - 100, height: 30)
-//        field.placeholder = "Search by key words"
-//        field.textAlignment = .center
-//        field.font = UIFont.systemFont(ofSize: 14)
-//        field.borderStyle = .roundedRect
-//        field.backgroundColor = BGColor
-//        return field
-//    }()
-    
-//    let titleLabel: UILabel = {
-//        let label = UILabel()
-//        label.frame = CGRect(x: 0, y: 0, width: ScreenWidth - 100, height: 30)
-//        label.textAlignment = .center
-//        label.textColor = .black
-//        return label
-//    }()
-//
-//    lazy var scrollView: UIScrollView = {
-//        let scrollView = UIScrollView(frame: view.frame)
-//        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height)
-//        scrollView.delegate = self
-//        scrollView.backgroundColor = UIColor.gray
-//        scrollView.addSubview(headerView)
-//        return scrollView
-//    }()
-//
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        navigationController?.setNavigationBarHidden(false, animated: false)
-//        navigationItem.titleView = searchField
-//        view.backgroundColor = BGColor
-//        headerView.titleLabel.text = questionTitle
-//        headerView.timeLabel.text = "Posted on" + questionTime
-//        headerView.contentLabel.text = questionContent
-//        let url = URL.init(string: questionImage)
-//        headerView.imageView.kf.setImage(with: url, placeholder: UIImage(named: "Default"))
-//        view.addSubview(scrollView)
-//        titleLabel.text = questionTitle
-//    }
 }
 
 

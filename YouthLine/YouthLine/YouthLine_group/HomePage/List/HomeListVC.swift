@@ -62,7 +62,7 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
             if responseObject.result.isSuccess {
                 let resJson = JSON(responseObject.result.value!)
                 if let mappedObject = JSONDeserializer<NewsFeedModel>.deserializeModelArrayFrom(json: resJson.description){
-                    self.currentNewsIndex = 0
+                    
                     self.AllNewsFeedModelList! = []
                     self.CurrentNewsFeedModelList? = []
                     for model in mappedObject as! [NewsFeedModel] {
@@ -72,8 +72,10 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
                     if self.AllNewsFeedModelList!.count >= 2 {
                         self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![0])
                         self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![1])
+                        self.currentNewsIndex = 2
                     } else if self.AllNewsFeedModelList!.count == 1{
                         self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![0])
+                        self.currentNewsIndex = 1
                     }
                     self.homePageUIView.tableUIView.tableView.reloadData()
                 }
