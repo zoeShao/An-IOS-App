@@ -405,19 +405,20 @@ def home():
     ...
     ]
     """
-    raw = homeDB.getAll()
-    json = []
-    json.append(raw[-1])
-    json.append(raw[-2])
-    json.append(raw[-3])
-    json.append(raw[-4])
-    json.append(raw[-5])
-    json.append(raw[-6])
-    json.append(raw[-7])
-    json.append(raw[-8])
-
-
-    return jsonify(json)
+    if len(homeDB.core) > 8:
+        raw = homeDB.getAll()
+        json = []
+        json.append(raw[-1])
+        json.append(raw[-2])
+        json.append(raw[-3])
+        json.append(raw[-4])
+        json.append(raw[-5])
+        json.append(raw[-6])
+        json.append(raw[-7])
+        json.append(raw[-8])
+        return jsonify(json)
+    else:
+        return jsonify(homeDB.getAll())
 
 
 @app.route('/home/rid')
