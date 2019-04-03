@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		130D5DFF22507B9900011457 /* HomeListVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130D5DFE22507B9900011457 /* HomeListVCExtension.swift */; };
 		134F83F92251AEF8003B0994 /* PersonalPage_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134F83F82251AEF8003B0994 /* PersonalPage_VC.swift */; };
+		135CBCC02254782500C6EE4B /* DetailScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135CBCBF2254782500C6EE4B /* DetailScrollView.swift */; };
 		13F2681B22540EF700F9F35B /* HomePageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F2681A22540EF700F9F35B /* HomePageUIView.swift */; };
 		13F2681D2254105000F9F35B /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F2681C2254105000F9F35B /* ContactView.swift */; };
 		13F2681F2254197B00F9F35B /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F2681E2254197B00F9F35B /* ButtonView.swift */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		130D5DFE22507B9900011457 /* HomeListVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListVCExtension.swift; sourceTree = "<group>"; };
 		134F83F82251AEF8003B0994 /* PersonalPage_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPage_VC.swift; sourceTree = "<group>"; };
+		135CBCBF2254782500C6EE4B /* DetailScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScrollView.swift; sourceTree = "<group>"; };
 		13F2681A22540EF700F9F35B /* HomePageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageUIView.swift; sourceTree = "<group>"; };
 		13F2681C2254105000F9F35B /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		13F2681E2254197B00F9F35B /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				27C3B84E2235D8BC00162AB6 /* HomeDetailHeaderView.swift */,
+				135CBCBF2254782500C6EE4B /* DetailScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				EFBC108E223471F500703135 /* ListBaseVC.swift in Sources */,
 				EFBC10992234753700703135 /* ArticleDetailVC.swift in Sources */,
 				EF5A28BD22347B75001FFD61 /* UIColor+Ex.swift in Sources */,
+				135CBCC02254782500C6EE4B /* DetailScrollView.swift in Sources */,
 				EF9A18F22250A3DD0039C0F7 /* EventModel.swift in Sources */,
 				EFBC106422346C0800703135 /* AppDelegate.swift in Sources */,
 				279F19E22235D65500DE8221 /* Cell1.swift in Sources */,

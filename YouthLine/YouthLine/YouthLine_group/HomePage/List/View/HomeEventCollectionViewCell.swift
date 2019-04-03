@@ -13,7 +13,6 @@ import UIKit
 
 class HomeEventCollectionViewCell: UICollectionViewCell {
     
-    
     var eventImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
