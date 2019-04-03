@@ -264,6 +264,7 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
         print(AllNewsFeedModelList!.count)
         view.backgroundColor = UIColor.lightGray
         view.addSubview(introScrollView)
+        view.addSubview(galleryPageControl)
         view.addSubview(homePageUIView)
         homePageUIView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
