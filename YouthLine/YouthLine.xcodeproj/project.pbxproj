@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		130D5DFF22507B9900011457 /* HomeListVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130D5DFE22507B9900011457 /* HomeListVCExtension.swift */; };
+		134F83F92251AEF8003B0994 /* PersonalPage_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134F83F82251AEF8003B0994 /* PersonalPage_VC.swift */; };
+		13F2681B22540EF700F9F35B /* HomePageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F2681A22540EF700F9F35B /* HomePageUIView.swift */; };
+		13F2681D2254105000F9F35B /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F2681C2254105000F9F35B /* ContactView.swift */; };
+		13F2681F2254197B00F9F35B /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F2681E2254197B00F9F35B /* ButtonView.swift */; };
+		13F2682122541BDB00F9F35B /* TableUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F2682022541BDB00F9F35B /* TableUIView.swift */; };
 		279F19E12235D65500DE8221 /* myEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F19DA2235D65500DE8221 /* myEvent.swift */; };
 		279F19E22235D65500DE8221 /* Cell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F19DC2235D65500DE8221 /* Cell1.swift */; };
 		279F19E32235D65500DE8221 /* Cell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279F19DD2235D65500DE8221 /* Cell1.xib */; };
@@ -40,8 +45,6 @@
 		EF5A28BE22347B75001FFD61 /* UIButton+ZHEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BB22347B74001FFD61 /* UIButton+ZHEx.swift */; };
 		EF5A28BF22347B75001FFD61 /* UIScrollView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28BC22347B74001FFD61 /* UIScrollView+Ex.swift */; };
 		EF5A28C222347B81001FFD61 /* WLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5A28C122347B81001FFD61 /* WLButton.swift */; };
-		EF5A28F322348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5A28F122348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png */; };
-		EF5A28F422348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5A28F222348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png */; };
 		EF9A18F22250A3DD0039C0F7 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A18F12250A3DD0039C0F7 /* EventModel.swift */; };
 		EF9A18F4225131E60039C0F7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9A18F3225131E60039C0F7 /* HeaderView.swift */; };
 		EF9A18F622516E450039C0F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9A18F522516E450039C0F7 /* Assets.xcassets */; };
@@ -55,18 +58,20 @@
 		EFBC108122346F5500703135 /* PersonalPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC108022346F5500703135 /* PersonalPageVC.swift */; };
 		EFBC108322346FB900703135 /* ResourceBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC108222346FB900703135 /* ResourceBaseVC.swift */; };
 		EFBC108522346FF800703135 /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC108422346FF800703135 /* HomePageVC.swift */; };
-		EFBC108A2234709700703135 /* EventBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC10892234709700703135 /* EventBaseVC.swift */; };
-		EFBC108C223470A700703135 /* EventSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC108B223470A700703135 /* EventSearchVC.swift */; };
 		EFBC108E223471F500703135 /* ListBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC108D223471F500703135 /* ListBaseVC.swift */; };
 		EFBC1093223472B300703135 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC1092223472B300703135 /* BaseCell.swift */; };
 		EFBC1095223472BE00703135 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC1094223472BE00703135 /* ImageCell.swift */; };
 		EFBC10992234753700703135 /* ArticleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBC10982234753700703135 /* ArticleDetailVC.swift */; };
-		EFE36B6322358F4B0041A544 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE36B6222358F4B0041A544 /* FakeData.swift */; };
 		EFEFB8AC22376CC5003E2305 /* ColorAndFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEFB8AB22376CC5003E2305 /* ColorAndFonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		130D5DFE22507B9900011457 /* HomeListVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListVCExtension.swift; sourceTree = "<group>"; };
+		134F83F82251AEF8003B0994 /* PersonalPage_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPage_VC.swift; sourceTree = "<group>"; };
+		13F2681A22540EF700F9F35B /* HomePageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageUIView.swift; sourceTree = "<group>"; };
+		13F2681C2254105000F9F35B /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		13F2681E2254197B00F9F35B /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		13F2682022541BDB00F9F35B /* TableUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableUIView.swift; sourceTree = "<group>"; };
 		279F19DA2235D65500DE8221 /* myEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myEvent.swift; sourceTree = "<group>"; };
 		279F19DC2235D65500DE8221 /* Cell1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell1.swift; sourceTree = "<group>"; };
 		279F19DD2235D65500DE8221 /* Cell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell1.xib; sourceTree = "<group>"; };
@@ -100,8 +105,6 @@
 		EF5A28BB22347B74001FFD61 /* UIButton+ZHEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+ZHEx.swift"; sourceTree = "<group>"; };
 		EF5A28BC22347B74001FFD61 /* UIScrollView+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ex.swift"; sourceTree = "<group>"; };
 		EF5A28C122347B81001FFD61 /* WLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLButton.swift; sourceTree = "<group>"; };
-		EF5A28F122348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZHProfile_BackArrow_Active@2x.png"; sourceTree = "<group>"; };
-		EF5A28F222348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZHProfile_BackArrow_Active@3x.png"; sourceTree = "<group>"; };
 		EF9A18F12250A3DD0039C0F7 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		EF9A18F3225131E60039C0F7 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		EF9A18F522516E450039C0F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,13 +120,10 @@
 		EFBC108022346F5500703135 /* PersonalPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageVC.swift; sourceTree = "<group>"; };
 		EFBC108222346FB900703135 /* ResourceBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceBaseVC.swift; sourceTree = "<group>"; };
 		EFBC108422346FF800703135 /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
-		EFBC10892234709700703135 /* EventBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBaseVC.swift; sourceTree = "<group>"; };
-		EFBC108B223470A700703135 /* EventSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSearchVC.swift; sourceTree = "<group>"; };
 		EFBC108D223471F500703135 /* ListBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBaseVC.swift; sourceTree = "<group>"; };
 		EFBC1092223472B300703135 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		EFBC1094223472BE00703135 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		EFBC10982234753700703135 /* ArticleDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailVC.swift; sourceTree = "<group>"; };
-		EFE36B6222358F4B0041A544 /* FakeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		EFEFB8AB22376CC5003E2305 /* ColorAndFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAndFonts.swift; sourceTree = "<group>"; };
 		F2B1656207B3172740706D86 /* Pods_YouthLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YouthLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -191,6 +191,10 @@
 				27C3B8472235D8BC00162AB6 /* NewsFeedBaseTableViewCell.swift */,
 				27C3B8482235D8BC00162AB6 /* NewsFeedImageTableViewCell.swift */,
 				27C3B8492235D8BC00162AB6 /* HomeEventCollectionViewCell.swift */,
+				13F2681A22540EF700F9F35B /* HomePageUIView.swift */,
+				13F2681C2254105000F9F35B /* ContactView.swift */,
+				13F2681E2254197B00F9F35B /* ButtonView.swift */,
+				13F2682022541BDB00F9F35B /* TableUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -292,8 +296,6 @@
 				EFBC107922346D6D00703135 /* Settings.swift */,
 				EFBC107722346D2000703135 /* Construction.swift */,
 				EFBC106922346C0800703135 /* Main.storyboard */,
-				EF5A28F122348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png */,
-				EF5A28F222348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png */,
 				EFBC106E22346C0A00703135 /* LaunchScreen.storyboard */,
 				EFBC107122346C0A00703135 /* Info.plist */,
 			);
@@ -315,11 +317,11 @@
 		EFBC107C22346E0F00703135 /* EventPage */ = {
 			isa = PBXGroup;
 			children = (
-				EFBC10892234709700703135 /* EventBaseVC.swift */,
-				EFBC108B223470A700703135 /* EventSearchVC.swift */,
-				EFBC10882234705900703135 /* ArticleTitle */,
-				EFBC10872234704700703135 /* List */,
-				EFBC10862234703A00703135 /* Article */,
+				EFBC108F2234722B00703135 /* View */,
+				EFBC108D223471F500703135 /* ListBaseVC.swift */,
+				EF9A18F12250A3DD0039C0F7 /* EventModel.swift */,
+				EF9A18F3225131E60039C0F7 /* HeaderView.swift */,
+				EFBC10982234753700703135 /* ArticleDetailVC.swift */,
 			);
 			path = EventPage;
 			sourceTree = "<group>";
@@ -333,6 +335,7 @@
 				279F19DE2235D65500DE8221 /* User.storyboard */,
 				27CE023F22515218006147DE /* LoginVC.swift */,
 				EFBC108022346F5500703135 /* PersonalPageVC.swift */,
+				134F83F82251AEF8003B0994 /* PersonalPage_VC.swift */,
 			);
 			path = PersonalPage;
 			sourceTree = "<group>";
@@ -363,49 +366,13 @@
 			path = HomePage;
 			sourceTree = "<group>";
 		};
-		EFBC10862234703A00703135 /* Article */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Article;
-			sourceTree = "<group>";
-		};
-		EFBC10872234704700703135 /* List */ = {
-			isa = PBXGroup;
-			children = (
-				EFE36B5922358E730041A544 /* Model */,
-				EFBC108F2234722B00703135 /* View */,
-				EFBC108D223471F500703135 /* ListBaseVC.swift */,
-				EF9A18F3225131E60039C0F7 /* HeaderView.swift */,
-				EFBC10982234753700703135 /* ArticleDetailVC.swift */,
-			);
-			path = List;
-			sourceTree = "<group>";
-		};
-		EFBC10882234705900703135 /* ArticleTitle */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ArticleTitle;
-			sourceTree = "<group>";
-		};
 		EFBC108F2234722B00703135 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EFE36B6222358F4B0041A544 /* FakeData.swift */,
 				EFBC1094223472BE00703135 /* ImageCell.swift */,
 				EFBC1092223472B300703135 /* BaseCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		EFE36B5922358E730041A544 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				EF9A18F12250A3DD0039C0F7 /* EventModel.swift */,
-			);
-			name = Model;
-			path = View/Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,12 +437,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				27CE023E225151AD006147DE /* GoogleService-Info.plist in Resources */,
-				EF5A28F422348779001FFD61 /* ZHProfile_BackArrow_Active@3x.png in Resources */,
 				EF2042AD223F193C009442E8 /* VAGRoundedStd-Thin.otf in Resources */,
 				279F19E32235D65500DE8221 /* Cell1.xib in Resources */,
 				27C3B8592235D8BD00162AB6 /* HomePageSearchVC.xib in Resources */,
 				EFBC107022346C0A00703135 /* LaunchScreen.storyboard in Resources */,
-				EF5A28F322348779001FFD61 /* ZHProfile_BackArrow_Active@2x.png in Resources */,
 				EF2042AF223F1941009442E8 /* VAGRoundedStd-Black.otf in Resources */,
 				EF2042AC223F193B009442E8 /* VAGRoundedStd-Light.otf in Resources */,
 				EF2042AE223F193F009442E8 /* VAGRoundedStd-Bold.otf in Resources */,
@@ -637,16 +602,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13F2681F2254197B00F9F35B /* ButtonView.swift in Sources */,
 				EFBC107822346D2000703135 /* Construction.swift in Sources */,
 				279F19E52235D65500DE8221 /* subVC.swift in Sources */,
 				EF5A28BE22347B75001FFD61 /* UIButton+ZHEx.swift in Sources */,
-				EFBC108A2234709700703135 /* EventBaseVC.swift in Sources */,
 				EFBC108322346FB900703135 /* ResourceBaseVC.swift in Sources */,
-				EFE36B6322358F4B0041A544 /* FakeData.swift in Sources */,
+				13F2681B22540EF700F9F35B /* HomePageUIView.swift in Sources */,
 				27C3B8572235D8BD00162AB6 /* HomeDetailVC.swift in Sources */,
 				130D5DFF22507B9900011457 /* HomeListVCExtension.swift in Sources */,
 				EF5A28C222347B81001FFD61 /* WLButton.swift in Sources */,
-				EFBC108C223470A700703135 /* EventSearchVC.swift in Sources */,
+				13F2682122541BDB00F9F35B /* TableUIView.swift in Sources */,
 				EF5A28BF22347B75001FFD61 /* UIScrollView+Ex.swift in Sources */,
 				27C3B8532235D8BD00162AB6 /* NewsFeedBaseTableViewCell.swift in Sources */,
 				279F19E12235D65500DE8221 /* myEvent.swift in Sources */,
@@ -659,10 +624,12 @@
 				EFBC108522346FF800703135 /* HomePageVC.swift in Sources */,
 				EFEFB8AC22376CC5003E2305 /* ColorAndFonts.swift in Sources */,
 				EFBC106822346C0800703135 /* SecondViewController.swift in Sources */,
+				134F83F92251AEF8003B0994 /* PersonalPage_VC.swift in Sources */,
 				27CE024022515218006147DE /* LoginVC.swift in Sources */,
 				27C3B8512235D8BD00162AB6 /* NewsFeedModel.swift in Sources */,
 				27C3B85F2235D8C600162AB6 /* WebViewController.swift in Sources */,
 				27C3B8552235D8BD00162AB6 /* HomeEventCollectionViewCell.swift in Sources */,
+				13F2681D2254105000F9F35B /* ContactView.swift in Sources */,
 				C8DB936822514F3900BA069E /* ResourceModel.swift in Sources */,
 				EFBC108E223471F500703135 /* ListBaseVC.swift in Sources */,
 				EFBC10992234753700703135 /* ArticleDetailVC.swift in Sources */,
@@ -826,15 +793,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F66X3A3Z7K;
 				INFOPLIST_FILE = YouthLine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Youthline.ca;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Youthlineeeee.ca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -848,15 +815,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F66X3A3Z7K;
 				INFOPLIST_FILE = YouthLine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Youthline.ca;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Youthlineeeee.ca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

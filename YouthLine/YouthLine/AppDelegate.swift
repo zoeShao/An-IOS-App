@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc1 = HomePageVC()
         let vc2 = ListBaseVC()
         let vc3 = ResourceBaseVC()
-        let vc4 = PersonalPageVC()
+        let vc4 = PersonalPage_VC()
         
         vc2.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "Events", image: UIImage(named: "event"), selectedImage: UIImage(named: "event_color"))
         vc1.tabBarItem = ESTabBarItem.init(ESTabBarItemContentView(), title: "HomePage", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_color"))
@@ -43,6 +43,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         barController.viewControllers = [n1, n2, n3, n4]
         FirebaseApp.configure()
         return true
+    }
+    
+    var enableAllOrientation = false
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if (enableAllOrientation == true){
+            return UIInterfaceOrientationMask.allButUpsideDown
+        }
+        return UIInterfaceOrientationMask.portrait
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

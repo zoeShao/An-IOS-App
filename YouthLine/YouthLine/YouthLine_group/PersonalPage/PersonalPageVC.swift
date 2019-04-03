@@ -5,17 +5,22 @@ struct cellData {
     let cellId : Int!
     let img : UIImage!
 }
-public var myUserid = UILabel(frame: CGRect(x: 210, y: 110, width: 200, height: 100))
-public var userID = 9999
-let userEmail = UILabel(frame: CGRect(x: 210, y: 150, width: 200, height: 100))
-let headerView: UIView = UIView(frame: CGRect(x: 0, y: 30, width: ScreenWidth, height: 1000))
+
+public var userID = 999999
+public var userIDString: String = ""
+public var userName: String = ""
+let userEmail = UILabel(frame: CGRect(x: 210, y: ScreenWidth/2 + 100, width: 200, height: 100))
+let myUserName = UILabel(frame: CGRect(x: 210, y: ScreenWidth/2 + 50, width: 200, height: 100))
+let imageView: UIImageView = UIImageView(frame: CGRect(x: ScreenWidth/2 -  50, y: ScreenWidth/2 -  50, width: 100, height: 100))
+let contactNameLabel: UILabel = UILabel(frame: CGRect(x: 100, y: ScreenWidth/2 + 100, width: 100, height: 100))
+let userNameLabel: UILabel = UILabel(frame: CGRect(x: 100, y: ScreenWidth/2 + 50, width: 100, height: 100))
+//let headerView: UIView = UIView(frame: CGRect(x: 0, y: 30, width: ScreenWidth, height: 1000))
 let button = UIButton()
+let signupbutton = UIButton()
 var barButton: UIBarButtonItem!
 //public var uuid = 0
 
-
-
-class PersonalPageVC: UITableViewController {
+class PersonalPageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,61 +28,70 @@ class PersonalPageVC: UITableViewController {
         // Do any additional setup after loading the view.
 //        let backgroupd: UIImageView = UIImageView(frame: CGRect(x: 150, y: 30, width: 100, height: 100))
 //        backgroupd.image = #imageLiteral(resourceName: "rainbow_3")
-        headerView.backgroundColor = UIColor(patternImage: UIImage(named: "rainbow_3.jpg")!)
+//        headerView.backgroundColor = UIColor(patternImage: UIImage(named: "rainbow_3.jpg")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "rainbow_6.jpg")!)
     
-        
-        
+
         //user profile pic
-        let imageView: UIImageView = UIImageView(frame: CGRect(x: 150, y: 30, width: 100, height: 100))
-        imageView.image = #imageLiteral(resourceName: "person_color")
+
+        
+        imageView.image = UIImage(named: "user")
+        let size = CGSize(width: 150, height: 150)
+        imageView.sizeThatFits(size)
         imageView.contentMode = .scaleAspectFit
-        headerView.addSubview(imageView)
+        view.addSubview(imageView)
         
         //user information
-        let userNameLabel: UILabel = UILabel(frame: CGRect(x: 100, y: 110, width: 100, height: 100))
-        userNameLabel.text = "User ID"
+        
+        userNameLabel.text = "User"
         userNameLabel.font = UIFont(name: "Copperplate-Bold", size: 23)
         userNameLabel.isHighlighted = true
-        headerView.addSubview(userNameLabel)
+//        view.addSubview(userNameLabel)
         
         //User Place holder
         
-        myUserid.text = "N/A"
-        headerView.addSubview(myUserid)
+        myUserName.text = "N/A"
+//        view.addSubview(myUserName)
         
         //Contact information
-        let contactNameLabel: UILabel = UILabel(frame: CGRect(x: 100, y: 150, width: 100, height: 100))
         contactNameLabel.text = "Email"
         contactNameLabel.font = UIFont(name: "Copperplate-Bold", size: 23)
         contactNameLabel.isHighlighted = true
-        headerView.addSubview(contactNameLabel)
+//        view.addSubview(contactNameLabel)
         
         //Contact Place holder
         userEmail.text = "N/A"
-        headerView.addSubview(userEmail)
+//        view.addSubview(userEmail)
         
-        self.tableView.tableHeaderView = headerView
+//        self.tableView.tableHeaderView = headerView
         
         //add navigation button
-        barButton = UIBarButtonItem(title: "Sign Out",
-                                         style: .plain,
-                                         target: self,
-                                         action: #selector(openNextView))
-       
-        self.navigationItem.rightBarButtonItem = nil
+//        barButton = UIBarButtonItem(title: "Sign Out",
+//                                         style: .plain,
+//                                         target: self,
+//                                         action: #selector(openNextView))
+//
+//        self.navigationItem.rightBarButtonItem = nil
         
 
         var custom_color =  UIColor(red: 255/255, green: 105/255, blue: 180/255, alpha: 0.5)
         // Making resource button
-        button.frame = CGRect(x:80, y:230, width: 250, height: 50)
-    
+        button.frame = CGRect(x:80, y:ScreenHeight/2 + 50, width: 250, height: 50)
         button.backgroundColor = custom_color
         button.setTitle("Log In ", for: .normal)
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        headerView.addSubview(button)
+        view.addSubview(button)
+        
+        signupbutton.frame = CGRect(x:80, y:ScreenHeight/2 + 50, width: 250, height: 50)
+        signupbutton.backgroundColor = custom_color
+        signupbutton.setTitle("Sign Out", for: .normal)
+        signupbutton.layer.cornerRadius = 5
+        signupbutton.layer.borderWidth = 1
+        signupbutton.layer.borderColor = UIColor.black.cgColor
+        signupbutton.addTarget(self, action: #selector(openNextView), for: .touchUpInside)
     }
     
     //button action for setting
@@ -86,10 +100,15 @@ class PersonalPageVC: UITableViewController {
         do {
             try firebaseAuth.signOut()
             userEmail.text = "N/A"
-            myUserid.text = "N/A"
+            myUserName.text = "N/A"
             button.isHidden = false
-            userID = 9999
+            userID = 99999
             self.navigationItem.rightBarButtonItem = nil
+            signupbutton.removeFromSuperview()
+            myUserName.removeFromSuperview()
+            userEmail.removeFromSuperview()
+            userNameLabel.removeFromSuperview()
+            contactNameLabel.removeFromSuperview()
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
@@ -128,11 +147,18 @@ extension PersonalPageVC: FUIAuthDelegate {
         //after log in, do following..
         let MyEmail = Auth.auth().currentUser?.email
         let MyID = Auth.auth().currentUser?.uid
+        let MyName = Auth.auth().currentUser?.displayName
         userEmail.text = MyEmail
-        myUserid.text = MyID
+        myUserName.text = MyName
         button.isHidden = true
+        view.addSubview(userNameLabel)
+        view.addSubview(myUserName)
+        view.addSubview(contactNameLabel)
+        view.addSubview(userEmail)
+        print(userID)
         //show side bar
-        self.navigationItem.rightBarButtonItem = barButton
+//        self.navigationItem.rightBarButtonItem = barButton
+        self.view.addSubview(signupbutton)
         submitAction(uuid: MyID!)
 }
 
@@ -172,6 +198,8 @@ func submitAction(uuid: String) {
                 print(json, "response received")
                 // handle json...
                 userID = json["uid"]! as! Int
+                userIDString = String(userID)
+                print(userIDString)
 //                print("my userID is")
 //                print(userID)
 //                print("-------------")

@@ -78,24 +78,19 @@ class ResourceBaseVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("1ajksdhkajhsdkhaksd")
-        tableView.initRefreshView()
-        tableView.mj_header.refreshingBlock = { [weak self] in
-            //            self?.pageIndex = 0
-            self?.fetchData()
-            self?.tableView.mj_footer.endRefreshingWithNoMoreData()
-        }
-        tableView.mj_header.beginRefreshing()
-//        fetchData()
-        //        hello()
-        //        if let resourcesCollectionAll = loadResource() {
-        //            print(resourcesCollectionAll)
-        //        } else {
-        //            print(123)
-        //        }
+        fetchData()
+//        print("1ajksdhkajhsdkhaksd")
+//        tableView.initRefreshView()
+//        tableView.mj_header.refreshingBlock = { [weak self] in
+//            //            self?.pageIndex = 0
+//            self?.fetchData()
+//            self?.tableView.mj_footer.endRefreshingWithNoMoreData()
+//        }
+//        tableView.mj_header.beginRefreshing()
+
         view.backgroundColor = UIColor.white
         view.addSubview(questionBtn)
-        view.addSubview(searchBtn)
+//        view.addSubview(searchBtn)
         view.addSubview(filterBtn)
         view.addSubview(tableView)
         //        resourcesCollection = createDic()
@@ -126,9 +121,9 @@ class ResourceBaseVC: BaseViewController {
         case .all:
             resources = resourcesCollection["all"]!
             self.tableView.reloadData()
-        case .favourite:
-            resources = resourcesCollection["favourite"]!
-            self.tableView.reloadData()
+//        case .favourite:
+//            resources = resourcesCollection["favourite"]!
+//            self.tableView.reloadData()
         case .settlement:
             resources = resourcesCollection["settlement"]!
             self.tableView.reloadData()
@@ -225,7 +220,7 @@ extension ResourceBaseVC: UITableViewDelegate, UITableViewDataSource, UIViewCont
                                         let resource = Resource(image: imageURL, title: resourceTitle, url: URL(string: resourceURL)!)
                                         //                                        resourcesCollection["all"]!.append(resource)
                                         resourcesCollection[categoryName]!.append(resource)
-                                        self.tableView.mj_header.endRefreshing()
+//                                        self.tableView.mj_header.endRefreshing()
                                     }
                                     
                                 } else {

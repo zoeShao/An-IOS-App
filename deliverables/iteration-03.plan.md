@@ -11,23 +11,27 @@
 
 ## Process
 
-In this iteration, we will focus on the front-end imporvement and back-end building . The goal for this iteration is having a responsive user interface.
+In this iteration, we will focus on the front-end imporvement and back-end building . The goal for this iteration is having a complete version of our product.
 
 #### Changes from previous iteration
 
 List the most significant changes you made to your process (if any).
+1. Home page: Added phone call button, message sending button and scocial media buttons. Deleted viewing upcoming events feature and replaced with the youthline organization overview.
+##### Reasons: 
+Upcoming event feature is very similar to the event page so rather displaying repeated data, its better to let user having an overview of the organization.
+2. Event page: Every event could be selected as "liked" in its detail page. A "liked filter" on the event list page view can help users look at their favourite events, traced by their username after logging in.
+##### Reason:
+Like filter is added instead of putting the like button in personal page beacause users can access their liked events in a faster way when they are browsing events, which makes the design of the product more intuitive and easy to use.
+3. Made login in work.
+##### Reason:
+This is the not working feature from the last iteration. We need to make it work to make the favoriate history consistent with each user.
+4. Connected frontend to backend.
+##### Reason:
+To make the product deployable we need to connect the backend and frontend.
+5. Resource page: Added more filters. Make the UI consistent with other pages.
+##### Reason:
+To make the product looks consistent we need to make some changes to the resource page UI.
 
- * At most 3 items
- * Start with the most significant change
- * For each change, explain why you are making it and what you are hoping to achieve from it
- * Ideally, for each change, you will define a clear success metric (i.e. something you can measure at the end of the iteration to determine whether the change you made was successful)
-
- > *Note:* If you are not making any changes to your process, it means that you are happy with all of the decisions you made in the previous iterations.
- > In this case, list what you consider to be the most significant process decisions your team made. For each decision, explain why you consider it successful, and what success metric you are using (or could use) to assert that the decision is successful.
- </br>
-changing group structure is the most significant. IOS App is front-end heavy, three group member will not enough for front-end.
-workload for each group member can be used as success metric.
- 
  #### Roles & responsibilities
 
 Describe the different roles on the team and the responsibilities associated with each role. 

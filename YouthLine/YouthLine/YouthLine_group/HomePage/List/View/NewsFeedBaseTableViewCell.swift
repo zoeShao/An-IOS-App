@@ -28,7 +28,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
-        label.numberOfLines = 2
+        label.numberOfLines = 1
         return label
     }()
     
@@ -37,7 +37,7 @@ class NewsFeedBaseTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = RGBColor(80, 80, 80)
-        label.numberOfLines = 6
+        label.numberOfLines = 4
         label.lineBreakMode = NSLineBreakMode.byTruncatingTail
         return label
     }()
