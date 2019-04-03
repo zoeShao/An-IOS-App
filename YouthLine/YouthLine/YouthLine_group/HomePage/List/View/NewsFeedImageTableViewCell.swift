@@ -41,7 +41,7 @@ class NewsFeedImageTableViewCell: NewsFeedBaseTableViewCell {
             make.right.equalTo(contentView).offset(-10)
             make.width.equalTo(100)
             make.height.equalTo(70)
-            make.bottom.equalTo(contentView).offset(-60)
+            make.bottom.equalTo(contentView).offset(-30)
         }
     }
     

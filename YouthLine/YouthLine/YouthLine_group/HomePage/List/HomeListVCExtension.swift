@@ -16,7 +16,7 @@ extension HomeListVC:  MFMessageComposeViewControllerDelegate {
 //    func noHandler(alert: UIAlertAction!) {
 //        dismiss(animated: true, completion: nil)
 //    }
-    
+
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         switch (result) {
         case .cancelled:
@@ -36,21 +36,21 @@ extension HomeListVC:  MFMessageComposeViewControllerDelegate {
             break
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func displayMessageInterface() {
         let composeVC = MFMessageComposeViewController()
         composeVC.messageComposeDelegate = self
-        
+
         // Configure the fields of the interface.
         //        composeVC.recipients = ["6476944275"]
         composeVC.recipients = ["6478223876"]
         composeVC.body = "Enter texting messages here:"
-        
+
         // Present the view controller modally.
         if MFMessageComposeViewController.canSendText() {
 //            let homeViewVC = self
@@ -64,70 +64,70 @@ extension HomeListVC:  MFMessageComposeViewControllerDelegate {
 
 // extension for button action
 extension HomeListVC {
-    @objc func openInstagram(sender: UIButton) {
-        let instURL: NSURL = NSURL (string: "instagram://user?username=lgbtyouthline")! // Replace = Instagram by the your instagram user name
-        let instWB: NSURL = NSURL (string: "https://www.instagram.com/lgbtyouthline/")! // Replace the link by your instagram weblink
-        
-        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-            // Open Instagram application
-            UIApplication.shared.open(instURL as URL)
-        } else {
-            // Open in Safari
-            UIApplication.shared.open(instWB as URL)
-        }
-    }
-    
-    @objc func openTwitter(sender: UIButton) {
-        let instURL: NSURL = NSURL (string: "twitter://user?screen_name=LGBTYouthLine")! // Replace = Instagram by the your instagram user name
-        let instWB: NSURL = NSURL (string: "https://twitter.com/LGBTYouthLine")! // Replace the link by your instagram weblink
-        
-        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-            // Open Instagram application
-            UIApplication.shared.open(instURL as URL)
-        } else {
-            // Open in Safari
-            UIApplication.shared.open(instWB as URL)
-        }
-    }
-    
-    @objc func openFacebook(sender: UIButton) {
-        let instURL: NSURL = NSURL (string: "fb://profile")! // Replace = Instagram by the your instagram user name
-        let instWB: NSURL = NSURL (string: "https://www.facebook.com/lgbtyouthline")! // Replace the link by your instagram weblink
-        
-        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-            // Open Instagram application
-            UIApplication.shared.open(instURL as URL)
-        } else {
-            // Open in Safari
-            UIApplication.shared.open(instWB as URL)
-        }
-    }
-    
-    @objc func openYoutube(sender: UIButton) {
-        let instURL: NSURL = NSURL (string: "youtube://www.youtube.com/user/lgbtyouthline")! // Replace = Instagram by the your instagram user name
-        let instWB: NSURL = NSURL (string: "https://www.youtube.com/user/lgbtyouthline")! // Replace the link by your instagram weblink
-        
-        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-            // Open Instagram application
-            UIApplication.shared.open(instURL as URL)
-        } else {
-            // Open in Safari
-            UIApplication.shared.open(instWB as URL)
-        }
-    }
-    
-    @objc func openTumblr(sender: UIButton) {
-        let instURL: NSURL = NSURL (string: "tumblr://x-callback-url/blog?blogName=lgbtyouthline")! // Replace = Instagram by the your instagram user name
-        let instWB: NSURL = NSURL (string: "http://lgbtyouthline.tumblr.com")! // Replace the link by your instagram weblink
-        
-        if (UIApplication.shared.canOpenURL(instURL as URL)) {
-            // Open Instagram application
-            UIApplication.shared.open(instURL as URL)
-        } else {
-            // Open in Safari
-            UIApplication.shared.open(instWB as URL)
-        }
-    }
+//    @objc func openInstagram(sender: UIButton) {
+//        let instURL: NSURL = NSURL (string: "instagram://user?username=lgbtyouthline")! // Replace = Instagram by the your instagram user name
+//        let instWB: NSURL = NSURL (string: "https://www.instagram.com/lgbtyouthline/")! // Replace the link by your instagram weblink
+//
+//        if (UIApplication.shared.canOpenURL(instURL as URL)) {
+//            // Open Instagram application
+//            UIApplication.shared.open(instURL as URL)
+//        } else {
+//            // Open in Safari
+//            UIApplication.shared.open(instWB as URL)
+//        }
+//    }
+//
+//    @objc func openTwitter(sender: UIButton) {
+//        let instURL: NSURL = NSURL (string: "twitter://user?screen_name=LGBTYouthLine")! // Replace = Instagram by the your instagram user name
+//        let instWB: NSURL = NSURL (string: "https://twitter.com/LGBTYouthLine")! // Replace the link by your instagram weblink
+//
+//        if (UIApplication.shared.canOpenURL(instURL as URL)) {
+//            // Open Instagram application
+//            UIApplication.shared.open(instURL as URL)
+//        } else {
+//            // Open in Safari
+//            UIApplication.shared.open(instWB as URL)
+//        }
+//    }
+//
+//    @objc func openFacebook(sender: UIButton) {
+//        let instURL: NSURL = NSURL (string: "fb://profile")! // Replace = Instagram by the your instagram user name
+//        let instWB: NSURL = NSURL (string: "https://www.facebook.com/lgbtyouthline")! // Replace the link by your instagram weblink
+//
+//        if (UIApplication.shared.canOpenURL(instURL as URL)) {
+//            // Open Instagram application
+//            UIApplication.shared.open(instURL as URL)
+//        } else {
+//            // Open in Safari
+//            UIApplication.shared.open(instWB as URL)
+//        }
+//    }
+//
+//    @objc func openYoutube(sender: UIButton) {
+//        let instURL: NSURL = NSURL (string: "youtube://www.youtube.com/user/lgbtyouthline")! // Replace = Instagram by the your instagram user name
+//        let instWB: NSURL = NSURL (string: "https://www.youtube.com/user/lgbtyouthline")! // Replace the link by your instagram weblink
+//
+//        if (UIApplication.shared.canOpenURL(instURL as URL)) {
+//            // Open Instagram application
+//            UIApplication.shared.open(instURL as URL)
+//        } else {
+//            // Open in Safari
+//            UIApplication.shared.open(instWB as URL)
+//        }
+//    }
+//
+//    @objc func openTumblr(sender: UIButton) {
+//        let instURL: NSURL = NSURL (string: "tumblr://x-callback-url/blog?blogName=lgbtyouthline")! // Replace = Instagram by the your instagram user name
+//        let instWB: NSURL = NSURL (string: "http://lgbtyouthline.tumblr.com")! // Replace the link by your instagram weblink
+//
+//        if (UIApplication.shared.canOpenURL(instURL as URL)) {
+//            // Open Instagram application
+//            UIApplication.shared.open(instURL as URL)
+//        } else {
+//            // Open in Safari
+//            UIApplication.shared.open(instWB as URL)
+//        }
+//    }
     
     @objc func makePhoneCall(sender: UIButton) {
         //18002689688
@@ -139,7 +139,7 @@ extension HomeListVC {
             print("phone call not available")
         }
     }
-    
+
     @objc func sendMessage(sender: UIButton) {
         displayMessageInterface()
     }
@@ -154,7 +154,8 @@ extension HomeListVC {
         CurrentNewsFeedModelList?.removeAll()
         CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex])
         CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex+1])
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
+        self.homePageUIView.tableUIView.tableView.reloadData()
     }
 }
 
