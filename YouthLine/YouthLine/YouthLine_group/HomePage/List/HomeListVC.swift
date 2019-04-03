@@ -20,11 +20,8 @@ public let HomeEventCollectionViewCellID = "HomeEventCollectionViewCell"
 
 class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,UICollectionViewDelegate, UICollectionViewDataSource {
     var AllNewsFeedModelList: [NewsFeedModel]? = []
-    // fixed size = 2
     var CurrentNewsFeedModelList: [NewsFeedModel]? = []
-    // never changed
     var YouthlineIntroModelList: [YouthlineIntroModel]? = [event1, event2, event3]
-    //    var fetchingMore = false
     var galleryPageControl: UIPageControl = UIPageControl(frame: CGRect(x: ScreenWidth/2 - 15, y: 145, width: 30, height: 10))
     var currentNewsIndex = 0
     
@@ -79,7 +76,6 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
                     }
                     self.homePageUIView.tableUIView.tableView.reloadData()
                 }
-                
             }
             if responseObject.result.isFailure {
                 let error : NSError = responseObject.result.error! as NSError
@@ -93,32 +89,30 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
 
 
 extension HomeListVC {
-    func introDisplay(){   //实现图片滚动播放；
-        //image width
-        let imageW:CGFloat = self.introScrollView.frame.size.width;//获取ScrollView的宽作为图片的宽；
-        let imageH:CGFloat = self.introScrollView.frame.size.height;//获取ScrollView的高作为图片的高；
-        let imageY:CGFloat = 0;//图片的Y坐标就在ScrollView的顶端；
-        let totalCount: NSInteger = 3;//轮播的图片数量；
+    func introDisplay(){
+        // Generate all the introduction images
+        // use scrollview width/height as image width/height
+        let imageW = self.introScrollView.frame.size.width
+        let imageH = self.introScrollView.frame.size.height
+        let imageY:CGFloat = 0
+        // total number of images to show
+        let totalCount: NSInteger = 3
+        // put images in orders in the scroll view
         for index in 0..<totalCount{
-            print(index)
-            let imageView:UIImageView = UIImageView();
-            let imageX:CGFloat = CGFloat(index) * imageW;
-            imageView.frame = CGRect(x:imageX, y:imageY, width:imageW, height:imageH);//设置图片的大小，注意Image和ScrollView的关系，其实几张图片是按顺序从左向右依次放置在ScrollView中的，但是ScrollView在界面中显示的只是一张图片的大小，效果类似与画廊；
-            let name:String = String(format: "HomePage%d", index+1);
-            imageView.image = UIImage(named: name);
-            print("image")
-            self.introScrollView.showsHorizontalScrollIndicator = false;//不设置水平滚动条；
-            self.introScrollView.addSubview(imageView);//把图片加入到ScrollView中去，实现轮播的效果；
-            
+            let imageX:CGFloat = CGFloat(index) * imageW
+            let imageView = UIImageView(frame: CGRect(x:imageX, y:imageY, width:imageW, height:imageH))
+            // get the images from Assets with names
+            imageView.image = UIImage(named: String(format: "HomePage%d", index+1));
+            self.introScrollView.showsHorizontalScrollIndicator = false
+            self.introScrollView.addSubview(imageView)
         }
-        
-        //需要非常注意的是：ScrollView控件一定要设置contentSize;包括长和宽；
-        let contentW:CGFloat = imageW * CGFloat(totalCount);//这里的宽度就是所有的图片宽度之和；
-        self.introScrollView.contentSize = CGSize(width:contentW, height:0);
-        self.introScrollView.isPagingEnabled = true;
-        self.introScrollView.delegate = self;
-        print(self.galleryPageControl)
-        self.galleryPageControl.numberOfPages = totalCount;//下面的页码提示器；
+        // set scroll view content width = sum of width of all images to show
+        let contentW = imageW * CGFloat(totalCount)
+        self.introScrollView.contentSize = CGSize(width:contentW, height:0)
+        self.introScrollView.isPagingEnabled = true
+        self.introScrollView.delegate = self
+        // set up page indicator for the scroll view
+        self.galleryPageControl.numberOfPages = totalCount
         self.galleryPageControl.currentPageIndicatorTintColor = UIColor.lightGray
         //        self.galleryPageControl.addTarget(self, action: #selector(didChangePage(sender:)), for: .valueChanged)
         //        self.galleryPageControl.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
@@ -131,19 +125,18 @@ extension HomeListVC {
     //        scrollView.setContentOffset(offset, animated: true)
     //    }
     
-    @objc func nextImage(sender:AnyObject!){//图片轮播；
+    @objc func nextImage(sender:AnyObject!){
         var page:Int = self.galleryPageControl.currentPage;
-        print(page)
-        if(page == 2){   //循环；
+        if(page == 2){
             page = 0;
             self.galleryPageControl.currentPage = 0
         }else{
             page = page + 1
             self.galleryPageControl.currentPage = page
         }
-        
-        let x:CGFloat = CGFloat(page) * self.introScrollView.frame.size.width;
-        self.introScrollView.contentOffset = CGPoint(x:x, y:0);//注意：contentOffset就是设置ScrollView的偏移；
+        let x = CGFloat(page) * self.introScrollView.frame.size.width
+        // move to the next image
+        self.introScrollView.contentOffset = CGPoint(x:x, y:0)
     }
     
     //    func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -156,10 +149,10 @@ extension HomeListVC {
     //    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let scrollviewW:CGFloat = introScrollView.frame.size.width;
-        let x:CGFloat = introScrollView.contentOffset.x;
-        let page:Int = (Int)((x + scrollviewW / 2) / scrollviewW);
-        self.galleryPageControl.currentPage = page;
+        let scrollviewW:CGFloat = introScrollView.frame.size.width
+        let x = introScrollView.contentOffset.x;
+        let page:Int = (Int)((x + scrollviewW / 2) / scrollviewW)
+        self.galleryPageControl.currentPage = page
         //        self.galleryPageControl.scrollViewDidScroll(scrollView)
     }
     
@@ -171,8 +164,8 @@ extension HomeListVC {
     //        self.galleryPageControl.scrollViewDidEndScrollingAnimation(scrollView)
     //    }
     
-    func addTimer(){   //图片轮播的定时器；
-        self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(nextImage(sender:)), userInfo: nil, repeats: true);
+    func addTimer(){
+        self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(nextImage(sender:)), userInfo: nil, repeats: true);
     }
     
 }
