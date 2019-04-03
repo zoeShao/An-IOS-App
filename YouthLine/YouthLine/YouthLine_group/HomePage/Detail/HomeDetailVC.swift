@@ -115,18 +115,24 @@ class HomeDetailVC: BaseViewController {
         headerView.timeLabel.text = questionTime
         contentView.titleLabel.text = questionContent
         
-        let url = URL(string: questionImage)
-        let data = try? Data(contentsOf: url!)
-        if let imageData = data {
-            let image = UIImage(data: imageData)
-            imgView.image = image
+        if questionImage != "" {
+            let url = URL(string: questionImage)
+            let data = try? Data(contentsOf: url!)
+            if let imageData = data {
+                let image = UIImage(data: imageData)
+                imgView.image = image
+            }
+            view.addSubview(headerView)
+            view.addSubview(imgView)
+            view.addSubview(pageView)
+            view.addSubview(contentView)
+        } else {
+            view.addSubview(headerView)
+            view.addSubview(pageView)
+            view.addSubview(contentView)
         }
-        
-        view.addSubview(headerView)
-        view.addSubview(imgView)
-        view.addSubview(pageView)
-        view.addSubview(contentView)
-        
+
+
         pageView.addSubview(headerView)
         headerView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(0)

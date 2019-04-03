@@ -75,16 +75,23 @@ extension HomeListVC {
     
     @objc func nextNews(sender: UIButton) {
         print("update news")
-        currentNewsIndex = currentNewsIndex + 2
+        if currentNewsIndex % 2 == 0 {
+            currentNewsIndex = currentNewsIndex + 2
+        } else {
+            currentNewsIndex = currentNewsIndex + 1
+        }
+        
         if currentNewsIndex == AllNewsFeedModelList!.count {
             currentNewsIndex = 0
+            fetchData()
+        } else {
+            CurrentNewsFeedModelList?.removeAll()
+            CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex])
+            if currentNewsIndex+1 < AllNewsFeedModelList!.count {
+                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex+1])
+            }
+            self.homePageUIView.tableUIView.tableView.reloadData()
         }
-        print(currentNewsIndex)
-        CurrentNewsFeedModelList?.removeAll()
-        CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex])
-        CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex+1])
-//        self.tableView.reloadData()
-        self.homePageUIView.tableUIView.tableView.reloadData()
     }
 }
 
@@ -118,7 +125,7 @@ extension HomeListVC {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = CurrentNewsFeedModelList?[indexPath.section]
         let cell: NewsFeedBaseTableViewCell
-        if model?.image != nil {
+        if model?.image != "" {
             cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedImageTableViewCellID, for: indexPath) as! NewsFeedImageTableViewCell
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedBaseTableViewCellID, for: indexPath) as! NewsFeedBaseTableViewCell
