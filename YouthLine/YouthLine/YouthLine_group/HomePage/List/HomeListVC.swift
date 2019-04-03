@@ -37,7 +37,6 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        updateData()
         fetchData()
         print(AllNewsFeedModelList!.count)
         view.backgroundColor = UIColor.lightGray
@@ -63,14 +62,20 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
             if responseObject.result.isSuccess {
                 let resJson = JSON(responseObject.result.value!)
                 if let mappedObject = JSONDeserializer<NewsFeedModel>.deserializeModelArrayFrom(json: resJson.description){
+                    
+                    self.AllNewsFeedModelList! = []
+                    self.CurrentNewsFeedModelList? = []
                     for model in mappedObject as! [NewsFeedModel] {
+                        print(model)
                         self.AllNewsFeedModelList!.append(model)
                     }
                     if self.AllNewsFeedModelList!.count >= 2 {
                         self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![0])
                         self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![1])
+                        self.currentNewsIndex = 2
                     } else if self.AllNewsFeedModelList!.count == 1{
                         self.CurrentNewsFeedModelList?.append(self.AllNewsFeedModelList![0])
+                        self.currentNewsIndex = 1
                     }
                     self.homePageUIView.tableUIView.tableView.reloadData()
                 }
@@ -82,9 +87,6 @@ class HomeListVC: BaseViewController,UITableViewDelegate, UITableViewDataSource,
         }
     }
 }
-
-
-
 
 extension HomeListVC {
     func introDisplay(){

@@ -75,16 +75,21 @@ extension HomeListVC {
     
     @objc func nextNews(sender: UIButton) {
         print("update news")
-        currentNewsIndex = currentNewsIndex + 2
         if currentNewsIndex == AllNewsFeedModelList!.count {
             currentNewsIndex = 0
+            fetchData()
+        } else {
+            CurrentNewsFeedModelList?.removeAll()
+            print(currentNewsIndex)
+            print(AllNewsFeedModelList!.count)
+            CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex])
+            currentNewsIndex = currentNewsIndex + 1
+            if currentNewsIndex+1 < AllNewsFeedModelList!.count {
+                CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex+1])
+                currentNewsIndex = currentNewsIndex+1
+            }
+            self.homePageUIView.tableUIView.tableView.reloadData()
         }
-        print(currentNewsIndex)
-        CurrentNewsFeedModelList?.removeAll()
-        CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex])
-        CurrentNewsFeedModelList?.append(AllNewsFeedModelList![currentNewsIndex+1])
-//        self.tableView.reloadData()
-        self.homePageUIView.tableUIView.tableView.reloadData()
     }
 }
 
@@ -118,7 +123,7 @@ extension HomeListVC {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = CurrentNewsFeedModelList?[indexPath.section]
         let cell: NewsFeedBaseTableViewCell
-        if model?.image != nil {
+        if model?.image != "" {
             cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedImageTableViewCellID, for: indexPath) as! NewsFeedImageTableViewCell
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedBaseTableViewCellID, for: indexPath) as! NewsFeedBaseTableViewCell
@@ -131,9 +136,15 @@ extension HomeListVC {
         let model = CurrentNewsFeedModelList?[indexPath.section]
         let vc = HomeDetailVC()
         vc.questionTitle = model?.title ?? ""
+//        if vc.questionTitle == "" {
+//            vc.questionTitle = "No Title Provided"
+//        }
         vc.questionTime = model?.time ?? ""
         vc.questionImage = model?.image ?? ""
         vc.questionContent = model?.news_content ?? ""
+//        if vc.questionContent == "" {
+//            vc.questionContent = "No Content Provided"
+//        }
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
