@@ -1,31 +1,34 @@
-# Import everything we need
+# Use flask
 from flask import Flask, jsonify, request, redirect, url_for
 from flask_cors import CORS
 
 # model
 import os
 import csv
-import hashlib
+import hashlib # Hash for password
 
 # Start the app and setup the static directory for the html, css, and js files.
 app = Flask(__name__, static_url_path='', static_folder='static')
 CORS(app)
 
-# Global Varible
-eventDB = None
+# Global Variable
+eventDB = None      # Event
 resourcesDB = None
 homeDB = None
 userManager = None
 admin_pw = None
 
-# If in production env?
+# If in production(heroku) env?
 heroku_env = True
 if heroku_env:
     prefix = "./app/"  # heroku env
 else:
     prefix = ""  # local python env
 
-
+# Instead of storing detail User information
+# We change our plan to store our user email and password in Firebase
+# which a safer place.
+# Now user manager are only need to store uuid and favorite.
 class UserManager:
     """
     UserDB:     uid,    name,   email,  fav_event,     fav_res      password_hash
@@ -50,13 +53,13 @@ class UserManager:
         # if not exist, create new user
         user_id = self.get_next_uid()
         user = {
-            "uid": user_id,
+            "uid":      user_id,
             "username": username,
-            "email": email,
+            "email":    email,
             "password_hash": hashlib.sha256(password.encode('utf-8')).hexdigest(),
             "fav_event": [],
-            "fav_res": [],
-            "uuid": uuid
+            "fav_res":  [],
+            "uuid":     uuid
         }
         self.users.append(user)
 
@@ -94,7 +97,7 @@ class UserManager:
             if user["uid"] == uid:
                 user["fav_res"].append(rid)
                 return True
-        # print("No such a user" + str(uid))
+
         return False
 
     def delEventFav(self, uid, rid):
@@ -114,7 +117,7 @@ class UserManager:
             if user["uid"] == uid:
                 if rid in user["fav_event"]:
                     return True
-        # print("No such a user" + str(uid))
+
         return False
 
     def isResFav(self, uid, rid):
@@ -123,7 +126,7 @@ class UserManager:
                 if rid in user["fav_res"]:
                     return True
 
-        # print("No such a user" + str(uid))
+
         return False
 
 class DB:
@@ -337,8 +340,6 @@ def DB_tester():
     db.delete("0")
     db.saveToCSV(prefix + "data/test_save.csv")
 
-# running db tester
-# DB_tester()
 
 # setup everything before running the server
 def init():
@@ -354,19 +355,11 @@ def init():
     homeDB.loadFromCSV(prefix + "data/home.csv")
     userManager = UserManager(prefix + "data/users.csv")
 
-    # for test
-    user1id = userManager.addUser("user1", "user1@email.com", "user1password")
-    # print(user1id)
-    userManager.addEventFav(user1id, 0)
-    userManager.addEventFav(user1id, 2)
-    # print(userManager.users)
-    userManager.addResFav(user1id, 0)
-    userManager.addResFav(user1id, 2)
 
 # Setup everything before accept any request
 init()
 
-
+# router
 @app.route('/')
 def index():
     return redirect("/admin_login.html")
